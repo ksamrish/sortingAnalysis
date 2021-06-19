@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merge Sort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            margin:20px auto;
+        }
+        .row{
+            margin:0;
+            padding:0;
+        }
+        .verticalline{
+            border:none;
+        }
+        @media screen and (min-width:768px){
+            .verticalline{
+                border-right: 0.1px solid gray;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="padding:20px;border:2px solid black;border-radius: 4px;margin:20px">
+        <div class="row">
+            <div class="col-12 col-md-8 verticalline">
+                <h2>Merge Sort</h2>
+                <p style="margin-bottom:20px;font-size:17px">&emsp;&emsp;&emsp;Merge sort,</p>
+            </div>
+            <div class="col-12 col-md-4" style="margin-top:20px;padding-left:20px">
+                <h5>If you want to know more about Merge sort, please refer this page...</h5>
+                <a href="https://www.geeksforgeeks.org/Merge-sort/" target="_blank" style="font-size:20px">Merge sort</a>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-12 col-md-8 verticalline">
+                <h3>Merge Sort Code</h3><br>
+                <pre style="background-color: rgb(72, 40, 114);color:white;padding:20px 0px 0px">
+    function mergesort(arr,start,mid,end) {
+        let n1 = mid - start + 1;
+        let n2 = end - mid;
+        let l = [];
+        let r = [];
+        for(let i = 0; i < n1; i++) 
+            l[i] = arr[start+i];
+        for(let i = 0; i < n2; i++)
+            r[i] = arr[mid + 1 + i];
+            let i = 0,j = 0,k = start;
+        while(i < n1 && j < n2) {
+            if(l[i] > r[j]) {
+                arr[k++] = r[j++];
+            }
+            else (l[i] <= r[j]){
+                arr[k++] = l[i++];
+            } 	
+        }
+    
+        while(i < n1){ 
+            arr[k++] = l[i++];
+        }
+        while(j < n2){
+            arr[k++] = r[j++];
+        }
+        return;
+    }
+    
+    
+    function merge(arr,start,end) {
+        if(start < end) {
+            let mid = Math.floor((start+end)/2);
+            merge(arr,start,mid);
+            merge(arr,mid+1,end);
+            mergesort(arr,start,mid,end);
+            return;
+        }
+        else
+            return;
+    }
+    
+    function mergeMain(arr){
+        var start = 0;
+        var end = arr.length -1;
+        merge(arr, start, end);
+        return arr;
+    }
+                </pre>
+                
+            </div>
+            <div class="col-12 col-md-4" style="padding-left:20px">
+                <h3>Other types of sorting :</h3><br>
+                <h5 style="margin-left:30px">
+                    <li><a href="./Bubble.html">Merge Sort</a></li>
+                    <li><a href="./Insertion.html">Insertion Sort</a></li>
+                    <li><a href="./Selection.html">Selection Sort</a></li>
+                    <li><a href="./Quick.html">Quick Sort</a></li>
+                    <li><a href="./Quick3.html">Quick3 Sort</a></li>
+                    <li><a href="./Heap.html">Heap Sort</a></li>
+                    <li><a href="./Shell.html">Shell Sort</a></li>
+                    <li><a href="./Count.html">Count Sort</a></li>
+                    <li><a href="./Radix.html">Radix Sort</a></li>
+                </h5>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

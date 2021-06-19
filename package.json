@@ -1,0 +1,26 @@
+{
+  "name": "sortingjs",
+  "version": "1.0.0",
+  "description": "Sorting Analysis website using js,html,css,bootstrap",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ksamrish@bitbucket.org/ksamrish/sortingjs.git"
+  },
+  "author": "AMRISH K.S.",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ksamrish/sortingjs#readme",
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "csv-parse": "^4.14.1",
+    "lite-server": "^2.6.1",
+    "papaparse": "^5.3.0"
+  }
+}

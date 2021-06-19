@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count Sort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            margin:20px auto;
+        }
+        .row{
+            margin:0;
+            padding:0;
+        }
+        .verticalline{
+            border:none;
+        }
+        @media screen and (min-width:768px){
+            .verticalline{
+                border-right: 0.1px solid gray;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="padding:20px;border:2px solid black;border-radius: 4px;margin:20px">
+        <div class="row">
+            <div class="col-12 col-md-8 verticalline">
+                <h2>Count Sort</h2>
+                <p style="margin-bottom:20px;font-size:17px">&emsp;&emsp;&emsp;Count sort takes in a range of integers to be sorted. 
+                    It uses the range of the integers (for example, the range of integers between 0–100), 
+                    and counts the number of times each unique number appears in the unsorted input. 
+                    This sorting technique is effective when the difference between different keys are not so big, otherwise, it can increase the space complexity.The counting sort algorithm is unique in that it can only be implemented on integers. This is part of what limits this algorithm’s usability.
+         </p>
+            </div>
+            <div class="col-12 col-md-4" style="margin-top:20px;padding-left:20px">
+                <h5>If you want to know more about counting sort, please refer this page...</h5>
+                <a href="https://www.geeksforgeeks.org/counting-sort/" target="_blank" style="font-size:20px">Count sort</a><br>
+                
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-12 col-md-8 verticalline">
+                <h3>Counting Sort Code</h3><br>
+                <pre style="background-color: rgb(72, 40, 114);color:white;padding:2px 0px 0px">
+    function countsort(a) {
+        let minimum = a[0];
+        let maximum = a[0];
+        for(let i = 0; i < a.length; i++) {
+            if(a[i] < minimum)
+                minimum = a[i];
+            if(a[i] > maximum)
+                maximum = a[i];
+        }
+        for(let i=0;i < a.length;i++) {
+            a[i] -= minimum;
+        }
+        let bucket = [];
+        bucket.length = (maximum - minimum + 1);
+        for(let i = 0; i < bucket.length; i++){
+            bucket[i] = 0;
+        }
+        for(let i = 0; i < a.length; i++) {
+            bucket[a[i]]++;
+        }
+        let index = 0;
+        for(let i = 0; i < bucket.length; i++) {
+            if(bucket[i]==0) {
+                continue;
+            }
+            for(let j = 0; j < bucket[i]; j++) {
+                a[index++] = i+minimum;
+            }
+        }
+        return a; 
+    } 
+                </pre>
+                <!-- <p>The above function always runs O(n^2) time even if the array is sorted. 
+                    It can be optimized by stopping the algorithm if inner loop didn’t cause any swap.</p>
+                <pre style="background-color:rgb(164, 161, 168);color:rgb(14, 13, 13);padding:20px 0px 0px">
+    
+                </pre> -->
+            </div>
+            <div class="col-12 col-md-4" style="padding-left:20px">
+                <h3>Other types of sorting :</h3><br>
+                <h5 style="margin-left:30px">
+                    <li><a href="./Bubble.html">Bubble Sort</a></li>
+                    <li><a href="./Selection.html">Selection Sort</a></li>
+                    <li><a href="./Insertion.html">Count Sort</a></li>
+                    <li><a href="./Merge.html">Merge Sort</a></li>
+                    <li><a href="./Quick.html">Quick Sort</a></li>
+                    <li><a href="./Quick3.html">Quick3 Sort</a></li>
+                    <li><a href="./Heap.html">Heap Sort</a></li>
+                    <li><a href="./Shell.html">Shell Sort</a></li>
+                    <li><a href="./Radix.html">Radix Sort</a></li>
+                </h5>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

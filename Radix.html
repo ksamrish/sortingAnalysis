@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Radix Sort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            margin:20px auto;
+        }
+        .row{
+            margin:0;
+            padding:0;
+        }
+        .verticalline{
+            border:none;
+        }
+        @media screen and (min-width:768px){
+            .verticalline{
+                border-right: 0.1px solid gray;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="padding:20px;border:2px solid black;border-radius: 4px;margin:20px">
+        <div class="row">
+            <div class="col-12 col-md-8 verticalline">
+                <h2>Radix Sort</h2>
+                <p style="margin-bottom:20px;font-size:17px">&emsp;&emsp;&emsp; Radix sort is a sorting technique that sorts the elements by first grouping the individual digits of the same place value.
+                    Then, sort the elements according to their increasing/decreasing order.
+                    It is a non-comparative sorting algorithm. It avoids comparison by creating 
+                    and distributing elements into buckets according to their radix. 
+                    For elements with more than one significant digit, this bucketing process is repeated 
+                    for each digit, while preserving the ordering of the prior step, 
+                    until all digits have been considered.</p>
+                    <p>The time complexity is O(d(n+k)),where, d is the number cycle and O(n+k) is the time complexity of counting sort.</p>
+            </div>
+            <div class="col-12 col-md-4" style="margin-top:20px;padding-left:20px">
+                <h5>If you want to know more about radix sort, please refer this page...</h5>
+                <a href="https://brilliant.org/wiki/radix-sort/" target="_blank" style="font-size:20px">Radix sort</a><br>
+                <a href="https://www.youtube.com/watch?v=XiuSW_mEn7g" target="_blank" style="font-size:20px">Radix sort Demo</a>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-12 col-md-8 verticalline">
+                <h3>Radix Sort Code</h3><br>
+                <pre style="background-color: rgb(72, 40, 114);color:white;padding:20px 0px 0px">
+    function radix(arr,div) {
+        let temp = [];
+        temp.length = 10;
+        for(let i = 0; i < temp.length ;i++ ){
+            temp[i] = 0;
+        }
+        let outputArray = new Array(arr.length);
+        for(let i = 0; i < arr.length; i++) {
+            temp[(Math.floor(arr[i] / div)) % 10]++;
+        }
+    
+        temp[0] = temp[0]-1;
+        for(let i = 1; i < 10; i++) {
+            temp[i] += temp[i-1];
+        }
+        for(let i = arr.length-1; i >= 0; i--) {
+            let tempo = arr[i];
+            let index = temp[(Math.floor(arr[i]/div)) % 10]--;
+            outputArray[index] = tempo;
+        }
+        for(let i = 0; i < arr.length; i++) {
+            arr[i] = outputArray[i];
+        }
+    }
+    
+    function radixsort(arr) {
+        let maximum = arr[0];
+        let minimum = arr[0];
+        for(let i = 0; i < arr.length; i++) {
+            if(arr[i] < minimum) {
+                minimum = arr[i];
+            }
+            if(arr[i] > maximum) {
+                maximum = arr[i];
+            }
+        }
+        for(let i=0;i < arr.length;i++) {
+            arr[i] -= minimum;
+        }
+        let maxLength = (maximum - minimum).toString().length;
+        for(let i = 0,div = 1; i < maxLength; i++,div *= 10) {
+            radix(arr,div);
+        }
+        for(let i = 0; i < arr.length; i++){
+            arr[i] += minimum;
+        }
+        return arr;
+    }	
+                </pre>
+  
+            </div>
+            <div class="col-12 col-md-4" style="padding-left:20px">
+                <h3>Other types of sorting :</h3><br>
+                <h5 style="margin-left:30px">
+                    <li><a href="./Bubble.html">Bubble Sort</a></li>
+                    <li><a href="./Insertion.html">Insertion Sort</a></li>
+                    <li><a href="./Selection.html">Selection Sort</a></li>
+                    <li><a href="./Merge.html">Merge Sort</a></li>
+                    <li><a href="./Quick.html">Quick Sort</a></li>
+                    <li><a href="./Quick3.html">Quick3 Sort</a></li>
+                    <li><a href="./Heap.html">Heap Sort</a></li>
+                    <li><a href="./Shell.html">Shell Sort</a></li>
+                    <li><a href="./Count.html">Count Sort</a></li>
+                   
+                </h5>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

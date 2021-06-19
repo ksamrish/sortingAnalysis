@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <h1>Date Testing</h1>
+    </head>
+    <body>
+        <select class="inputselect" id="datatype">
+            <option>Choose</option>
+            <option>Integer</option>
+            <option>Date</option>
+            </select>
+            <input id= "inputValue" type="text">
+            <!-- <input id= "dateValue" type="date"> -->
+        <script type="text/javascript">
+            let datatype = document.getElementById("datatype").value;
+            if(datetype == 'Date'){
+                // let inputVal = document.getElementById("inputValue")
+                // inputVal.onfocus = function(){
+                //     inputVal.setAttribute("type", "date");
+            //   }
+            //document.getElementById("inputValue").type ='date'
+            let inputVal = document.getElementById("inputValue");
+            inputVal.setAttribute("type", "date");
+
+            }
+        </script>
+    </body>
+</html>
