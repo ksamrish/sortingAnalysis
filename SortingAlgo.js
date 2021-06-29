@@ -69,6 +69,7 @@ var performance_count = [
 
 function bubble( arr,  n) {
 	time = performance.now();
+	//console.log('initial time',time);
 	swaps = 0;
 	comparisons = 0;
 	for(let i=0;i<n-1;i++) {
@@ -82,7 +83,9 @@ function bubble( arr,  n) {
 			}
 		}
 	}
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('time taken',time);
 	performance_count[0][1] =  comparisons;
 	performance_count[0][2] =  swaps;
 	performance_count[0][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -94,6 +97,7 @@ function bubble( arr,  n) {
 
 function selection(arr,n) {
 	time = performance.now();
+	//console.log('initial time',time);
 	swaps = 0;
 	comparisons = 0;
 	for(let i=0;i<n-1;i++) {
@@ -111,7 +115,9 @@ function selection(arr,n) {
 		arr[i] = arr[index];
 		arr[index] = temp;
 	}
+	///console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('time taken',time);
 	performance_count[1][1] =  comparisons;
 	performance_count[1][2] =  swaps;
 	performance_count[1][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -121,6 +127,7 @@ function selection(arr,n) {
 
 function insertion(arr, n) {
 	time = performance.now();
+	//console.log('initial time',time);
 	swaps = 0;
 	comparisons = 0;
 	for(let i=1;i<n;i++) {
@@ -135,7 +142,9 @@ function insertion(arr, n) {
 			}
 		}
 	}
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('time taken',time);
 	performance_count[2][1] =  comparisons;
 	performance_count[2][2] =  swaps;
 	performance_count[2][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -195,12 +204,15 @@ function merge(arr,start,end) {
 
 function mergeMain(arr){
 	time = performance.now();
+	//console.log('initial time',time);
 	var start = 0;
 	var end = arr.length -1;
 	comparisons = 0;
 	swaps = 0;
 	merge(arr, start, end);
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('time taken',time);
 	performance_count[3][1] =  comparisons;
 	performance_count[3][2] =  swaps;
 	performance_count[3][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -240,12 +252,15 @@ function quick(arr,start,end) {
 
 function quickMain(arr){
 	time = performance.now();
+	//console.log('initial time',time);
 	comparisons = 0;
 	swaps = 0;
 	start = 0 ;
 	end = arr.length -1 ;
 	quick(arr,start,end);
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('time taken',time);
 	performance_count[4][1] =  comparisons;
 	performance_count[4][2] =  swaps;
 	performance_count[4][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -291,12 +306,15 @@ function quick3(arr,start,end) {
 
 function quick3Main(arr){
 	time = performance.now();
+	//console.log('initial time',time);
 	comparisons = 0;
 	swaps = 0;
 	start = 0;
 	end = arr.length - 1; 
 	quick3(arr,start,end);
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('final time',time);
 	performance_count[5][1] =  comparisons;
 	performance_count[5][2] =  swaps;
 	performance_count[5][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -305,6 +323,7 @@ function quick3Main(arr){
 
 function heap(arr) {
 	time = performance.now();
+	//console.log('initial time',time);
 	comparisons = 0;
 	swaps = 0;
 	start = 0;
@@ -331,7 +350,9 @@ function heap(arr) {
 		arr[i] = arr[0];
 		arr[0] = temp;
 	}
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('final time',time);
 	performance_count[6][1] =  comparisons;
 	performance_count[6][2] =  swaps;
 	performance_count[6][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -340,6 +361,7 @@ function heap(arr) {
 
 function shell(arr,n) {
 	time = performance.now();
+	///console.log('initial time',time);
 	comparisons = 0;
 	swaps = 0;
 	for(let j=Math.floor(n/2);j>=1;j=Math.floor(j/2)) {
@@ -360,7 +382,9 @@ function shell(arr,n) {
 			}
 		}
 	}
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('time taken',time);
 	performance_count[7][1] =  comparisons;
 	performance_count[7][2] =  swaps;
 	performance_count[7][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -369,6 +393,7 @@ function shell(arr,n) {
 
 function countsort(a) {
 	time = performance.now();
+	//console.log('initial time',time);
 	comparisons = 0;
 	swaps = 0;
 	let minimum = a[0];
@@ -403,7 +428,9 @@ function countsort(a) {
 			a[index++] = i+minimum;
 		}
 	}
+	//console.log('final time',performance.now());
 	time = performance.now() - time;
+	//console.log('time takne',time);
 	performance_count[8][1] =  comparisons;
 	performance_count[8][2] =  swaps;
 	performance_count[8][3] =  Math.floor(time*Math.pow(10,6))+" ns";
@@ -1420,7 +1447,7 @@ function sorting(){
 		// table1+="<tr><th>"+pc[0][0]+"</th></tr>";
 		table1+="<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
 		for(let i=0;i<10;i++){
-			table1+="<tr><td><a href='"+pc[0][1][i][0]+".html' style='color:white' target='_blank'>"+pc[0][1][i][0]+"</a></td><td>"+pc[0][1][i][1]+"</td><td>"+pc[0][1][i][2]+"</td><td>"+pc[0][1][i][3]+"</td></tr>";
+			table1+="<tr><td><a href='"+pc[0][1][i][0]+".html' style='color:black' target='_blank'>"+pc[0][1][i][0]+"</a></td><td>"+pc[0][1][i][1]+"</td><td>"+pc[0][1][i][2]+"</td><td>"+pc[0][1][i][3]+"</td></tr>";
 		}
 		table1 += "</table>";
 

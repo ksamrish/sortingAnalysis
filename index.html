@@ -33,6 +33,7 @@
 			clear: both;
 			float:center;
 			margin-right:15px;
+			font-weight: bold;
 		}
 		body{
 			margin:0;
@@ -41,13 +42,15 @@
 		.contentcenter{
 			justify-content: center;
 			text-align:center;
+			background-color: #EBF6FF;
+			color:black;
 		}
 		.row-content{
 			margin-bottom: 50px;
-			border-bottom:2px solid white;
+			border-bottom:2px solid #1F95EE;
 		}
 		.borderinput{
-			border: 2px solid white;
+			border: 2px solid #1F95EE;
 			padding:10px;
 			border-radius: 10px;
 			margin:2px;
@@ -55,14 +58,19 @@
 		}
 		.inputbox{
 			outline:none;
-			border: 10px solid white;
+			border: 10px solid #1F95EE;
+			background-color: #1F95EE;
+			color:white;
 			border-radius: 10px;
 		}
 		.inputselect{
 			outline:none;
-			border:10px solid white;
-			padding:0 50px 0 30px;
-			border-radius: 10px;
+			border:10px #1F95EE;
+			padding:10px 70px 10px 30px;
+			align-content: center;
+			border-radius: 10px ;
+			color:white;
+			background-color:#1F95EE ;
 		}
 		table {
 			overflow-x: auto;
@@ -71,13 +79,14 @@
 			width: 100%;
 		}
 		td {
-  			border: 1px solid #dddddd;
+  			border: 1px solid #1F95EE;
   			text-align: center;
   			padding: 8px;
 		}
 		th {
-			color: #fcf94c;
-  			border: 1px solid #dddddd;
+			color: white;
+			background-color:#1F95EE ;
+  			border: 1px solid #1F95EE;
   			text-align: center;
   			padding: 8px;
 		}
@@ -90,10 +99,21 @@
 			margin-bottom:20px;
 			background-color: rgb(255, 255, 255);
 		}
+		::placeholder {
+  			color: white;}
+		.option {
+			background-color: white;
+			color:black;
+		}
+		.option:hover{
+			background-color:#1F95EE;
+			color:white;
+		}
+
 	</style>
 </head>
 
-<body style="background-color: hsl(210, 2%, 58%);color:white">   <!-- hsl(207, 82%, 68%) -->
+<body style="background-color: #EBF6FF;color:black">   <!-- hsl(207, 82%, 68%) -->
 	<div id="Algoresult" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
@@ -118,13 +138,13 @@
     </div>
 	<div class="container" style="width:100%;margin:0 auto">
 		<div class="row row-content">
-			<div class="col-12 contentcenter">
+			<div class="col-12 contentcenter" >
 				<h1>Sorting Analysis</h1>
 				<p>Here we have analysis of 10 types of sorting algorithm and the results will be analysed and get printed below!!</p>
 			</div>
 		</div>
 		<div>
-			<p style="color:#fafc4c;font-weight: bold;font-size:16px">* while given the input please specify minimum and maximum values as follows for every category and check its in the correct format..<br></p>
+			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center;">* while given the input please specify minimum and maximum values as follows for every category and check its in the correct format..<br></p>
 			<table class="row-content">
 				<tr>
 					<th>Data Type</th>
@@ -155,18 +175,18 @@
 			</table>	
 		</div>
 		<div class="row borderinput row-content" style="margin:0;padding-left:30px">
-			<div class="col-12" style="margin-top:10px">
-				<h3 class="contentcenter">Input</h1><br>
+			<div class="col-12" style="margin-top:10px;">
+				<h3 class="contentcenter" style="color:#1F95EE;">Input</h1><br>
 			</div>
 			<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
 				<label style="margin-right:10px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
 					<select class="inputselect" id="datatype">
-						<option>Choose</option>
-						<option>Integer</option>
-						<option>Float</option>
-						<option>Character</option>
-						<option>String</option>
-						<option>DateTime</option>
+						<option class="option" >Choose</option>
+						<option class="option" >Integer</option>
+						<option class="option" >Float</option>
+						<option class="option">Character</option>
+						<option class="option">String</option>
+						<option class="option">DateTime</option>
 					</select>
 					<div style="color:red" id="errorDatatype"></div><br>
 			</div>
@@ -195,16 +215,16 @@
 				<input class="inputbox" id="duplicatepercent" type="text" placeholder="Enter the duplicate percent...">
 				<div id="errorDup" style="color:red"></div><br>
 			</div><br>
-			<div class="col-sm-12 contentcenter">
+			<div class="col-sm-12 contentcenter" style="color:black">
 				(OR)
 			</div><br><br>
 			<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
-				<label style="margin-right:10px;font-size:20px;">Insert csv file: </label>
-				<input id="file" type="file" accept=".csv">
+				<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
+				<input id="file" type="file" accept=".csv" style="color:black;">
 				<div id="errorFile" style="color:red"></div><br>
 			</div>
 			<div class="col-12 contentcenter" style="margin-bottom:20px">
-				<button class="btn btn-warning btn-lg" id="submit" onclick="sorting()">Submit</button>
+				<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
 			</div>
 		</div>
 		<div class="row row-content">
@@ -259,16 +279,16 @@
 				<div class="col-12">
 					<ul class="nav nav-tabs" style="display:inline-flex;">
 						<li class="nav-item">
-							<a class="nav-link active" id="randomtab" style="border:1px solid #ccc">Random Array</a>
+							<a class="nav-link active" id="randomtab" onclick = "changeRandomTabColor()" style="border:5px solid white;border-radius: 10px; color:black;background-color: #d9e9f5;">Random Array</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="reversetab" style="border:1px solid #ccc">Reverse Array</a>
+							<a class="nav-link" id="reversetab" onclick = "changeReverseTabColor()" style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Reverse Array</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="nearlysortedtab" style="border:1px solid #ccc">Nearly Sorted Array</a>
+							<a class="nav-link" id="nearlysortedtab" onclick = "changeNearlySortedTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Nearly Sorted Array</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="uniquetab" style="border:1px solid #ccc">Duplicate Array</a>
+							<a class="nav-link" id="uniquetab" onclick = "changUniqueTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Duplicate Array</a>
 						</li>
 					</ul>
 				</div>
@@ -320,6 +340,52 @@
 		<script>
 			var myChart;
 			var bool = false;
+			function changeRandomTabColor(){
+				document.getElementById("randomtab").style.background="#d9e9f5";
+				document.getElementById("randomtab").style.color="black";
+				document.getElementById("reversetab").style.background="#1F95EE";
+				document.getElementById("reversetab").style.color="white";
+				document.getElementById("nearlysortedtab").style.background="#1F95EE";
+				document.getElementById("nearlysortedtab").style.color="white";
+				document.getElementById("uniquetab").style.background="#1F95EE";
+				document.getElementById("uniquetab").style.color="white";
+
+
+			}
+			function changeReverseTabColor(){
+				document.getElementById("reversetab").style.background="#d9e9f5";
+				document.getElementById("reversetab").style.color="black";
+				document.getElementById("randomtab").style.background="#1F95EE";
+				document.getElementById("randomtab").style.color="white";
+				document.getElementById("nearlysortedtab").style.background="#1F95EE";
+				document.getElementById("nearlysortedtab").style.color="white";
+				document.getElementById("uniquetab").style.background="#1F95EE";
+				document.getElementById("uniquetab").style.color="white";
+
+			}
+
+			function changeNearlySortedTabColor(){
+				document.getElementById("nearlysortedtab").style.background="#d9e9f5";
+				document.getElementById("nearlysortedtab").style.color="black";
+				document.getElementById("reversetab").style.background="#1F95EE";
+				document.getElementById("reversetab").style.color="white";
+				document.getElementById("randomtab").style.background="#1F95EE";
+				document.getElementById("randomtab").style.color="white";
+				document.getElementById("uniquetab").style.background="#1F95EE";
+				document.getElementById("uniquetab").style.color="white";
+			}
+
+			
+			function changUniqueTabColor(){
+				document.getElementById("uniquetab").style.background="#d9e9f5";
+				document.getElementById("uniquetab").style.color="black";
+				document.getElementById("reversetab").style.background="#1F95EE";
+				document.getElementById("reversetab").style.color="white";
+				document.getElementById("randomtab").style.background="#1F95EE";
+				document.getElementById("randomtab").style.color="white";
+				document.getElementById("nearlysortedtab").style.background="#1F95EE";
+				document.getElementById("nearlysortedtab").style.color="white";
+			}
 			function destroy(){
 				myChart.destroy();
 			}
@@ -336,42 +402,56 @@
 				time = document.getElementById("data").innerHTML.toString().split(",");
 				comparisons = document.getElementById("comparisons").innerHTML.toString().split(",");
 				swaps = document.getElementById("swaps").innerHTML.toString().split(",");
-				
+				var data = {
+					labels: label,
+					datasets: [
+					{
+						label: 'TimeTaken in (µs)',
+						data: time,
+						borderColor: 'blue',
+						borderWidth: 2,
+						yAxisID:'y',
+					},
+					{
+						label: 'No of Comparisons',
+						data: comparisons,
+						borderColor: 'green',
+						borderWidth: 2,
+						yAxisID:'y1',
+					},
+					{
+						label: 'No of Swaps',
+						data: swaps,
+						borderColor: 'orange',
+						borderWidth: 2,
+						yAxisID:'y1',
+					}]
+				};
 				console.log("time is :"+time);
 				console.log("comparisons is :"+comparisons);
 				console.log("swaps is :"+swaps);
 				
 				// Chart.defaults.global.defaultFontColor = 'white';
 				myChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-					labels: label,
-					datasets: [{
-						label: 'TimeTaken in (µs)',
-						data: time,
-						borderColor: 'blue',
-						borderWidth: 2,
-					},{
-						label: 'No of Comparisons',
-						data: comparisons,
-						borderColor: 'green',
-						borderWidth: 2,
-					},{
-						label: 'No of Swaps',
-						data: swaps,
-						borderColor: 'orange',
-						borderWidth: 2,
-					}]
-				},
+					type: 'line',
+					data: data,
 					options: {
-						scales: {
-							yAxes: [{
-								ticks: {
-									beginAtZero: true
-								}
-							}]
+							scales: {
+								yAxes: [{
+								type: 'linear',
+								display: true,
+								position: 'left',
+								id:'y1'
+							},
+							{
+								type: 'linear',
+								display: true,
+								position: 'right',
+								id:'y'
+							},]
+							}
 						}
-					}
+				
 				});
 			}
 		</script>
