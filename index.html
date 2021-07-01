@@ -48,6 +48,7 @@
 		.row-content{
 			margin-bottom: 50px;
 			border-bottom:2px solid #1F95EE;
+			border-radius: 10px;
 		}
 		.borderinput{
 			border: 2px solid #1F95EE;
@@ -66,11 +67,12 @@
 		.inputselect{
 			outline:none;
 			border:10px #1F95EE;
-			padding:10px 70px 10px 30px;
+			padding:10px 90px 10px 10px;
 			align-content: center;
 			border-radius: 10px ;
 			color:white;
 			background-color:#1F95EE ;
+			position: relative;
 		}
 		table {
 			overflow-x: auto;
@@ -82,6 +84,20 @@
   			border: 1px solid #1F95EE;
   			text-align: center;
   			padding: 8px;
+		}
+
+		input[type="file"] {
+			display: none;
+		}
+		.custom-file-upload {
+			border: 1px solid #ccc;
+			display: inline-block;
+			padding: 6px 12px;
+			cursor: pointer;
+			border-radius: 10px;
+			background-color:#1F95EE; ;
+			color:white;
+			font-weight: normal;
 		}
 		th {
 			color: white;
@@ -144,10 +160,11 @@
 			</div>
 		</div>
 		<div>
-			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center;">* while given the input please specify minimum and maximum values as follows for every category and check its in the correct format..<br></p>
-			<table class="row-content">
+			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center; border-radius: 10px;padding:8px;">* while given the input please specify minimum and maximum values as follows for every category and check its in the correct format..<br></p>
+			<div  class="row-content" style="border:solid #1F95EE 2px; border-radius: 10px;">
+			<table >
 				<tr>
-					<th>Data Type</th>
+					<th >Data Type</th>
 					<th>Min Value</th>
 					<th>Max Value</th>
 				</tr>
@@ -167,12 +184,13 @@
 					<td>length of String</td>
 				</tr>
 				<tr>
-					<td>DateTime</td>	
+					<td >DateTime</td>	
 					<td>yyyy-mm-dd</td>			
 					<td>yyyy-mm-dd</td>
 				</tr>
 				</tr>
-			</table>	
+			</table>
+		</div>	
 		</div>
 		<div class="row borderinput row-content" style="margin:0;padding-left:30px">
 			<div class="col-12" style="margin-top:10px;">
@@ -197,22 +215,22 @@
 			</div>
 			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
 				<label style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
-				<input class="inputbox" id="minrange" type="text" placeholder="Enter the minimum range...">
+				<input class="inputbox" id="minrange" type="text" placeholder="Enter the min range...">
 				<div id="errorMinval" style="color:red"></div><br>
 			</div>
 			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
 				<label style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
-				<input class="inputbox" id="maxrange" type="text" placeholder="Enter the maximum range...">
+				<input class="inputbox" id="maxrange" type="text" placeholder="Enter the max range...">
 				<div id="errorMaxval" style="color:red"></div><br>
 			</div>
 			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
 				<label style="margin-right:10px;font-size:20px">Nearly Sorted Percent: </label>
-				<input class="inputbox" id="nearlysortedpercent" type="text" placeholder="Enter the nearlysorted percent...">
+				<input class="inputbox" id="nearlysortedpercent" type="text" placeholder="Enter the nearlysorted %...">
 				<div style="color:red" id="errorNearly"></div><br>
 			</div>
 			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
 				<label style="margin-right:10px;font-size:20px">Duplicate percent: </label>
-				<input class="inputbox" id="duplicatepercent" type="text" placeholder="Enter the duplicate percent...">
+				<input class="inputbox" id="duplicatepercent" type="text" placeholder="Enter the duplicate %...">
 				<div id="errorDup" style="color:red"></div><br>
 			</div><br>
 			<div class="col-sm-12 contentcenter" style="color:black">
@@ -220,16 +238,22 @@
 			</div><br><br>
 			<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
 				<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
-				<input id="file" type="file" accept=".csv" style="color:black;">
+				<!-- <input id="file" type="file" accept=".csv" style="color:black;"> -->
+				<label for="file-upload" class="custom-file-upload">
+					<i class="fa fa-cloud-upload"></i> Custom Upload
+				</label>
+				<div id = "file_name">
+				</div>
+				<input id="file-upload" type="file"/>
 				<div id="errorFile" style="color:red"></div><br>
 			</div>
 			<div class="col-12 contentcenter" style="margin-bottom:20px">
 				<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
 			</div>
 		</div>
-		<div class="row row-content">
+		
 			<div class="col-12">
-				<div id="inputdata" style="display: none;margin-top:30px">
+				<div id="inputdata" style="display: none;margin-top:30px;padding-bottom: 20px;">
 					<h4>Input Data:</h4>
 					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="inputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
 					<br>
@@ -237,7 +261,7 @@
 					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="outputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
 				</div>
 			</div>
-		</div>
+
 		
 		
 		<div id="graph" style="overflow-x:auto">
@@ -340,6 +364,12 @@
 		<script>
 			var myChart;
 			var bool = false;
+
+
+				document.getElementById('file-upload').onchange = function () {
+				document.getElementById('file_name').innerHTML = this.value;
+				};
+
 			function changeRandomTabColor(){
 				document.getElementById("randomtab").style.background="#d9e9f5";
 				document.getElementById("randomtab").style.color="black";
@@ -402,6 +432,8 @@
 				time = document.getElementById("data").innerHTML.toString().split(",");
 				comparisons = document.getElementById("comparisons").innerHTML.toString().split(",");
 				swaps = document.getElementById("swaps").innerHTML.toString().split(",");
+
+
 				var data = {
 					labels: label,
 					datasets: [
@@ -411,6 +443,7 @@
 						borderColor: 'blue',
 						borderWidth: 2,
 						yAxisID:'y',
+						
 					},
 					{
 						label: 'No of Comparisons',
@@ -425,6 +458,7 @@
 						borderColor: 'orange',
 						borderWidth: 2,
 						yAxisID:'y1',
+
 					}]
 				};
 				console.log("time is :"+time);
@@ -436,20 +470,37 @@
 					type: 'line',
 					data: data,
 					options: {
-							scales: {
+						scales: {
 								yAxes: [{
 								type: 'linear',
 								display: true,
 								position: 'left',
-								id:'y1'
+								id:'y1',
+								gridLines:false,
+								scaleLabel: {
+									display: true,
+									labelString: 'Comparision / Swap Counts'
+									}
 							},
 							{
 								type: 'linear',
 								display: true,
 								position: 'right',
-								id:'y'
-							},]
-							}
+								id:'y',
+								scaleLabel: {
+									display: true,
+									labelString: 'Time in nanoseconds'
+									}
+							},],
+							xAxes: [{
+								display: true,
+								scaleLabel: {
+								display: true,
+								labelString: 'Sorting Type'
+								}
+							}]
+							},
+
 						}
 				
 				});

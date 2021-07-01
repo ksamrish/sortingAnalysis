@@ -571,8 +571,8 @@ function sorting(){
 		return;
 	}
 
-	if(document.getElementById('file').value!=""){
-		Papa.parse(document.getElementById('file').files[0],{
+	if(document.getElementById('file-upload').value!=""){
+		Papa.parse(document.getElementById('file-upload').files[0],{
 			download: false,
 			header: false,
 			complete: function(result){
@@ -638,8 +638,8 @@ function sorting(){
 
 	function SortingCall(){
 		let minVal,maxVal;
-		console.log("filename "+document.getElementById("file").value);
-		if(document.getElementById("file").value!=""){
+		console.log("filename "+document.getElementById("file-upload").value);
+		if(document.getElementById("file-upload").value!=""){
 			// while(document.getElementById("bool").innerText==""){};
 			console.log("after getting arr : "+document.getElementById("filearr").innerText);
 			arr = document.getElementById("filearr").innerText.split(',');
