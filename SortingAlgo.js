@@ -1,5 +1,8 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
-
+let x = require('nano-time');
+console.log(x());
 var pc = [         
 	["random",[
 		["bubble",0,0,0],
@@ -604,7 +607,6 @@ function sorting(){
 		
 	}else{
 		SortingCall()
-
 	}
 	
 	
