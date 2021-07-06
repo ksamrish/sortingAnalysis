@@ -814,7 +814,7 @@ function sorting(){
 		let listInt = [];
 		if(nearlyunsortedpercentInt%2==1)
 			nearlyunsortedpercentInt--;
-		for(let i=0;i<nearlyunsortedpercentInt;i+=2) {
+		for(let i=0;i<nearlyunsortedpercentInt;i+=2) {//TODO
 			let bool1 = true;
 			let bool2 = true;
 			let rand1 = 0;
