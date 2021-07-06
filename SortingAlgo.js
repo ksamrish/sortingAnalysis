@@ -809,36 +809,49 @@ function sorting(){
 		arr = arr.sort(function(a,b){return a-b}).reverse();
 
 		reversearr = [...arr];
-		
-		let nearlyunsortedpercentInt = Math.floor(((100-nearlysortedpercent)/100.0)*n);
-		let listInt = [];
-		if(nearlyunsortedpercentInt%2==1)
-			nearlyunsortedpercentInt--;
-		for(let i=0;i<nearlyunsortedpercentInt;i+=2) {
-			let bool1 = true;
-			let bool2 = true;
-			let rand1 = 0;
-			let rand2 = 0;
-			while(bool1) {
-				rand1 = Math.floor(Math.random()*(n));
-				if(!listInt.includes(rand1)) {
-					listInt.push(rand1);
-					bool1 = false;
-				}
-			}
-			while(bool2) {
-				rand2 =  Math.floor(Math.random()*(n));
-				if(!listInt.includes(rand2)) {
-					listInt.push(rand2);
-					bool2 = false;
-				}
-			}
-			let temp = arr[rand1];
-			arr[rand1] = arr[rand2];
-			arr[rand2] = temp;
-		}
+
+		arr = arr.sort(function(a,b){return a-b});
 
 		nearlysortedarr = [...arr];
+		console.log("nearly sorted arr before sort",nearlysortedarr);
+
+		let nearlyunsortedpercentInt = Math.floor(((100-nearlysortedpercent)/100.0)*n);
+		if(nearlyunsortedpercentInt%2==1)
+			nearlyunsortedpercentInt--;
+		
+		let map = {};
+
+		for(let i=0;i<nearlyunsortedpercentInt;i+=2) {
+			let index1 = 0;
+			let index2 = 0;
+			index1 = Math.floor(Math.random()*(n));
+			index2 =  Math.floor(Math.random()*(n));
+			if((map[index1]&&map[index1].includes(index2)) || (map[index2]&&map[index2].includes(index1))){
+				i-=2;
+				continue;
+			}
+			else{
+				if(map[index1]){
+					map[index1].push(index2);
+				}
+				else{
+					map[index1] = [index2];
+				}
+				if(map[index2]){
+					map[index2].push(index1);
+				}
+				else{
+					map[index2] = [index1];
+				}
+				let temp = nearlysortedarr[index1];
+				nearlysortedarr[index1] = nearlysortedarr[index2];
+				nearlysortedarr[index2] = temp;
+			}
+		}
+
+		console.log("nearly sorted arr after sort",nearlysortedarr);
+
+		// uniquearr = [...arr];
 
 		uniquepercent = Math.ceil(((100-duplicatepercent)/100.0)*n);	
 		data = "";
@@ -879,7 +892,9 @@ function sorting(){
 				arr[i] = listuniqInt[j++];
 			}
 		}
+
 		uniquearr = [...arr];
+		console.log("before sorting unique array",arr);
 
 		let n1 = n;
 		console.log("safe here");
