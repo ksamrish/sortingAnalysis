@@ -804,6 +804,7 @@ function sorting(){
 			}
 		}
 		temparr = [...arr];
+		arrcopy = [...arr];
 		randomarr = [...arr];
 		
 		arr = arr.sort(function(a,b){return a-b}).reverse();
@@ -851,7 +852,11 @@ function sorting(){
 
 		console.log("nearly sorted arr after sort",nearlysortedarr);
 
-		// uniquearr = [...arr];
+		uniquearr = [...arrcopy];
+		
+		// We are making duplicate percent as 99 if it was given as 100 because it will break the condition ((100-100)/100*n).
+		if(duplicatepercent==100)			
+			duplicatepercent = 99;
 
 		uniquepercent = Math.ceil(((100-duplicatepercent)/100.0)*n);	
 		data = "";
@@ -859,7 +864,7 @@ function sorting(){
 		for(let i=0;i<uniquepercent;i++) {
 			let countsame = 0;
 			while(true) {
-				if(countsame>20){ 
+				if(countsame>10){ 
 					listuniqInt.push(arr[Math.floor(Math.random()*n-1)]);
 					break;   
 				}		
@@ -871,10 +876,13 @@ function sorting(){
 				countsame++;
 			}
 		}
+		console.log("reached");
 		for(let i=0;i<n;i++) {
 			arr[i] = Number.MAX_SAFE_INTEGER;
 		}
 		let randindInt = [];
+
+		//this part we can optimise
 		for(let i=0;i<uniquepercent;i++) {
 			while(true) {
 				let randindex = Math.floor(Math.random()*(n-1));
@@ -885,6 +893,7 @@ function sorting(){
 				}
 			}
 		}	
+		//--------------------------
 		for(let i=0,j=0;i<n;i++) {
 			if(j==uniquepercent)
 				j = 0;
