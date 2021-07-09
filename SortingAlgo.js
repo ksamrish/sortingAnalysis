@@ -534,6 +534,7 @@ function dataFormatter(inputDate){
 
 
 function sorting(){
+	changeRandomTabColor();
 	document.getElementById("errorFile").innerHTML="";
 	document.getElementById("errorDatatype").innerHTML="";
 	document.getElementById("errorNoofelements").innerHTML="";
