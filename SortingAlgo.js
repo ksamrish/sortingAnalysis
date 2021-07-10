@@ -497,16 +497,16 @@ function radixsort(arr) {
 	performance_count[9][3] =  Math.floor(time*Math.pow(10,6))+" ns";
 	return arr;
 }	
+
+
 function generateDateformat(date){
 	return new Date(date.slice(0,4)+","+date.slice(5,7)+","+date.slice(8));
 }
+
 function generateRandomDate(start, end) { 
 	start = new Date(start.slice(0,4)+","+start.slice(5,7)+","+start.slice(8));
     end = new Date(end.slice(0,4)+","+end.slice(5,7)+","+end.slice(8));
-    // console.log(start,end);
     let date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-    // console.log(date); 
-    //date = formatDate(date);
     return date;
 }
 
@@ -760,16 +760,56 @@ function sorting(){
 		let uniquearr = [];
 		
 		if(document.getElementById("filearr").innerText ==""){
-			if(datatype=="Integer"){ 
-				for(let i=0;i<n;i++) {
-					let val = Math.floor(Math.random()*(maxVal-minVal)+minVal);
-					arr[i] = val;
+			if(datatype=="Integer"){
+				let rangeDifference = (maxVal - minVal) + 1;
+				let availableElemPercent = (n/rangeDifference)*100;
+				console.log(Math.round(availableElemPercent));
+				let availableElemArray = [];
+			
+				if(n > rangeDifference){
+					console.log("error")
+					document.getElementById("errorNoofelements").innerHTML = "Size must be less than the range between min and max value.";
+					return;
+				}else if(availableElemPercent >= 60){
+					for(let i = 0; i < rangeDifference;i++){
+						availableElemArray[i] = minVal + i ;
+					}
+					console.log("availableElemArray",availableElemArray);
+
+					for(let j = n-1; j >= 0 ;j--){
+						let randomIndex = Math.floor(Math.random()*(maxVal-minVal));
+						console.log(randomIndex)
+						let temp = availableElemArray[maxVal-minVal];
+						availableElemArray[maxVal-minVal] = availableElemArray[randomIndex];
+						availableElemArray[randomIndex] = temp;
+						console.log("inside availableElemArray",availableElemArray);
+						arr[j] = availableElemArray[maxVal-minVal];
+						maxVal--;
+					} 
+					console.log(arr);
+				}else if(availableElemPercent < 60){
+					for(let i = 0; i < n ; i++){
+						let randomInt = Math.floor(Math.random()*(maxVal-minVal)+minVal);
+						if(!availableElemArray.includes(randomInt)){
+							availableElemArray.push(randomInt)
+						}else{
+							i--;
+						}
+						arr = availableElemArray
+						console.log("inside else", arr)
+					}
 				}
 			}
 			else if(datatype=="Float"){
-				for(let i=0;i<n;i++) {
+				let availableElemArray = [];
+				for(let i = 0; i < n ; i++){
 					let val = Math.random()*(maxVal-minVal)+minVal;
-					arr[i] = val;
+					if(!availableElemArray.includes(val)){
+						availableElemArray.push(val);
+						arr[i] = val;
+					}else{
+						i--;
+					}
 				}
 			}
 			else if(datatype=="String"){
@@ -781,7 +821,7 @@ function sorting(){
 					let val = "";
 					let noofdigits = Math.floor(Math.random()*(maxVal-minVal)+minVal);
 					for(let j=0;j<noofdigits;j++) {
-						let digit = parseInt((Math.random()*25)+97);
+						let digit = parseInt((Math.random()*26)+97);
 						val+=String.fromCharCode(digit);
 					}
 					arr[i] = val;
@@ -794,9 +834,10 @@ function sorting(){
 				}
 			}
 			else if(datatype == "Character"){
+				
 				for(let i=0;i<n;i++) {
 					let val = "";
-						let digit = parseInt((Math.random()*255));
+						let digit = parseInt((Math.random()*26)+97);
 						val+=String.fromCharCode(digit);				
 					arr[i] = val;
 				}
@@ -852,57 +893,44 @@ function sorting(){
 
 		console.log("nearly sorted arr after sort",nearlysortedarr);
 
-		uniquearr = [...arrcopy];
-		
-		// We are making duplicate percent as 99 if it was given as 100 because it will break the condition ((100-100)/100*n).
-		if(duplicatepercent==100)			
-			duplicatepercent = 99;
-
-		uniquepercent = Math.ceil(((100-duplicatepercent)/100.0)*n);	
-		data = "";
-		let listuniqInt = [];
-		for(let i=0;i<uniquepercent;i++) {
-			let countsame = 0;
-			while(true) {
-				if(countsame>10){ 
-					listuniqInt.push(arr[Math.floor(Math.random()*n-1)]);
-					break;   
-				}		
-				let random = Math.floor(Math.random()*(n-1));
-				if(!listuniqInt.includes(arr[random])) {
-					listuniqInt.push(arr[random]);
-					break;
-				}
-				countsame++;
-			}
-		}
-		console.log("reached");
-		for(let i=0;i<n;i++) {
-			arr[i] = Number.MAX_SAFE_INTEGER;
-		}
-		let randindInt = [];
-
-		//this part we can optimise
-		for(let i=0;i<uniquepercent;i++) {
-			while(true) {
-				let randindex = Math.floor(Math.random()*(n-1));
-				if(!randindInt.includes(randindex)) {
-					randindInt.push(randindex);
-					arr[randindex] = listuniqInt[i];
-					break;
-				}
-			}
-		}	
-		//--------------------------
-		for(let i=0,j=0;i<n;i++) {
-			if(j==uniquepercent)
-				j = 0;
-			if(arr[i]==Number.MAX_SAFE_INTEGER) {
-				arr[i] = listuniqInt[j++];
-			}
-		}
-
 		uniquearr = [...arr];
+
+		let minDuplicatePercent = ((2/n)*100).toFixed(2);
+		let duplicateArray = [];
+		if(duplicatepercent < minDuplicatePercent){
+			console.log("error");
+			document.getElementById("errorDup").innerHTML = "Duplicate percent must be greater than "+minDuplicatePercent+" and less than or equal to 100";
+		}else{
+			let numOfDuplicateElem = Math.round(n*duplicatepercent/100);
+			console.log("num of duplicate elements", numOfDuplicateElem)
+
+			let fetchDuplicateElem = (numOfDuplicateElem/2);
+			console.log("fetchduplicateElem",fetchDuplicateElem)
+			let numOfUniqueElem = Math.floor(n - fetchDuplicateElem);
+			console.log("numOfUniqueElem,",numOfUniqueElem)
+			let secondSetDuplicateArray = [];
+			for(let i = 0 ; i < numOfUniqueElem ; i++){
+				duplicateArray[i] = uniquearr[i];
+			}
+			console.log("duplicateArray",duplicateArray);
+			for(let i = 0 ; i < Math.floor(fetchDuplicateElem);i++){
+				let tempRandomIndex = Math.floor(Math.random()*(numOfUniqueElem));
+				console.log("tempRandomIndex",tempRandomIndex)
+				duplicateArray.push(uniquearr[tempRandomIndex]);
+				secondSetDuplicateArray.push(uniquearr[tempRandomIndex]);
+			}
+
+			if(numOfDuplicateElem%2!=0){
+				let fetchLastElementIndex = Math.floor(Math.random()*(secondSetDuplicateArray.length));
+				console.log("fetchLastElementIndex",fetchLastElementIndex)
+				duplicateArray.push(secondSetDuplicateArray[fetchLastElementIndex])
+				console.log("last",duplicateArray)
+			}
+			console.log(duplicateArray.length)
+		}
+
+		uniquearr = [...duplicateArray];
+
 		console.log("before sorting unique array",arr);
 
 		let n1 = n;
