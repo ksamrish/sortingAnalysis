@@ -532,6 +532,10 @@ function dataFormatter(inputDate){
 	return parsedDate;
 }
 
+let randomarr = [];
+let reversearr = [];
+let nearlysortedarr = [];
+let uniquearr = [];
 
 function sorting(){
 	document.getElementById("errorFile").innerHTML="";
@@ -754,10 +758,6 @@ function sorting(){
 
 		console.log(n+" "+typeof(n)+"\t"+datatype+" "+typeof(datatype)+"\t"+minVal+" "+typeof(minVal)+"\t"+maxVal+" "+typeof(maxVal)+"\t"+nearlysortedpercent+" "+typeof(nearlysortedpercent)+"\t"+duplicatepercent+" "+typeof(duplicatepercent));
 		
-		let randomarr = [];
-		let reversearr = [];
-		let nearlysortedarr = [];
-		let uniquearr = [];
 		
 		if(document.getElementById("filearr").innerText ==""){
 			if(datatype=="Integer"){
@@ -813,10 +813,6 @@ function sorting(){
 				}
 			}
 			else if(datatype=="String"){
-				for(let i=0;i<n;i++) {
-					let val = Math.floor(Math.random()*(maxVal-minVal)+minVal);
-					arr[i] = val;
-				}
 				for(let i=0;i<n;i++) {
 					let val = "";
 					let noofdigits = Math.floor(Math.random()*(maxVal-minVal)+minVal);
@@ -1496,7 +1492,6 @@ function sorting(){
 			document.getElementById("resultoutarr").innerText=outarr;
 		}
 		var table1 = "<table>";
-		// table1+="<tr><th>"+pc[0][0]+"</th></tr>";
 		table1+="<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
 		for(let i=0;i<10;i++){
 			table1+="<tr><td><a href='"+pc[0][1][i][0]+".html' style='color:black' target='_blank'>"+pc[0][1][i][0]+"</a></td><td>"+pc[0][1][i][1]+"</td><td>"+pc[0][1][i][2]+"</td><td>"+pc[0][1][i][3]+"</td></tr>";
@@ -1640,3 +1635,35 @@ function sorting(){
 // 	}
 // drawTable(); 
 //}
+
+
+function inputarrContentChange(tabname){
+	if(tabname=="reverse"){
+		document.getElementById("resultarr").innerHTML = reversearr;
+		if(reversearr.length<=20)
+			document.getElementById("inputarr").innerHTML = reversearr;
+		else
+			document.getElementById("inputarr").innerText=reversearr.slice(0,20)+".....";
+	}
+	else if(tabname=="random"){
+		document.getElementById("resultarr").innerHTML = randomarr;
+		if(randomarr.length<=20)
+			document.getElementById("inputarr").innerHTML = randomarr;
+		else
+			document.getElementById("inputarr").innerText=randomarr.slice(0,20)+".....";
+	}
+	else if(tabname=="nearlysorted"){
+		document.getElementById("resultarr").innerHTML = nearlysortedarr;
+		if(nearlysortedarr.length<=20)
+			document.getElementById("inputarr").innerHTML = nearlysortedarr;
+		else
+			document.getElementById("inputarr").innerText=nearlysortedarr.slice(0,20)+".....";
+	}
+	else if(tabname=="duplicate"){
+		document.getElementById("resultarr").innerHTML = uniquearr;
+		if(uniquearr.length<=20)
+			document.getElementById("inputarr").innerHTML = uniquearr;
+		else
+			document.getElementById("inputarr").innerText=uniquearr.slice(0,20)+".....";
+	}
+}
