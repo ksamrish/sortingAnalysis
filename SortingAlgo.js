@@ -897,6 +897,7 @@ function sorting(){
 		if(duplicatepercent < minDuplicatePercent){
 			console.log("error");
 			document.getElementById("errorDup").innerHTML = "Duplicate percent must be greater than "+minDuplicatePercent+" and less than or equal to 100";
+			return;
 		}else{
 			let numOfDuplicateElem = Math.round(n*duplicatepercent/100);
 			console.log("num of duplicate elements", numOfDuplicateElem)
@@ -1653,14 +1654,14 @@ function inputarrContentChange(tabname){
 		else
 			document.getElementById("inputarr").innerText=randomarr.slice(0,20)+".....";
 	}
-	else if(tabname=="nearlysorted"){
+	else if(tabname=="nearlysorted"){//TODO the output should have the nearlysorted output in the space
 		document.getElementById("resultarr").innerHTML = nearlysortedarr;
 		if(nearlysortedarr.length<=20)
 			document.getElementById("inputarr").innerHTML = nearlysortedarr;
 		else
 			document.getElementById("inputarr").innerText=nearlysortedarr.slice(0,20)+".....";
 	}
-	else if(tabname=="duplicate"){
+	else if(tabname=="duplicate"){//TODO the output should have the duplicate output in the space
 		document.getElementById("resultarr").innerHTML = uniquearr;
 		if(uniquearr.length<=20)
 			document.getElementById("inputarr").innerHTML = uniquearr;
