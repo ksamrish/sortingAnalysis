@@ -21,72 +21,49 @@
     <div style="padding:20px;border:2px solid black;border-radius: 8px;margin:20px">
         <div class="row">
             <div class="col-12 col-md-7">
-                <h2>Bubble Sort</h2>
-                <p style="margin-bottom:20px;font-size:17px">&emsp;&emsp;&emsp;Bubble sort, sometimes referred to as sinking sort, is a simple sorting 
-                    algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they 
-                    are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, 
-                    which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of 
-                    the list.</p>
+                <h2>Selection Sort</h2>
+                <p style="margin-bottom:20px;font-size:17px">&emsp;&emsp;&emsp;Selection sort is a simple sorting algorithm, where the given list is divided into 2 parts, the sorted part
+                and the unsorted part.  Initially, the sorted part is empty and the unsorted part is the entire list. The smallest element is selected from the unsorted part and swapped with the leftmost element
+            in the list, which becomes a element in the sorted part. This process continues until all the elements in the unsorted part is moved to the sorted part. </p>
             </div>
             <div class="col-12 col-md-1"></div>
             <div class="col-12 col-md-4" style="margin-top:20px;padding-left:20px">
-                <h5>If you want to know more about bubble sort, please refer this page...</h5>
-                <a href="https://www.geeksforgeeks.org/bubble-sort/" target="_blank" style="font-size:20px">Bubble sort</a>
+                <h5>If you want to know more about selection sort, please refer this page...</h5>
+                <a href="https://www.geeksforgeeks.org/selection-sort/" target="_blank" style="font-size:20px">Selection sort</a>
             </div>
         </div><hr>
         <div class="row">
             <div class="col-12 col-md-7">
-                <h3>Bubble Sort Code</h3><br>
-                <pre style="background-color: rgb(72, 40, 114);color:white;padding:20px 0px 0px">
-    public static int[] bubble(int[] arr, int n) {
-        for(int i=0;i<n-1;i++) {
-            for(int j=0;j<n-i-1;j++) {
-                if(arr[j]>arr[j+1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+                <h3>Selection Sort Code</h3><br>
+                    <pre style="background-color: rgb(72, 40, 114);color:white;padding:20px 0px 0px">
+        function selection(arr,n) 
+            {
+                for(let i=0; i < n-1; i++) {
+                    let min = arr[i];
+                    let index = i;
+                    for(let j=i ;j < n;j++) {
+                        comparisons++;
+                        if(arr[j] < min) {
+                            min = arr[j];
+                            index = j;
+                        }
+                    }
+                    swaps++;
+                    let temp = arr[i];
+                    arr[i] = arr[index];
+                    arr[index] = temp;
                 }
+                return arr;
             }
-        }
-        return arr;
-    }
-                </pre>
-                <p>The above function always runs O(n^2) time even if the array is sorted. 
-                    It can be optimized by stopping the algorithm if inner loop didn’t cause any swap.</p>
-                <pre style="background-color:rgb(72, 40, 114);color:white;padding:20px 0px 0px">
-    static void bubbleSort(int arr[], int n) 
-        { 
-            int i, j, temp; 
-            boolean swapped; 
-            for (i = 0; i < n - 1; i++)  
-            { 
-                swapped = false; 
-                for (j = 0; j < n - i - 1; j++)  
-                { 
-                    if (arr[j] > arr[j + 1])  
-                    { 
-                        // swap arr[j] and arr[j+1] 
-                        temp = arr[j]; 
-                        arr[j] = arr[j + 1]; 
-                        arr[j + 1] = temp; 
-                        swapped = true; 
-                    } 
-                } 
-    
-                // IF no two elements were  
-                // swapped by inner loop, then break 
-                if (swapped == false) 
-                    break; 
-            } 
-        } 
-                </pre>
+                    </pre>
+
             </div>
             <div class="col-12 col-md-1"></div>
             <div class="col-12 col-md-4" style="padding-left:20px">
                 <h3>Other types of sorting :</h3><br>
                 <h5 style="margin-left:30px">
+                    <li><a href="./Bubble.html">Selection Sort</a></li>
                     <li><a href="./Insertion.html">Insertion Sort</a></li>
-                    <li><a href="./Selection.html">Selection Sort</a></li>
                     <li><a href="./Merge.html">Merge Sort</a></li>
                     <li><a href="./Quick.html">Quick Sort</a></li>
                     <li><a href="./Quick3.html">Quick3 Sort</a></li>
