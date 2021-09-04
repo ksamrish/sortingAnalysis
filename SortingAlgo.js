@@ -896,6 +896,7 @@ function sorting(){
 		if(duplicatepercent < minDuplicatePercent){
 			console.log("error");
 			document.getElementById("errorDup").innerHTML = "Duplicate percent must be greater than "+minDuplicatePercent+" and less than or equal to 100";
+			return;
 		}else{
 			let numOfDuplicateElem = Math.round(n*duplicatepercent/100);
 			console.log("num of duplicate elements", numOfDuplicateElem)
