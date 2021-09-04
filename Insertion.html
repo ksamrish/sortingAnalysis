@@ -40,6 +40,10 @@
           border-right: 0.1px solid gray;
         }
       }
+      a {
+        color: #1f95ee;
+        font-weight: normal;
+      }
     </style>
   </head>
   <body>
@@ -49,12 +53,33 @@
         border: 2px solid black;
         border-radius: 4px;
         margin: 20px;
+        background-color: white;
       "
     >
       <div class="row">
-        <div class="col-12 col-md-8 verticalline">
-          <h2>Insertion Sort</h2>
-          <p style="margin-bottom: 20px; font-size: 17px">
+        <div class="col-12 col-md-8">
+          <h2>
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Insertion Sort</span
+            >
+          </h2>
+          <p
+            style="
+              margin-top: 30px;
+              margin-bottom: 20px;
+              font-size: 17px;
+              background-color: white;
+              padding: 10px;
+              border-radius: 10px;
+            "
+          >
             &emsp;&emsp;&emsp;Insertion sort is a simple sorting algorithm,
             similar to playing cards. Each time a card is picked up, it is
             placed in its right position in the players hand. Similarly, in each
@@ -66,7 +91,14 @@
         </div>
         <div
           class="col-12 col-md-4"
-          style="margin-top: 20px; padding-left: 20px"
+          style="
+            margin-top: 20px;
+            padding: 20px;
+            margin-top: 70px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 2px solid #1f95ee;
+          "
         >
           <h5>
             To Learn more about Insertion Sort, refer the link given below:
@@ -81,23 +113,35 @@
             href="https://www.youtube.com/watch?v=lCzQvQr8Utw"
             target="_blank"
             style="font-size: 20px"
-            >Insertion sort</a
+            >Insertion sort(2)</a
           >
         </div>
       </div>
-      <hr />
+      <!-- <hr /> -->
       <div class="row">
-        <div class="col-12 col-md-8 verticalline">
-          <h3>Insertion Sort Code</h3>
+        <div class="col-12 col-md-8">
+          <h3>
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Insertion Sort Code</span
+            >
+          </h3>
           <br />
           <pre
             style="
-              background-color: rgb(72, 40, 114);
-              color: white;
+              background-color: #ebf6ff;
+              color: black;
               padding: 20px 0px 0px;
+              border-radius: 10px;
             "
           >
-        function insertion(arr, n) {
+          function insertion(arr, n) {
             for(let i = 1; i < n; i++) {
                 for(let j = i; j > 0; j--) {
                     if(arr[j] < arr[j-1]) {
@@ -110,28 +154,42 @@
             }
             return arr;
         }
-                
                 </pre
           >
-          <!-- <p>The above function always runs O(n^2) time even if the array is sorted. 
-                    It can be optimized by stopping the algorithm if inner loop didn’t cause any swap.</p>
-                <pre style="background-color:rgb(164, 161, 168);color:rgb(14, 13, 13);padding:20px 0px 0px">
-    
-                </pre> -->
         </div>
-        <div class="col-12 col-md-4" style="padding-left: 20px">
-          <h3>Other types of sorting :</h3>
+        <div
+          class="col-12 col-md-4"
+          style="border-radius: 10px; border: 2px solid #1f95ee; padding: 10px"
+        >
+          <h3 style="margin-top: 30px">
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Other types of sorting :</span
+            >
+          </h3>
           <br />
           <h5 style="margin-left: 30px">
-            <li><a href="./Bubble.html">Bubble Sort</a></li>
-            <li><a href="./Selection.html">Selection Sort</a></li>
-            <li><a href="./Merge.html">Merge Sort</a></li>
-            <li><a href="./Quick.html">Quick Sort</a></li>
-            <li><a href="./Quick3.html">Quick3 Sort</a></li>
-            <li><a href="./Heap.html">Heap Sort</a></li>
-            <li><a href="./Shell.html">Shell Sort</a></li>
-            <li><a href="./Count.html">Count Sort</a></li>
-            <li><a href="./Radix.html">Radix Sort</a></li>
+            <li style="padding: 20px">
+              <a href="./Bubble.html">Bubble Sort</a>
+            </li>
+            <li style="padding: 20px">
+              <a href="./Selection.html">Selection Sort</a>
+            </li>
+            <li style="padding: 20px"><a href="./Merge.html">Merge Sort</a></li>
+            <li style="padding: 20px"><a href="./Quick.html">Quick Sort</a></li>
+            <li style="padding: 20px">
+              <a href="./Quick3.html">Quick3 Sort</a>
+            </li>
+            <li style="padding: 20px"><a href="./Heap.html">Heap Sort</a></li>
+            <li style="padding: 20px"><a href="./Shell.html">Shell Sort</a></li>
+            <li style="padding: 20px"><a href="./Count.html">Count Sort</a></li>
+            <li style="padding: 20px"><a href="./Radix.html">Radix Sort</a></li>
           </h5>
         </div>
       </div>
