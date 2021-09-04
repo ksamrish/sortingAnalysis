@@ -159,213 +159,252 @@
 				<p>Here we have analysis of 10 types of sorting algorithm and the results will be analysed and get printed below!!</p>
 			</div>
 		</div>
-		<div>
-			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center; border-radius: 10px;padding:8px;">* while given the input please specify minimum and maximum values as follows for every category and check its in the correct format..<br></p>
+		<div class="panel-group" >
+			<div class="panel panel-default">
+			  <div class="panel-heading"style="background-color:#1F95EE;  border-radius: 10px;padding:8px;">
+				<h4 class="panel-title" style = "text-align: center;">
+				  <a data-toggle="collapse" href="#collapsibleForm" style = "color:white;font-weight: bold;font-size:16px;text-align: center;">Input Form(Click here to modify the input values) </a>
+				</h4>
+			  </div>
+		<div id= "collapsibleForm" class = "panel-collapse collapse">
+			<br/>
+			
 			<div  class="row-content" style="border:solid #1F95EE 2px; border-radius: 10px;">
-			<table >
-				<tr>
-					<th >Data Type</th>
-					<th>Min Value</th>
-					<th>Max Value</th>
-				</tr>
-				<tr>
-					<td>Integer</td>		
-					<td>Integer</td>			    
-					<td>Integer</td>
-				</tr>
-				<tr>
-					<td>Float</td>		
-					<td>Float or Integer</td>	
-					<td>Float or Integer</td>
-				</tr>
-				<tr>
-					<td>String</td>		
-					<td>length of String</td>	
-					<td>length of String</td>
-				</tr>
-				<tr>
-					<td >DateTime</td>	
-					<td>yyyy-mm-dd</td>			
-					<td>yyyy-mm-dd</td>
-				</tr>
-				</tr>
-			</table>
-		</div>	
-		</div>
-		<div class="row borderinput row-content" style="margin:0px 0px 10px 0px;padding-left:30px;">
-			<div class="col-12" style="margin-top:10px;">
-				<h3 class="contentcenter" style="color:#1F95EE;">Input</h1><br>
+				<table >
+					<tr>
+						<th >Data Type</th>
+						<th>Min Value</th>
+						<th>Max Value</th>
+					</tr>
+					<tr>
+						<td>Integer</td>		
+						<td>Integer</td>			    
+						<td>Integer</td>
+					</tr>
+					<tr>
+						<td>Float</td>		
+						<td>Float or Integer</td>	
+						<td>Float or Integer</td>
+					</tr>
+					<tr>
+						<td>String</td>		
+						<td>length of String</td>	
+						<td>length of String</td>
+					</tr>
+					<tr>
+						<td >DateTime</td>	
+						<td>yyyy-mm-dd</td>			
+						<td>yyyy-mm-dd</td>
+					</tr>
+					</tr>
+				</table>
 			</div>
-			<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
-				<label style="margin-right:10px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
-					<select class="inputselect" id="datatype">
-						<option class="option" >Choose</option>
-						<option class="option" >Integer</option>
-						<option class="option" >Float</option>
-						<option class="option">Character</option>
-						<option class="option">String</option>
-						<option class="option">DateTime</option>
-					</select>
-					<div style="color:red" id="errorDatatype"></div><br>
-			</div>
-			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-				<label style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
-				<input class="inputbox" id="noofelements" type="text" placeholder="Enter the size of array...">
-				<div style="color:red" id="errorNoofelements"></div><br>
-			</div>
-			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-				<label style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
-				<input class="inputbox" id="minrange" type="text" placeholder="Enter the min range...">
-				<div id="errorMinval" style="color:red"></div><br>
-			</div>
-			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-				<label style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
-				<input class="inputbox" id="maxrange" type="text" placeholder="Enter the max range...">
-				<div id="errorMaxval" style="color:red"></div><br>
-			</div>
-			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-				<label style="margin-right:10px;font-size:20px">Nearly Sorted Percent: </label>
-				<input class="inputbox" id="nearlysortedpercent" type="text" placeholder="Enter the nearlysorted %...">
-				<div style="color:red" id="errorNearly"></div><br>
-			</div>
-			<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-				<label style="margin-right:10px;font-size:20px">Duplicate percent: </label>
-				<input class="inputbox" id="duplicatepercent" type="text" placeholder="Enter the duplicate %...">
-				<div id="errorDup" style="color:red"></div><br>
-			</div><br>
-			<div class="col-sm-12 contentcenter" style="color:black">
-				(OR)
-			</div><br><br>
-			<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
-				<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
-				<!-- <input id="file" type="file" accept=".csv" style="color:black;"> -->
-				<label for="file-upload" class="custom-file-upload">
-					<i class="fa fa-cloud-upload"></i> Custom Upload
-				</label>
-				<div id = "file_name">
+			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center; border-radius: 10px;padding:8px;margin-top: 0px;">* while giving the input please specify minimum and maximum values as mentioned above for every category and check its in the correct format..<br></p>
+	
+		
+			<div class="row borderinput row-content" style="margin:0px 0px 10px 0px;padding-left:30px;">
+				<div class="col-12" style="margin-top:10px;">
+					<h3 class="contentcenter" style="color:#1F95EE;">Input</h1><br>
 				</div>
-				<input id="file-upload" type="file"/>
-				<div id="errorFile" style="color:red"></div><br>
-			</div>
-			<div class="col-12 contentcenter" style="margin-bottom:20px">
-				<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
-			</div>
-		</div>
-		
-		
-
-		<div class="col-12">
-			<div id="inputdata" style="display: none;margin-top:30px;padding-bottom: 20px;">
-				<h4>Input Data:</h4>
-				<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="inputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
-				<br>
-				<h4>Output Data:</h4>
-				<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="outputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
+					<label style="margin-right:10px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
+						<select class="inputselect" id="datatype" onchange="labelchange()">
+							<!-- <option class="option" >Choose</option> -->
+							<option class="option" >Integer</option>
+							<option class="option" >Float</option>
+							<option class="option">Character</option>
+							<option class="option">String</option>
+							<option class="option">DateTime</option>
+						</select>
+						<div style="color:red" id="errorDatatype"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
+					<input class="inputbox" id="noofelements" type="text" value = "100">
+					
+					<div style="color:red" id="errorNoofelements"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label id = "inputMinValue" style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
+					<input class="inputbox" id="minrange" type="text" value = "10">
+					<!--removed placeholder placeholder="Enter the min range..."-->
+					<div id="errorMinval" style="color:red"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label id = "inputMaxValue" style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
+					<input class="inputbox" id="maxrange" type="text" value = "1000">
+					<!--removed placeholder placeholder="Enter the max range..."-->
+					<div id="errorMaxval" style="color:red"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label style="margin-right:10px;font-size:20px">Nearly Sorted Percent: </label>
+					<input class="inputbox" id="nearlysortedpercent" type="text" value="10">
+					<!--removed placeholder placeholder="Enter the nearlysorted %..."-->
+					<div style="color:red" id="errorNearly"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label style="margin-right:10px;font-size:20px">Duplicate percent: </label>
+					<input class="inputbox" id="duplicatepercent" type="text" value="20">
+					<!--removed placeholder placeholder="Enter the duplicate %..."-->
+					<div id="errorDup" style="color:red"></div><br>
+				</div><br>
+				<div class="col-sm-12 contentcenter" style="color:black">
+					(OR)
+				</div><br><br>
+				<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
+					<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
+					<!-- <input id="file" type="file" accept=".csv" style="color:black;"> -->
+					<label for="file-upload" class="custom-file-upload">
+						<i class="fa fa-cloud-upload"></i> Custom Upload
+					</label>
+					<div id = "file_name">
+					</div>
+					<input id="file-upload" type="file"/>
+					<div id="errorFile" style="color:red"></div><br>
+				</div>
+				<div class="col-12 contentcenter" style="margin-bottom:20px">
+					<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
+				</div>
 			</div>
 		</div>
+		<br/>
+		<div class="row" id="outputdata" style="border:2px solid #1F95EE;padding:5px;margin:0px 10px 20px 10px;border-radius: 8px;">
 
-		
-		
-		<div id="graph" style="overflow-x:auto">
-			<h3 style="color: black;">Graph Representation</h3>
-			<div class="row">
-				<div class="col-lg-2">
-				</div>
-				<div class="col-md-12 col-lg-8" style="min-width:500px;width:500px !important;overflow-x: auto;">
-					<canvas id="myChart"></canvas>	
-				</div>
-				<div class="col-lg-2"></div>
+			<div class="col-12">
+				<ul class="nav nav-tabs" style="display:inline-flex;">
+					<li class="nav-item">
+						<a class="nav-link active" id="randomtab" onclick = "changeRandomTabColor()" style="border:5px solid white;border-radius: 10px; color:black;background-color: #d9e9f5;">Random Array</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="reversetab" onclick = "changeReverseTabColor()" style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Reverse Array</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="nearlysortedtab" onclick = "changeNearlySortedTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Nearly Sorted Array</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="uniquetab" onclick = "changUniqueTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Duplicate Array</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-		
-		<div id="data" style="display: none;"></div>
-		<div id="timerandom" style="display: none;"></div>
-		<div id="timereverse" style="display: none;"></div>
-		<div id="timenearlysorted" style="display: none;"></div>
-		<div id="timeunique" style="display: none;"></div>
-		
-		<div id="comparisons" style="display: none;"></div>
-		<div id="comprandom" style="display: none;"></div>
-		<div id="compreverse" style="display: none;"></div>
-		<div id="compnearlysorted" style="display: none;"></div>
-		<div id="compunique" style="display: none;"></div>		
-		
-		<div id="swaps" style="display: none;"></div>
-		<div id="swapsrandom" style="display: none;"></div>
-		<div id="swapsreverse" style="display: none;"></div>
-		<div id="swapsnearlysorted" style="display: none;"></div>
-		<div id="swapsunique" style="display: none;"></div>
-
-		<div id="filearr" style="display: none;"></div>
-		<div id="bool" style="display:none;"></div>
-		<!-- <button id="getdata" onclick="getdata()">getdata</button> -->
-
-		<!-- <div  id="outputdata" class="row-content" style="overflow-x: auto;"> -->
-			<div class="row" id="outputdata" style="border:2px solid white;padding:5px;margin:0px 10px 20px 10px;border-radius: 8px;">
-				<div class="col-12">
-					<ul class="nav nav-tabs" style="display:inline-flex;">
-						<li class="nav-item">
-							<a class="nav-link active" id="randomtab" onclick = "changeRandomTabColor()" style="border:5px solid white;border-radius: 10px; color:black;background-color: #d9e9f5;">Random Array</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="reversetab" onclick = "changeReverseTabColor()" style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Reverse Array</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="nearlysortedtab" onclick = "changeNearlySortedTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Nearly Sorted Array</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="uniquetab" onclick = "changUniqueTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Duplicate Array</a>
-						</li>
-					</ul>
+			<div class="col-12">
+				<div id="inputdata" style="display: none;margin-top:30px;padding-bottom: 20px;">
+					<h4>Input Data:</h4>
+					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="inputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
+					<br>
+					<h4>Output Data:</h4>
+					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="outputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
 				</div>
-				<div class="col-12">
-					<div class="tab-content" style="margin-top:16px">
-						<div class="tab-pane active" id="random">
-							<div class="panel panel-default border-body">
-								<!-- <div class="panel-heading"><b>Random Array</b></div> -->
-									<div class="panel-body">
-										<div id="table1" style="overflow-x: auto;">
+			</div>
 
-										</div>									
-									</div>
-							</div>
+		
+		
+			<div id="graph" style="overflow-x:auto">
+				<h3 style="color: black;">Graph Representation</h3>
+				<div class="row">
+					<div class="col-lg-2">
+					</div>
+					<div class="col-md-12 col-lg-8" style="min-width:500px;width:500px !important;overflow-x: auto;">
+						<canvas id="myChart"></canvas>	
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+			</div>
+		
+			<div id="data" style="display: none;"></div>
+			<div id="timerandom" style="display: none;"></div>
+			<div id="timereverse" style="display: none;"></div>
+			<div id="timenearlysorted" style="display: none;"></div>
+			<div id="timeunique" style="display: none;"></div>
+			
+			<div id="comparisons" style="display: none;"></div>
+			<div id="comprandom" style="display: none;"></div>
+			<div id="compreverse" style="display: none;"></div>
+			<div id="compnearlysorted" style="display: none;"></div>
+			<div id="compunique" style="display: none;"></div>		
+			
+			<div id="swaps" style="display: none;"></div>
+			<div id="swapsrandom" style="display: none;"></div>
+			<div id="swapsreverse" style="display: none;"></div>
+			<div id="swapsnearlysorted" style="display: none;"></div>
+			<div id="swapsunique" style="display: none;"></div>
+
+			<div id="filearr" style="display: none;"></div>
+			<div id="bool" style="display:none;"></div>
+			<!-- <button id="getdata" onclick="getdata()">getdata</button> -->
+
+			<!-- <div  id="outputdata" class="row-content" style="overflow-x: auto;"> -->
+				
+			<div class="col-12">
+				<div class="tab-content" style="margin-top:16px">
+					<div class="tab-pane active" id="random">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Random Array</b></div> -->
+								<div class="panel-body">
+									<div id="table1" style="overflow-x: auto;">
+
+									</div>									
+								</div>
 						</div>
-						<div class="tab-pane fade" id="reverse">
-							<div class="panel panel-default border-body">
-								<!-- <div class="panel-heading"><b>Reverse Array</b></div> -->
-									<div class="panel-body">
-										<div id="table2" style="overflow-x: auto;">
-										</div>	
-									</div>
-							</div>
+					</div>
+					<div class="tab-pane fade" id="reverse">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Reverse Array</b></div> -->
+								<div class="panel-body">
+									<div id="table2" style="overflow-x: auto;">
+									</div>	
+								</div>
 						</div>
-						<div class="tab-pane fade" id="nearlysorted">
-							<div class="panel panel-default border-body">
-								<!-- <div class="panel-heading"><b>Nearly Sorted Array</b></div> -->
-									<div class="panel-body">
-										<div id="table3" style="overflow-x: auto;">
-										</div>
+					</div>
+					<div class="tab-pane fade" id="nearlysorted">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Nearly Sorted Array</b></div> -->
+								<div class="panel-body">
+									<div id="table3" style="overflow-x: auto;">
 									</div>
-							</div>
+								</div>
 						</div>
-						<div class="tab-pane fade" id="unique">
-							<div class="panel panel-default border-body">
-								<!-- <div class="panel-heading"><b>Duplicate Array</b></div> -->
-									<div class="panel-body">
-										<div id="table4" style="overflow-x: auto;">
+					</div>
+					<div class="tab-pane fade" id="unique">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Duplicate Array</b></div> -->
+								<div class="panel-body">
+									<div id="table4" style="overflow-x: auto;">
 
-										</div>
 									</div>
-							</div>
+								</div>
 						</div>
 					</div>
 				</div>
-			
 			</div>
+			
+		</div>
 		</div> <!--container end-->
 		<script>
+			//calling the onclick function for the submit button to have the ouptut for the default values 
+			document.getElementById('submit').onclick();
+
+			function labelchange(){
+				let datatype = document.getElementById("datatype").value;
+				if(datatype == "Integer"){
+					document.getElementById("inputMinValue").textContent = "Minimum Value:";
+					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
+				}else if(datatype == "Character"){
+					document.getElementById("inputMinValue").textContent = "Beginning Char:";
+					document.getElementById("inputMaxValue").textContent = "Ending Char:";
+				}else if(datatype == "String"){
+					document.getElementById("inputMinValue").textContent = "Min String Length:";
+					document.getElementById("inputMaxValue").textContent = "Max String Length:";
+				}else if(datatype == "DateTime"){
+					document.getElementById("inputMinValue").textContent = "Starting Date:";
+					document.getElementById("inputMaxValue").textContent = "Ending Date:";
+				}else if(datatype == "Float"){
+					document.getElementById("inputMinValue").textContent = "Minimum Value:";
+					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
+				}
+			}
 			var myChart;
 			var bool = false;
+			
 
 
 				document.getElementById('file-upload').onchange = function () {
