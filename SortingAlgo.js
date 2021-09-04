@@ -80,7 +80,7 @@ var performance_count = [
 ///  10 Sorting methods below:
 function bubble(arr, n) {
   time = performance.now();
-  //console.log('initial time',time);
+  console.log("initial time", time);
   swaps = 0;
   comparisons = 0;
   for (let i = 0; i < n - 1; i++) {
@@ -94,12 +94,12 @@ function bubble(arr, n) {
       }
     }
   }
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('time taken',time);
+  console.log("time taken bubble", time);
   performance_count[0][1] = comparisons;
   performance_count[0][2] = swaps;
-  performance_count[0][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[0][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   console.log(time);
 
   return arr;
@@ -107,7 +107,7 @@ function bubble(arr, n) {
 
 function selection(arr, n) {
   time = performance.now();
-  //console.log('initial time',time);
+  console.log("initial time", time);
   swaps = 0;
   comparisons = 0;
   for (let i = 0; i < n - 1; i++) {
@@ -125,18 +125,18 @@ function selection(arr, n) {
     arr[i] = arr[index];
     arr[index] = temp;
   }
-  ///console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('time taken',time);
+  console.log("time taken selection", time);
   performance_count[1][1] = comparisons;
   performance_count[1][2] = swaps;
-  performance_count[1][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[1][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
 function insertion(arr, n) {
-  time = performance.now();
-  //console.log('initial time',time);
+  let time = performance.now();
+  console.log("initial time", time);
   swaps = 0;
   comparisons = 0;
   for (let i = 1; i < n; i++) {
@@ -150,12 +150,12 @@ function insertion(arr, n) {
       }
     }
   }
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('time taken',time);
+  console.log("time taken insertion", time);
   performance_count[2][1] = comparisons;
   performance_count[2][2] = swaps;
-  performance_count[2][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[2][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
@@ -208,18 +208,18 @@ function merge(arr, start, end) {
 
 function mergeMain(arr) {
   time = performance.now();
-  //console.log('initial time',time);
+  console.log("initial time", time);
   var start = 0;
   var end = arr.length - 1;
   comparisons = 0;
   swaps = 0;
   merge(arr, start, end);
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('time taken',time);
+  console.log("time taken merge", time);
   performance_count[3][1] = comparisons;
   performance_count[3][2] = swaps;
-  performance_count[3][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[3][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
@@ -256,18 +256,18 @@ function quick(arr, start, end) {
 
 function quickMain(arr) {
   time = performance.now();
-  //console.log('initial time',time);
+  console.log("initial time", time);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick(arr, start, end);
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('time taken',time);
+  console.log("time taken quick", time);
   performance_count[4][1] = comparisons;
   performance_count[4][2] = swaps;
-  performance_count[4][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[4][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
@@ -308,24 +308,24 @@ function quick3(arr, start, end) {
 
 function quick3Main(arr) {
   time = performance.now();
-  //console.log('initial time',time);
+  console.log("initial time", time);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick3(arr, start, end);
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('final time',time);
+  console.log("final time quick3", time);
   performance_count[5][1] = comparisons;
   performance_count[5][2] = swaps;
-  performance_count[5][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[5][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
 function heap(arr) {
   time = performance.now();
-  //console.log('initial time',time);
+  console.log("initial time", time);
   comparisons = 0;
   swaps = 0;
   start = 0;
@@ -352,18 +352,18 @@ function heap(arr) {
     arr[i] = arr[0];
     arr[0] = temp;
   }
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('final time',time);
+  console.log("final time heap", time);
   performance_count[6][1] = comparisons;
   performance_count[6][2] = swaps;
-  performance_count[6][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[6][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
 function shell(arr, n) {
   time = performance.now();
-  ///console.log('initial time',time);
+  console.log("initial time", time);
   comparisons = 0;
   swaps = 0;
   for (let j = Math.floor(n / 2); j >= 1; j = Math.floor(j / 2)) {
@@ -383,18 +383,18 @@ function shell(arr, n) {
       }
     }
   }
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('time taken',time);
+  console.log("time taken shell", time);
   performance_count[7][1] = comparisons;
   performance_count[7][2] = swaps;
-  performance_count[7][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[7][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
 function countsort(a) {
   time = performance.now();
-  //console.log('initial time',time);
+  console.log("initial time", time);
   comparisons = 0;
   swaps = 0;
   let minimum = a[0];
@@ -429,12 +429,12 @@ function countsort(a) {
       a[index++] = i + minimum;
     }
   }
-  //console.log('final time',performance.now());
+  console.log("final time", performance.now());
   time = performance.now() - time;
-  //console.log('time takne',time);
+  console.log("time taken count", time);
   performance_count[8][1] = comparisons;
   performance_count[8][2] = swaps;
-  performance_count[8][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[8][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return a;
 }
 
@@ -466,6 +466,7 @@ function radix(arr, div) {
 
 function radixsort(arr) {
   time = performance.now();
+  console.log("time taken inital radixsort", time);
   comparisons = 0;
   swaps = 0;
   let maximum = arr[0];
@@ -492,10 +493,12 @@ function radixsort(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i] += minimum;
   }
+  console.log("time taken final radixsort", time);
   time = performance.now() - time;
+  console.log("time taken radixsort", time);
   performance_count[9][1] = comparisons;
   performance_count[9][2] = swaps;
-  performance_count[9][3] = Math.floor(time * Math.pow(10, 9)) + " ps";
+  performance_count[9][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
@@ -2277,6 +2280,7 @@ function inputarrContentChange(tabname) {
   let datatype = document.getElementById("datatype").value; // Need to work on datetime format for all tabs.
   if (tabname == "reverse") {
     document.getElementById("resultarr").innerHTML = reversearr;
+    document.getElementById("resultoutarr").innerHTML = outarr; // added this line to get the right output in the popup modal
     if (reversearr.length <= 20) {
       document.getElementById("inputarr").innerHTML = reversearr;
       document.getElementById("outputarr").innerHTML = outarr;
@@ -2288,6 +2292,7 @@ function inputarrContentChange(tabname) {
     }
   } else if (tabname == "random") {
     document.getElementById("resultarr").innerHTML = randomarr;
+    document.getElementById("resultoutarr").innerHTML = outarr;
     if (randomarr.length <= 20) {
       document.getElementById("inputarr").innerHTML = randomarr;
       document.getElementById("outputarr").innerHTML = outarr;
@@ -2299,6 +2304,7 @@ function inputarrContentChange(tabname) {
     }
   } else if (tabname == "nearlysorted") {
     document.getElementById("resultarr").innerHTML = nearlysortedarr;
+    document.getElementById("resultoutarr").innerHTML = nearlysortedOutArr;
     if (nearlysortedarr.length <= 20) {
       document.getElementById("inputarr").innerHTML = nearlysortedarr;
       document.getElementById("outputarr").innerHTML = nearlysortedOutArr;
@@ -2310,6 +2316,7 @@ function inputarrContentChange(tabname) {
     }
   } else if (tabname == "duplicate") {
     document.getElementById("resultarr").innerHTML = uniquearr;
+    document.getElementById("resultoutarr").innerHTML = uniqueOutArr;
     if (uniquearr.length <= 20) {
       document.getElementById("inputarr").innerHTML = uniquearr;
       document.getElementById("outputarr").innerHTML = uniqueOutArr;

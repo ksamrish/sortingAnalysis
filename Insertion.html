@@ -1,50 +1,102 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Insertion Sort</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        .container{
-            margin:20px auto;
+      .container {
+        margin: 20px auto;
+      }
+      .row {
+        margin: 0;
+        padding: 0;
+      }
+      .verticalline {
+        border: none;
+      }
+      @media screen and (min-width: 768px) {
+        .verticalline {
+          border-right: 0.1px solid gray;
         }
-        .row{
-            margin:0;
-            padding:0;
-        }
-        .verticalline{
-            border:none;
-        }
-        @media screen and (min-width:768px){
-            .verticalline{
-                border-right: 0.1px solid gray;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <div style="padding:20px;border:2px solid black;border-radius: 4px;margin:20px">
-        <div class="row">
-            <div class="col-12 col-md-8 verticalline">
-                <h2>Insertion Sort</h2>
-                <p style="margin-bottom:20px;font-size:17px">&emsp;&emsp;&emsp;Insertion sort is a simple sorting algorithm, similar to playing cards. Each time a card is picked up, it is placed in its right position in the players hand. 
-                    Similarly, in each iteration the element is  placed in its position. The iteration continues until
-                     the whole array is sorted.Advantages of using insertion sort is, it is fast when the input is nearly sorted.Space requirement is minimal.Efficient for small data sets.
-         </p>
-            </div>
-            <div class="col-12 col-md-4" style="margin-top:20px;padding-left:20px">
-                <h5>If you want to know more about insertion sort, please refer this page...</h5>
-                <a href="https://www.geeksforgeeks.org/insertion-sort/" target="_blank" style="font-size:20px">Insertion sort</a><br>
-                <a href="https://www.youtube.com/watch?v=lCzQvQr8Utw" target="_blank" style="font-size:20px">Insertion sort</a>
-            </div>
-        </div><hr>
-        <div class="row">
-            <div class="col-12 col-md-8 verticalline">
-                <h3>Insertion Sort Code</h3><br>
-                <pre style="background-color: rgb(72, 40, 114);color:white;padding:20px 0px 0px">
+  </head>
+  <body>
+    <div
+      style="
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 4px;
+        margin: 20px;
+      "
+    >
+      <div class="row">
+        <div class="col-12 col-md-8 verticalline">
+          <h2>Insertion Sort</h2>
+          <p style="margin-bottom: 20px; font-size: 17px">
+            &emsp;&emsp;&emsp;Insertion sort is a simple sorting algorithm,
+            similar to playing cards. Each time a card is picked up, it is
+            placed in its right position in the players hand. Similarly, in each
+            iteration the element is placed in its position. The iteration
+            continues until the whole array is sorted.Advantages of using
+            insertion sort is, it is fast when the input is nearly sorted.Space
+            requirement is minimal.Efficient for small data sets.
+          </p>
+        </div>
+        <div
+          class="col-12 col-md-4"
+          style="margin-top: 20px; padding-left: 20px"
+        >
+          <h5>
+            To Learn more about Insertion Sort, refer the link given below:
+          </h5>
+          <a
+            href="https://www.geeksforgeeks.org/insertion-sort/"
+            target="_blank"
+            style="font-size: 20px"
+            >Insertion sort</a
+          ><br />
+          <a
+            href="https://www.youtube.com/watch?v=lCzQvQr8Utw"
+            target="_blank"
+            style="font-size: 20px"
+            >Insertion sort</a
+          >
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-12 col-md-8 verticalline">
+          <h3>Insertion Sort Code</h3>
+          <br />
+          <pre
+            style="
+              background-color: rgb(72, 40, 114);
+              color: white;
+              padding: 20px 0px 0px;
+            "
+          >
         function insertion(arr, n) {
             for(let i = 1; i < n; i++) {
                 for(let j = i; j > 0; j--) {
@@ -59,29 +111,30 @@
             return arr;
         }
                 
-                </pre>
-                <!-- <p>The above function always runs O(n^2) time even if the array is sorted. 
+                </pre
+          >
+          <!-- <p>The above function always runs O(n^2) time even if the array is sorted. 
                     It can be optimized by stopping the algorithm if inner loop didn’t cause any swap.</p>
                 <pre style="background-color:rgb(164, 161, 168);color:rgb(14, 13, 13);padding:20px 0px 0px">
     
                 </pre> -->
-            </div>
-            <div class="col-12 col-md-4" style="padding-left:20px">
-                <h3>Other types of sorting :</h3><br>
-                <h5 style="margin-left:30px">
-                    <li><a href="./Bubble.html">Bubble Sort</a></li>
-                    <li><a href="./Selection.html">Selection Sort</a></li>
-                    <li><a href="./Merge.html">Merge Sort</a></li>
-                    <li><a href="./Quick.html">Quick Sort</a></li>
-                    <li><a href="./Quick3.html">Quick3 Sort</a></li>
-                    <li><a href="./Heap.html">Heap Sort</a></li>
-                    <li><a href="./Shell.html">Shell Sort</a></li>
-                    <li><a href="./Count.html">Count Sort</a></li>
-                    <li><a href="./Radix.html">Radix Sort</a></li>
-                </h5>
-            </div>
         </div>
+        <div class="col-12 col-md-4" style="padding-left: 20px">
+          <h3>Other types of sorting :</h3>
+          <br />
+          <h5 style="margin-left: 30px">
+            <li><a href="./Bubble.html">Bubble Sort</a></li>
+            <li><a href="./Selection.html">Selection Sort</a></li>
+            <li><a href="./Merge.html">Merge Sort</a></li>
+            <li><a href="./Quick.html">Quick Sort</a></li>
+            <li><a href="./Quick3.html">Quick3 Sort</a></li>
+            <li><a href="./Heap.html">Heap Sort</a></li>
+            <li><a href="./Shell.html">Shell Sort</a></li>
+            <li><a href="./Count.html">Count Sort</a></li>
+            <li><a href="./Radix.html">Radix Sort</a></li>
+          </h5>
+        </div>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>
