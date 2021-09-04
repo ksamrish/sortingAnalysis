@@ -2,61 +2,61 @@ var pc = [
   [
     "random",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
   [
     "reverse",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
   [
     "nearlysorted",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
   [
     "unique",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
 ];
@@ -2091,7 +2091,7 @@ function sorting() {
       table1 +=
         "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[0][1][i][0] +
-        ".html' style='color:black' target='_blank'>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
         pc[0][1][i][0] +
         "</a></td><td>" +
         pc[0][1][i][1] +
@@ -2109,16 +2109,29 @@ function sorting() {
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
       table2 +=
-        "<tr><td>" +
+        "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[1][1][i][0] +
-        "</td><td>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
+        pc[1][1][i][0] +
+        "</a></td><td>" +
         pc[1][1][i][1] +
         "</td><td>" +
         pc[1][1][i][2] +
         "</td><td>" +
         pc[1][1][i][3] +
         "</td></tr>";
-    }
+    } // commented the below lines so that  External links should be as in first tab to other tabs as well
+    //   table2 +=
+    //     "<tr><td>" +
+    //     pc[1][1][i][0] +
+    //     "</td><td>" +
+    //     pc[1][1][i][1] +
+    //     "</td><td>" +
+    //     pc[1][1][i][2] +
+    //     "</td><td>" +
+    //     pc[1][1][i][3] +
+    //     "</td></tr>";
+    // }
     table2 += "</table>";
 
     var table3 = "<table>";
@@ -2127,15 +2140,28 @@ function sorting() {
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
       table3 +=
-        "<tr><td>" +
+        "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[2][1][i][0] +
-        "</td><td>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
+        pc[2][1][i][0] +
+        "</a></td><td>" +
         pc[2][1][i][1] +
         "</td><td>" +
         pc[2][1][i][2] +
         "</td><td>" +
         pc[2][1][i][3] +
         "</td></tr>";
+
+      // table3 +=
+      //   "<tr><td>" +
+      //   pc[2][1][i][0] +
+      //   "</td><td>" +
+      //   pc[2][1][i][1] +
+      //   "</td><td>" +
+      //   pc[2][1][i][2] +
+      //   "</td><td>" +
+      //   pc[2][1][i][3] +
+      //   "</td></tr>";
     }
     table3 += "</table>";
 
@@ -2145,15 +2171,28 @@ function sorting() {
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
       table4 +=
-        "<tr><td>" +
+        "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[3][1][i][0] +
-        "</td><td>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
+        pc[3][1][i][0] +
+        "</a></td><td>" +
         pc[3][1][i][1] +
         "</td><td>" +
         pc[3][1][i][2] +
         "</td><td>" +
         pc[3][1][i][3] +
         "</td></tr>";
+
+      // table4 +=
+      //   "<tr><td>" +
+      //   pc[3][1][i][0] +
+      //   "</td><td>" +
+      //   pc[3][1][i][1] +
+      //   "</td><td>" +
+      //   pc[3][1][i][2] +
+      //   "</td><td>" +
+      //   pc[3][1][i][3] +
+      //   "</td></tr>";
     }
     table4 += "</table>";
 
