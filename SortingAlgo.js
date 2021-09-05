@@ -5,11 +5,11 @@ var pc = [
       ["Bubble", 0, 0, 0],
       ["Selection", 0, 0, 0],
       ["Insertion", 0, 0, 0],
-      ["Merge", 0, 0, 0],
-      ["Quick", 0, 0, 0],
-      ["Quick3", 0, 0, 0],
       ["Heap", 0, 0, 0],
       ["Shell", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Merge", 0, 0, 0],
       ["Count", 0, 0, 0],
       ["Radix", 0, 0, 0],
     ],
@@ -20,11 +20,11 @@ var pc = [
       ["Bubble", 0, 0, 0],
       ["Selection", 0, 0, 0],
       ["Insertion", 0, 0, 0],
-      ["Merge", 0, 0, 0],
-      ["Quick", 0, 0, 0],
-      ["Quick3", 0, 0, 0],
       ["Heap", 0, 0, 0],
       ["Shell", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Merge", 0, 0, 0],
       ["Count", 0, 0, 0],
       ["Radix", 0, 0, 0],
     ],
@@ -35,11 +35,11 @@ var pc = [
       ["Bubble", 0, 0, 0],
       ["Selection", 0, 0, 0],
       ["Insertion", 0, 0, 0],
-      ["Merge", 0, 0, 0],
-      ["Quick", 0, 0, 0],
-      ["Quick3", 0, 0, 0],
       ["Heap", 0, 0, 0],
       ["Shell", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Merge", 0, 0, 0],
       ["Count", 0, 0, 0],
       ["Radix", 0, 0, 0],
     ],
@@ -50,11 +50,11 @@ var pc = [
       ["Bubble", 0, 0, 0],
       ["Selection", 0, 0, 0],
       ["Insertion", 0, 0, 0],
-      ["Merge", 0, 0, 0],
-      ["Quick", 0, 0, 0],
-      ["Quick3", 0, 0, 0],
       ["Heap", 0, 0, 0],
       ["Shell", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Merge", 0, 0, 0],
       ["Count", 0, 0, 0],
       ["Radix", 0, 0, 0],
     ],
@@ -65,16 +65,16 @@ var time = 0;
 var swaps = 0;
 var comparisons = 0;
 var performance_count = [
-  ["bubble", 0, 0, 0],
-  ["selection", 0, 0, 0],
-  ["insertion", 0, 0, 0],
-  ["merge", 0, 0, 0],
-  ["quick", 0, 0, 0],
-  ["quick3", 0, 0, 0],
-  ["heap", 0, 0, 0],
-  ["shell", 0, 0, 0],
-  ["count", 0, 0, 0],
-  ["radix", 0, 0, 0],
+  ["Bubble", 0, 0, 0],
+  ["Selection", 0, 0, 0],
+  ["Insertion", 0, 0, 0],
+  ["Heap", 0, 0, 0],
+  ["Shell", 0, 0, 0],
+  ["Quick3", 0, 0, 0],
+  ["Quick", 0, 0, 0],
+  ["Merge", 0, 0, 0],
+  ["Count", 0, 0, 0],
+  ["Radix", 0, 0, 0],
 ];
 
 ///  10 Sorting methods below:
@@ -162,114 +162,71 @@ function insertion(arr, n) {
   return arr;
 }
 
-function mergesort(arr, start, mid, end) {
-  let n1 = mid - start + 1;
-  let n2 = end - mid;
-  let l = [];
-  let r = [];
-  for (let i = 0; i < n1; i++) {
-    l[i] = arr[start + i];
-  }
-  for (let i = 0; i < n2; i++) {
-    r[i] = arr[mid + 1 + i];
-  }
-
-  let i = 0,
-    j = 0,
-    k = start;
-  while (i < n1 && j < n2) {
-    if (l[i] > r[j]) {
-      comparisons++;
-      arr[k++] = r[j++];
-    } else if (l[i] <= r[j]) {
-      arr[k++] = l[i++];
-      comparisons++;
-      comparisons++;
-    } else {
-      comparisons++;
-      comparisons++;
-    }
-  }
-  while (i < n1) {
-    arr[k++] = l[i++];
-  }
-  while (j < n2) {
-    arr[k++] = r[j++];
-  }
-  return;
-}
-
-function merge(arr, start, end) {
-  if (start < end) {
-    let mid = Math.floor((start + end) / 2);
-    merge(arr, start, mid);
-    merge(arr, mid + 1, end);
-    mergesort(arr, start, mid, end);
-    return;
-  } else return;
-}
-
-function mergeMain(arr) {
-  let startTime = performance.now();
-  console.log("initial time", startTime);
-  var start = 0;
-  var end = arr.length - 1;
-  comparisons = 0;
-  swaps = 0;
-  merge(arr, start, end);
-  let endTime = performance.now();
-  console.log("final time", endTime);
-  time = endTime - startTime;
-  console.log("time taken merge", time);
-  performance_count[3][1] = comparisons;
-  performance_count[3][2] = swaps;
-  performance_count[3][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
-  return arr;
-}
-
-function quick(arr, start, end) {
-  let i = start,
-    j = end,
-    mid = Math.floor((start + end) / 2);
-  let pivot = arr[mid];
-  while (i <= j) {
-    comparisons++;
-    while (arr[i] < pivot) {
-      //comparisons++;
-      i++;
-    }
-    comparisons++;
-    while (arr[j] > pivot) {
-      //comparisons++;
-      j--;
-    }
-
-    if (i <= j) {
-      swaps++;
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
-      i++;
-      j--;
-    }
-  }
-  if (start < i - 1) quick(arr, start, i - 1);
-  if (i < end) quick(arr, i, end);
-  return;
-}
-
-function quickMain(arr) {
+function heap(arr) {
   let startTime = performance.now();
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
-  quick(arr, start, end);
+  for (let i = end; i > 0; i--) {
+    for (let j = Math.floor((i - 1) / 2); j >= 0; j--) {
+      let left = 2 * j + 1;
+      let right = 2 * j + 2;
+      let big = left;
+      if (right <= i && arr[right] > arr[left]) {
+        big = right;
+      }
+      comparisons++;
+      if (arr[j] < arr[big]) {
+        let temp = arr[big];
+        arr[big] = arr[j];
+        arr[j] = temp;
+        swaps++; // added on 12-24-2020
+      }
+      comparisons++;
+    }
+    swaps++;
+    let temp = arr[i];
+    arr[i] = arr[0];
+    arr[0] = temp;
+  }
   let endTime = performance.now();
   console.log("final time", endTime);
   time = endTime - startTime;
-  console.log("time taken quick", time);
+  console.log("final time heap", time);
+  performance_count[3][1] = comparisons;
+  performance_count[3][2] = swaps;
+  performance_count[3][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  return arr;
+}
+
+function shell(arr, n) {
+  let startTime = performance.now();
+  console.log("initial time", startTime);
+  comparisons = 0;
+  swaps = 0;
+  for (let j = Math.floor(n / 2); j >= 1; j = Math.floor(j / 2)) {
+    for (let i = j; i < n; i++) {
+      let h = i;
+      for (let k = i - j; k >= 0; k -= j) {
+        comparisons++;
+        if (arr[k] > arr[h]) {
+          swaps++;
+          let temp = arr[k];
+          arr[k] = arr[h];
+          arr[h] = temp;
+          h = k;
+        } else {
+          break;
+        }
+      }
+    }
+  }
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
+  console.log("time taken shell", time);
   performance_count[4][1] = comparisons;
   performance_count[4][2] = swaps;
   performance_count[4][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
@@ -329,76 +286,120 @@ function quick3Main(arr) {
   return arr;
 }
 
-function heap(arr) {
+function quick(arr, start, end) {
+  let i = start,
+    j = end,
+    mid = Math.floor((start + end) / 2);
+  let pivot = arr[mid];
+  while (i <= j) {
+    comparisons++;
+    while (arr[i] < pivot) {
+      //comparisons++;
+      i++;
+    }
+    comparisons++;
+    while (arr[j] > pivot) {
+      //comparisons++;
+      j--;
+    }
+
+    if (i <= j) {
+      swaps++;
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      i++;
+      j--;
+    }
+  }
+  if (start < i - 1) quick(arr, start, i - 1);
+  if (i < end) quick(arr, i, end);
+  return;
+}
+
+function quickMain(arr) {
   let startTime = performance.now();
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
-  for (let i = end; i > 0; i--) {
-    for (let j = Math.floor((i - 1) / 2); j >= 0; j--) {
-      let left = 2 * j + 1;
-      let right = 2 * j + 2;
-      let big = left;
-      if (right <= i && arr[right] > arr[left]) {
-        big = right;
-      }
-      comparisons++;
-      if (arr[j] < arr[big]) {
-        let temp = arr[big];
-        arr[big] = arr[j];
-        arr[j] = temp;
-        swaps++; // added on 12-24-2020
-      }
-      comparisons++;
-    }
-    swaps++;
-    let temp = arr[i];
-    arr[i] = arr[0];
-    arr[0] = temp;
-  }
+  quick(arr, start, end);
   let endTime = performance.now();
   console.log("final time", endTime);
   time = endTime - startTime;
-  console.log("final time heap", time);
+  console.log("time taken quick", time);
   performance_count[6][1] = comparisons;
   performance_count[6][2] = swaps;
   performance_count[6][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
 
-function shell(arr, n) {
-  let startTime = performance.now();
-  console.log("initial time", startTime);
-  comparisons = 0;
-  swaps = 0;
-  for (let j = Math.floor(n / 2); j >= 1; j = Math.floor(j / 2)) {
-    for (let i = j; i < n; i++) {
-      let h = i;
-      for (let k = i - j; k >= 0; k -= j) {
-        comparisons++;
-        if (arr[k] > arr[h]) {
-          swaps++;
-          let temp = arr[k];
-          arr[k] = arr[h];
-          arr[h] = temp;
-          h = k;
-        } else {
-          break;
-        }
-      }
+function mergesort(arr, start, mid, end) {
+  let n1 = mid - start + 1;
+  let n2 = end - mid;
+  let l = [];
+  let r = [];
+  for (let i = 0; i < n1; i++) {
+    l[i] = arr[start + i];
+  }
+  for (let i = 0; i < n2; i++) {
+    r[i] = arr[mid + 1 + i];
+  }
+
+  let i = 0,
+    j = 0,
+    k = start;
+  while (i < n1 && j < n2) {
+    if (l[i] > r[j]) {
+      comparisons++;
+      arr[k++] = r[j++];
+    } else if (l[i] <= r[j]) {
+      arr[k++] = l[i++];
+      comparisons++;
+      comparisons++;
+    } else {
+      comparisons++;
+      comparisons++;
     }
   }
+  while (i < n1) {
+    arr[k++] = l[i++];
+  }
+  while (j < n2) {
+    arr[k++] = r[j++];
+  }
+  return;
+}
+
+function merge(arr, start, end) {
+  if (start < end) {
+    let mid = Math.floor((start + end) / 2);
+    merge(arr, start, mid);
+    merge(arr, mid + 1, end);
+    mergesort(arr, start, mid, end);
+    return;
+  } else return;
+}
+
+function mergeMain(arr) {
+  let startTime = performance.now();
+  console.log("initial time", startTime);
+  var start = 0;
+  var end = arr.length - 1;
+  comparisons = 0;
+  swaps = 0;
+  merge(arr, start, end);
   let endTime = performance.now();
   console.log("final time", endTime);
   time = endTime - startTime;
-  console.log("time taken shell", time);
+  console.log("time taken merge", time);
   performance_count[7][1] = comparisons;
   performance_count[7][2] = swaps;
   performance_count[7][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
   return arr;
 }
+
 
 function countsort(a) {
   let startTime = performance.now();
@@ -1252,9 +1253,9 @@ function sorting() {
     mergeMain(a, 0, n1 - 1);
     console.log("\n\nMerge sort:");
     console.log(a);
-    pc[0][1][3][1] = performance_count[3][1];
-    pc[0][1][3][2] = performance_count[3][2];
-    pc[0][1][3][3] = performance_count[3][3];
+    pc[0][1][7][1] = performance_count[7][1];
+    pc[0][1][7][2] = performance_count[7][2];
+    pc[0][1][7][3] = performance_count[7][3];
     console.log(
       "\nNo of comparisons: " +
         pc[0][1][3][1] +
@@ -1272,9 +1273,9 @@ function sorting() {
     quickMain(a, 0, n1 - 1);
     console.log("\n\nQuick sort:");
     console.log(a);
-    pc[0][1][4][1] = performance_count[4][1];
-    pc[0][1][4][2] = performance_count[4][2];
-    pc[0][1][4][3] = performance_count[4][3];
+    pc[0][1][6][1] = performance_count[6][1];
+    pc[0][1][6][2] = performance_count[6][2];
+    pc[0][1][6][3] = performance_count[6][3];
     console.log(
       "\nNo of comparisons: " +
         pc[0][1][4][1] +
@@ -1312,9 +1313,9 @@ function sorting() {
     heap(a, 0, n1 - 1);
     console.log("\n\nHeap sort:");
     console.log(a);
-    pc[0][1][6][1] = performance_count[6][1];
-    pc[0][1][6][2] = performance_count[6][2];
-    pc[0][1][6][3] = performance_count[6][3];
+    pc[0][1][3][1] = performance_count[3][1];
+    pc[0][1][3][2] = performance_count[3][2];
+    pc[0][1][3][3] = performance_count[3][3];
     console.log(
       "\nNo of comparisons: " +
         pc[0][1][6][1] +
@@ -1332,9 +1333,9 @@ function sorting() {
     shell(a, n1);
     console.log("\n\nShell sort:");
     console.log(a);
-    pc[0][1][7][1] = performance_count[7][1];
-    pc[0][1][7][2] = performance_count[7][2];
-    pc[0][1][7][3] = performance_count[7][3];
+    pc[0][1][4][1] = performance_count[4][1];
+    pc[0][1][4][2] = performance_count[4][2];
+    pc[0][1][4][3] = performance_count[4][3];
     console.log(
       "\nNo of comparisons: " +
         pc[0][1][7][1] +
@@ -1471,9 +1472,9 @@ function sorting() {
     mergeMain(a, 0, n1 - 1);
     console.log("\n\nMerge sort:");
     console.log(a);
-    pc[1][1][3][1] = performance_count[3][1];
-    pc[1][1][3][2] = performance_count[3][2];
-    pc[1][1][3][3] = performance_count[3][3];
+    pc[1][1][7][1] = performance_count[7][1];
+    pc[1][1][7][2] = performance_count[7][2];
+    pc[1][1][7][3] = performance_count[7][3];
     console.log(
       "\nNo of comparisons: " +
         pc[1][1][3][1] +
@@ -1491,9 +1492,9 @@ function sorting() {
     quickMain(a, 0, n1 - 1);
     console.log("\n\nQuick sort:");
     console.log(a);
-    pc[1][1][4][1] = performance_count[4][1];
-    pc[1][1][4][2] = performance_count[4][2];
-    pc[1][1][4][3] = performance_count[4][3];
+    pc[1][1][6][1] = performance_count[6][1];
+    pc[1][1][6][2] = performance_count[6][2];
+    pc[1][1][6][3] = performance_count[6][3];
     console.log(
       "\nNo of comparisons: " +
         pc[1][1][4][1] +
@@ -1531,9 +1532,9 @@ function sorting() {
     heap(a, 0, n1 - 1);
     console.log("\n\nHeap sort:");
     console.log(a);
-    pc[1][1][6][1] = performance_count[6][1];
-    pc[1][1][6][2] = performance_count[6][2];
-    pc[1][1][6][3] = performance_count[6][3];
+    pc[1][1][3][1] = performance_count[3][1];
+    pc[1][1][3][2] = performance_count[3][2];
+    pc[1][1][3][3] = performance_count[3][3];
     console.log(
       "\nNo of comparisons: " +
         pc[1][1][6][1] +
@@ -1551,9 +1552,9 @@ function sorting() {
     shell(a, n1);
     console.log("\n\nShell sort:");
     console.log(a);
-    pc[1][1][7][1] = performance_count[7][1];
-    pc[1][1][7][2] = performance_count[7][2];
-    pc[1][1][7][3] = performance_count[7][3];
+    pc[1][1][4][1] = performance_count[4][1];
+    pc[1][1][4][2] = performance_count[4][2];
+    pc[1][1][4][3] = performance_count[4][3];
     console.log(
       "\nNo of comparisons: " +
         pc[1][1][7][1] +
@@ -1695,9 +1696,9 @@ function sorting() {
     mergeMain(a, 0, n1 - 1);
     console.log("\n\nMerge sort:");
     console.log(a);
-    pc[2][1][3][1] = performance_count[3][1];
-    pc[2][1][3][2] = performance_count[3][2];
-    pc[2][1][3][3] = performance_count[3][3];
+    pc[2][1][7][1] = performance_count[7][1];
+    pc[2][1][7][2] = performance_count[7][2];
+    pc[2][1][7][3] = performance_count[7][3];
     console.log(
       "\nNo of comparisons: " +
         pc[2][1][3][1] +
@@ -1715,9 +1716,9 @@ function sorting() {
     quickMain(a, 0, n1 - 1);
     console.log("\n\nQuick sort:");
     console.log(a);
-    pc[2][1][4][1] = performance_count[4][1];
-    pc[2][1][4][2] = performance_count[4][2];
-    pc[2][1][4][3] = performance_count[4][3];
+    pc[2][1][6][1] = performance_count[6][1];
+    pc[2][1][6][2] = performance_count[6][2];
+    pc[2][1][6][3] = performance_count[6][3];
     console.log(
       "\nNo of comparisons: " +
         pc[2][1][4][1] +
@@ -1755,9 +1756,9 @@ function sorting() {
     heap(a, 0, n1 - 1);
     console.log("\n\nHeap sort:");
     console.log(a);
-    pc[2][1][6][1] = performance_count[6][1];
-    pc[2][1][6][2] = performance_count[6][2];
-    pc[2][1][6][3] = performance_count[6][3];
+    pc[2][1][3][1] = performance_count[3][1];
+    pc[2][1][3][2] = performance_count[3][2];
+    pc[2][1][3][3] = performance_count[3][3];
     console.log(
       "\nNo of comparisons: " +
         pc[2][1][6][1] +
@@ -1775,9 +1776,9 @@ function sorting() {
     shell(a, n1);
     console.log("\n\nShell sort:");
     console.log(a);
-    pc[2][1][7][1] = performance_count[7][1];
-    pc[2][1][7][2] = performance_count[7][2];
-    pc[2][1][7][3] = performance_count[7][3];
+    pc[2][1][4][1] = performance_count[4][1];
+    pc[2][1][4][2] = performance_count[4][2];
+    pc[2][1][4][3] = performance_count[4][3];
     console.log(
       "\nNo of comparisons: " +
         pc[2][1][7][1] +
@@ -1919,9 +1920,9 @@ function sorting() {
     mergeMain(a, 0, n1 - 1);
     console.log("\n\nMerge sort:");
     console.log(a);
-    pc[3][1][3][1] = performance_count[3][1];
-    pc[3][1][3][2] = performance_count[3][2];
-    pc[3][1][3][3] = performance_count[3][3];
+    pc[3][1][7][1] = performance_count[7][1];
+    pc[3][1][7][2] = performance_count[7][2];
+    pc[3][1][7][3] = performance_count[7][3];
     console.log(
       "\nNo of comparisons: " +
         pc[3][1][3][1] +
@@ -1939,9 +1940,9 @@ function sorting() {
     quickMain(a, 0, n1 - 1);
     console.log("\n\nQuick sort:");
     console.log(a);
-    pc[3][1][4][1] = performance_count[4][1];
-    pc[3][1][4][2] = performance_count[4][2];
-    pc[3][1][4][3] = performance_count[4][3];
+    pc[3][1][6][1] = performance_count[6][1];
+    pc[3][1][6][2] = performance_count[6][2];
+    pc[3][1][6][3] = performance_count[6][3];
     console.log(
       "\nNo of comparisons: " +
         pc[3][1][4][1] +
@@ -1979,9 +1980,9 @@ function sorting() {
     heap(a, 0, n1 - 1);
     console.log("\n\nHeap sort:");
     console.log(a);
-    pc[3][1][6][1] = performance_count[6][1];
-    pc[3][1][6][2] = performance_count[6][2];
-    pc[3][1][6][3] = performance_count[6][3];
+    pc[3][1][3][1] = performance_count[3][1];
+    pc[3][1][3][2] = performance_count[3][2];
+    pc[3][1][3][3] = performance_count[3][3];
     console.log(
       "\nNo of comparisons: " +
         pc[3][1][6][1] +
@@ -1999,9 +2000,9 @@ function sorting() {
     shell(a, n1);
     console.log("\n\nShell sort:");
     console.log(a);
-    pc[3][1][7][1] = performance_count[7][1];
-    pc[3][1][7][2] = performance_count[7][2];
-    pc[3][1][7][3] = performance_count[7][3];
+    pc[3][1][4][1] = performance_count[4][1];
+    pc[3][1][4][2] = performance_count[4][2];
+    pc[3][1][4][3] = performance_count[4][3];
     console.log(
       "\nNo of comparisons: " +
         pc[3][1][7][1] +

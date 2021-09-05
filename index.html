@@ -257,7 +257,7 @@
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
 					<label id = "inputMinValue" style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
-					<input class="inputbox" id="minrange" type="text" value = "10">
+					<input class="inputbox" id="minrange" type="text" value = "0">
 					<!--removed placeholder placeholder="Enter the min range..."-->
 					<div id="errorMinval" style="color:red"></div><br>
 				</div>
@@ -412,6 +412,8 @@
 		</div> <!--container end-->
 		<script>
 			var bool = 0;
+			var datatype = document.getElementById('datatype').value;
+			
 			var inputformicon = "add";
 			//calling the onclick function for the submit button to have the ouptut for the default values 
 			document.getElementById('submit').onclick();
@@ -430,7 +432,7 @@
 			}
 
 			function labelchange(){
-				let datatype = document.getElementById("datatype").value;
+				datatype = document.getElementById("datatype").value;
 				if(datatype == "Integer"){
 					document.getElementById("inputMinValue").textContent = "Minimum Value:";
 					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
@@ -515,20 +517,29 @@
 				inputarrContentChange("duplicate");
 			}
 			function destroy(){
-				console.log('hello');
 				myChart.destroy();
 				mypopUpChart.destroy();
 			}
 			function graph(){
+				if(datatype=='Integer'||datatype=='Float'){
+					console.log(datatype,"in block");
+					document.getElementById('popUpChart').style.display='block';
+				}
+				else{
+					console.log(datatype,"in none");
+					document.getElementById('popUpChart').style.display='none';
+				}
 				console.log("hi",bool);
 				if(bool>0){
 					destroy();
 				}
 				bool = 1;
-				var	label = ['Bubble','Selection','Insertion','Merge','Quick','Quick3','Heap','Shell','Count','Radix'];
+				var	label = ['Bubble','Selection','Insertion','Heap','Shell','Quick3','Quick','Merge','Count','Radix'];
 				var ctx = document.getElementById('myChart');
 				
-				var popupctx = document.getElementById('popUpChart');
+				var popupctx;
+				if(datatype=='Integer'||datatype=='Float')
+					popupctx = document.getElementById('popUpChart');
 
 				var data = [];
 				var comparisons = [];
@@ -637,46 +648,47 @@
 
 						}
 				});
-
-				mypopUpChart = new Chart(popupctx, {
-					type: 'line',
-					data: popUpData,
-					options: {
-						scales: {
-							yAxes: [
-								{
-									type: 'linear',
-									display: true,
-									position: 'left',
-									id:'y',
-									scaleLabel: {
+				if(datatype=='Integer'||datatype=='Float'){
+					mypopUpChart = new Chart(popupctx, {
+						type: 'line',
+						data: popUpData,
+						options: {
+							scales: {
+								yAxes: [
+									{
+										type: 'linear',
 										display: true,
-										labelString: 'Elements Range'
-										}
+										position: 'left',
+										id:'y',
+										scaleLabel: {
+											display: true,
+											labelString: 'Input Elements Range'
+											}
+									},
+									{
+										type: 'linear',
+										display: true,
+										position: 'right',
+										id:'y1',
+										scaleLabel: {
+											display: true,
+											labelString: 'Output Elements Range'
+											}
+									}
+								],
+								xAxes: [{
+									display: true,
+									scaleLabel: {
+									display: true,
+									labelString: 'ith element'
+									}
+								}]
 								},
-								{
-									type: 'linear',
-									display: true,
-									position: 'right',
-									id:'y1',
-									scaleLabel: {
-										display: true,
-										labelString: 'Elements Range'
-										}
-								}
-							],
-							xAxes: [{
-								display: true,
-								scaleLabel: {
-								display: true,
-								labelString: 'Input Size'
-								}
-							}]
-							},
 
-						}
-				
-				});
+							}
+					
+					});
+				}
 			}
 		</script>
 </body>
