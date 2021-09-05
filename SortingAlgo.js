@@ -991,10 +991,13 @@ function sorting() {
           }
         }
       } else if (datatype == "DateTime") {
-        //TODO yet to implement the new logic
         for (let i = 0; i < n; i++) {
           let val = generateRandomDate(minVal, maxVal);
-          arr[i] = val;
+          if (!arr.includes(val)) {
+            arr[i] = val;
+          } else {
+            i--;
+          }
         }
       } else if (datatype == "Character") {
         let startChar = document.getElementById("minrange").value;
@@ -2134,7 +2137,7 @@ function sorting() {
       document.getElementById("resultoutarr").innerText = outarr;
     } else {
       document.getElementById("inputarr").innerText =
-        arr.slice(0, 20) + ".....";
+        arrdata.slice(0, 20) + ".....";
       document.getElementById("outputarr").innerText =
         outarr.slice(0, 20) + ".....";
       document.getElementById("resultarr").innerText = arrdata;
