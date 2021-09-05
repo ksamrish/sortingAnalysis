@@ -140,6 +140,7 @@
                     </button>
 				</div>
 				<div class="modal-body">
+					<canvas id="popUpChart"></canvas>	
 					<h4 style="color:black">
 						Input Data:
 					</h4>
@@ -380,6 +381,8 @@
 		</div>
 		</div> <!--container end-->
 		<script>
+			var bool = 0;
+
 			//calling the onclick function for the submit button to have the ouptut for the default values 
 			document.getElementById('submit').onclick();
 
@@ -403,13 +406,12 @@
 				}
 			}
 			var myChart;
-			var bool = false;
-			
+			var mypopUpChart;
 
 
-				document.getElementById('file-upload').onchange = function () {
+			document.getElementById('file-upload').onchange = function () {
 				document.getElementById('file_name').innerHTML = this.value;
-				};
+			};
 
 			function changeRandomTabColor(){
 				document.getElementById("randomtab").style.background="#d9e9f5";
@@ -459,23 +461,59 @@
 				inputarrContentChange("duplicate");
 			}
 			function destroy(){
+				console.log('hello');
 				myChart.destroy();
+				mypopUpChart.destroy();
 			}
 			function graph(){
-				if(bool==true){
+				console.log("hi",bool);
+				if(bool>0){
 					destroy();
 				}
-				bool = true;
+				bool = 1;
 				var	label = ['Bubble','Selection','Insertion','Merge','Quick','Quick3','Heap','Shell','Count','Radix'];
 				var ctx = document.getElementById('myChart');
+				
+				var popupctx = document.getElementById('popUpChart');
+
 				var data = [];
 				var comparisons = [];
 				var swaps = [];
+				
 				time = document.getElementById("data").innerHTML.toString().split(",");
 				comparisons = document.getElementById("comparisons").innerHTML.toString().split(",");
 				swaps = document.getElementById("swaps").innerHTML.toString().split(",");
 
+				inputarr = document.getElementById("resultarr").innerHTML.toString().split(",");
+				outputarr = document.getElementById("resultoutarr").innerHTML.toString().split(",");
+				var popUpLabel = [];
+				var elementsSize = document.getElementById('noofelements').value;
+				// var maximumrange = document.getElementById('maxrange').value;
+				
+				for(var i=0;i<elementsSize;i++){
+					popUpLabel.push(i);
+				}
 
+				var popUpData = {
+					labels: popUpLabel,
+					datasets: [
+						{
+							label: 'Input data',
+							data: inputarr,
+							borderColor: 'red',
+							borderWidth: 2,
+							yAxisID: 'y'
+						},
+						{
+							label: 'Output data',
+							data: outputarr,
+							borderColor: 'green',
+							borderWidth: 2,
+							yAxisID: 'y1'
+						}
+					]
+				}
+				
 				var data = {
 					labels: label,
 					datasets: [
@@ -539,6 +577,45 @@
 								scaleLabel: {
 								display: true,
 								labelString: 'Sorting Type'
+								}
+							}]
+							},
+
+						}
+				});
+
+				mypopUpChart = new Chart(popupctx, {
+					type: 'line',
+					data: popUpData,
+					options: {
+						scales: {
+							yAxes: [
+								{
+									type: 'linear',
+									display: true,
+									position: 'left',
+									id:'y',
+									scaleLabel: {
+										display: true,
+										labelString: 'Elements Range'
+										}
+								},
+								{
+									type: 'linear',
+									display: true,
+									position: 'right',
+									id:'y1',
+									scaleLabel: {
+										display: true,
+										labelString: 'Elements Range'
+										}
+								}
+							],
+							xAxes: [{
+								display: true,
+								scaleLabel: {
+								display: true,
+								labelString: 'Input Size'
 								}
 							}]
 							},
