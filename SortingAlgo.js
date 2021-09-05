@@ -2088,7 +2088,7 @@ function sorting() {
       document.getElementById("resultoutarr").innerText = outarr;
     } else {
       document.getElementById("inputarr").innerText =
-        arr.slice(0, 20) + ".....";
+        arrdata.slice(0, 20) + ".....";
       document.getElementById("outputarr").innerText =
         outarr.slice(0, 20) + ".....";
       document.getElementById("resultarr").innerText = arrdata;
