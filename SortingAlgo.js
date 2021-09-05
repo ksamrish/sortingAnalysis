@@ -570,6 +570,7 @@ function sorting() {
   var regminmax = /^-?\d+$/;
   var regfloatminmax = /^-?\d*\.?\d*$/;
   var regfloat = /^-?\d*\.\d*$/;
+  var regChar = /^[A-Za-z]+$/;
 
   let datatype = document.getElementById("datatype").value;
   let nearlysortedpercent = parseInt(
@@ -600,6 +601,7 @@ function sorting() {
       "Please enter valid percentage!";
     console.log("invalid nearlysorted percent");
     document.getElementById("errorNearly").style.color = "red";
+    document.getElementById("outputdata").style.display = "none";
     return;
   }
   if (
@@ -612,6 +614,7 @@ function sorting() {
       "Please enter valid percentage!";
     console.log("invalid duplicate percent");
     document.getElementById("errorDup").style.color = "red";
+    document.getElementById("outputdata").style.display = "none";
     return;
   }
   // To handle data if uploaded from a file.
@@ -637,6 +640,7 @@ function sorting() {
             }
             document.getElementById("errorFile").innerText =
               "The datatype and contents in the file doesnt match !";
+            document.getElementById("outputdata").style.display = "none";
             return;
           }
         } else if (datatype == "Float") {
@@ -646,6 +650,7 @@ function sorting() {
             }
             document.getElementById("errorFile").innerText =
               "The datatype and contents in the file doesnt match !";
+            document.getElementById("outputdata").style.display = "none";
             return;
           }
         } else if (datatype == "DateTime") {
@@ -664,6 +669,7 @@ function sorting() {
             if (arr[i].length != 1) {
               document.getElementById("errorFile").innerText =
                 "The datatype and contents in the file doesnt match !";
+              document.getElementById("outputdata").style.display = "none";
               return;
             }
           }
@@ -705,14 +711,12 @@ function sorting() {
       ) {
         document.getElementById("errorNoofelements").innerHTML =
           "Please enter valid array size!";
+        document.getElementById("outputdata").style.display = "none";
         console.log("invalid array size");
         return;
       }
 
-      if (
-        datatype == "Integer" ||
-        datatype == "String" /////////////////////////////////// TODO for character.
-      ) {
+      if (datatype == "Integer" || datatype == "String") {
         minVal = parseInt(document.getElementById("minrange").value);
         maxVal = parseInt(document.getElementById("maxrange").value);
       } else if (datatype == "Float") {
@@ -731,6 +735,7 @@ function sorting() {
         ) {
           document.getElementById("errorMinval").innerHTML =
             "Enter valid minimum value";
+          document.getElementById("outputdata").style.display = "none";
           return;
         }
 
@@ -742,6 +747,7 @@ function sorting() {
         ) {
           document.getElementById("errorMaxval").innerHTML =
             "Enter valid maximum value";
+          document.getElementById("outputdata").style.display = "none";
           return;
         }
       }
@@ -752,6 +758,7 @@ function sorting() {
         ) {
           document.getElementById("errorMinval").innerHTML =
             "Enter valid minimum value";
+          document.getElementById("outputdata").style.display = "none";
           return;
         }
 
@@ -762,6 +769,7 @@ function sorting() {
         ) {
           document.getElementById("errorMaxval").innerHTML =
             "Enter valid maximum value";
+          document.getElementById("outputdata").style.display = "none";
           return;
         }
       }
@@ -774,6 +782,7 @@ function sorting() {
         ) {
           document.getElementById("errorMinval").innerHTML =
             "Enter valid minimum length";
+          document.getElementById("outputdata").style.display = "none";
           return;
         }
 
@@ -784,6 +793,25 @@ function sorting() {
         ) {
           document.getElementById("errorMaxval").innerHTML =
             "Enter valid maximum length";
+          document.getElementById("outputdata").style.display = "none";
+          return;
+        }
+      }
+
+      if (datatype == "Character") {
+        if (!regChar.test(document.getElementById("minrange").value)) {
+          document.getElementById("errorMinval").innerHTML =
+            "Enter valid format";
+          document.getElementById("outputdata").style.display = "none";
+          console.log("enter valid format");
+          return;
+        }
+
+        if (!regChar.test(document.getElementById("maxrange").value)) {
+          document.getElementById("errorMinval").innerHTML =
+            "Enter valid format";
+          document.getElementById("outputdata").style.display = "none";
+          console.log("enter valid format");
           return;
         }
       }
@@ -798,6 +826,7 @@ function sorting() {
         ) {
           document.getElementById("errorMinval").innerHTML =
             "Enter valid format";
+          document.getElementById("outputdata").style.display = "none";
           console.log("enter valid format");
           return;
         }
@@ -812,6 +841,7 @@ function sorting() {
         ) {
           document.getElementById("errorMaxval").innerHTML =
             "Enter valid format";
+          document.getElementById("outputdata").style.display = "none";
           console.log("enter valid format");
           return;
         }
@@ -825,11 +855,21 @@ function sorting() {
         ) {
           document.getElementById("errorMaxval").innerHTML =
             "Please provide correct range";
+          document.getElementById("outputdata").style.display = "none";
           return;
         }
       }
       if (datatype == "Character") {
-        //TODO validation
+        let startChar = document.getElementById("minrange").value;
+        let endChar = document.getElementById("maxrange").value;
+        let startCharCode = startChar.charCodeAt(0);
+        let endCharCode = endChar.charCodeAt(0);
+        if (startCharCode < 65 || startCharCode > endCharCode) {
+          document.getElementById("errorMinval").innerHTML =
+            "Please provide correct range";
+          document.getElementById("outputdata").style.display = "none";
+          return;
+        }
       }
       // if (datatype == "Character") {
       //   if (minVal != "1") {
@@ -882,6 +922,7 @@ function sorting() {
           console.log("error");
           document.getElementById("errorNoofelements").innerHTML =
             "Size must be less than the range between min and max value.";
+          document.getElementById("outputdata").style.display = "none";
           return;
         } else if (availableElemPercent >= 60) {
           // The available element array is created with all possible values between the given min and max range.
@@ -949,10 +990,13 @@ function sorting() {
           }
         }
       } else if (datatype == "DateTime") {
-        //TODO yet to implement the new logic
         for (let i = 0; i < n; i++) {
           let val = generateRandomDate(minVal, maxVal);
-          arr[i] = val;
+          if (!arr.includes(val)) {
+            arr[i] = val;
+          } else {
+            i--;
+          }
         }
       } else if (datatype == "Character") {
         let startChar = document.getElementById("minrange").value;
@@ -969,7 +1013,10 @@ function sorting() {
         let availableElemArray = [];
 
         if (n > rangeDifference) {
-          console.log("error"); //TODO error code
+          document.getElementById("errorNoofelements").innerHTML =
+            "Size must be less than the range between min and max value.";
+          document.getElementById("outputdata").style.display = "none";
+          return;
         } else if (availableElemPercent >= 60) {
           console.log("greater than 60%");
           let index = 0;
@@ -1081,6 +1128,7 @@ function sorting() {
         "Duplicate percent must be greater than " +
         minDuplicatePercent +
         " and less than or equal to 100";
+      document.getElementById("outputdata").style.display = "none";
       return;
     } else {
       let numOfDuplicateElem = Math.round((n * duplicatepercent) / 100);
@@ -2115,7 +2163,6 @@ function sorting() {
     table1 += "</table>";
 
     var table2 = "<table>";
-    // table2+="<tr><th>"+pc[1][0]+"</th></tr>";
     table2 +=
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
@@ -2131,22 +2178,10 @@ function sorting() {
         "</td><td>" +
         pc[1][1][i][3] +
         "</td></tr>";
-    } // commented the below lines so that  External links should be as in first tab to other tabs as well
-    //   table2 +=
-    //     "<tr><td>" +
-    //     pc[1][1][i][0] +
-    //     "</td><td>" +
-    //     pc[1][1][i][1] +
-    //     "</td><td>" +
-    //     pc[1][1][i][2] +
-    //     "</td><td>" +
-    //     pc[1][1][i][3] +
-    //     "</td></tr>";
-    // }
+    }
     table2 += "</table>";
 
     var table3 = "<table>";
-    // table3+="<tr><th>"+pc[2][0]+"</th></tr>";
     table3 +=
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
@@ -2162,22 +2197,10 @@ function sorting() {
         "</td><td>" +
         pc[2][1][i][3] +
         "</td></tr>";
-
-      // table3 +=
-      //   "<tr><td>" +
-      //   pc[2][1][i][0] +
-      //   "</td><td>" +
-      //   pc[2][1][i][1] +
-      //   "</td><td>" +
-      //   pc[2][1][i][2] +
-      //   "</td><td>" +
-      //   pc[2][1][i][3] +
-      //   "</td></tr>";
     }
     table3 += "</table>";
 
     var table4 = "<table>";
-    // table4+="<tr><th>"+pc[3][0]+"</th></tr>";
     table4 +=
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
@@ -2193,17 +2216,6 @@ function sorting() {
         "</td><td>" +
         pc[3][1][i][3] +
         "</td></tr>";
-
-      // table4 +=
-      //   "<tr><td>" +
-      //   pc[3][1][i][0] +
-      //   "</td><td>" +
-      //   pc[3][1][i][1] +
-      //   "</td><td>" +
-      //   pc[3][1][i][2] +
-      //   "</td><td>" +
-      //   pc[3][1][i][3] +
-      //   "</td></tr>";
     }
     table4 += "</table>";
 
@@ -2273,58 +2285,6 @@ function sorting() {
   }
 }
 
-//     function drawTable() {
-//         var div1 = document.getElementById('outputdata');
-//  		var tbl = document.createElement("table");
-//  		for (var j=0; j < 4; j++) {
-// 			var row = document.createElement("tr");
-// 			var cell = document.createElement("th");
-// 			var cellText = document.createTextNode(pc[j][0])
-// 			cell.appendChild(cellText);
-// 			row.appendChild(cell);
-// 			tbl.appendChild(row);
-
-// 			row = document.createElement("tr");
-// 			cell = document.createElement("th");
-// 			cellText = document.createTextNode("Sorting Type");
-// 			cell.appendChild(cellText);
-// 			row.appendChild(cell);
-// 			cell = document.createElement("th");
-// 			cellText = document.createTextNode("Comparisons");
-// 			cell.appendChild(cellText);
-// 			row.appendChild(cell);
-// 			cell = document.createElement("th");
-// 			cellText = document.createTextNode("Swaps");
-// 			cell.appendChild(cellText);
-// 			row.appendChild(cell);
-// 			cell = document.createElement("th");
-// 			cellText = document.createTextNode("TimeTaken (ns)");
-// 			cell.appendChild(cellText);
-// 			row.appendChild(cell);
-// 			tbl.appendChild(row);
-// 			for (var i = 0; i < 10; i++) {
-// 				row = document.createElement("tr");
-// 				cell = document.createElement("td");
-// 				cellText = document.createTextNode(pc[j][1][i][0]);
-// 				cell.appendChild(cellText);
-// 				row.appendChild(cell);
-// 				cell = document.createElement("td");
-// 				cellText = document.createTextNode(pc[j][1][i][1]);
-// 				cell.appendChild(cellText);
-// 				cell = document.createElement("td");
-// 				cellText = document.createTextNode(pc[j][1][i][2]);
-// 				cell.appendChild(cellText);
-// 				cell = document.createElement("td");
-// 				cellText = document.createTextNode(pc[j][1][i][3]);
-// 				cell.appendChild(cellText);
-// 				row.appendChild(cell);
-// 				tbl.appendChild(row); // add the row to the end of the table body
-// 			}
-// 		}
-//     	div1.appendChild(tbl); // appends <table> into <div1>
-// 	}
-// drawTable();
-//}
 // The below method is display the input data according to the tab that is chosen in the table.
 function inputarrContentChange(tabname) {
   let datatype = document.getElementById("datatype").value; // Need to work on datetime format for all tabs.
