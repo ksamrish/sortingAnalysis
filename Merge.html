@@ -40,6 +40,10 @@
           border-right: 0.1px solid gray;
         }
       }
+      a {
+        color: #1f95ee;
+        font-weight: normal;
+      }
     </style>
   </head>
   <body>
@@ -49,103 +53,169 @@
         border: 2px solid black;
         border-radius: 4px;
         margin: 20px;
+        background-color: white;
       "
     >
       <div class="row">
-        <div class="col-12 col-md-8 verticalline">
-          <h2>Merge Sort</h2>
-          <p style="margin-bottom: 20px; font-size: 17px">
-            &emsp;&emsp;&emsp;Merge sort,
+        <div class="col-12 col-md-8">
+          <h2>
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Merge Sort</span
+            >
+          </h2>
+          <p
+            style="
+              margin-top: 30px;
+              margin-bottom: 20px;
+              font-size: 17px;
+              background-color: white;
+              padding: 10px;
+              border-radius: 10px;
+            "
+          >
+            &emsp;&emsp;&emsp; Merge Sort is a Divide and Conquer algorithm. It
+            splits the input array into 2 and calls itself recursively, then
+            merges the 2 sorted halves. The Recursive calls and merging of
+            sorted arrays are made in the merge function, sorting of arrays is
+            done by the function mergeSort.
           </p>
         </div>
         <div
           class="col-12 col-md-4"
-          style="margin-top: 20px; padding-left: 20px"
+          style="
+            margin-top: 20px;
+            padding: 20px;
+            margin-top: 70px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 2px solid #1f95ee;
+          "
         >
           <h5>To Learn more about Merge Sort, refer the link given below:</h5>
           <a
             href="https://www.geeksforgeeks.org/Merge-sort/"
             target="_blank"
-            style="font-size: 20px"
+            style="font-size: 20px; color: #1f95ee"
             >Merge sort</a
           >
         </div>
       </div>
-      <hr />
+      <!-- <hr /> -->
       <div class="row">
-        <div class="col-12 col-md-8 verticalline">
-          <h3>Merge Sort Code</h3>
+        <div class="col-12 col-md-8">
+          <h3>
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Merge Sort Code</span
+            >
+          </h3>
           <br />
           <pre
             style="
-              background-color: rgb(72, 40, 114);
-              color: white;
+              background-color: #ebf6ff;
+              color: black;
               padding: 20px 0px 0px;
+              border-radius: 10px;
             "
           >
-    function mergesort(arr,start,mid,end) {
-        let n1 = mid - start + 1;
-        let n2 = end - mid;
-        let l = [];
-        let r = [];
-        for(let i = 0; i < n1; i++) 
-            l[i] = arr[start+i];
-        for(let i = 0; i < n2; i++)
-            r[i] = arr[mid + 1 + i];
-            let i = 0,j = 0,k = start;
-        while(i < n1 && j < n2) {
-            if(l[i] > r[j]) {
+          function mergesort(arr,start,mid,end) {
+            let n1 = mid - start + 1;
+            let n2 = end - mid;
+            let l = [];
+            let r = [];
+            for(let i = 0; i < n1; i++) 
+                l[i] = arr[start+i];
+            for(let i = 0; i < n2; i++)
+                r[i] = arr[mid + 1 + i];
+                let i = 0,j = 0,k = start;
+            while(i < n1 && j < n2) {
+                if(l[i] > r[j]) {
+                    arr[k++] = r[j++];
+                }
+                else (l[i] <= r[j]){
+                    arr[k++] = l[i++];
+                } 	
+            }
+        
+            while(i < n1){ 
+                arr[k++] = l[i++];
+            }
+            while(j < n2){
                 arr[k++] = r[j++];
             }
-            else (l[i] <= r[j]){
-                arr[k++] = l[i++];
-            } 	
-        }
-    
-        while(i < n1){ 
-            arr[k++] = l[i++];
-        }
-        while(j < n2){
-            arr[k++] = r[j++];
-        }
-        return;
-    }
-    
-    
-    function merge(arr,start,end) {
-        if(start < end) {
-            let mid = Math.floor((start+end)/2);
-            merge(arr,start,mid);
-            merge(arr,mid+1,end);
-            mergesort(arr,start,mid,end);
             return;
         }
-        else
-            return;
-    }
-    
-    function mergeMain(arr){
-        var start = 0;
-        var end = arr.length -1;
-        merge(arr, start, end);
-        return arr;
-    }
+
+            
+        function merge(arr,start,end) {
+            if(start < end) {
+                let mid = Math.floor((start+end)/2);
+                merge(arr,start,mid);
+                merge(arr,mid+1,end);
+                mergesort(arr,start,mid,end);
+                return;
+            }
+            else
+                return;
+        }
+        
+        function mergeMain(arr){
+            var start = 0;
+            var end = arr.length -1;
+            merge(arr, start, end);
+            return arr;
+        }
                 </pre
           >
         </div>
-        <div class="col-12 col-md-4" style="padding-left: 20px">
-          <h3>Other types of sorting :</h3>
+        <div
+          class="col-12 col-md-4"
+          style="border-radius: 10px; border: 2px solid #1f95ee; padding: 10px"
+        >
+          <h3 style="margin-top: 30px">
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Other types of sorting :</span
+            >
+          </h3>
           <br />
           <h5 style="margin-left: 30px">
-            <li><a href="./Bubble.html">Merge Sort</a></li>
-            <li><a href="./Insertion.html">Insertion Sort</a></li>
-            <li><a href="./Selection.html">Selection Sort</a></li>
-            <li><a href="./Quick.html">Quick Sort</a></li>
-            <li><a href="./Quick3.html">Quick3 Sort</a></li>
-            <li><a href="./Heap.html">Heap Sort</a></li>
-            <li><a href="./Shell.html">Shell Sort</a></li>
-            <li><a href="./Count.html">Count Sort</a></li>
-            <li><a href="./Radix.html">Radix Sort</a></li>
+            <li style="padding: 20px">
+              <a href="./Bubble.html">Merge Sort</a>
+            </li>
+            <li style="padding: 20px">
+              <a href="./Insertion.html">Insertion Sort</a>
+            </li>
+            <li style="padding: 20px">
+              <a href="./Selection.html">Selection Sort</a>
+            </li>
+            <li style="padding: 20px"><a href="./Quick.html">Quick Sort</a></li>
+            <li style="padding: 20px">
+              <a href="./Quick3.html">Quick3 Sort</a>
+            </li>
+            <li style="padding: 20px"><a href="./Heap.html">Heap Sort</a></li>
+            <li style="padding: 20px"><a href="./Shell.html">Shell Sort</a></li>
+            <li style="padding: 20px"><a href="./Count.html">Count Sort</a></li>
+            <li style="padding: 20px"><a href="./Radix.html">Radix Sort</a></li>
           </h5>
         </div>
       </div>

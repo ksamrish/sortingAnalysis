@@ -2,61 +2,61 @@ var pc = [
   [
     "random",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
   [
     "reverse",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
   [
     "nearlysorted",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
   [
     "unique",
     [
-      ["bubble", 0, 0, 0],
-      ["selection", 0, 0, 0],
-      ["insertion", 0, 0, 0],
-      ["merge", 0, 0, 0],
-      ["quick", 0, 0, 0],
-      ["quick3", 0, 0, 0],
-      ["heap", 0, 0, 0],
-      ["shell", 0, 0, 0],
-      ["count", 0, 0, 0],
-      ["radix", 0, 0, 0],
+      ["Bubble", 0, 0, 0],
+      ["Selection", 0, 0, 0],
+      ["Insertion", 0, 0, 0],
+      ["Merge", 0, 0, 0],
+      ["Quick", 0, 0, 0],
+      ["Quick3", 0, 0, 0],
+      ["Heap", 0, 0, 0],
+      ["Shell", 0, 0, 0],
+      ["Count", 0, 0, 0],
+      ["Radix", 0, 0, 0],
     ],
   ],
 ];
@@ -79,8 +79,8 @@ var performance_count = [
 
 ///  10 Sorting methods below:
 function bubble(arr, n) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
   for (let i = 0; i < n - 1; i++) {
@@ -94,8 +94,9 @@ function bubble(arr, n) {
       }
     }
   }
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken bubble", time);
   performance_count[0][1] = comparisons;
   performance_count[0][2] = swaps;
@@ -106,8 +107,8 @@ function bubble(arr, n) {
 }
 
 function selection(arr, n) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
   for (let i = 0; i < n - 1; i++) {
@@ -125,8 +126,9 @@ function selection(arr, n) {
     arr[i] = arr[index];
     arr[index] = temp;
   }
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken selection", time);
   performance_count[1][1] = comparisons;
   performance_count[1][2] = swaps;
@@ -135,8 +137,8 @@ function selection(arr, n) {
 }
 
 function insertion(arr, n) {
-  let time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
   for (let i = 1; i < n; i++) {
@@ -150,8 +152,9 @@ function insertion(arr, n) {
       }
     }
   }
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken insertion", time);
   performance_count[2][1] = comparisons;
   performance_count[2][2] = swaps;
@@ -207,15 +210,16 @@ function merge(arr, start, end) {
 }
 
 function mergeMain(arr) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   var start = 0;
   var end = arr.length - 1;
   comparisons = 0;
   swaps = 0;
   merge(arr, start, end);
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken merge", time);
   performance_count[3][1] = comparisons;
   performance_count[3][2] = swaps;
@@ -255,15 +259,16 @@ function quick(arr, start, end) {
 }
 
 function quickMain(arr) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick(arr, start, end);
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken quick", time);
   performance_count[4][1] = comparisons;
   performance_count[4][2] = swaps;
@@ -307,15 +312,16 @@ function quick3(arr, start, end) {
 }
 
 function quick3Main(arr) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick3(arr, start, end);
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("final time quick3", time);
   performance_count[5][1] = comparisons;
   performance_count[5][2] = swaps;
@@ -324,8 +330,8 @@ function quick3Main(arr) {
 }
 
 function heap(arr) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
@@ -352,8 +358,9 @@ function heap(arr) {
     arr[i] = arr[0];
     arr[0] = temp;
   }
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("final time heap", time);
   performance_count[6][1] = comparisons;
   performance_count[6][2] = swaps;
@@ -362,8 +369,8 @@ function heap(arr) {
 }
 
 function shell(arr, n) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   for (let j = Math.floor(n / 2); j >= 1; j = Math.floor(j / 2)) {
@@ -383,8 +390,9 @@ function shell(arr, n) {
       }
     }
   }
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken shell", time);
   performance_count[7][1] = comparisons;
   performance_count[7][2] = swaps;
@@ -393,8 +401,8 @@ function shell(arr, n) {
 }
 
 function countsort(a) {
-  time = performance.now();
-  console.log("initial time", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   let minimum = a[0];
@@ -429,8 +437,9 @@ function countsort(a) {
       a[index++] = i + minimum;
     }
   }
-  console.log("final time", performance.now());
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken count", time);
   performance_count[8][1] = comparisons;
   performance_count[8][2] = swaps;
@@ -465,8 +474,8 @@ function radix(arr, div) {
 }
 
 function radixsort(arr) {
-  time = performance.now();
-  console.log("time taken inital radixsort", time);
+  let startTime = performance.now();
+  console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   let maximum = arr[0];
@@ -493,8 +502,9 @@ function radixsort(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i] += minimum;
   }
-  console.log("time taken final radixsort", time);
-  time = performance.now() - time;
+  let endTime = performance.now();
+  console.log("final time", endTime);
+  time = endTime - startTime;
   console.log("time taken radixsort", time);
   performance_count[9][1] = comparisons;
   performance_count[9][2] = swaps;
@@ -522,14 +532,7 @@ function generateRandomDate(start, end) {
 }
 
 function formatDate(date) {
-  var month = "" + (date.getMonth() + 1);
-  var day = "" + date.getDate();
-  var year = date.getFullYear();
-
-  if (month.length < 2) month = "0" + month;
-  if (day.length < 2) day = "0" + day;
-
-  return [year, month, day].join("-");
+  return date.toISOString();
 }
 
 function getdata() {
@@ -548,6 +551,11 @@ let uniquearr = [];
 let uniqueOutArr = [];
 let outarr = [];
 let nearlysortedOutArr = [];
+// variables for datatime
+let displayInputArr = [];
+let displayReverseInputArr = [];
+let displayNearlyInputArr = [];
+let displayUniqueInputArr = [];
 
 function sorting() {
   changeRandomTabColor();
@@ -581,7 +589,7 @@ function sorting() {
       "Please choose valid data type!";
     return;
   }
-
+  // To validate nearlysorted and duplicate percentage fields
   if (
     !regex.test(document.getElementById("nearlysortedpercent").value) ||
     isNaN(nearlysortedpercent) ||
@@ -671,8 +679,8 @@ function sorting() {
   function SortingCall() {
     let minVal, maxVal;
     console.log("filename " + document.getElementById("file-upload").value);
+    // If data is from a file upload we handle it as below
     if (document.getElementById("file-upload").value != "") {
-      // while(document.getElementById("bool").innerText==""){};
       console.log(
         "after getting arr : " + document.getElementById("filearr").innerText
       );
@@ -689,6 +697,7 @@ function sorting() {
     if (document.getElementById("filearr").innerText == "") {
       console.log("work 0");
       n = parseInt(document.getElementById("noofelements").value);
+      // validating the noofelements input field value
       if (
         !regex.test(document.getElementById("noofelements").value) ||
         isNaN(n) ||
@@ -702,8 +711,7 @@ function sorting() {
 
       if (
         datatype == "Integer" ||
-        datatype == "String" ||
-        datatype == "Character"
+        datatype == "String" /////////////////////////////////// TODO for character.
       ) {
         minVal = parseInt(document.getElementById("minrange").value);
         maxVal = parseInt(document.getElementById("maxrange").value);
@@ -807,6 +815,7 @@ function sorting() {
           console.log("enter valid format");
           return;
         }
+        // end of field validation.
         if (
           !(
             generateDateformat(maxVal).getTime() -
@@ -819,36 +828,22 @@ function sorting() {
           return;
         }
       }
-
       if (datatype == "Character") {
-        if (minVal != "1") {
-          document.getElementById("errorMinval").innerHTML =
-            "Character datatype min size should be 1 ";
-          return;
-        }
-        if (maxVal != "1") {
-          document.getElementById("errorMaxval").innerHTML =
-            "Character datatype max size should be 1 ";
-          return;
-        }
+        //TODO validation
       }
+      // if (datatype == "Character") {
+      //   if (minVal != "1") {
+      //     document.getElementById("errorMinval").innerHTML =
+      //       "Character datatype min size should be 1 ";
+      //     return;
+      //   }
+      //   if (maxVal != "1") {
+      //     document.getElementById("errorMaxval").innerHTML =
+      //       "Character datatype max size should be 1 ";
+      //     return;
+      //   }
+      // }
     }
-    //while(document.getElementById("bool").innerText  == ""){
-    // else{
-    // 	// while(document.getElementById("bool")==""){}
-    // 	// console.log("arr inside"+arr);
-    // 	console.log("work1");
-    // 	if(regfloat.test(arr[0])&&!isNaN(arr[0])){
-    // 		for(let i=0;i<arr.length;i++){
-    // 			arr[i] = parseFloat(arr[i]);
-    // 		}
-    // 	}
-    // 	else if(regminmax.test(arr[0])&&!isNaN(arr[0])){
-    // 		for(let i=0;i<arr.length;i++){
-    // 			arr[i] = parseInt(arr[i]);
-    // 		}
-    // 	}
-    // }
 
     console.log(
       n +
@@ -924,7 +919,7 @@ function sorting() {
         }
       } else if (datatype == "Float") {
         // Since float has many unique values, the available element array is created using the below method by checking if an element already exists or not before pushing a new element
-        let availableElemArray = []; // TODO do we need available elemnt array here? seems no use
+        let availableElemArray = [];
         for (let i = 0; i < n; i++) {
           let val = Math.random() * (maxVal - minVal) + minVal;
           if (!availableElemArray.includes(val)) {
@@ -940,7 +935,7 @@ function sorting() {
         for (let i = 0; i < n; i++) {
           let val = "";
           let noofdigits = Math.round(
-            Math.random() * (maxVal - minVal) + minVal // Added Math.round, so it gets the max number of string as well.
+            Math.random() * (maxVal - minVal) + minVal
           );
           for (let j = 0; j < noofdigits; j++) {
             let digit = parseInt(Math.random() * 26 + 97);
@@ -960,36 +955,36 @@ function sorting() {
           arr[i] = val;
         }
       } else if (datatype == "Character") {
-        //TODO yet to test the new logic that is added below
-        // for (let i = 0; i < n; i++) {
-        //   let val = "";
-        //   let digit = parseInt(Math.random() * 26 + 97);
-        //   val += String.fromCharCode(digit);
-        //   arr[i] = val;
-        // }
-        //Implemented new logic for character
+        let startChar = document.getElementById("minrange").value;
+        let endChar = document.getElementById("maxrange").value;
+        console.log("startchar", startChar);
+        console.log("endChar", endChar);
+        let startCharCode = startChar.charCodeAt(0);
+        let endCharCode = endChar.charCodeAt(0);
+        let rangeDifference = endCharCode - startCharCode;
+        let ignoreAsciiCodes = [91, 92, 93, 94, 95, 96];
         let maxStrings = 52; // 26 lowercase and 26 uppercase letters for characters
         let availableElemPercent = (n / maxStrings) * 100;
         console.log(Math.round(availableElemPercent));
         let availableElemArray = [];
 
-        if (n > maxStrings) {
-          console.log("error");
-          document.getElementById("errorNoofelements").innerHTML =
-            "Size must be less than the range between min and max value.";
-          return;
+        if (n > rangeDifference) {
+          console.log("error"); //TODO error code
         } else if (availableElemPercent >= 60) {
           console.log("greater than 60%");
-          for (let i = 0; i < maxStrings; i++) {
-            if (i < 26) {
-              availableElemArray[i] = String.fromCharCode(65 + i); // 65 is the ascii code for 'A'
+          let index = 0;
+          for (let i = startCharCode; i < endCharCode; i++) {
+            if (!ignoreAsciiCodes.includes(i)) {
+              availableElemArray[index] = i;
+              index++;
             } else {
-              availableElemArray[i] = String.fromCharCode(97 - 26 + i); // 97 is the ascii code for 'a'
+              index--;
             }
           }
           console.log("availableElemArray", availableElemArray);
           for (let i = 0; i < n; i++) {
-            let randomIndex = Math.floor(Math.random() * 52);
+            let randomIndex = Math.floor(Math.random() * n); //TODO similar to integer random generation.
+
             let temp = availableElemArray[i];
             availableElemArray[i] = availableElemArray[randomIndex];
             availableElemArray[randomIndex] = temp;
@@ -997,17 +992,13 @@ function sorting() {
           console.log("availableElemArray after shuffling", availableElemArray);
         } else if (availableElemPercent < 60) {
           for (let i = 0; i < n; i++) {
-            let val = "";
-            let decideCase = Math.round(Math.random()) * 10; // will output 1 or 0
-            if (decideCase == 10) {
-              //the char will have upperCase letter
-              let digit = parseInt(Math.random() * 26 + 65);
-              val += String.fromCharCode(digit);
-            } else {
-              let digit = parseInt(Math.random() * 26 + 97); //lowercase letter
-              val += String.fromCharCode(digit);
-            }
-            if (!availableElemArray.includes(val)) {
+            let val = Math.floor(
+              Math.random() * (endCharCode - startCharCode) + startCharCode
+            );
+            if (
+              !availableElemArray.includes(val) &&
+              !ignoreAsciiCodes.includes(val)
+            ) {
               availableElemArray.push(val);
             } else {
               i--;
@@ -1016,7 +1007,7 @@ function sorting() {
           console.log("availableElemArray < 60", availableElemArray);
         }
         for (let i = 0; i < n; i++) {
-          arr[i] = availableElemArray[i];
+          arr[i] = String.fromCharCode(availableElemArray[i]);
         }
         console.log("randomArray", arr);
       }
@@ -1030,16 +1021,14 @@ function sorting() {
         return a - b;
       })
       .reverse();
-
-    //arr = arr.sort().reverse(); //TODO need to check for integer this method doesnt work but for char it works perfectly
     console.log("reversed array", arr);
     reversearr = [...arr];
 
     arr = arr.sort(function (a, b) {
       return a - b;
     });
-    //arr = arr.sort(); //TODO need to check for integer this method doesnt work but for char it works perfectly
     console.log("sorted array", arr);
+
     //Nearly sorted array is created from the input arr
     nearlysortedarr = [...arr];
     console.log("nearly sorted arr before sort", nearlysortedarr);
@@ -1058,7 +1047,7 @@ function sorting() {
       index2 = Math.floor(Math.random() * n);
       if (
         (map[index1] && map[index1].includes(index2)) ||
-        (map[index2] && map[index2].includes(index1)) // TODO Need to confirm my understanding sep1st 2021
+        (map[index2] && map[index2].includes(index1))
       ) {
         i -= 2;
         continue;
@@ -1082,12 +1071,11 @@ function sorting() {
     console.log("nearly sorted arr after sort", nearlysortedarr);
 
     // Unique array is created using the input array
-    uniquearr = [...arr];
+    uniquearr = [...arr]; //TODO need to see if we need a sorted array, since arr is sorted already.
 
-    let minDuplicatePercent = ((2 / n) * 100).toFixed(2);
+    let minDuplicatePercent = ((2 / n) * 100).toFixed(2); //TODO
     let duplicateArray = [];
     if (duplicatepercent < minDuplicatePercent) {
-      // TODO Need to confirm my understanding sep1st 2021
       console.log("error");
       document.getElementById("errorDup").innerHTML =
         "Duplicate percent must be greater than " +
@@ -1137,10 +1125,11 @@ function sorting() {
     );
     console.log("Before sorting:");
     console.log(a);
-    let displayInputArr = [];
+
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
         displayInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+        //displayInputArr[i] = new Date(a[i]);
       }
     }
     let arrdata = [...a];
@@ -1149,6 +1138,7 @@ function sorting() {
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
         a[i] = formatDate(new Date(a[i])); // to display the output in the UI in the right format
+        //a[i] = new Date(a[i]);
       }
     }
     outarr = [...a];
@@ -1364,7 +1354,6 @@ function sorting() {
     );
     console.log("Before sorting:");
     console.log(a);
-    let displayReverseInputArr = [];
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
         displayReverseInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
@@ -1386,6 +1375,7 @@ function sorting() {
     );
 
     a = [...reversearr];
+
     console.log(
       "\n--------------------------------------------\nBefore sorting:"
     );
@@ -1582,8 +1572,19 @@ function sorting() {
     );
     console.log("Before sorting:");
     console.log(a);
+    if (datatype == "DateTime") {
+      for (let i = 0; i < n1; i++) {
+        displayNearlyInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+      }
+    }
     bubble(a, n1);
     nearlysortedOutArr = [...a];
+    if (datatype == "DateTime") {
+      for (let i = 0; i < n1; i++) {
+        nearlysortedOutArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+      }
+    }
+
     console.log("\n\nBubble sort:");
     console.log(a);
     pc[2][1][0][1] = performance_count[0][1];
@@ -1789,6 +1790,11 @@ function sorting() {
     n1 = n;
 
     a = [...uniquearr];
+    if (datatype == "DateTime") {
+      for (let i = 0; i < n1; i++) {
+        displayUniqueInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+      }
+    }
     console.log(
       "\n\nFew Unique numbers array sorting:\n" +
         "---------------------------------\n"
@@ -1797,6 +1803,11 @@ function sorting() {
     console.log(a);
     bubble(a, n1);
     uniqueOutArr = [...a];
+    if (datatype == "DateTime") {
+      for (let i = 0; i < n1; i++) {
+        uniqueOutArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+      }
+    }
     console.log("uniqueOutArr", uniqueOutArr);
     console.log("\n\nBubble sort:");
     console.log(a);
@@ -2091,7 +2102,7 @@ function sorting() {
       table1 +=
         "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[0][1][i][0] +
-        ".html' style='color:black' target='_blank'>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
         pc[0][1][i][0] +
         "</a></td><td>" +
         pc[0][1][i][1] +
@@ -2109,16 +2120,29 @@ function sorting() {
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
       table2 +=
-        "<tr><td>" +
+        "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[1][1][i][0] +
-        "</td><td>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
+        pc[1][1][i][0] +
+        "</a></td><td>" +
         pc[1][1][i][1] +
         "</td><td>" +
         pc[1][1][i][2] +
         "</td><td>" +
         pc[1][1][i][3] +
         "</td></tr>";
-    }
+    } // commented the below lines so that  External links should be as in first tab to other tabs as well
+    //   table2 +=
+    //     "<tr><td>" +
+    //     pc[1][1][i][0] +
+    //     "</td><td>" +
+    //     pc[1][1][i][1] +
+    //     "</td><td>" +
+    //     pc[1][1][i][2] +
+    //     "</td><td>" +
+    //     pc[1][1][i][3] +
+    //     "</td></tr>";
+    // }
     table2 += "</table>";
 
     var table3 = "<table>";
@@ -2127,15 +2151,28 @@ function sorting() {
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
       table3 +=
-        "<tr><td>" +
+        "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[2][1][i][0] +
-        "</td><td>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
+        pc[2][1][i][0] +
+        "</a></td><td>" +
         pc[2][1][i][1] +
         "</td><td>" +
         pc[2][1][i][2] +
         "</td><td>" +
         pc[2][1][i][3] +
         "</td></tr>";
+
+      // table3 +=
+      //   "<tr><td>" +
+      //   pc[2][1][i][0] +
+      //   "</td><td>" +
+      //   pc[2][1][i][1] +
+      //   "</td><td>" +
+      //   pc[2][1][i][2] +
+      //   "</td><td>" +
+      //   pc[2][1][i][3] +
+      //   "</td></tr>";
     }
     table3 += "</table>";
 
@@ -2145,15 +2182,28 @@ function sorting() {
       "<tr><th>Sorting Type</th><th>Comparisons</th><th>Swaps</th><th>Time Taken</th></tr>";
     for (let i = 0; i < 10; i++) {
       table4 +=
-        "<tr><td>" +
+        "<tr><td style ='font-Weight:bold;text-decoration:underline'><a href='" +
         pc[3][1][i][0] +
-        "</td><td>" +
+        ".html' style='color:#1F95EE' target='_blank'>" +
+        pc[3][1][i][0] +
+        "</a></td><td>" +
         pc[3][1][i][1] +
         "</td><td>" +
         pc[3][1][i][2] +
         "</td><td>" +
         pc[3][1][i][3] +
         "</td></tr>";
+
+      // table4 +=
+      //   "<tr><td>" +
+      //   pc[3][1][i][0] +
+      //   "</td><td>" +
+      //   pc[3][1][i][1] +
+      //   "</td><td>" +
+      //   pc[3][1][i][2] +
+      //   "</td><td>" +
+      //   pc[3][1][i][3] +
+      //   "</td></tr>";
     }
     table4 += "</table>";
 
@@ -2279,6 +2329,9 @@ function sorting() {
 function inputarrContentChange(tabname) {
   let datatype = document.getElementById("datatype").value; // Need to work on datetime format for all tabs.
   if (tabname == "reverse") {
+    if (datatype == "DateTime") {
+      reversearr = [...displayReverseInputArr];
+    }
     document.getElementById("resultarr").innerHTML = reversearr;
     document.getElementById("resultoutarr").innerHTML = outarr; // added this line to get the right output in the popup modal
     if (reversearr.length <= 20) {
@@ -2291,6 +2344,9 @@ function inputarrContentChange(tabname) {
         outarr.slice(0, 20) + ".....";
     }
   } else if (tabname == "random") {
+    if (datatype == "DateTime") {
+      randomarr = [...displayInputArr];
+    }
     document.getElementById("resultarr").innerHTML = randomarr;
     document.getElementById("resultoutarr").innerHTML = outarr;
     if (randomarr.length <= 20) {
@@ -2303,6 +2359,9 @@ function inputarrContentChange(tabname) {
         outarr.slice(0, 20) + ".....";
     }
   } else if (tabname == "nearlysorted") {
+    if (datatype == "DateTime") {
+      nearlysortedarr = [...displayNearlyInputArr];
+    }
     document.getElementById("resultarr").innerHTML = nearlysortedarr;
     document.getElementById("resultoutarr").innerHTML = nearlysortedOutArr;
     if (nearlysortedarr.length <= 20) {
@@ -2315,6 +2374,9 @@ function inputarrContentChange(tabname) {
         nearlysortedOutArr.slice(0, 20) + ".....";
     }
   } else if (tabname == "duplicate") {
+    if (datatype == "DateTime") {
+      uniquearr = [...displayUniqueInputArr];
+    }
     document.getElementById("resultarr").innerHTML = uniquearr;
     document.getElementById("resultoutarr").innerHTML = uniqueOutArr;
     if (uniquearr.length <= 20) {
