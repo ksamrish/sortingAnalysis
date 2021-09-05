@@ -79,7 +79,7 @@ var performance_count = [
 
 ///  10 Sorting methods below:
 function bubble(arr, n) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
@@ -94,7 +94,7 @@ function bubble(arr, n) {
       }
     }
   }
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken bubble", time);
@@ -107,7 +107,7 @@ function bubble(arr, n) {
 }
 
 function selection(arr, n) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
@@ -126,7 +126,7 @@ function selection(arr, n) {
     arr[i] = arr[index];
     arr[index] = temp;
   }
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken selection", time);
@@ -137,7 +137,7 @@ function selection(arr, n) {
 }
 
 function insertion(arr, n) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
@@ -152,7 +152,7 @@ function insertion(arr, n) {
       }
     }
   }
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken insertion", time);
@@ -163,7 +163,7 @@ function insertion(arr, n) {
 }
 
 function heap(arr) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -191,7 +191,7 @@ function heap(arr) {
     arr[i] = arr[0];
     arr[0] = temp;
   }
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("final time heap", time);
@@ -202,7 +202,7 @@ function heap(arr) {
 }
 
 function shell(arr, n) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -223,7 +223,7 @@ function shell(arr, n) {
       }
     }
   }
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken shell", time);
@@ -269,14 +269,14 @@ function quick3(arr, start, end) {
 }
 
 function quick3Main(arr) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick3(arr, start, end);
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("final time quick3", time);
@@ -318,14 +318,14 @@ function quick(arr, start, end) {
 }
 
 function quickMain(arr) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick(arr, start, end);
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken quick", time);
@@ -383,14 +383,14 @@ function merge(arr, start, end) {
 }
 
 function mergeMain(arr) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   var start = 0;
   var end = arr.length - 1;
   comparisons = 0;
   swaps = 0;
   merge(arr, start, end);
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken merge", time);
@@ -402,7 +402,7 @@ function mergeMain(arr) {
 
 
 function countsort(a) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -438,7 +438,7 @@ function countsort(a) {
       a[index++] = i + minimum;
     }
   }
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken count", time);
@@ -475,7 +475,7 @@ function radix(arr, div) {
 }
 
 function radixsort(arr) {
-  let startTime = performance.now();
+  let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -503,7 +503,7 @@ function radixsort(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i] += minimum;
   }
-  let endTime = performance.now();
+  let endTime = performance.now() + performance.timeOrigin;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken radixsort", time);
@@ -795,6 +795,18 @@ function sorting() {
           document.getElementById("errorMaxval").innerHTML =
             "Enter valid maximum length";
           document.getElementById("outputdata").style.display = "none";
+          return;
+        }
+        let mindigits = document.getElementById('minrange').value;
+        let maxdigits = document.getElementById('maxrange').value;
+        let possibleSize = 0;
+        for(let index=maxdigits;index>=mindigits;index--){
+          possibleSize+=Math.pow(26,index);
+        }
+        console.log("possible size",possibleSize,n);
+        if(possibleSize<n){
+          document.getElementById('errorNoofelements').innerHTML="Enter valid array size";
+          document.getElementById('outputdata').style.display = 'none';
           return;
         }
       }

@@ -35,6 +35,20 @@
       .verticalline {
         border: none;
       }
+      #othersortingheading{
+        font-size: 20px;
+        font-weight: bold;
+      }
+      @media screen and (min-width: 1100px) {
+        #othersortingheading{
+          font-size: 24px;
+        }
+      }
+      @media screen and (min-width: 800px) {
+        #othersortingheading{
+          font-size: 22px;
+        }
+      }
       @media screen and (min-width: 768px) {
         .verticalline {
           border-right: 0.1px solid gray;
@@ -50,179 +64,139 @@
     <div
       style="
         padding: 20px;
-        border: 2px solid black;
-        border-radius: 4px;
         margin: 20px;
         background-color: white;
       "
     >
       <div class="row">
-        <div class="col-12 col-md-8">
-          <h2>
-            <span
+        <div class="col-sm-12 col-md-7 col-lg-8" style="padding:0px">
+          <div class="col-12">
+            <p id="othersortingheading">
+              <span
+                style="
+                  background-color: #1f95ee;
+                  color: white;
+                  border-radius: 10px;
+                  padding: 5px;
+                  padding-right: 15px;
+                "
+                >Bubble Sort</span
+              >
+            </p>
+            <p
               style="
-                background-color: #1f95ee;
-                color: white;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                font-size: 17px;
+                font-weight: bold;
+                background-color: white;
+                padding: 10px;
                 border-radius: 10px;
-                padding: 5px;
-                padding-right: 15px;
               "
-              >Bubble Sort</span
             >
-          </h2>
-          <p
+              &emsp;&emsp;&emsp;Bubble sort, sometimes referred to as sinking
+              sort, is a simple sorting algorithm that repeatedly steps through
+              the list, compares adjacent elements and swaps them if they are in
+              the wrong order. The pass through the list is repeated until the
+              list is sorted. The algorithm, which is a comparison sort, is named
+              for the way smaller or larger elements "bubble" to the top of the
+              list.
+            </p>
+          </div>
+          <div class="col-12">
+            <p id="othersortingheading">
+              <span
+                style="
+                  background-color: #1f95ee;
+                  color: white;
+                  border-radius: 10px;
+                  padding: 5px;
+                  padding-right: 15px;
+                "
+                >Bubble Sort Code</span
+              >
+            </p>
+            <br />
+            <pre
+              style="
+                background-color: #ebf6ff;
+                color: black;
+                padding: 20px 0px 0px;
+                border-radius: 10px;
+              "
+            >
+      function bubble( arr,  n) {
+          for(let i = 0; i < n-1; i++) {
+              for(let j = 0; j < n-i-1; j++) {
+                  if(arr[j] > arr[j+1]) {
+                      let temp = arr[j];
+                      arr[j] = arr[j+1];
+                      arr[j+1] = temp;
+                  }
+              }
+          }
+      return arr;
+      }
+                  </pre
+            >
+          
+          </div>
+          </div>
+          <div class="col-sm-12 col-md-5 col-lg-4" 
             style="
-              margin-top: 30px;
-              margin-bottom: 20px;
-              font-size: 17px;
-              background-color: white;
-              padding: 10px;
+              padding-left: 20px;
+              margin-top: 0px;
+              margin-bottom: 30px;
               border-radius: 10px;
+              border: 2px solid #1f95ee;
             "
           >
-            &emsp;&emsp;&emsp;Bubble sort, sometimes referred to as sinking
-            sort, is a simple sorting algorithm that repeatedly steps through
-            the list, compares adjacent elements and swaps them if they are in
-            the wrong order. The pass through the list is repeated until the
-            list is sorted. The algorithm, which is a comparison sort, is named
-            for the way smaller or larger elements "bubble" to the top of the
-            list.
-          </p>
-        </div>
-        <div
-          class="col-12 col-md-4"
-          style="
-            margin-top: 20px;
-            padding: 20px;
-            margin-top: 70px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            border: 2px solid #1f95ee;
-          "
-        >
-          <h5>To Learn more about Bubble Sort, refer the link given below:</h5>
-          <a
-            href="https://www.geeksforgeeks.org/bubble-sort/"
-            target="_blank"
-            style="font-size: 20px; color: #1f95ee"
-            >Bubble sort</a
-          >
-        </div>
-      </div>
-      <!-- <hr /> -->
-      <div class="row">
-        <div class="col-12 col-md-8">
-          <h3>
-            <span
-              style="
-                background-color: #1f95ee;
-                color: white;
-                border-radius: 10px;
-                padding: 5px;
-                padding-right: 15px;
-              "
-              >Bubble Sort Code</span
-            >
-          </h3>
-          <br />
-          <pre
-            style="
-              background-color: #ebf6ff;
-              color: black;
-              padding: 20px 0px 0px;
-              border-radius: 10px;
-            "
-          >
-    function bubble( arr,  n) {
-        for(let i = 0; i < n-1; i++) {
-            for(let j = 0; j < n-i-1; j++) {
-                if(arr[j] > arr[j+1]) {
-                    let temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                }
-            }
-        }
-    return arr;
-    }
-                </pre
-          >
-          <!-- <p>
-            The above function always runs O(n^2) time even if the array is
-            sorted. It can be optimized by stopping the algorithm if inner loop
-            didn’t cause any swap.
-          </p>
-          <pre
-            style="
-              background-color: #ebf6ff;
-              color: black;
-              padding: 20px 0px 0px;
-              border-radius: 10px;
-            "
-          >
-    static void bubbleSort(int arr[], int n) 
-        { 
-            int i, j, temp; 
-            boolean swapped; 
-            for (i = 0; i < n - 1; i++)  
-            { 
-                swapped = false; 
-                for (j = 0; j < n - i - 1; j++)  
-                { 
-                    if (arr[j] > arr[j + 1])  
-                    { 
-                        // swap arr[j] and arr[j+1] 
-                        temp = arr[j]; 
-                        arr[j] = arr[j + 1]; 
-                        arr[j + 1] = temp; 
-                        swapped = true; 
-                    } 
-                } 
-    
-                // IF no two elements were  
-                // swapped by inner loop, then break 
-                if (swapped == false) 
-                    break; 
-            } 
-        } 
-                </pre
-          > -->
-        </div>
-        <div
-          class="col-12 col-md-4"
-          style="border-radius: 10px; border: 2px solid #1f95ee; padding: 10px"
-        >
-          <h3 style="margin-top: 30px">
-            <span
-              style="
-                background-color: #1f95ee;
-                color: white;
-                border-radius: 10px;
-                padding: 5px;
-                padding-right: 15px;
-              "
-              >Other types of sorting :</span
-            >
-          </h3>
-          <br />
-          <h5 style="margin-left: 30px">
-            <li style="padding: 20px">
-              <a href="./Insertion.html">Insertion Sort</a>
-            </li>
-            <li style="padding: 20px">
-              <a href="./Selection.html">Selection Sort</a>
-            </li>
-            <li style="padding: 20px"><a href="./Merge.html">Merge Sort</a></li>
-            <li style="padding: 20px"><a href="./Quick.html">Quick Sort</a></li>
-            <li style="padding: 20px">
-              <a href="./Quick3.html">Quick3 Sort</a>
-            </li>
-            <li style="padding: 20px"><a href="./Heap.html">Heap Sort</a></li>
-            <li style="padding: 20px"><a href="./Shell.html">Shell Sort</a></li>
-            <li style="padding: 20px"><a href="./Count.html">Count Sort</a></li>
-            <li style="padding: 20px"><a href="./Radix.html">Radix Sort</a></li>
-          </h5>
-        </div>
+            <div>
+              <h5 style="margin-top: 10px;">To Learn more about Bubble Sort, refer the link given below:</h5>
+              <li style="margin-left: 30px"><a
+                href="https://www.geeksforgeeks.org/bubble-sort/"
+                target="_blank"
+                style="font-size: 20px; color: #1f95ee"
+                >Bubble sort</a
+              ></li>
+            </div>
+            <!-- </div> -->
+            <!-- <hr /> -->
+            <!-- <div class="row"> -->
+        
+            <div>
+              <p id="othersortingheading" style="margin-top: 100px">
+                <span
+                  style="
+                    background-color: #1f95ee;
+                    color: white;
+                    border-radius: 10px;
+                    padding: 5px;
+                    padding-right: 15px;
+                  "
+                  >Other types of sorting :</span
+                >
+              </p>
+              <br />
+              <h5 style="margin-left: 30px">
+                <li>
+                  <a href="./Insertion.html">Insertion Sort</a>
+                </li>
+                <li>
+                  <a href="./Selection.html">Selection Sort</a>
+                </li>
+                <li><a href="./Merge.html">Merge Sort</a></li>
+                <li><a href="./Quick.html">Quick Sort</a></li>
+                <li>
+                  <a href="./Quick3.html">Quick3 Sort</a>
+                </li>
+                <li><a href="./Heap.html">Heap Sort</a></li>
+                <li><a href="./Shell.html">Shell Sort</a></li>
+                <li><a href="./Count.html">Count Sort</a></li>
+                <li><a href="./Radix.html">Radix Sort</a></li>
+              </h5>
+            </div>
+          </div>
       </div>
     </div>
   </body>
