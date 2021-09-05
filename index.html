@@ -419,15 +419,26 @@
 				}else if(datatype == "Character"){
 					document.getElementById("inputMinValue").textContent = "Beginning Char:";
 					document.getElementById("inputMaxValue").textContent = "Ending Char:";
+					document.getElementById("minrange").value = "A";
+					document.getElementById("maxrange").value = "z";
+					// document.getElementById("noofelements").value = "20";
+					// document.getElementById("nearlysortedpercent").value = "10";
+					// document.getElementById("duplicatepercent").value = "20";
 				}else if(datatype == "String"){
 					document.getElementById("inputMinValue").textContent = "Min String Length:";
 					document.getElementById("inputMaxValue").textContent = "Max String Length:";
+					document.getElementById("minrange").value = "1";
+					document.getElementById("maxrange").value = "4";
 				}else if(datatype == "DateTime"){
 					document.getElementById("inputMinValue").textContent = "Starting Date:";
 					document.getElementById("inputMaxValue").textContent = "Ending Date:";
+					document.getElementById("minrange").value = "2020-03-20";
+					document.getElementById("maxrange").value = "2021-06-23";
 				}else if(datatype == "Float"){
 					document.getElementById("inputMinValue").textContent = "Minimum Value:";
 					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
+					document.getElementById("minrange").value = "1.5";
+					document.getElementById("maxrange").value = "4.8";
 				}
 			}
 			var myChart;
