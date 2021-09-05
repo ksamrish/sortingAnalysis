@@ -860,7 +860,6 @@ function sorting() {
         }
       }
       if (datatype == "Character") {
-        //TODO validation
         let startChar = document.getElementById("minrange").value;
         let endChar = document.getElementById("maxrange").value;
         let startCharCode = startChar.charCodeAt(0);
