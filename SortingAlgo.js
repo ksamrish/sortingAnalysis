@@ -552,7 +552,13 @@ let displayReverseInputArr = [];
 let displayNearlyInputArr = [];
 let displayUniqueInputArr = [];
 
+async function callsorting(){
+  sorting();
+}
+
 function sorting() {
+  // console.log('block none 1')
+  // document.getElementById('loading').style.display='block';
   changeRandomTabColor();
   //document.getElementById("errorFile").innerHTML = "";
   document.getElementById("errorDatatype").innerHTML = "";
@@ -1760,6 +1766,8 @@ function sorting() {
     document.getElementById("swapsunique").innerHTML = swapstakenunique;
     graph(); // Graph called to display the output data.
   }
+  // console.log('block none')
+  // document.getElementById('loading').style.display='none';
 }
 
 // The below method is display the input data according to the tab that is chosen in the table.

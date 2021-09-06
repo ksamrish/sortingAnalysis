@@ -75,6 +75,11 @@
 			background-color:#1F95EE ;
 			position: relative;
 		}
+		/* @media screen and (min-width: 315px) {
+			.inputselect{
+				padding: 10px 0px 10px 10px;
+			}
+		} */
 		table {
 			overflow-x: auto;
 			font-family: arial, sans-serif;
@@ -126,7 +131,40 @@
 			background-color:#1F95EE;
 			color:white;
 		}
-
+		#loading {
+			display : none;
+			/* display: block; */
+			position: fixed;
+			z-index: 1031; /*High z-index so it is on top of the page */
+			top: 50%;
+			left: 50%; /* or: left: 50%; */
+			/* margin-top: -..px; half of the elements height */
+			/* margin-right: -..px; half of the elements widht */
+		}
+		.floatright{
+			float: right;
+		}
+		@media screen and (max-width: 991px) {
+			.floatright{
+				float: left;
+			}
+		}
+		@media screen and (max-width: 767px) {
+			.floatright{
+				float: right;
+			}
+		}
+		@media screen and (max-width: 550px) {
+			.labelform{
+				width: 100%;
+				float: left;
+				text-align: left;
+			}
+			.floatright{
+				width: 100%;
+				float: left;
+			}
+		}
 	</style>
 </head>
 
@@ -200,7 +238,7 @@
 		<div id= "collapsibleForm" class = "panel-collapse collapse">
 			<br/>
 			
-			<div  class="row-content" style="border:solid #1F95EE 2px; border-radius: 10px;">
+			<div class="row-content" style="overflow-x: scroll;">
 				<table >
 					<tr>
 						<th >Data Type</th>
@@ -239,7 +277,7 @@
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
 					<label style="margin-right:10px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
-						<select class="inputselect" id="datatype" onchange="labelchange()">
+						<select class="inputselect floatright" id="datatype" onchange="labelchange()">
 							<!-- <option class="option" >Choose</option> -->
 							<option class="option" >Integer</option>
 							<option class="option" >Float</option>
@@ -250,33 +288,33 @@
 						<div style="color:red" id="errorDatatype"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
+					<label class="labelform" style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
 					
-					<input class="inputbox" id="noofelements" type="text" value = "20">
+					<input class="inputbox floatright" id="noofelements" type="text" value = "20">
 					
 					<div style="color:red" id="errorNoofelements"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label id = "inputMinValue" style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
-					<input class="inputbox" id="minrange" type="text" value = "0">
+					<label class="labelform" id = "inputMinValue" style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
+					<input class="inputbox floatright" id="minrange" type="text" value = "0">
 					<!--removed placeholder placeholder="Enter the min range..."-->
 					<div id="errorMinval" style="color:red"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label id = "inputMaxValue" style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
-					<input class="inputbox" id="maxrange" type="text" value = "1000">
+					<label class="labelform" id = "inputMaxValue" style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
+					<input class="inputbox floatright" id="maxrange" type="text" value = "1000">
 					<!--removed placeholder placeholder="Enter the max range..."-->
 					<div id="errorMaxval" style="color:red"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Nearly Sorted Percent: </label>
-					<input class="inputbox" id="nearlysortedpercent" type="text" value="10">
+					<label class="labelform" style="margin-right:0px;font-size:20px">Nearly Sorted Percent: </label>
+					<input class="inputbox floatright" id="nearlysortedpercent" type="text" value="10">
 					<!--removed placeholder placeholder="Enter the nearlysorted %..."-->
 					<div style="color:red" id="errorNearly"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Duplicate percent: </label>
-					<input class="inputbox" id="duplicatepercent" type="text" value="20">
+					<label class="labelform" style="margin-right:10px;font-size:20px">Duplicate percent: </label>
+					<input class="inputbox floatright" id="duplicatepercent" type="text" value="20">
 					<!--removed placeholder placeholder="Enter the duplicate %..."-->
 					<div id="errorDup" style="color:red"></div><br>
 				</div><br>
@@ -294,7 +332,7 @@
 					<div id="errorFile" style="color:red"></div><br>
 				</div> -->
 				<div class="col-12 contentcenter" style="margin-bottom:20px">
-					<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
+					<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;" onclick="callsorting()">Submit</button>
 				</div>
 			</div>
 		</div>
@@ -364,7 +402,10 @@
 			<!-- <button id="getdata" onclick="getdata()">getdata</button> -->
 
 			<!-- <div  id="outputdata" class="row-content" style="overflow-x: auto;"> -->
-				
+			<div class="spinner-border text-primary" id="loading">
+				<!-- <span class="sr-only">Loading...</span> -->
+			</div>
+			<p style="color: red; text-align: center;">* For smaller input size, timetaken may be 0ns because the timetaken calculated in milliseconds and converted to nanoseconds.</p>
 			<div class="col-12">
 				<div class="tab-content" style="margin-top:16px">
 					<div class="tab-pane active" id="random">
@@ -416,7 +457,7 @@
 			
 			var inputformicon = "add";
 			//calling the onclick function for the submit button to have the ouptut for the default values 
-			document.getElementById('submit').onclick();
+			document.getElementById('submit').click();
 			
 			function formcollapseLogoChange(){
 				if(inputformicon=="add"){
@@ -523,12 +564,12 @@
 				mypopUpChart.destroy();
 			}
 			function graph(){
-				if(datatype=='Integer'||datatype=='Float'){
-					document.getElementById('popUpChart').style.display='block';
-				}
-				else{
-					document.getElementById('popUpChart').style.display='none';
-				}
+				// if(datatype=='Integer'||datatype=='Float'){
+				// 	document.getElementById('popUpChart').style.display='block';
+				// }
+				// else{
+				// 	document.getElementById('popUpChart').style.display='none';
+				// }
 				if(bool>0){
 					destroy();
 				}
@@ -537,7 +578,7 @@
 				var ctx = document.getElementById('myChart');
 				
 				var popupctx;
-				if(datatype=='Integer'||datatype=='Float')
+				// if(datatype=='Integer'||datatype=='Float')
 					popupctx = document.getElementById('popUpChart');
 
 				var data = [];
@@ -551,11 +592,19 @@
 				inputarr = document.getElementById("resultarr").innerHTML.toString().split(",");
 				outputarr = document.getElementById("resultoutarr").innerHTML.toString().split(",");
 
-				// if(datatype=='Character'){
-				// 	for(var index=0;index<inputarr.length;index++){
-				// 		inputarr[i] = inputarr[i]
-				// 	}
-				// }
+				if(datatype=='Character'){
+					for(var index=0;index<inputarr.length;index++){
+						inputarr[index] = inputarr[index].charCodeAt(0);
+						outputarr[index] = outputarr[index].charCodeAt(0);
+					}
+					// console.log(inputarr,outputarr,'helo');
+				}
+				if(datatype=='DateTime'){
+					for(var index=0;index<inputarr.length;index++){
+						inputarr[index] = new Date(inputarr[index]).getTime()
+						outputarr[index] = new Date(outputarr[index]).getTime();
+					}
+				}
 				var popUpLabel = [];
 				var elementsSize = document.getElementById('noofelements').value;
 				// var maximumrange = document.getElementById('maxrange').value;
@@ -637,7 +686,7 @@
 								id:'y',
 								scaleLabel: {
 									display: true,
-									labelString: 'Time in nanoseconds'
+									labelString: 'Time in microseconds'
 									}
 							},],
 							xAxes: [{
@@ -651,7 +700,7 @@
 
 						}
 				});
-				if(datatype=='Integer'||datatype=='Float'){
+				// if(datatype=='Integer'||datatype=='Float'){
 					mypopUpChart = new Chart(popupctx, {
 						type: 'line',
 						data: popUpData,
@@ -691,7 +740,7 @@
 							}
 					
 					});
-				}
+				// }		
 			}
 		</script>
 </body>
