@@ -251,6 +251,7 @@
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
 					<label style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
+					
 					<input class="inputbox" id="noofelements" type="text" value = "20">
 					
 					<div style="color:red" id="errorNoofelements"></div><br>
@@ -279,12 +280,11 @@
 					<!--removed placeholder placeholder="Enter the duplicate %..."-->
 					<div id="errorDup" style="color:red"></div><br>
 				</div><br>
-				<div class="col-sm-12 contentcenter" style="color:black">
+				<!-- <div class="col-sm-12 contentcenter" style="color:black">
 					(OR)
 				</div><br><br>
 				<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
 					<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
-					<!-- <input id="file" type="file" accept=".csv" style="color:black;"> -->
 					<label for="file-upload" class="custom-file-upload">
 						<i class="fa fa-cloud-upload"></i> Custom Upload
 					</label>
@@ -292,7 +292,7 @@
 					</div>
 					<input id="file-upload" type="file"/>
 					<div id="errorFile" style="color:red"></div><br>
-				</div>
+				</div> -->
 				<div class="col-12 contentcenter" style="margin-bottom:20px">
 					<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
 				</div>
@@ -436,6 +436,8 @@
 				if(datatype == "Integer"){
 					document.getElementById("inputMinValue").textContent = "Minimum Value:";
 					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
+					document.getElementById("minrange").value = "0";
+					document.getElementById("maxrange").value = "1000";
 				}else if(datatype == "Character"){
 					document.getElementById("inputMinValue").textContent = "Beginning Char:";
 					document.getElementById("inputMaxValue").textContent = "Ending Char:";
@@ -465,9 +467,9 @@
 			var mypopUpChart;
 
 
-			document.getElementById('file-upload').onchange = function () {
-				document.getElementById('file_name').innerHTML = this.value;
-			};
+			// document.getElementById('file-upload').onchange = function () {
+			// 	document.getElementById('file_name').innerHTML = this.value;
+			// };
 
 			function changeRandomTabColor(){
 				document.getElementById("randomtab").style.background="#d9e9f5";

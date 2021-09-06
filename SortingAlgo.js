@@ -400,7 +400,6 @@ function mergeMain(arr) {
   return arr;
 }
 
-
 function countsort(a) {
   let startTime = performance.now() + performance.timeOrigin;
   console.log("initial time", startTime);
@@ -560,7 +559,7 @@ let displayUniqueInputArr = [];
 
 function sorting() {
   changeRandomTabColor();
-  document.getElementById("errorFile").innerHTML = "";
+  //document.getElementById("errorFile").innerHTML = "";
   document.getElementById("errorDatatype").innerHTML = "";
   document.getElementById("errorNoofelements").innerHTML = "";
   document.getElementById("errorMinval").innerHTML = "";
@@ -619,86 +618,86 @@ function sorting() {
     return;
   }
   // To handle data if uploaded from a file.
-  if (document.getElementById("file-upload").value != "") {
-    Papa.parse(document.getElementById("file-upload").files[0], {
-      download: false,
-      header: false,
-      complete: function (result) {
-        console.log(result);
-        arr = [];
-        console.log(result.data.length);
-        console.log(result.data[0].length);
-        console.log(result.data[0]);
-        //for(let j=0;j<result.data.length;j++){
-        for (let i = 0; i < result.data[0].length; i++) {
-          arr.push(result.data[0][i]);
-        }
+  // if (document.getElementById("file-upload").value != "") {
+  //   Papa.parse(document.getElementById("file-upload").files[0], {
+  //     download: false,
+  //     header: false,
+  //     complete: function (result) {
+  //       console.log(result);
+  //       arr = [];
+  //       console.log(result.data.length);
+  //       console.log(result.data[0].length);
+  //       console.log(result.data[0]);
+  //       //for(let j=0;j<result.data.length;j++){
+  //       for (let i = 0; i < result.data[0].length; i++) {
+  //         arr.push(result.data[0][i]);
+  //       }
 
-        if (datatype == "Integer") {
-          for (let i = 0; i < arr.length; i++) {
-            if (regminmax.test(arr[i])) {
-              continue;
-            }
-            document.getElementById("errorFile").innerText =
-              "The datatype and contents in the file doesnt match !";
-            document.getElementById("outputdata").style.display = "none";
-            return;
-          }
-        } else if (datatype == "Float") {
-          for (let i = 0; i < arr.length; i++) {
-            if (regfloatminmax.test(arr[i])) {
-              continue;
-            }
-            document.getElementById("errorFile").innerText =
-              "The datatype and contents in the file doesnt match !";
-            document.getElementById("outputdata").style.display = "none";
-            return;
-          }
-        } else if (datatype == "DateTime") {
-          for (let i = 0; i < arr.length; i++) {
-            if (new Date(arr[i]) != "Invalid Date") {
-              arr[i] = dataFormatter(arr[i]);
-              continue;
-            }
-            document.getElementById("errorFile").innerText =
-              "The datatype and contents in the file doesnt match !";
-            return;
-          }
-        } else if (datatype == "Character") {
-          for (let i = 0; i < arr.length; i++) {
-            console.log(arr[i].length);
-            if (arr[i].length != 1) {
-              document.getElementById("errorFile").innerText =
-                "The datatype and contents in the file doesnt match !";
-              document.getElementById("outputdata").style.display = "none";
-              return;
-            }
-          }
-        }
-        document.getElementById("filearr").innerText = arr;
-        SortingCall();
-      },
-    });
-  } else {
-    SortingCall();
-  }
-
+  //       if (datatype == "Integer") {
+  //         for (let i = 0; i < arr.length; i++) {
+  //           if (regminmax.test(arr[i])) {
+  //             continue;
+  //           }
+  //           document.getElementById("errorFile").innerText =
+  //             "The datatype and contents in the file doesnt match !";
+  //           document.getElementById("outputdata").style.display = "none";
+  //           return;
+  //         }
+  //       } else if (datatype == "Float") {
+  //         for (let i = 0; i < arr.length; i++) {
+  //           if (regfloatminmax.test(arr[i])) {
+  //             continue;
+  //           }
+  //           document.getElementById("errorFile").innerText =
+  //             "The datatype and contents in the file doesnt match !";
+  //           document.getElementById("outputdata").style.display = "none";
+  //           return;
+  //         }
+  //       } else if (datatype == "DateTime") {
+  //         for (let i = 0; i < arr.length; i++) {
+  //           if (new Date(arr[i]) != "Invalid Date") {
+  //             arr[i] = dataFormatter(arr[i]);
+  //             continue;
+  //           }
+  //           document.getElementById("errorFile").innerText =
+  //             "The datatype and contents in the file doesnt match !";
+  //           return;
+  //         }
+  //       } else if (datatype == "Character") {
+  //         for (let i = 0; i < arr.length; i++) {
+  //           console.log(arr[i].length);
+  //           if (arr[i].length != 1) {
+  //             document.getElementById("errorFile").innerText =
+  //               "The datatype and contents in the file doesnt match !";
+  //             document.getElementById("outputdata").style.display = "none";
+  //             return;
+  //           }
+  //         }
+  //       }
+  //       document.getElementById("filearr").innerText = arr;
+  //       SortingCall();
+  //     },
+  //   });
+  // } else {
+  //   SortingCall();
+  // }
+  SortingCall();
   function SortingCall() {
     let minVal, maxVal;
-    console.log("filename " + document.getElementById("file-upload").value);
+    //console.log("filename " + document.getElementById("file-upload").value);
     // If data is from a file upload we handle it as below
-    if (document.getElementById("file-upload").value != "") {
-      console.log(
-        "after getting arr : " + document.getElementById("filearr").innerText
-      );
-      arr = document.getElementById("filearr").innerText.split(",");
-      // To convert from string to integer/float in  the uploaded file data.
-      if (datatype == "Integer" || datatype == "Float") {
-        for (var i = 0; i < arr.length; i++) {
-          arr[i] = parseInt(arr[i]);
-        }
-      }
-    }
+    // if (document.getElementById("file-upload").value != "") {
+    //   console.log(
+    //     "after getting arr : " + document.getElementById("filearr").innerText
+    //   );
+    //   arr = document.getElementById("filearr").innerText.split(",");
+    //   // To convert from string to integer/float in  the uploaded file data.
+    //   if (datatype == "Integer" || datatype == "Float") {
+    //     for (var i = 0; i < arr.length; i++) {
+    //       arr[i] = parseInt(arr[i]);
+    //     }
+    //   }
+    // }
     n = arr.length;
     // Form validation.
     if (document.getElementById("filearr").innerText == "") {
@@ -797,16 +796,17 @@ function sorting() {
           document.getElementById("outputdata").style.display = "none";
           return;
         }
-        let mindigits = document.getElementById('minrange').value;
-        let maxdigits = document.getElementById('maxrange').value;
+        let mindigits = document.getElementById("minrange").value;
+        let maxdigits = document.getElementById("maxrange").value;
         let possibleSize = 0;
-        for(let index=maxdigits;index>=mindigits;index--){
-          possibleSize+=Math.pow(26,index);
+        for (let index = maxdigits; index >= mindigits; index--) {
+          possibleSize += Math.pow(26, index);
         }
-        console.log("possible size",possibleSize,n);
-        if(possibleSize<n){
-          document.getElementById('errorNoofelements').innerHTML="Enter valid array size";
-          document.getElementById('outputdata').style.display = 'none';
+        console.log("possible size", possibleSize, n);
+        if (possibleSize < n) {
+          document.getElementById("errorNoofelements").innerHTML =
+            "Enter valid array size";
+          document.getElementById("outputdata").style.display = "none";
           return;
         }
       }
