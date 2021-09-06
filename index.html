@@ -276,7 +276,7 @@
 					<h3 class="contentcenter" style="color:#1F95EE;">Input</h1><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
+					<label style="margin-right:0px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
 						<select class="inputselect floatright" id="datatype" onchange="labelchange()">
 							<!-- <option class="option" >Choose</option> -->
 							<option class="option" >Integer</option>
@@ -288,20 +288,20 @@
 						<div style="color:red" id="errorDatatype"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label class="labelform" style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
+					<label class="labelform" style="margin-right:0px;font-size:20px">Size of the array: </label>&emsp;
 					
 					<input class="inputbox floatright" id="noofelements" type="text" value = "20">
 					
 					<div style="color:red" id="errorNoofelements"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label class="labelform" id = "inputMinValue" style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
+					<label class="labelform" id = "inputMinValue" style="margin-right:0px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
 					<input class="inputbox floatright" id="minrange" type="text" value = "0">
 					<!--removed placeholder placeholder="Enter the min range..."-->
 					<div id="errorMinval" style="color:red"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label class="labelform" id = "inputMaxValue" style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
+					<label class="labelform" id = "inputMaxValue" style="margin-right:0px;font-size:20px">Maximum value: </label>&emsp;
 					<input class="inputbox floatright" id="maxrange" type="text" value = "1000">
 					<!--removed placeholder placeholder="Enter the max range..."-->
 					<div id="errorMaxval" style="color:red"></div><br>
@@ -313,7 +313,7 @@
 					<div style="color:red" id="errorNearly"></div><br>
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label class="labelform" style="margin-right:10px;font-size:20px">Duplicate percent: </label>
+					<label class="labelform" style="margin-right:0px;font-size:20px">Duplicate percent: </label>
 					<input class="inputbox floatright" id="duplicatepercent" type="text" value="20">
 					<!--removed placeholder placeholder="Enter the duplicate %..."-->
 					<div id="errorDup" style="color:red"></div><br>
@@ -564,12 +564,12 @@
 				mypopUpChart.destroy();
 			}
 			function graph(){
-				// if(datatype=='Integer'||datatype=='Float'){
-				// 	document.getElementById('popUpChart').style.display='block';
-				// }
-				// else{
-				// 	document.getElementById('popUpChart').style.display='none';
-				// }
+				if(datatype!='String'){
+					document.getElementById('popUpChart').style.display='block';
+				}
+				else{
+					document.getElementById('popUpChart').style.display='none';
+				}
 				if(bool>0){
 					destroy();
 				}
@@ -578,7 +578,7 @@
 				var ctx = document.getElementById('myChart');
 				
 				var popupctx;
-				// if(datatype=='Integer'||datatype=='Float')
+				if(datatype!='String')
 					popupctx = document.getElementById('popUpChart');
 
 				var data = [];
@@ -700,7 +700,7 @@
 
 						}
 				});
-				// if(datatype=='Integer'||datatype=='Float'){
+				if(datatype!='String'){
 					mypopUpChart = new Chart(popupctx, {
 						type: 'line',
 						data: popUpData,
@@ -740,7 +740,7 @@
 							}
 					
 					});
-				// }		
+				}		
 			}
 		</script>
 </body>
