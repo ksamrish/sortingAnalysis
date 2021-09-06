@@ -493,9 +493,9 @@ function radixsort(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i] -= minimum;
   }
-  console.log("maximum " + maximum + "\t" + "minimum: " + minimum);
+
   let length = (maximum - minimum).toString().length;
-  console.log(length);
+
   for (let i = 0, div = 1; i < length; i++, div *= 10) {
     radix(arr, div);
   }
@@ -521,23 +521,18 @@ function generateDateformat(date) {
 }
 
 function generateRandomDate(start, end) {
-  start = new Date(
-    start.slice(0, 4) + "," + start.slice(5, 7) + "," + start.slice(8)
-  );
-  end = new Date(end.slice(0, 4) + "," + end.slice(5, 7) + "," + end.slice(8));
+  start = new Date(start);
+  end = new Date(end);
   let date = new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
-  return date;
-}
-
-function formatDate(date) {
   return date.toISOString();
 }
 
-function getdata() {
-  console.log(document.getElementById("filearr").value);
-}
+// function formatDate(date) {
+//   return date.toISOString();
+// }
+
 function dataFormatter(inputDate) {
   let convertedDate = new Date(inputDate).toISOString();
   let parsedDate = convertedDate.slice(0, 10);
@@ -599,7 +594,6 @@ function sorting() {
   ) {
     document.getElementById("errorNearly").innerHTML =
       "Please enter valid percentage!";
-    console.log("invalid nearlysorted percent");
     document.getElementById("errorNearly").style.color = "red";
     document.getElementById("outputdata").style.display = "none";
     return;
@@ -612,7 +606,6 @@ function sorting() {
   ) {
     document.getElementById("errorDup").innerHTML =
       "Please enter valid percentage!";
-    console.log("invalid duplicate percent");
     document.getElementById("errorDup").style.color = "red";
     document.getElementById("outputdata").style.display = "none";
     return;
@@ -701,7 +694,6 @@ function sorting() {
     n = arr.length;
     // Form validation.
     if (document.getElementById("filearr").innerText == "") {
-      console.log("work 0");
       n = parseInt(document.getElementById("noofelements").value);
       // validating the noofelements input field value
       if (
@@ -712,7 +704,6 @@ function sorting() {
         document.getElementById("errorNoofelements").innerHTML =
           "Please enter valid array size!";
         document.getElementById("outputdata").style.display = "none";
-        console.log("invalid array size");
         return;
       }
 
@@ -802,7 +793,6 @@ function sorting() {
         for (let index = maxdigits; index >= mindigits; index--) {
           possibleSize += Math.pow(26, index);
         }
-        console.log("possible size", possibleSize, n);
         if (possibleSize < n) {
           document.getElementById("errorNoofelements").innerHTML =
             "Enter valid array size";
@@ -816,7 +806,6 @@ function sorting() {
           document.getElementById("errorMinval").innerHTML =
             "Enter valid format";
           document.getElementById("outputdata").style.display = "none";
-          console.log("enter valid format");
           return;
         }
 
@@ -824,38 +813,52 @@ function sorting() {
           document.getElementById("errorMinval").innerHTML =
             "Enter valid format";
           document.getElementById("outputdata").style.display = "none";
-          console.log("enter valid format");
           return;
         }
       }
       if (datatype == "DateTime") {
+        //2021-07-05:09:24:00.000
         if (
-          !(minVal.length == 10) ||
+          !(minVal.length == 23) ||
           !(minVal.slice(4, 5) == "-") ||
           !(minVal.slice(7, 8) == "-") ||
+          !(minVal.slice(10, 11) == ":") ||
+          !(minVal.slice(13, 14) == ":") ||
+          !(minVal.slice(16, 17) == ":") ||
+          !(minVal.slice(19, 20) == ".") ||
           isNaN(parseInt(minVal.slice(0, 4))) ||
           isNaN(parseInt(minVal.slice(5, 7))) ||
-          isNaN(parseInt(minVal.slice(8, 10)))
+          isNaN(parseInt(minVal.slice(8, 10))) ||
+          isNaN(parseInt(minVal.slice(11, 13))) ||
+          isNaN(parseInt(minVal.slice(14, 16))) ||
+          isNaN(parseInt(minVal.slice(17, 19))) ||
+          isNaN(parseInt(minVal.slice(20, 22)))
         ) {
           document.getElementById("errorMinval").innerHTML =
             "Enter valid format";
           document.getElementById("outputdata").style.display = "none";
-          console.log("enter valid format");
           return;
         }
 
         if (
-          !(maxVal.length == 10) ||
+          !(maxVal.length == 23) ||
           !(maxVal.slice(4, 5) == "-") ||
           !(maxVal.slice(7, 8) == "-") ||
+          !(maxVal.slice(10, 11) == ":") ||
+          !(maxVal.slice(13, 14) == ":") ||
+          !(maxVal.slice(16, 17) == ":") ||
+          !(maxVal.slice(19, 20) == ".") ||
           isNaN(parseInt(maxVal.slice(0, 4))) ||
           isNaN(parseInt(maxVal.slice(5, 7))) ||
-          isNaN(parseInt(maxVal.slice(8, 10)))
+          isNaN(parseInt(maxVal.slice(8, 10))) ||
+          isNaN(parseInt(maxVal.slice(11, 13))) ||
+          isNaN(parseInt(maxVal.slice(14, 16))) ||
+          isNaN(parseInt(maxVal.slice(17, 19))) ||
+          isNaN(parseInt(maxVal.slice(20, 22)))
         ) {
           document.getElementById("errorMaxval").innerHTML =
             "Enter valid format";
           document.getElementById("outputdata").style.display = "none";
-          console.log("enter valid format");
           return;
         }
         // end of field validation.
@@ -898,41 +901,13 @@ function sorting() {
       // }
     }
 
-    console.log(
-      n +
-        " " +
-        typeof n +
-        "\t" +
-        datatype +
-        " " +
-        typeof datatype +
-        "\t" +
-        minVal +
-        " " +
-        typeof minVal +
-        "\t" +
-        maxVal +
-        " " +
-        typeof maxVal +
-        "\t" +
-        nearlysortedpercent +
-        " " +
-        typeof nearlysortedpercent +
-        "\t" +
-        duplicatepercent +
-        " " +
-        typeof duplicatepercent
-    );
-
     if (document.getElementById("filearr").innerText == "") {
       if (datatype == "Integer") {
         let rangeDifference = maxVal - minVal + 1;
         let availableElemPercent = (n / rangeDifference) * 100;
-        console.log(Math.round(availableElemPercent));
         let availableElemArray = [];
 
         if (n > rangeDifference) {
-          console.log("error");
           document.getElementById("errorNoofelements").innerHTML =
             "Size must be less than the range between min and max value.";
           document.getElementById("outputdata").style.display = "none";
@@ -943,20 +918,16 @@ function sorting() {
             // TODO Need to check if i < n or i < rangeDifference
             availableElemArray[i] = minVal + i;
           }
-          console.log("availableElemArray", availableElemArray);
           // Now the available element array is shuffled using the below code.
           for (let j = n - 1; j >= 0; j--) {
             let randomIndex = Math.floor(Math.random() * (maxVal - minVal));
-            console.log(randomIndex);
             let temp = availableElemArray[maxVal - minVal];
             availableElemArray[maxVal - minVal] =
               availableElemArray[randomIndex];
             availableElemArray[randomIndex] = temp;
-            console.log("inside availableElemArray", availableElemArray);
             arr[j] = availableElemArray[maxVal - minVal]; // the input array is getting created with the shuffled available element array
             maxVal--;
           }
-          console.log(arr);
         } else if (availableElemPercent < 60) {
           for (let i = 0; i < n; i++) {
             let randomInt = Math.floor(
@@ -968,7 +939,6 @@ function sorting() {
               i--;
             }
             arr = availableElemArray;
-            console.log("inside else", arr);
           }
         }
       } else if (datatype == "Float") {
@@ -1003,26 +973,58 @@ function sorting() {
           }
         }
       } else if (datatype == "DateTime") {
-        for (let i = 0; i < n; i++) {
-          let val = generateRandomDate(minVal, maxVal);
-          if (!arr.includes(val)) {
-            arr[i] = val;
-          } else {
-            i--;
+        // for (let i = 0; i < n; i++) {
+        //   let val = generateRandomDate(minVal, maxVal);
+        //   if (!arr.includes(val)) {
+        //     arr[i] = val;
+        //   } else {
+        //     i--;
+        //   }
+        // }
+        // console.log("random date array", arr);
+        let maxValTime = new Date(maxVal).getTime();
+        let minValTime = new Date(minVal).getTime();
+        let possibleArrSize = maxValTime - minValTime;
+        let availableElemPercent = (n / possibleArrSize) * 100;
+        let availableElemArray = [];
+
+        if (n > possibleArrSize) {
+          document.getElementById("errorNoofelements").innerHTML =
+            "Size must be less than the range between min and max value.";
+          document.getElementById("outputdata").style.display = "none";
+          return;
+        } else if (availableElemPercent >= 60) {
+          for (let i = 0; i < possibleArrSize; i++) {
+            availableElemArray[i] = minValTime + i;
+          }
+          for (let j = n - 1; j >= 0; j--) {
+            let randomIndex = Math.floor(Math.random() * possibleArrSize);
+            let index = maxValTime - minValTime;
+            let temp = availableElemArray[index];
+            availableElemArray[index] = availableElemArray[randomIndex];
+            availableElemArray[randomIndex] = temp;
+            arr[j] = new Date(availableElemArray[index]); // the input array is getting created with the shuffled available element array
+            maxValTime--;
+          }
+        } else if (availableElemPercent < 60) {
+          for (let i = 0; i < n; i++) {
+            let val = generateRandomDate(minVal, maxVal);
+            if (!arr.includes(val)) {
+              arr[i] = val;
+            } else {
+              i--;
+            }
           }
         }
       } else if (datatype == "Character") {
         let startChar = document.getElementById("minrange").value;
         let endChar = document.getElementById("maxrange").value;
-        console.log("startchar", startChar);
-        console.log("endChar", endChar);
         let startCharCode = startChar.charCodeAt(0);
         let endCharCode = endChar.charCodeAt(0);
         let rangeDifference = endCharCode - startCharCode;
         let ignoreAsciiCodes = [91, 92, 93, 94, 95, 96];
         let maxStrings = 52; // 26 lowercase and 26 uppercase letters for characters
         let availableElemPercent = (n / maxStrings) * 100;
-        console.log(Math.round(availableElemPercent));
         let availableElemArray = [];
 
         if (n > rangeDifference) {
@@ -1031,7 +1033,6 @@ function sorting() {
           document.getElementById("outputdata").style.display = "none";
           return;
         } else if (availableElemPercent >= 60) {
-          console.log("greater than 60%");
           let index = 0;
           for (let i = startCharCode; i < endCharCode; i++) {
             if (!ignoreAsciiCodes.includes(i)) {
@@ -1041,7 +1042,6 @@ function sorting() {
               index--;
             }
           }
-          console.log("availableElemArray", availableElemArray);
           for (let i = 0; i < n; i++) {
             let randomIndex = Math.floor(Math.random() * n); //TODO similar to integer random generation.
 
@@ -1049,7 +1049,6 @@ function sorting() {
             availableElemArray[i] = availableElemArray[randomIndex];
             availableElemArray[randomIndex] = temp;
           }
-          console.log("availableElemArray after shuffling", availableElemArray);
         } else if (availableElemPercent < 60) {
           for (let i = 0; i < n; i++) {
             let val = Math.floor(
@@ -1064,12 +1063,10 @@ function sorting() {
               i--;
             }
           }
-          console.log("availableElemArray < 60", availableElemArray);
         }
         for (let i = 0; i < n; i++) {
           arr[i] = String.fromCharCode(availableElemArray[i]);
         }
-        console.log("randomArray", arr);
       }
     }
     temparr = [...arr];
@@ -1081,17 +1078,14 @@ function sorting() {
         return a - b;
       })
       .reverse();
-    console.log("reversed array", arr);
     reversearr = [...arr];
 
     arr = arr.sort(function (a, b) {
       return a - b;
     });
-    console.log("sorted array", arr);
 
     //Nearly sorted array is created from the input arr
     nearlysortedarr = [...arr];
-    console.log("nearly sorted arr before sort", nearlysortedarr);
 
     let nearlyunsortedpercentInt = Math.floor(
       ((100 - nearlysortedpercent) / 100.0) * n
@@ -1128,15 +1122,12 @@ function sorting() {
       }
     }
 
-    console.log("nearly sorted arr after sort", nearlysortedarr);
-
     // Unique array is created using the input array
     uniquearr = [...arr]; //TODO need to see if we need a sorted array, since arr is sorted already.
 
     let minDuplicatePercent = ((2 / n) * 100).toFixed(2); //TODO
     let duplicateArray = [];
     if (duplicatepercent < minDuplicatePercent) {
-      console.log("error");
       document.getElementById("errorDup").innerHTML =
         "Duplicate percent must be greater than " +
         minDuplicatePercent +
@@ -1145,20 +1136,14 @@ function sorting() {
       return;
     } else {
       let numOfDuplicateElem = Math.round((n * duplicatepercent) / 100);
-      console.log("num of duplicate elements", numOfDuplicateElem);
-
       let fetchDuplicateElem = numOfDuplicateElem / 2;
-      console.log("fetchduplicateElem", fetchDuplicateElem);
       let numOfUniqueElem = Math.floor(n - fetchDuplicateElem);
-      console.log("numOfUniqueElem,", numOfUniqueElem);
       let secondSetDuplicateArray = [];
       for (let i = 0; i < numOfUniqueElem; i++) {
         duplicateArray[i] = uniquearr[i];
       }
-      console.log("duplicateArray", duplicateArray);
       for (let i = 0; i < Math.floor(fetchDuplicateElem); i++) {
         let tempRandomIndex = Math.floor(Math.random() * numOfUniqueElem);
-        console.log("tempRandomIndex", tempRandomIndex);
         duplicateArray.push(uniquearr[tempRandomIndex]);
         secondSetDuplicateArray.push(uniquearr[tempRandomIndex]);
       }
@@ -1167,30 +1152,18 @@ function sorting() {
         let fetchLastElementIndex = Math.floor(
           Math.random() * secondSetDuplicateArray.length
         );
-        console.log("fetchLastElementIndex", fetchLastElementIndex);
         duplicateArray.push(secondSetDuplicateArray[fetchLastElementIndex]);
-        console.log("last", duplicateArray);
       }
-      console.log(duplicateArray.length);
     }
 
     uniquearr = [...duplicateArray];
 
-    console.log("before sorting unique array", arr);
-
     let n1 = n;
-    console.log("safe here");
-    let a = [...randomarr];
-    console.log(
-      "\nRandom numbers array sorting:\n" + "-----------------------------\n"
-    );
-    console.log("Before sorting:");
-    console.log(a);
 
+    let a = [...randomarr];
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
-        displayInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
-        //displayInputArr[i] = new Date(a[i]);
+        displayInputArr[i] = a[i];
       }
     }
     let arrdata = [...a];
@@ -1198,164 +1171,69 @@ function sorting() {
     bubble(a, n1);
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
-        a[i] = formatDate(new Date(a[i])); // to display the output in the UI in the right format
-        //a[i] = new Date(a[i]);
+        a[i] = a[i];
       }
     }
     outarr = [...a];
-    console.log("\n\nBubble sort:");
-    console.log(a);
     pc[0][1][0][1] = performance_count[0][1];
     pc[0][1][0][2] = performance_count[0][2];
     pc[0][1][0][3] = performance_count[0][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][0][1] +
-        "\tNo of swaps: " +
-        pc[0][1][0][2] +
-        "\tRunTime: " +
-        pc[0][1][0][3]
-    );
 
     a = [...randomarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     selection(a, n1);
-    console.log("\n\nSelection sort:");
-    console.log(a);
+
     pc[0][1][1][1] = performance_count[1][1];
     pc[0][1][1][2] = performance_count[1][2];
     pc[0][1][1][3] = performance_count[1][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][1][1] +
-        "\tNo of swaps: " +
-        pc[0][1][1][2] +
-        "\tRunTime: " +
-        pc[0][1][1][3]
-    );
 
     a = [...randomarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     insertion(a, n1);
-    console.log("\n\nInsertion sort:");
-    console.log(a);
+
     pc[0][1][2][1] = performance_count[2][1];
     pc[0][1][2][2] = performance_count[2][2];
     pc[0][1][2][3] = performance_count[2][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][2][1] +
-        "\tNo of swaps: " +
-        pc[0][1][2][2] +
-        "\tRunTime: " +
-        pc[0][1][2][3]
-    );
 
     a = [...randomarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     mergeMain(a, 0, n1 - 1);
-    console.log("\n\nMerge sort:");
-    console.log(a);
+
     pc[0][1][7][1] = performance_count[7][1];
     pc[0][1][7][2] = performance_count[7][2];
     pc[0][1][7][3] = performance_count[7][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][3][1] +
-        "\tNo of swaps: " +
-        pc[0][1][3][2] +
-        "\tRunTime: " +
-        pc[0][1][3][3]
-    );
 
     a = [...randomarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quickMain(a, 0, n1 - 1);
-    console.log("\n\nQuick sort:");
-    console.log(a);
+
     pc[0][1][6][1] = performance_count[6][1];
     pc[0][1][6][2] = performance_count[6][2];
     pc[0][1][6][3] = performance_count[6][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][4][1] +
-        "\tNo of swaps: " +
-        pc[0][1][4][2] +
-        "\tRunTime: " +
-        pc[0][1][4][3]
-    );
 
     a = [...randomarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quick3Main(a, 0, n1 - 1);
-    console.log("\n\nQuick3 sort:");
-    console.log(a);
+
     pc[0][1][5][1] = performance_count[5][1];
     pc[0][1][5][2] = performance_count[5][2];
     pc[0][1][5][3] = performance_count[5][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][5][1] +
-        "\tNo of swaps: " +
-        pc[0][1][5][2] +
-        "\tRunTime: " +
-        pc[0][1][5][3]
-    );
 
     a = [...randomarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     heap(a, 0, n1 - 1);
-    console.log("\n\nHeap sort:");
-    console.log(a);
+
     pc[0][1][3][1] = performance_count[3][1];
     pc[0][1][3][2] = performance_count[3][2];
     pc[0][1][3][3] = performance_count[3][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][6][1] +
-        "\tNo of swaps: " +
-        pc[0][1][6][2] +
-        "\tRunTime: " +
-        pc[0][1][6][3]
-    );
 
     a = [...randomarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     shell(a, n1);
-    console.log("\n\nShell sort:");
-    console.log(a);
+
     pc[0][1][4][1] = performance_count[4][1];
     pc[0][1][4][2] = performance_count[4][2];
     pc[0][1][4][3] = performance_count[4][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[0][1][7][1] +
-        "\tNo of swaps: " +
-        pc[0][1][7][2] +
-        "\tRunTime: " +
-        pc[0][1][7][3]
-    );
 
     if (
       datatype == "Integer" &&
@@ -1363,218 +1241,94 @@ function sorting() {
       !isNaN(temparr[0])
     ) {
       a = [...randomarr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       countsort(a);
-      console.log("\n\nCount sort:");
-      console.log(a);
+
       pc[0][1][8][1] = performance_count[8][1];
       pc[0][1][8][2] = performance_count[8][2];
       pc[0][1][8][3] = performance_count[8][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[0][1][8][1] +
-          "\tNo of swaps: " +
-          pc[0][1][8][2] +
-          "\tRunTime: " +
-          pc[0][1][8][3]
-      );
 
       a = [...randomarr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       a = radixsort(a); /////
-      console.log("\n\nRadix sort:");
-      console.log(a);
+
       pc[0][1][9][1] = performance_count[9][1];
       pc[0][1][9][2] = performance_count[9][2];
       pc[0][1][9][3] = performance_count[9][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[0][1][9][1] +
-          "\tNo of swaps: " +
-          pc[0][1][9][2] +
-          "\tRunTime: " +
-          pc[0][1][9][3]
-      );
     }
-    console.log("\n--------------------------------------------\n");
 
     n1 = n;
     if (datatype == "Character" || datatype == "String") {
       reversearr = reversearr.sort().reverse(); // Added this line on 1st Sep 2021,char sort wasnt working as expected.
     }
     a = [...reversearr];
-    console.log(
-      "\n\nReverse numbers array sorting:\n" +
-        "------------------------------\n"
-    );
-    console.log("Before sorting:");
-    console.log(a);
+
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
-        displayReverseInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+        displayReverseInputArr[i] = a[i];
       }
     }
     bubble(a, n1);
-    console.log("\n\nBubble sort:");
-    console.log(a);
+
     pc[1][1][0][1] = performance_count[0][1];
     pc[1][1][0][2] = performance_count[0][2];
     pc[1][1][0][3] = performance_count[0][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][0][1] +
-        "\tNo of swaps: " +
-        pc[1][1][0][2] +
-        "\tRunTime: " +
-        pc[1][1][0][3]
-    );
 
     a = [...reversearr];
 
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
     selection(a, n1);
-    console.log("\n\nSelection sort:");
-    console.log(a);
+
     pc[1][1][1][1] = performance_count[1][1];
     pc[1][1][1][2] = performance_count[1][2];
     pc[1][1][1][3] = performance_count[1][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][1][1] +
-        "\tNo of swaps: " +
-        pc[1][1][1][2] +
-        "\tRunTime: " +
-        pc[1][1][1][3]
-    );
 
     a = [...reversearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     insertion(a, n1);
-    console.log("\n\nInsertion sort:");
-    console.log(a);
+
     pc[1][1][2][1] = performance_count[2][1];
     pc[1][1][2][2] = performance_count[2][2];
     pc[1][1][2][3] = performance_count[2][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][2][1] +
-        "\tNo of swaps: " +
-        pc[1][1][2][2] +
-        "\tRunTime: " +
-        pc[1][1][2][3]
-    );
 
     a = [...reversearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     mergeMain(a, 0, n1 - 1);
-    console.log("\n\nMerge sort:");
-    console.log(a);
+
     pc[1][1][7][1] = performance_count[7][1];
     pc[1][1][7][2] = performance_count[7][2];
     pc[1][1][7][3] = performance_count[7][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][3][1] +
-        "\tNo of swaps: " +
-        pc[1][1][3][2] +
-        "\tRunTime: " +
-        pc[1][1][3][3]
-    );
 
     a = [...reversearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quickMain(a, 0, n1 - 1);
-    console.log("\n\nQuick sort:");
-    console.log(a);
+
     pc[1][1][6][1] = performance_count[6][1];
     pc[1][1][6][2] = performance_count[6][2];
     pc[1][1][6][3] = performance_count[6][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][4][1] +
-        "\tNo of swaps: " +
-        pc[1][1][4][2] +
-        "\tRunTime: " +
-        pc[1][1][4][3]
-    );
 
     a = [...reversearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quick3Main(a, 0, n1 - 1);
-    console.log("\n\nQuick3 sort:");
-    console.log(a);
+
     pc[1][1][5][1] = performance_count[5][1];
     pc[1][1][5][2] = performance_count[5][2];
     pc[1][1][5][3] = performance_count[5][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][5][1] +
-        "\tNo of swaps: " +
-        pc[1][1][5][2] +
-        "\tRunTime: " +
-        pc[1][1][5][3]
-    );
 
     a = [...reversearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     heap(a, 0, n1 - 1);
-    console.log("\n\nHeap sort:");
-    console.log(a);
+
     pc[1][1][3][1] = performance_count[3][1];
     pc[1][1][3][2] = performance_count[3][2];
     pc[1][1][3][3] = performance_count[3][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][6][1] +
-        "\tNo of swaps: " +
-        pc[1][1][6][2] +
-        "\tRunTime: " +
-        pc[1][1][6][3]
-    );
 
     a = [...reversearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     shell(a, n1);
-    console.log("\n\nShell sort:");
-    console.log(a);
+
     pc[1][1][4][1] = performance_count[4][1];
     pc[1][1][4][2] = performance_count[4][2];
     pc[1][1][4][3] = performance_count[4][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[1][1][7][1] +
-        "\tNo of swaps: " +
-        pc[1][1][7][2] +
-        "\tRunTime: " +
-        pc[1][1][7][3]
-    );
 
     if (
       datatype == "Integer" &&
@@ -1582,223 +1336,98 @@ function sorting() {
       !isNaN(temparr[0])
     ) {
       a = [...reversearr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       countsort(a);
-      console.log("\n\nCount sort:");
-      console.log(a);
+
       pc[1][1][8][1] = performance_count[8][1];
       pc[1][1][8][2] = performance_count[8][2];
       pc[1][1][8][3] = performance_count[8][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[1][1][8][1] +
-          "\tNo of swaps: " +
-          pc[1][1][8][2] +
-          "\tRunTime: " +
-          pc[1][1][8][3]
-      );
 
       a = [...reversearr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       a = radixsort(a);
-      console.log("\n\nRadix sort:");
-      console.log(a);
+
       pc[1][1][9][1] = performance_count[9][1];
       pc[1][1][9][2] = performance_count[9][2];
       pc[1][1][9][3] = performance_count[9][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[1][1][9][1] +
-          "\tNo of swaps: " +
-          pc[1][1][9][2] +
-          "\tRunTime: " +
-          pc[1][1][9][3]
-      );
     }
-
-    console.log("\n--------------------------------------------\n");
 
     n1 = n;
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n\nNearly sorted numbers array sorting:\n" +
-        "------------------------------------\n"
-    );
-    console.log("Before sorting:");
-    console.log(a);
+
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
-        displayNearlyInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+        displayNearlyInputArr[i] = a[i];
       }
     }
     bubble(a, n1);
     nearlysortedOutArr = [...a];
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
-        nearlysortedOutArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+        nearlysortedOutArr[i] = a[i];
       }
     }
 
-    console.log("\n\nBubble sort:");
-    console.log(a);
     pc[2][1][0][1] = performance_count[0][1];
     pc[2][1][0][2] = performance_count[0][2];
     pc[2][1][0][3] = performance_count[0][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][0][1] +
-        "\tNo of swaps: " +
-        pc[2][1][0][2] +
-        "\tRunTime: " +
-        pc[2][1][0][3]
-    );
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     selection(a, n1);
-    console.log("\n\nSelection sort:");
-    console.log(a);
+
     pc[2][1][1][1] = performance_count[1][1];
     pc[2][1][1][2] = performance_count[1][2];
     pc[2][1][1][3] = performance_count[1][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][1][1] +
-        "\tNo of swaps: " +
-        pc[2][1][1][2] +
-        "\tRunTime: " +
-        pc[2][1][1][3]
-    );
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     insertion(a, n1);
-    console.log("\n\nInsertion sort:");
-    console.log(a);
+
     pc[2][1][2][1] = performance_count[2][1];
     pc[2][1][2][2] = performance_count[2][2];
     pc[2][1][2][3] = performance_count[2][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][2][1] +
-        "\tNo of swaps: " +
-        pc[2][1][2][2] +
-        "\tRunTime: " +
-        pc[2][1][2][3]
-    );
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     mergeMain(a, 0, n1 - 1);
-    console.log("\n\nMerge sort:");
-    console.log(a);
+
     pc[2][1][7][1] = performance_count[7][1];
     pc[2][1][7][2] = performance_count[7][2];
     pc[2][1][7][3] = performance_count[7][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][3][1] +
-        "\tNo of swaps: " +
-        pc[2][1][3][2] +
-        "\tRunTime: " +
-        pc[2][1][3][3]
-    );
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quickMain(a, 0, n1 - 1);
-    console.log("\n\nQuick sort:");
-    console.log(a);
+
     pc[2][1][6][1] = performance_count[6][1];
     pc[2][1][6][2] = performance_count[6][2];
     pc[2][1][6][3] = performance_count[6][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][4][1] +
-        "\tNo of swaps: " +
-        pc[2][1][4][2] +
-        "\tRunTime: " +
-        pc[2][1][4][3]
-    );
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quick3Main(a, 0, n1 - 1);
-    console.log("\n\nQuick3 sort:");
-    console.log(a);
+
     pc[2][1][5][1] = performance_count[5][1];
     pc[2][1][5][2] = performance_count[5][2];
     pc[2][1][5][3] = performance_count[5][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][5][1] +
-        "\tNo of swaps: " +
-        pc[2][1][5][2] +
-        "\tRunTime: " +
-        pc[2][1][5][3]
-    );
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     heap(a, 0, n1 - 1);
-    console.log("\n\nHeap sort:");
-    console.log(a);
+
     pc[2][1][3][1] = performance_count[3][1];
     pc[2][1][3][2] = performance_count[3][2];
     pc[2][1][3][3] = performance_count[3][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][6][1] +
-        "\tNo of swaps: " +
-        pc[2][1][6][2] +
-        "\tRunTime: " +
-        pc[2][1][6][3]
-    );
 
     a = [...nearlysortedarr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     shell(a, n1);
-    console.log("\n\nShell sort:");
-    console.log(a);
+
     pc[2][1][4][1] = performance_count[4][1];
     pc[2][1][4][2] = performance_count[4][2];
     pc[2][1][4][3] = performance_count[4][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[2][1][7][1] +
-        "\tNo of swaps: " +
-        pc[2][1][7][2] +
-        "\tRunTime: " +
-        pc[2][1][7][3]
-    );
 
     if (
       datatype == "Integer" &&
@@ -1806,223 +1435,98 @@ function sorting() {
       !isNaN(temparr[0])
     ) {
       a = [...nearlysortedarr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       countsort(a);
-      console.log("\n\nCount sort:");
-      console.log(a);
+
       pc[2][1][8][1] = performance_count[8][1];
       pc[2][1][8][2] = performance_count[8][2];
       pc[2][1][8][3] = performance_count[8][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[2][1][8][1] +
-          "\tNo of swaps: " +
-          pc[2][1][8][2] +
-          "\tRunTime: " +
-          pc[2][1][8][3]
-      );
 
       a = [...nearlysortedarr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       a = radixsort(a);
-      console.log("\n\nRadix sort:");
-      console.log(a);
+
       pc[2][1][9][1] = performance_count[9][1];
       pc[2][1][9][2] = performance_count[9][2];
       pc[2][1][9][3] = performance_count[9][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[2][1][9][1] +
-          "\tNo of swaps: " +
-          pc[2][1][9][2] +
-          "\tRunTime: " +
-          pc[2][1][9][3]
-      );
     }
-
-    console.log("\n--------------------------------------------\n");
 
     n1 = n;
 
     a = [...uniquearr];
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
-        displayUniqueInputArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+        displayUniqueInputArr[i] = a[i];
       }
     }
-    console.log(
-      "\n\nFew Unique numbers array sorting:\n" +
-        "---------------------------------\n"
-    );
-    console.log("Before sorting:");
-    console.log(a);
+
     bubble(a, n1);
     uniqueOutArr = [...a];
     if (datatype == "DateTime") {
       for (let i = 0; i < n1; i++) {
-        uniqueOutArr[i] = formatDate(new Date(a[i])); // to display the input in the UI in the right format
+        uniqueOutArr[i] = a[i];
       }
     }
-    console.log("uniqueOutArr", uniqueOutArr);
-    console.log("\n\nBubble sort:");
-    console.log(a);
+
     pc[3][1][0][1] = performance_count[0][1];
     pc[3][1][0][2] = performance_count[0][2];
     pc[3][1][0][3] = performance_count[0][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][0][1] +
-        "\tNo of swaps: " +
-        pc[3][1][0][2] +
-        "\tRunTime: " +
-        pc[3][1][0][3]
-    );
 
     a = [...uniquearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     selection(a, n1);
-    console.log("\n\nSelection sort:");
-    console.log(a);
+
     pc[3][1][1][1] = performance_count[1][1];
     pc[3][1][1][2] = performance_count[1][2];
     pc[3][1][1][3] = performance_count[1][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][1][1] +
-        "\tNo of swaps: " +
-        pc[3][1][1][2] +
-        "\tRunTime: " +
-        pc[3][1][1][3]
-    );
 
     a = [...uniquearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     insertion(a, n1);
-    console.log("\n\nInsertion sort:");
-    console.log(a);
+
     pc[3][1][2][1] = performance_count[2][1];
     pc[3][1][2][2] = performance_count[2][2];
     pc[3][1][2][3] = performance_count[2][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][2][1] +
-        "\tNo of swaps: " +
-        pc[3][1][2][2] +
-        "\tRunTime: " +
-        pc[3][1][2][3]
-    );
 
     a = [...uniquearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     mergeMain(a, 0, n1 - 1);
-    console.log("\n\nMerge sort:");
-    console.log(a);
+
     pc[3][1][7][1] = performance_count[7][1];
     pc[3][1][7][2] = performance_count[7][2];
     pc[3][1][7][3] = performance_count[7][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][3][1] +
-        "\tNo of swaps: " +
-        pc[3][1][3][2] +
-        "\tRunTime: " +
-        pc[3][1][3][3]
-    );
 
     a = [...uniquearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quickMain(a, 0, n1 - 1);
-    console.log("\n\nQuick sort:");
-    console.log(a);
+
     pc[3][1][6][1] = performance_count[6][1];
     pc[3][1][6][2] = performance_count[6][2];
     pc[3][1][6][3] = performance_count[6][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][4][1] +
-        "\tNo of swaps: " +
-        pc[3][1][4][2] +
-        "\tRunTime: " +
-        pc[3][1][4][3]
-    );
 
     a = [...uniquearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     quick3Main(a, 0, n1 - 1);
-    console.log("\n\nQuick3 sort:");
-    console.log(a);
+
     pc[3][1][5][1] = performance_count[5][1];
     pc[3][1][5][2] = performance_count[5][2];
     pc[3][1][5][3] = performance_count[5][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][5][1] +
-        "\tNo of swaps: " +
-        pc[3][1][5][2] +
-        "\tRunTime: " +
-        pc[3][1][5][3]
-    );
 
     a = [...uniquearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     heap(a, 0, n1 - 1);
-    console.log("\n\nHeap sort:");
-    console.log(a);
+
     pc[3][1][3][1] = performance_count[3][1];
     pc[3][1][3][2] = performance_count[3][2];
     pc[3][1][3][3] = performance_count[3][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][6][1] +
-        "\tNo of swaps: " +
-        pc[3][1][6][2] +
-        "\tRunTime: " +
-        pc[3][1][6][3]
-    );
 
     a = [...uniquearr];
-    console.log(
-      "\n--------------------------------------------\nBefore sorting:"
-    );
-    console.log(a);
+
     shell(a, n1);
-    console.log("\n\nShell sort:");
-    console.log(a);
+
     pc[3][1][4][1] = performance_count[4][1];
     pc[3][1][4][2] = performance_count[4][2];
     pc[3][1][4][3] = performance_count[4][3];
-    console.log(
-      "\nNo of comparisons: " +
-        pc[3][1][7][1] +
-        "\tNo of swaps: " +
-        pc[3][1][7][2] +
-        "\tRunTime: " +
-        pc[3][1][7][3]
-    );
 
     if (
       datatype == "Integer" &&
@@ -2030,61 +1534,23 @@ function sorting() {
       !isNaN(temparr[0])
     ) {
       a = [...uniquearr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       countsort(a);
-      console.log("\n\nCount sort:");
-      console.log(a);
+
       pc[3][1][8][1] = performance_count[8][1];
       pc[3][1][8][2] = performance_count[8][2];
       pc[3][1][8][3] = performance_count[8][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[3][1][8][1] +
-          "\tNo of swaps: " +
-          pc[3][1][8][2] +
-          "\tRunTime: " +
-          pc[3][1][8][3]
-      );
 
       a = [...uniquearr];
-      console.log(
-        "\n--------------------------------------------\nBefore sorting:"
-      );
-      console.log(a);
+
       a = radixsort(a);
-      console.log("\n\nRadix sort:");
-      console.log(a);
+
       pc[3][1][9][1] = performance_count[9][1];
       pc[3][1][9][2] = performance_count[9][2];
       pc[3][1][9][3] = performance_count[9][3];
-      console.log(
-        "\nNo of comparisons: " +
-          pc[3][1][9][1] +
-          "\tNo of swaps: " +
-          pc[3][1][9][2] +
-          "\tRunTime: " +
-          pc[3][1][9][3]
-      );
     }
 
-    console.log("\n--------------------------------------------\n");
-
     for (let j = 0; j < 4; j++) {
-      console.log(pc[j][0]);
-      console.log("\n--------------------------------------------\n");
-      console.log(
-        "Sorting Type" +
-          "\t" +
-          " Comparisons" +
-          "\t" +
-          "Swaps" +
-          "\t" +
-          "Time Taken"
-      );
-      console.log("\n--------------------------------------------\n");
       for (let i = 0; i < 10; i++) {
         console.log(
           pc[j][1][i][0] +
@@ -2132,13 +1598,12 @@ function sorting() {
       pc[3][1][9][2] = "NA";
       pc[3][1][9][3] = "NA";
     }
-    console.log(arr, randomarr, reversearr, nearlysortedarr, uniquearr);
 
     //arrdata = randomarr.toString();
     document.getElementById("inputdata").style.display = "block";
     document.getElementById("outputdata").style.display = "block";
     // var outarr = randomarr.sort().toString();
-    console.log("output arrrrrrrrrrr: " + outarr);
+
     if (datatype == "DateTime") {
       arrdata = [...displayInputArr];
     }
@@ -2252,7 +1717,6 @@ function sorting() {
     var swapstakennearlysorted = [];
     var swapstakenunique = [];
 
-    console.log(pc);
     for (let i = 0; i < 10; i++) {
       // 1982320 ns
       timetakenrandom[i] = parseInt(pc[0][1][i][3].slice(0, -3)) / 1000;

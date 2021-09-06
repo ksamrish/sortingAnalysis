@@ -3,41 +3,66 @@ function formatDate(date) {
 }
 
 function generateRandomDate(start, end) {
-  start = new Date(
-    start.slice(0, 4) + "," + start.slice(5, 7) + "," + start.slice(8)
-  );
-  end = new Date(end.slice(0, 4) + "," + end.slice(5, 7) + "," + end.slice(8));
+  start = new Date(start);
+  end = new Date(end);
   let date = new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
-  return date;
+  return date.toISOString();
 }
+
 var seconds = new Date().getTime() / 1000;
-let n = 10000;
-let maxVal = "2021-10-02";
-console.log(maxVal);
-let minVal = "2020-10-03";
-console.log(minVal);
+let n = 10;
+let maxVal = "2021-10-02:10:30:30.123";
+let minVal = "2021-10-02:10:30:29.123";
+let maxValTime = new Date(maxVal).getTime();
+let minValTime = new Date(minVal).getTime();
 let randDate = generateRandomDate(minVal, maxVal);
-let possibleArrSize =
-  new Date(maxVal).getTime() / 1000 - new Date(minVal).getTime() / 1000;
-console.log(possibleArrSize);
-let possibleArr = [];
-for (let i = 0; i < possibleArrSize; i++) {
-  possibleArr[i] = new Date(minVal).getTime() / 1000 + i;
+let possibleArrSize = maxValTime - minValTime;
+console.log("possible arr size", possibleArrSize);
+let availableElemPercent = (n / possibleArrSize) * 100;
+let availableElemArray = [];
+
+if (n > possibleArrSize) {
+  console.log("error");
+  document.getElementById("errorNoofelements").innerHTML =
+    "Size must be less than the range between min and max value.";
+  document.getElementById("outputdata").style.display = "none";
+  return;
+} else if (availableElemPercent >= 60) {
+  for (let i = 0; i < possibleArrSize; i++) {
+    availableElemArray[i] = minValTime + i;
+  }
+  for (let j = n - 1; j >= 0; j--) {
+    let randomIndex = Math.floor(Math.random() * possibleArrSize);
+    //console.log(randomIndex);
+    let index = maxValTime - minValTime;
+    let temp = availableElemArray[index];
+    availableElemArray[index] = availableElemArray[randomIndex];
+    availableElemArray[randomIndex] = temp;
+    arr[j] = new Date(availableElemArray[index]); // the input array is getting created with the shuffled available element array
+    maxValTime--;
+  }
+  console.log("greater than 60%", arr);
+} else if (availableElemPercent < 60) {
+  for (let i = 0; i < n; i++) {
+    let val = generateRandomDate(minVal, maxVal);
+    if (!arr.includes(val)) {
+      arr[i] = val;
+    } else {
+      i--;
+    }
+  }
+  console.log("lesser than 60%", arr);
 }
-let arr = [];
-console.log(possibleArr);
-for (let j = n - 1; j >= 0; j--) {
-  let randomIndex = Math.floor(Math.random() * possibleArrSize);
-  console.log(randomIndex);
-  let temp = possibleArr[maxVal - minVal];
-  possibleArr[maxVal - minVal] = possibleArr[randomIndex];
-  possibleArr[randomIndex] = temp;
-  arr[j] = new Date(possibleArr[maxVal - minVal] * 1000); // the input array is getting created with the shuffled available element array
-  maxVal--;
-}
-console.log(arr);
+
+arr = arr
+  .sort(function (a, b) {
+    return a - b;
+  })
+  .reverse();
+console.log("reversed array", arr);
+//reversearr = [...arr];
 
 // let availableElemPercent = (n / rangeDifference) * 100;
 // console.log(Math.round(availableElemPercent));
@@ -83,3 +108,15 @@ console.log(arr);
 //     console.log("inside else", arr);
 //   }
 // }
+
+// let start = "2020-03-20:10:30:30.234";
+// let end = "2021-03-20:10:30:30.234";
+// function generateRandomDate(start, end) {
+//   start = new Date(start);
+//   end = new Date(end);
+//   let date = new Date(
+//     start.getTime() + Math.random() * (end.getTime() - start.getTime())
+//   );
+//   return date.toISOString();
+// }
+// console.log(generateRandomDate(start, end));

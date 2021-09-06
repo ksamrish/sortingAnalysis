@@ -224,8 +224,8 @@
 					</tr>
 					<tr>
 						<td >DateTime</td>	
-						<td>yyyy-mm-dd</td>			
-						<td>yyyy-mm-dd</td>
+						<td>yyyy-mm-dd:hh:mm:ss.ms</td>			
+						<td>yyyy-mm-dd:hh:mm:ss.ms</td>
 					</tr>
 					</tr>
 				</table>
@@ -454,8 +454,8 @@
 				}else if(datatype == "DateTime"){
 					document.getElementById("inputMinValue").textContent = "Starting Date:";
 					document.getElementById("inputMaxValue").textContent = "Ending Date:";
-					document.getElementById("minrange").value = "2020-03-20";
-					document.getElementById("maxrange").value = "2021-06-23";
+					document.getElementById("minrange").value = "2020-03-20:10:30:30.123";
+					document.getElementById("maxrange").value = "2021-06-23:10:30:30.123";
 				}else if(datatype == "Float"){
 					document.getElementById("inputMinValue").textContent = "Minimum Value:";
 					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
@@ -524,14 +524,11 @@
 			}
 			function graph(){
 				if(datatype=='Integer'||datatype=='Float'){
-					console.log(datatype,"in block");
 					document.getElementById('popUpChart').style.display='block';
 				}
 				else{
-					console.log(datatype,"in none");
 					document.getElementById('popUpChart').style.display='none';
 				}
-				console.log("hi",bool);
 				if(bool>0){
 					destroy();
 				}
@@ -614,9 +611,7 @@
 
 					}]
 				};
-				console.log("time is :"+time);
-				console.log("comparisons is :"+comparisons);
-				console.log("swaps is :"+swaps);
+
 				
 				// Chart.defaults.global.defaultFontColor = 'white';
 				myChart = new Chart(ctx, {
