@@ -14,6 +14,27 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>SortingAnalysis</title>
 	<style>
+		.navul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #1F95EE;
+		}
+		.navli a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		.navli a:hover {
+			background-color: #111;
+			color:white;
+			text-decoration: none;
+			list-style-type: none;
+			list-style: none;
+		}
 		#graph{
 			display:none;
 		}
@@ -165,6 +186,11 @@
 				float: left;
 			}
 		}
+		@media screen and (max-width: 410px) {
+			.scrollbar{
+				overflow-x: scroll;
+			}
+		}
 	</style>
 </head>
 
@@ -218,7 +244,13 @@
             </div>
         </div>
     </div>
-	<div class="container" style="width:100%;margin:0 auto">
+	<ul class="navul">
+		<li class="navli" style="float:right"><a href="#">Home</a></li>
+		<li class="navli" style="float:right"><a href="#">Sorting Analysis</a></li>
+		<li class="navli" style="float:right"><a href="#">About us</a></li>
+		<li class="navli" style="float:left"><a class="active" href="#about">About</a></li>
+	</ul>
+	<div class="container" style="width:100%;margin:0 auto;margin-top: 30px;">
 		<div class="row row-content">
 			<div class="col-12 contentcenter" >
 				<h1>Sorting Analysis</h1>
@@ -238,7 +270,7 @@
 		<div id= "collapsibleForm" class = "panel-collapse collapse">
 			<br/>
 			
-			<div class="row-content" style="overflow-x: scroll;">
+			<div class="row-content scrollbar">
 				<table >
 					<tr>
 						<th >Data Type</th>

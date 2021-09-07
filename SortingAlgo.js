@@ -552,10 +552,12 @@ let displayReverseInputArr = [];
 let displayNearlyInputArr = [];
 let displayUniqueInputArr = [];
 
-async function callsorting(){
-  // document.getElementById('loading').style.display = 'block';
-  await sorting();
-  // document.getElementById('loading').style.display = 'none';
+function callsorting(){
+  document.getElementById('loading').style.display = 'block';
+  setTimeout(()=>{
+    sorting();
+    document.getElementById('loading').style.display = 'none';
+  })
 }
 
 async function sorting() {
