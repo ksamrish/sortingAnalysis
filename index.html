@@ -194,15 +194,22 @@
 		.floatright{
 			float: right;
 		}
+		.modal-header{
+			padding-left: 35%;
+		}
 		@media screen and (max-width: 991px) {
 			.floatright{
 				float: left;
+			}
+			.modal-header{
+				padding-left: 30%;
 			}
 		}
 		@media screen and (max-width: 767px) {
 			.floatright{
 				float: right;
 			}
+
 		}
 		@media screen and (max-width: 550px) {
 			.labelform{
@@ -214,12 +221,22 @@
 				width: 100%;
 				float: left;
 			}
+			.modal-headerSpan{
+				font-size: medium;
+			}
+			.modal_bodyInput{
+				font-size: medium;
+			}
+			.modal-header{
+				padding-left: 30%;
+			}
 		}
 		@media screen and (max-width: 410px) {
 			.scrollbar{
 				overflow-x: scroll;
 			}
 		}
+		
 	</style>
 </head>
 
@@ -227,16 +244,17 @@
 	<div id="Algoresult" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content"  >
             <div class="modal-content" >
-                <div class="modal-header" style="background-color: #EBF6FF;padding-left: 25%;" >
-                    <h4 style="align-content: center;justify-content: center;border-radius: 10px;">  <span
+                <div class="modal-header" style="background-color: #EBF6FF;">
+					<h4 style="align-content: center;justify-content: center;border-radius: 10px;">  <span
+						class="modal-headerSpan"
 						style="
 						  background-color: #1f95ee;
 						  color: white;
 						  border-radius: 10px;
 						  padding: 5px;
-						  padding-right: 15px;
+						  
 						"
-						>Sorting input and output</span></h4>
+						>Input and Output</span></h4>
                     <button class="close" data-dismiss="modal">
                         &times;
                     </button>
@@ -244,6 +262,7 @@
 				<div class="modal-body" style="background-color: #EBF6FF;border-radius: 10px;">
 					<canvas id="popUpChart"></canvas>
 					<h4 > <span
+						class="modal_bodyInput"
 						style="
 						  background-color: #1f95ee;
 						  color: white;
@@ -257,6 +276,7 @@
 					</span></h4>
 					<div id="resultarr" style="color: black;overflow-x: auto;word-break: break-word;padding: 10px;"></div>
 					<h4 ><span
+						class="modal_bodyInput"
 						style="
 						  background-color: #1f95ee;
 						  color: white;
@@ -284,7 +304,7 @@
 		<div class="row row-content">
 			<div class="col-12 contentcenter" >
 				<h1>Sorting Analysis</h1>
-				<p>Here we have analysis of 10 types of sorting algorithm and the results will be analysed and get printed below!!</p>
+				<!-- <p>Here we have analysis of 10 types of sorting algorithm and the results will be analysed and get printed below!!</p> -->
 			</div>
 		</div>
 		<div class="panel-group" >
@@ -419,10 +439,11 @@
 			</div>
 			<div class="col-12">
 				<div id="inputdata" style="display: none;margin-top:30px;padding-bottom: 20px;">
-					<h4>Input Data:</h4>
+					
+					<h4>Input Data: <a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;"data-toggle="modal" data-target="#Algoresult" >(<span style="text-decoration: underline;cursor: pointer;color: #1F95EE;">Visualize</span>)</a></h4>
 					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;" id="inputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
 					<br>
-					<h4>Output Data:</h4>
+					<h4>Output Data: <a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;"data-toggle="modal" data-target="#Algoresult" >(<span style="text-decoration: underline;cursor: pointer;color: #1F95EE;">Visualize</span>)</a></h4>
 					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;" id="outputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
 				</div>
 			</div>
@@ -547,6 +568,9 @@
 					document.getElementById("inputformicon").classList.remove("fa-minus");
 					document.getElementById("inputformicon").classList.add("fa-plus");		
 				}
+			}
+			function showModal(){
+				document.getElementById("Algoresult").style.display = "block"
 			}
 
 			function labelchange(){
