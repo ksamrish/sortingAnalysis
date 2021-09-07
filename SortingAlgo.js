@@ -947,7 +947,7 @@ async function sorting() {
           let val = Math.random() * (maxVal - minVal) + minVal;
           if (!availableElemArray.includes(val)) {
             availableElemArray.push(val);
-            arr[i] = val;
+            arr[i] = val.toFixed(3);
           } else {
             i--;
           }
