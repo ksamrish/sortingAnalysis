@@ -1115,7 +1115,7 @@ async function sorting() {
     }
 
     // Unique array is created using the input array
-    uniquearr = [...arr]; //TODO need to see if we need a sorted array, since arr is sorted already.
+    uniquearr = [...arrcopy]; //we are using arrcopy because that will have a copy of the random array, which can be used to generate the unique input array
 
     let minDuplicatePercent = ((2 / n) * 100).toFixed(2); //TODO
     let duplicateArray = [];
