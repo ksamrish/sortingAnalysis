@@ -871,7 +871,6 @@ async function sorting() {
           document.getElementById("outputdata").style.display = "none";
           return;
         }
-        // end of field validation.
         if (
           !(
             generateDateformat(maxVal).getTime() -
@@ -897,20 +896,10 @@ async function sorting() {
           return;
         }
       }
-      // if (datatype == "Character") {
-      //   if (minVal != "1") {
-      //     document.getElementById("errorMinval").innerHTML =
-      //       "Character datatype min size should be 1 ";
-      //     return;
-      //   }
-      //   if (maxVal != "1") {
-      //     document.getElementById("errorMaxval").innerHTML =
-      //       "Character datatype max size should be 1 ";
-      //     return;
-      //   }
-      // }
     }
+    // end of field validation.
 
+    //To generate random array for all datatypes.
     if (document.getElementById("filearr").innerText == "") {
       if (datatype == "Integer") {
         let rangeDifference = maxVal - minVal + 1;
@@ -983,15 +972,6 @@ async function sorting() {
           }
         }
       } else if (datatype == "DateTime") {
-        // for (let i = 0; i < n; i++) {
-        //   let val = generateRandomDate(minVal, maxVal);
-        //   if (!arr.includes(val)) {
-        //     arr[i] = val;
-        //   } else {
-        //     i--;
-        //   }
-        // }
-        // console.log("random date array", arr);
         let maxValTime = new Date(maxVal).getTime();
         let minValTime = new Date(minVal).getTime();
         let possibleArrSize = maxValTime - minValTime;
@@ -1080,6 +1060,7 @@ async function sorting() {
         }
       }
     }
+    // end of creating random array.
     temparr = [...arr];
     arrcopy = [...arr];
     randomarr = [...arr];
@@ -1180,11 +1161,11 @@ async function sorting() {
     let arrdata = [...a];
     //sorting methods called in sequence
     bubble(a, n1);
-    if (datatype == "DateTime") {
-      for (let i = 0; i < n1; i++) {
-        a[i] = a[i];
-      }
-    }
+    // if (datatype == "DateTime") {
+    //   for (let i = 0; i < n1; i++) {
+    //     a[i] = a[i];
+    //   }
+    // }
     outarr = [...a];
     pc[0][1][0][1] = performance_count[0][1];
     pc[0][1][0][2] = performance_count[0][2];
@@ -1278,6 +1259,7 @@ async function sorting() {
       for (let i = 0; i < n1; i++) {
         displayReverseInputArr[i] = a[i];
       }
+      displayReverseInputArr = displayReverseInputArr.sort().reverse();
     }
     bubble(a, n1);
 
