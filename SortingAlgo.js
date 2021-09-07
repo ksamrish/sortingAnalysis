@@ -553,10 +553,12 @@ let displayNearlyInputArr = [];
 let displayUniqueInputArr = [];
 
 async function callsorting() {
-  sorting();
+  // document.getElementById('loading').style.display = 'block';
+  await sorting();
+  // document.getElementById('loading').style.display = 'none';
 }
 
-function sorting() {
+async function sorting() {
   // console.log('block none 1')
   // document.getElementById('loading').style.display='block';
   changeRandomTabColor();
