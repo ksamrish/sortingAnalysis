@@ -77,9 +77,10 @@ var performance_count = [
   ["Radix", 0, 0, 0],
 ];
 
+var timeConstant = 1631043921340.6; // Since performance.timeOrigin doenst work in safari, adding performance.timeOrigin value to a constant and then add it to the time taken
 ///  10 Sorting methods below:
 function bubble(arr, n) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
@@ -94,20 +95,20 @@ function bubble(arr, n) {
       }
     }
   }
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken bubble", time);
   performance_count[0][1] = comparisons;
   performance_count[0][2] = swaps;
-  performance_count[0][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[0][3] = (time * 1000.0).toFixed(3) + " µs";
   console.log(time);
 
   return arr;
 }
 
 function selection(arr, n) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
@@ -126,18 +127,18 @@ function selection(arr, n) {
     arr[i] = arr[index];
     arr[index] = temp;
   }
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken selection", time);
   performance_count[1][1] = comparisons;
   performance_count[1][2] = swaps;
-  performance_count[1][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[1][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
 function insertion(arr, n) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   swaps = 0;
   comparisons = 0;
@@ -152,18 +153,18 @@ function insertion(arr, n) {
       }
     }
   }
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken insertion", time);
   performance_count[2][1] = comparisons;
   performance_count[2][2] = swaps;
-  performance_count[2][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[2][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
 function heap(arr) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -191,18 +192,18 @@ function heap(arr) {
     arr[i] = arr[0];
     arr[0] = temp;
   }
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("final time heap", time);
   performance_count[3][1] = comparisons;
   performance_count[3][2] = swaps;
-  performance_count[3][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[3][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
 function shell(arr, n) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -223,13 +224,13 @@ function shell(arr, n) {
       }
     }
   }
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken shell", time);
   performance_count[4][1] = comparisons;
   performance_count[4][2] = swaps;
-  performance_count[4][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[4][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
@@ -269,20 +270,20 @@ function quick3(arr, start, end) {
 }
 
 function quick3Main(arr) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick3(arr, start, end);
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("final time quick3", time);
   performance_count[5][1] = comparisons;
   performance_count[5][2] = swaps;
-  performance_count[5][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[5][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
@@ -318,20 +319,20 @@ function quick(arr, start, end) {
 }
 
 function quickMain(arr) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
   start = 0;
   end = arr.length - 1;
   quick(arr, start, end);
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken quick", time);
   performance_count[6][1] = comparisons;
   performance_count[6][2] = swaps;
-  performance_count[6][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[6][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
@@ -383,25 +384,25 @@ function merge(arr, start, end) {
 }
 
 function mergeMain(arr) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   var start = 0;
   var end = arr.length - 1;
   comparisons = 0;
   swaps = 0;
   merge(arr, start, end);
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken merge", time);
   performance_count[7][1] = comparisons;
   performance_count[7][2] = swaps;
-  performance_count[7][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[7][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
 function countsort(a) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -437,13 +438,13 @@ function countsort(a) {
       a[index++] = i + minimum;
     }
   }
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken count", time);
   performance_count[8][1] = comparisons;
   performance_count[8][2] = swaps;
-  performance_count[8][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[8][3] = (time * 1000.0).toFixed(3) + " µs";
   return a;
 }
 
@@ -474,7 +475,7 @@ function radix(arr, div) {
 }
 
 function radixsort(arr) {
-  let startTime = performance.now() + performance.timeOrigin;
+  let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
   comparisons = 0;
   swaps = 0;
@@ -502,13 +503,13 @@ function radixsort(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i] += minimum;
   }
-  let endTime = performance.now() + performance.timeOrigin;
+  let endTime = performance.now() + timeConstant;
   console.log("final time", endTime);
   time = endTime - startTime;
   console.log("time taken radixsort", time);
   performance_count[9][1] = comparisons;
   performance_count[9][2] = swaps;
-  performance_count[9][3] = Math.floor(time * Math.pow(10, 6)) + " ns";
+  performance_count[9][3] = (time * 1000.0).toFixed(3) + " µs";
   return arr;
 }
 
@@ -1712,7 +1713,7 @@ async function sorting() {
 
     for (let i = 0; i < 10; i++) {
       // 1982320 ns
-      timetakenrandom[i] = parseInt(pc[0][1][i][3].slice(0, -3)) / 1000;
+      timetakenrandom[i] = parseFloat(pc[0][1][i][3].slice(0, -3));
       timetakenreverse[i] = parseInt(pc[1][1][i][3].slice(0, -3)) / 1000;
       timetakennearlysorted[i] = parseInt(pc[2][1][i][3].slice(0, -3)) / 1000;
       timetakenunique[i] = parseInt(pc[3][1][i][3].slice(0, -3)) / 1000;
