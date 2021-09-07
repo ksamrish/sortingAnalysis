@@ -3,28 +3,31 @@ function formatDate(date) {
 }
 
 function generateRandomDate(start, end) {
-  start = new Date(start);
-  end = new Date(end);
-  let date = new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime())
-  );
-  return date.toISOString();
+  // start = new Date(start);
+  // console.log("start", start);
+  // end = new Date(end);
+  // console.log("end", end);
+  // let date = new Date(
+  //   start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  // );
+  return new Date(
+    new Date(start).getTime() +
+      Math.random() * (new Date(end).getTime() - new Date(start).getTime())
+  ).toISOString();
 }
 
 var seconds = new Date().getTime() / 1000;
-let n = 10;
-let maxVal = "2021-10-02:10:30:30.123";
-let minVal = "2021-10-02:10:30:29.123";
+let n = 900;
+let maxVal = "2021-10-02:10:30:30.000Z";
+let minVal = "2021-10-02:10:30:29.000Z";
+let arr = [];
 let maxValTime = new Date(maxVal).getTime();
 let minValTime = new Date(minVal).getTime();
-let randDate = generateRandomDate(minVal, maxVal);
 let possibleArrSize = maxValTime - minValTime;
-console.log("possible arr size", possibleArrSize);
 let availableElemPercent = (n / possibleArrSize) * 100;
 let availableElemArray = [];
 
 if (n > possibleArrSize) {
-  console.log("error");
   document.getElementById("errorNoofelements").innerHTML =
     "Size must be less than the range between min and max value.";
   document.getElementById("outputdata").style.display = "none";
@@ -34,16 +37,15 @@ if (n > possibleArrSize) {
     availableElemArray[i] = minValTime + i;
   }
   for (let j = n - 1; j >= 0; j--) {
-    let randomIndex = Math.floor(Math.random() * possibleArrSize);
-    //console.log(randomIndex);
     let index = maxValTime - minValTime;
+    let randomIndex = Math.floor(Math.random() * index);
     let temp = availableElemArray[index];
     availableElemArray[index] = availableElemArray[randomIndex];
     availableElemArray[randomIndex] = temp;
     arr[j] = new Date(availableElemArray[index]); // the input array is getting created with the shuffled available element array
     maxValTime--;
   }
-  console.log("greater than 60%", arr);
+  console.log(">60% datetime arr", arr);
 } else if (availableElemPercent < 60) {
   for (let i = 0; i < n; i++) {
     let val = generateRandomDate(minVal, maxVal);
@@ -53,15 +55,7 @@ if (n > possibleArrSize) {
       i--;
     }
   }
-  console.log("lesser than 60%", arr);
 }
-
-arr = arr
-  .sort(function (a, b) {
-    return a - b;
-  })
-  .reverse();
-console.log("reversed array", arr);
 //reversearr = [...arr];
 
 // let availableElemPercent = (n / rangeDifference) * 100;

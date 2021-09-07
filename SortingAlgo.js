@@ -552,7 +552,7 @@ let displayReverseInputArr = [];
 let displayNearlyInputArr = [];
 let displayUniqueInputArr = [];
 
-async function callsorting(){
+async function callsorting() {
   sorting();
 }
 
@@ -825,13 +825,14 @@ function sorting() {
       if (datatype == "DateTime") {
         //2021-07-05:09:24:00.000
         if (
-          !(minVal.length == 23) ||
+          !(minVal.length == 24) ||
           !(minVal.slice(4, 5) == "-") ||
           !(minVal.slice(7, 8) == "-") ||
           !(minVal.slice(10, 11) == ":") ||
           !(minVal.slice(13, 14) == ":") ||
           !(minVal.slice(16, 17) == ":") ||
           !(minVal.slice(19, 20) == ".") ||
+          !(minVal.slice(23) == "Z") ||
           isNaN(parseInt(minVal.slice(0, 4))) ||
           isNaN(parseInt(minVal.slice(5, 7))) ||
           isNaN(parseInt(minVal.slice(8, 10))) ||
@@ -847,13 +848,14 @@ function sorting() {
         }
 
         if (
-          !(maxVal.length == 23) ||
+          !(maxVal.length == 24) ||
           !(maxVal.slice(4, 5) == "-") ||
           !(maxVal.slice(7, 8) == "-") ||
           !(maxVal.slice(10, 11) == ":") ||
           !(maxVal.slice(13, 14) == ":") ||
           !(maxVal.slice(16, 17) == ":") ||
           !(maxVal.slice(19, 20) == ".") ||
+          !(maxVal.slice(23) == "Z") ||
           isNaN(parseInt(maxVal.slice(0, 4))) ||
           isNaN(parseInt(maxVal.slice(5, 7))) ||
           isNaN(parseInt(maxVal.slice(8, 10))) ||
@@ -1004,14 +1006,15 @@ function sorting() {
             availableElemArray[i] = minValTime + i;
           }
           for (let j = n - 1; j >= 0; j--) {
-            let randomIndex = Math.floor(Math.random() * possibleArrSize);
             let index = maxValTime - minValTime;
+            let randomIndex = Math.floor(Math.random() * index);
             let temp = availableElemArray[index];
             availableElemArray[index] = availableElemArray[randomIndex];
             availableElemArray[randomIndex] = temp;
-            arr[j] = new Date(availableElemArray[index]); // the input array is getting created with the shuffled available element array
+            arr[j] = new Date(availableElemArray[index]).toISOString(); // the input array is getting created with the shuffled available element array
             maxValTime--;
           }
+          console.log(">60% datetime arr", arr);
         } else if (availableElemPercent < 60) {
           for (let i = 0; i < n; i++) {
             let val = generateRandomDate(minVal, maxVal);
