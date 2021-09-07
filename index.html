@@ -14,6 +14,27 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>SortingAnalysis</title>
 	<style>
+		.menu{
+			display: none;
+			font-size: 18px;
+			font-weight: 500;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		@media screen and (max-width: 500px) {
+			.navli{
+				display: none;
+				width:100%;
+			}
+			.menu{
+				display: block;
+			}
+		}
+		.menu:hover{
+			cursor: pointer;
+		}
 		.navul {
 			list-style-type: none;
 			margin: 0;
@@ -22,6 +43,8 @@
 			background-color: #1F95EE;
 		}
 		.navli a {
+			font-size: 18px;
+			font-weight: 500;
 			display: block;
 			color: white;
 			text-align: center;
@@ -34,6 +57,12 @@
 			text-decoration: none;
 			list-style-type: none;
 			list-style: none;
+		}
+		.displayblock{
+			display: block;
+		}
+		.displaynone{
+			display: none;
 		}
 		#graph{
 			display:none;
@@ -245,10 +274,11 @@
         </div>
     </div>
 	<ul class="navul">
-		<li class="navli" style="float:right"><a href="#">Home</a></li>
-		<li class="navli" style="float:right"><a href="#">Sorting Analysis</a></li>
-		<li class="navli" style="float:right"><a href="#">About us</a></li>
-		<li class="navli" style="float:left"><a class="active" href="#about">About</a></li>
+		<li class="menu" id="menu" style="float:right"><a><i class="fa fa-bars" style="font-size: 25px;"></i></a></li>
+		<li class="navli" id="contact" style="float:right"><a href="#">Contact</a></li>
+		<li class="navli" id="sortinganalysis" style="float:right"><a href="#">Sorting Analysis</a></li>
+		<li class="navli" id="home" style="float:right"><a href="#">Home</a></li>
+		<!-- <li class="navli" style="float:left"><a class="active" href="#about">About</a></li> -->
 	</ul>
 	<div class="container" style="width:100%;margin:0 auto;margin-top: 30px;">
 		<div class="row row-content">
@@ -486,10 +516,25 @@
 		<script>
 			var bool = 0;
 			var datatype = document.getElementById('datatype').value;
-			
+			var navOpen = 0;
 			var inputformicon = "add";
 			//calling the onclick function for the submit button to have the ouptut for the default values 
 			document.getElementById('submit').click();
+
+			document.getElementById('menu').onclick = () => {
+				if(navOpen==0){
+					document.getElementById('home').style.display = 'block';
+					document.getElementById('contact').style.display = 'block';
+					document.getElementById('sortinganalysis').style.display = 'block';
+					navOpen=1;
+				}
+				else{
+					navOpen=0;
+					document.getElementById('home').style.display = 'none';
+					document.getElementById('contact').style.display = 'none';
+					document.getElementById('sortinganalysis').style.display = 'none';
+				}
+			}
 			
 			function formcollapseLogoChange(){
 				if(inputformicon=="add"){
