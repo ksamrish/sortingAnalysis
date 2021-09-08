@@ -79,6 +79,7 @@ var performance_count = [
 
 var timeConstant = 1631043921340.6; // Since performance.timeOrigin doenst work in safari, adding performance.timeOrigin value to a constant and then add it to the time taken
 ///  10 Sorting methods below:
+// var timeConstant = performance.timeOrigin;
 function bubble(arr, n) {
   let startTime = performance.now() + timeConstant;
   console.log("initial time", startTime);
