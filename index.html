@@ -131,7 +131,7 @@
 
 /* Safari 6.1-10.0 (but not 10.1) */
 @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0){ 
-@media {
+@media screen {
 .inputselect { 
 width:216px;
 -webkit-appearance:none;
@@ -260,8 +260,8 @@ width:216px;
 	</style>
 </head>
 
-<body style="background-color: #EBF6FF;color:black ;">   <!-- hsl(207, 82%, 68%) -->
-	<div id="Algoresult" class="modal fade" role="dialog">
+<body style="background-color: #EBF6FF;color:black ;min-width: 300px;">   <!-- hsl(207, 82%, 68%) -->
+	<div id="Algoresult" class="modal fade" role="dialog" style="min-width: 301px;">
         <div class="modal-dialog modal-lg" role="content"  >
             <div class="modal-content" >
                 <div class="modal-header" style="background-color: #EBF6FF;">
@@ -280,7 +280,16 @@ width:216px;
                     </button>
 				</div>
 				<div class="modal-body" style="background-color: #EBF6FF;border-radius: 10px;">
-					<canvas id="popUpChart"></canvas>
+					<!-- <div style="overflow-x: scroll;">
+						<canvas id="popUpChart"></canvas>
+					</div> -->
+					<div style="overflow-x:auto;margin-bottom: 30px;">
+						<div class="row">
+							<div class="col-12" style="min-width:500px">
+								<canvas id="popUpChart"></canvas>	
+							</div>
+						</div>
+					</div>
 					<h4 > <span
 						class="modal_bodyInput"
 						style="
@@ -858,7 +867,7 @@ width:216px;
 										id:'y',
 										scaleLabel: {
 											display: true,
-											labelString: 'Input Elements Range'
+											labelString: datatype=='Character'?'Input Elements Range (in ascii)':datatype=='DateTime'?'Input Range (in ms since 1st jan 1970)':'Input Elements Range',
 											}
 									},
 									{
@@ -868,7 +877,7 @@ width:216px;
 										id:'y1',
 										scaleLabel: {
 											display: true,
-											labelString: 'Output Elements Range'
+											labelString: datatype=='Character'?'Output Elements Range (in ascii)':datatype=='DateTime'?'Output Range (in ms since 1st jan 1970)':'Output Elements Range',
 											}
 									}
 								],
