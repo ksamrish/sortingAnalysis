@@ -125,10 +125,24 @@
 			background-color:#1F95EE ;
 			position: relative;
 			-webkit-appearance: none;
-			width: 216px;
-			height: 46px;
+
 
 		}
+
+/* Safari 6.1-10.0 (but not 10.1) */
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0){ 
+@media {
+.inputselect { 
+width:216px;
+}
+}}
+/* Safari 11+ */
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+	.inputselect { 
+width:216px;
+}
+}}
 		/* @media screen and (min-width: 315px) {
 			.inputselect{
 				padding: 10px 0px 10px 10px;
