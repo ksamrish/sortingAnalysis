@@ -571,8 +571,11 @@ width:216px;
 				}
 			} 
 
-			var safari = detectBrowser();
+			var browserName = detectBrowser();
 			console.log('browser', safari)
+			if(browserName == "Safari"){
+				document.getElementById("noofelements").value= "5000";
+			}
 			var bool = 0;
 			var datatype = document.getElementById('datatype').value;
 			var navOpen = 0;
