@@ -404,7 +404,7 @@ width:216px;
 				</div>
 				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
 					<label class="labelform" id = "inputMaxValue" style="margin-right:0px;font-size:20px">Maximum value: </label>&emsp;
-					<input class="inputbox floatright" id="maxrange" type="text" value = "1000">
+					<input class="inputbox floatright" id="maxrange" type="text" value = "10000">
 					<!--removed placeholder placeholder="Enter the max range..."-->
 					<div id="errorMaxval" style="color:red"></div><br>
 				</div>
@@ -555,12 +555,32 @@ width:216px;
 		</div>
 		</div> <!--container end-->
 		<script>
+				function detectBrowser() { 
+				if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+					return 'Opera';
+				} else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+					return 'Chrome';
+				} else if(navigator.userAgent.indexOf("Safari") != -1) {
+					return 'Safari';
+				} else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+					return 'Firefox';
+				} else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+					return 'IE';//crap
+				} else {
+					return 'Unknown';
+				}
+			} 
+
+			var safari = detectBrowser();
+			console.log('browser', safari)
 			var bool = 0;
 			var datatype = document.getElementById('datatype').value;
 			var navOpen = 0;
 			var inputformicon = "add";
 			//calling the onclick function for the submit button to have the ouptut for the default values 
 			document.getElementById('submit').click();
+
+		
 
 			document.getElementById('menu').onclick = () => {
 				if(navOpen==0){
