@@ -1,102 +1,210 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Quick3 Sort</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        .container{
-            margin:20px auto;
+      .container {
+        margin: 20px auto;
+      }
+      .row {
+        margin: 0;
+        padding: 0;
+      }
+      .verticalline {
+        border: none;
+      }
+      @media screen and (min-width: 768px) {
+        .verticalline {
+          border-right: 0.1px solid gray;
         }
-        .row{
-            margin:0;
-            padding:0;
-        }
-        .verticalline{
-            border:none;
-        }
-        @media screen and (min-width:768px){
-            .verticalline{
-                border-right: 0.1px solid gray;
-            }
-        }
+      }
+      a {
+        color: #1f95ee;
+        font-weight: normal;
+      }
     </style>
-</head>
-<body>
-    <div style="padding:20px;border:2px solid black;border-radius: 4px;margin:20px">
-        <div class="row">
-            <div class="col-12 col-md-8 verticalline">
-                <h2>Quick3 Sort</h2>
-                <p style="margin-bottom:20px;font-size:17px">&emsp;&emsp;&emsp;Quick3 sort,is 
-                    similar to the Quick sort. However, its more efficient when there are  lot of duplicate 
-                    elements in the given array. The idea is to divide the array in three parts rather than two.  
-                    Let’s say P is the pivot index. The first part contains all the numbers which are less than P, 
-                    the second part contains number equal to P 
-                    and the last part contains numbers which are greater than P.</p>
-            </div>
-            <div class="col-12 col-md-4" style="margin-top:20px;padding-left:20px">
-                <h5>If you want to know more about Quick3 sort, please refer this page...</h5>
-                <a href="https://www.geeksforgeeks.org/Quick3-sort/" target="_blank" style="font-size:20px">Quick3 sort</a>
-            </div>
-        </div><hr>
-        <div class="row">
-            <div class="col-12 col-md-8 verticalline">
-                <h3>Quick3 Sort Code</h3><br>
-                <pre style="background-color: rgb(72, 40, 114);color:white;padding:20px 0px 0px">
-    function quick3(arr,start,end) {
-        let i = end, j = end, high = start;
-        let pivot = arr[start];
-        while(high <= i) {
-            if(arr[i] == pivot) {
-                i--;
-            }
-            else if(arr[i] < pivot) {
-                let temp = arr[high];
-                arr[high] = arr[i];
-                arr[i] = temp;
-                high++;
-            }
-            else {
-                let temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-                i--;j--;
-            }
-        }
-        if(start < high-1)
-            quick3(arr,start,high-1);
-        if(j+1 < end)
-            quick3(arr,j+1,end);
-        return;
-    }
-    
-    function quick3Main(arr){
-        start = 0;
-        end = arr.length - 1; 
-        quick3(arr,start,end);
-        return arr;
-    }
-                </pre>
-            </div>
-            <div class="col-12 col-md-4" style="padding-left:20px">
-                <h3>Other types of sorting :</h3><br>
-                <h5 style="margin-left:30px">
-                    <li><a href="./Bubble.html">Quick3 Sort</a></li>
-                    <li><a href="./Insertion.html">Insertion Sort</a></li>
-                    <li><a href="./Selection.html">Selection Sort</a></li>
-                    <li><a href="./Merge.html">Merge Sort</a></li>
-                    <li><a href="./Quick.html">Quick Sort</a></li>
-                    <li><a href="./Heap.html">Heap Sort</a></li>
-                    <li><a href="./Shell.html">Shell Sort</a></li>
-                    <li><a href="./Count.html">Count Sort</a></li>
-                    <li><a href="./Radix.html">Radix Sort</a></li>
-                </h5>
-            </div>
+  </head>
+  <body>
+    <div
+      style="
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 4px;
+        margin: 20px;
+        background-color: white;
+      "
+    >
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <h2>
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Quick3 Sort</span
+            >
+          </h2>
+          <p
+            style="
+              margin-top: 30px;
+              margin-bottom: 20px;
+              font-size: 17px;
+              background-color: white;
+              padding: 10px;
+              border-radius: 10px;
+            "
+          >
+            &emsp;&emsp;&emsp; Quick3 sort,is similar to the Quick sort.
+            However, its more efficient when there are lot of duplicate elements
+            in the given array. The idea is to divide the array in three parts
+            rather than two. Let’s say P is the pivot index. The first part
+            contains all the numbers which are less than P, the second part
+            contains number equal to P and the last part contains numbers which
+            are greater than P.
+          </p>
         </div>
+        <div
+          class="col-md-12 col-lg-4"
+          style="
+            padding: 20px;
+            margin-top: 0px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 2px solid #1f95ee;
+          "
+        >
+          <h5>To Learn more about Quick3 Sort, refer the link given below:</h5>
+          <a
+            href="https://www.geeksforgeeks.org/Quick3-sort/"
+            target="_blank"
+            style="font-size: 20px; color: #1f95ee"
+            >Quick3 sort</a
+          >
+        </div>
+      </div>
+      <!-- <hr /> -->
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <h3 class="sortcode">
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Quick3 Sort Code</span
+            >
+          </h3>
+          <br />
+          <pre
+            style="
+              background-color: #ebf6ff;
+              color: black;
+              padding: 20px 0px 0px;
+              border-radius: 10px;
+            "
+          >
+  function quick3(arr,start,end) {
+      let i = end, j = end, high = start;
+      let pivot = arr[start];
+      while(high <= i) {
+          if(arr[i] == pivot) {
+              i--;
+          }
+          else if(arr[i] < pivot) {
+              let temp = arr[high];
+              arr[high] = arr[i];
+              arr[i] = temp;
+              high++;
+          }
+          else {
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+              i--;j--;
+          }
+      }
+      if(start < high-1)
+          quick3(arr,start,high-1);
+      if(j+1 < end)
+          quick3(arr,j+1,end);
+      return;
+  }
+  
+  function quick3Main(arr){
+      start = 0;
+      end = arr.length - 1; 
+      quick3(arr,start,end);
+      return arr;
+  }
+                </pre
+          >
+        </div>
+        <div
+          class="col-md-12 col-lg-4"
+          style="border-radius: 10px; border: 2px solid #1f95ee; padding: 10px"
+        >
+          <h3 style="margin-top: 30px" class="othersortingheading">
+            <span
+              style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              "
+              >Other types of sorting :</span
+            >
+          </h3>
+          <br />
+          <h5 class="sortingli">
+            <li style="padding: 20px">
+              <a href="./Bubble.html">Bubble Sort</a>
+            </li>
+            <li style="padding: 20px">
+              <a href="./Insertion.html">Insertion Sort</a>
+            </li>
+            <li style="padding: 20px">
+              <a href="./Selection.html">Selection Sort</a>
+            </li>
+            <li style="padding: 20px"><a href="./Merge.html">Merge Sort</a></li>
+            <li style="padding: 20px"><a href="./Quick.html">Quick Sort</a></li>
+            <li style="padding: 20px"><a href="./Heap.html">Heap Sort</a></li>
+            <li style="padding: 20px"><a href="./Shell.html">Shell Sort</a></li>
+            <li style="padding: 20px"><a href="./Count.html">Count Sort</a></li>
+            <li style="padding: 20px"><a href="./Radix.html">Radix Sort</a></li>
+          </h5>
+        </div>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>

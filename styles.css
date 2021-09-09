@@ -1,0 +1,45 @@
+@media screen and (max-width: 1120px) {
+  .othersortingheading {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .othersortingheading {
+    font-size: 23px;
+  }
+}
+
+.sortingli {
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 387px) {
+  .othersortingheading {
+    font-size: 20px;
+  }
+  .sortingli {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .sortcode {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 357px) {
+  .othersortingheading {
+    font-size: 18px;
+  }
+  .sortingli {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .sortcode {
+    font-size: 20px;
+  }
+}
