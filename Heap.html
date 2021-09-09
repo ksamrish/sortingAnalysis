@@ -47,7 +47,7 @@
       }
     </style>
   </head>
-  <body style="min-width: 430px;">
+  <body>
     <div
       style="
         padding: 20px;
@@ -110,7 +110,7 @@
       <!-- <hr /> -->
       <div class="row">
         <div class="col-md-12 col-lg-8">
-          <h3>
+          <h3 class="sortcode">
             <span
               style="
                 background-color: #1f95ee;
@@ -131,29 +131,29 @@
               border-radius: 10px;
             "
           >
-          function heap(arr) {
-            start = 0;
-            end = arr.length -1 ;
-            for(let i=end;i>0;i--) {
-                for(let j=Math.floor((i-1)/2);j>=0;j--) {
-                    let left = 2*j+1;
-                    let right = 2*j+2;
-                    let big = left;
-                    if(right <=i && arr[right]>arr[left]) {
-                        big = right;
-                    }
-                    if(arr[j] < arr[big]) {
-                        let temp = arr[big];
-                        arr[big] = arr[j];
-                        arr[j] = temp;
-                    }
-                }
-                let temp = arr[i];
-                arr[i] = arr[0];
-                arr[0] = temp;
+  function heap(arr) {
+    start = 0;
+    end = arr.length -1 ;
+    for(let i=end;i>0;i--) {
+        for(let j=Math.floor((i-1)/2);j>=0;j--) {
+            let left = 2*j+1;
+            let right = 2*j+2;
+            let big = left;
+            if(right <=i && arr[right]>arr[left]) {
+                big = right;
             }
-            return arr;
+            if(arr[j] < arr[big]) {
+                let temp = arr[big];
+                arr[big] = arr[j];
+                arr[j] = temp;
+            }
         }
+        let temp = arr[i];
+        arr[i] = arr[0];
+        arr[0] = temp;
+    }
+    return arr;
+  }
                 </pre
           >
         </div>
@@ -174,7 +174,7 @@
             >
           </h3>
           <br />
-          <h5 style="margin-left: 30px">
+          <h5 class="sortingli">
             <li style="padding: 20px">
               <a href="./Bubble.html">Bubble Sort</a>
             </li>

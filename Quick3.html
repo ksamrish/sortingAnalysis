@@ -47,7 +47,7 @@
       }
     </style>
   </head>
-  <body style="min-width: 430px;">
+  <body>
     <div
       style="
         padding: 20px;
@@ -112,7 +112,7 @@
       <!-- <hr /> -->
       <div class="row">
         <div class="col-md-12 col-lg-8">
-          <h3>
+          <h3 class="sortcode">
             <span
               style="
                 background-color: #1f95ee;
@@ -133,39 +133,39 @@
               border-radius: 10px;
             "
           >
-          function quick3(arr,start,end) {
-            let i = end, j = end, high = start;
-            let pivot = arr[start];
-            while(high <= i) {
-                if(arr[i] == pivot) {
-                    i--;
-                }
-                else if(arr[i] < pivot) {
-                    let temp = arr[high];
-                    arr[high] = arr[i];
-                    arr[i] = temp;
-                    high++;
-                }
-                else {
-                    let temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                    i--;j--;
-                }
-            }
-            if(start < high-1)
-                quick3(arr,start,high-1);
-            if(j+1 < end)
-                quick3(arr,j+1,end);
-            return;
-        }
-        
-        function quick3Main(arr){
-            start = 0;
-            end = arr.length - 1; 
-            quick3(arr,start,end);
-            return arr;
-        }
+  function quick3(arr,start,end) {
+      let i = end, j = end, high = start;
+      let pivot = arr[start];
+      while(high <= i) {
+          if(arr[i] == pivot) {
+              i--;
+          }
+          else if(arr[i] < pivot) {
+              let temp = arr[high];
+              arr[high] = arr[i];
+              arr[i] = temp;
+              high++;
+          }
+          else {
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+              i--;j--;
+          }
+      }
+      if(start < high-1)
+          quick3(arr,start,high-1);
+      if(j+1 < end)
+          quick3(arr,j+1,end);
+      return;
+  }
+  
+  function quick3Main(arr){
+      start = 0;
+      end = arr.length - 1; 
+      quick3(arr,start,end);
+      return arr;
+  }
                 </pre
           >
         </div>
@@ -186,7 +186,7 @@
             >
           </h3>
           <br />
-          <h5 style="margin-left: 30px">
+          <h5 class="sortingli">
             <li style="padding: 20px">
               <a href="./Bubble.html">Bubble Sort</a>
             </li>

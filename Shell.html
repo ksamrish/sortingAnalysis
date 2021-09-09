@@ -47,7 +47,7 @@
       }
     </style>
   </head>
-  <body style="min-width: 430px;">
+  <body>
     <div
       style="
         padding: 20px;
@@ -111,7 +111,7 @@
       <!-- <hr /> -->
       <div class="row">
         <div class="col-md-12 col-lg-8">
-          <h3>
+          <h3 class="sortcode">
             <span
               style="
                 background-color: #1f95ee;
@@ -132,25 +132,25 @@
               border-radius: 10px;
             "
           >
-          function shell(arr,n) {
-            for(let gap = Math.floor(n/2);gap >= 1;gap = Math.floor(gap/2)) {
-                for(let fwd = gap; fwd < n; fwd++) {
-                    let toBeInserted = fwd;
-                    for(let rev = fwd - gap;rev >= 0;rev -= gap) {
-                        if(arr[rev] > arr[toBeInserted]) {
-                            let temp = arr[rev];
-                            arr[rev] = arr[h];
-                            arr[toBeInserted] = temp;
-                            toBeInserted = rev;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                }
-            }
-            return arr;
-        }
+  function shell(arr,n) {
+      for(let gap = Math.floor(n/2);gap >= 1;gap = Math.floor(gap/2)) {
+          for(let fwd = gap; fwd < n; fwd++) {
+              let toBeInserted = fwd;
+              for(let rev = fwd - gap;rev >= 0;rev -= gap) {
+                  if(arr[rev] > arr[toBeInserted]) {
+                      let temp = arr[rev];
+                      arr[rev] = arr[h];
+                      arr[toBeInserted] = temp;
+                      toBeInserted = rev;
+                  }
+                  else {
+                      break;
+                  }
+              }
+          }
+      }
+      return arr;
+  }
                 </pre
           >
         </div>
@@ -171,7 +171,7 @@
             >
           </h3>
           <br />
-          <h5 style="margin-left: 30px">
+          <h5 class="sortingli">
             <li style="padding: 20px">
               <a href="./Bubble.html">Bubble Sort</a>
             </li>

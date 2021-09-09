@@ -47,7 +47,7 @@
       }
     </style>
   </head>
-  <body style="min-width: 430px;">
+  <body>
     <div
       style="
         padding: 20px;
@@ -120,7 +120,7 @@
       <!-- <hr /> -->
       <div class="row">
         <div class="col-md-12 col-lg-8">
-          <h3>
+          <h3 class="sortcode">
             <span
               style="
                 background-color: #1f95ee;
@@ -141,19 +141,18 @@
               border-radius: 10px;
             "
           >
-          function insertion(arr, n) {
-            for(let i = 1; i < n; i++) {
-                for(let j = i; j > 0; j--) {
-                    if(arr[j] < arr[j-1]) {
-                        let temp = arr[j];
-                        arr[j] = arr[j-1];
-                        arr[j-1] = temp;
-        
-                    }
-                }
+  function insertion(arr, n) {
+    for(let i = 1; i < n; i++) {
+        for(let j = i; j > 0; j--) {
+            if(arr[j] < arr[j-1]) {
+                let temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
             }
-            return arr;
         }
+    }
+    return arr;
+  }
                 </pre
           >
         </div>
@@ -174,7 +173,7 @@
             >
           </h3>
           <br />
-          <h5 style="margin-left: 30px">
+          <h5 class="sortingli">
             <li style="padding: 20px">
               <a href="./Bubble.html">Bubble Sort</a>
             </li>

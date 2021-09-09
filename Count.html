@@ -43,7 +43,7 @@
       }
     </style>
   </head>
-  <body style="min-width: 430px;">
+  <body>
     <div
       style="
         padding: 20px;
@@ -109,7 +109,7 @@
       <!-- <hr /> -->
       <div class="row">
         <div class="col-md-12 col-lg-8 ">
-          <h3><span
+          <h3 class="sortcode"><span
             style="
               background-color: #1f95ee;
               color: white;
@@ -128,37 +128,37 @@
           border-radius: 10px;
         "
           >
-    function countsort(a) {
-        let minimum = a[0];
-        let maximum = a[0];
-        for(let i = 0; i < a.length; i++) {
-            if(a[i] < minimum)
-                minimum = a[i];
-            if(a[i] > maximum)
-                maximum = a[i];
-        }
-        for(let i=0;i < a.length;i++) {
-            a[i] -= minimum;
-        }
-        let bucket = [];
-        bucket.length = (maximum - minimum + 1);
-        for(let i = 0; i < bucket.length; i++){
-            bucket[i] = 0;
-        }
-        for(let i = 0; i < a.length; i++) {
-            bucket[a[i]]++;
-        }
-        let index = 0;
-        for(let i = 0; i < bucket.length; i++) {
-            if(bucket[i]==0) {
-                continue;
-            }
-            for(let j = 0; j < bucket[i]; j++) {
-                a[index++] = i+minimum;
-            }
-        }
-        return a; 
-    } 
+  function countsort(a) {
+      let minimum = a[0];
+      let maximum = a[0];
+      for(let i = 0; i < a.length; i++) {
+          if(a[i] < minimum)
+              minimum = a[i];
+          if(a[i] > maximum)
+              maximum = a[i];
+      }
+      for(let i=0;i < a.length;i++) {
+          a[i] -= minimum;
+      }
+      let bucket = [];
+      bucket.length = (maximum - minimum + 1);
+      for(let i = 0; i < bucket.length; i++){
+          bucket[i] = 0;
+      }
+      for(let i = 0; i < a.length; i++) {
+          bucket[a[i]]++;
+      }
+      let index = 0;
+      for(let i = 0; i < bucket.length; i++) {
+          if(bucket[i]==0) {
+              continue;
+          }
+          for(let j = 0; j < bucket[i]; j++) {
+              a[index++] = i+minimum;
+          }
+      }
+      return a; 
+  } 
                 </pre
           >
           <!-- <p>The above function always runs O(n^2) time even if the array is sorted. 
