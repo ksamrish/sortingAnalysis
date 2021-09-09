@@ -101,7 +101,7 @@ function bubble(arr, n) {
   console.log("time taken bubble", time);
   performance_count[0][1] = comparisons;
   performance_count[0][2] = swaps;
-  performance_count[0][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[0][3] = (time * 1000.0).toFixed(3) + " microseconds";
   console.log(time);
 
   return arr;
@@ -133,7 +133,7 @@ function selection(arr, n) {
   console.log("time taken selection", time);
   performance_count[1][1] = comparisons;
   performance_count[1][2] = swaps;
-  performance_count[1][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[1][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
@@ -159,7 +159,7 @@ function insertion(arr, n) {
   console.log("time taken insertion", time);
   performance_count[2][1] = comparisons;
   performance_count[2][2] = swaps;
-  performance_count[2][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[2][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
@@ -198,7 +198,7 @@ function heap(arr) {
   console.log("final time heap", time);
   performance_count[3][1] = comparisons;
   performance_count[3][2] = swaps;
-  performance_count[3][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[3][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
@@ -230,7 +230,7 @@ function shell(arr, n) {
   console.log("time taken shell", time);
   performance_count[4][1] = comparisons;
   performance_count[4][2] = swaps;
-  performance_count[4][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[4][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
@@ -283,7 +283,7 @@ function quick3Main(arr) {
   console.log("final time quick3", time);
   performance_count[5][1] = comparisons;
   performance_count[5][2] = swaps;
-  performance_count[5][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[5][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
@@ -332,7 +332,7 @@ function quickMain(arr) {
   console.log("time taken quick", time);
   performance_count[6][1] = comparisons;
   performance_count[6][2] = swaps;
-  performance_count[6][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[6][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
@@ -397,7 +397,7 @@ function mergeMain(arr) {
   console.log("time taken merge", time);
   performance_count[7][1] = comparisons;
   performance_count[7][2] = swaps;
-  performance_count[7][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[7][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
@@ -444,7 +444,7 @@ function countsort(a) {
   console.log("time taken count", time);
   performance_count[8][1] = comparisons;
   performance_count[8][2] = swaps;
-  performance_count[8][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[8][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return a;
 }
 
@@ -509,7 +509,7 @@ function radixsort(arr) {
   console.log("time taken radixsort", time);
   performance_count[9][1] = comparisons;
   performance_count[9][2] = swaps;
-  performance_count[9][3] = (time * 1000.0).toFixed(3) + " µs";
+  performance_count[9][3] = (time * 1000.0).toFixed(3) + " microseconds";
   return arr;
 }
 
