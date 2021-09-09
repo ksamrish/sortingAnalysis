@@ -47,7 +47,7 @@
       }
     </style>
   </head>
-  <body style="min-width: 430px;">
+  <body>
     <div
       style="
         padding: 20px;
@@ -115,7 +115,7 @@
       <!-- <hr /> -->
       <div class="row">
         <div class="col-md-12 col-lg-8">
-          <h3>
+          <h3 class="sortcode">
             <span
               style="
                 background-color: #1f95ee;
@@ -136,25 +136,25 @@
               border-radius: 10px;
             "
           >
-          function selection(arr,n) 
-          {
-              for(let i=0; i < n-1; i++) {
-                  let min = arr[i];
-                  let index = i;
-                  for(let j=i ;j < n;j++) {
-                      comparisons++;
-                      if(arr[j] < min) {
-                          min = arr[j];
-                          index = j;
-                      }
-                  }
-                  swaps++;
-                  let temp = arr[i];
-                  arr[i] = arr[index];
-                  arr[index] = temp;
+  function selection(arr,n) 
+  {
+      for(let i=0; i < n-1; i++) {
+          let min = arr[i];
+          let index = i;
+          for(let j=i ;j < n;j++) {
+              comparisons++;
+              if(arr[j] < min) {
+                  min = arr[j];
+                  index = j;
               }
-              return arr;
           }
+          swaps++;
+          let temp = arr[i];
+          arr[i] = arr[index];
+          arr[index] = temp;
+      }
+      return arr;
+  }
                 </pre
           >
         </div>
@@ -175,7 +175,7 @@
             >
           </h3>
           <br />
-          <h5 style="margin-left: 30px">
+          <h5 class="sortingli">
             <li style="padding: 20px">
               <a href="./Bubble.html">Bubble Sort</a>
             </li>
