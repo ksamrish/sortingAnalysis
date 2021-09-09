@@ -1757,8 +1757,6 @@ async function sorting() {
     document.getElementById("swapsunique").innerHTML = swapstakenunique;
     graph(); // Graph called to display the output data.
   }
-  // console.log('block none')
-  // document.getElementById('loading').style.display='none';
 }
 
 // The below method is display the input data according to the tab that is chosen in the table.
