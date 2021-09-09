@@ -111,7 +111,7 @@
 			border-radius: 10px;
 		}
 
-		.pic1para,
+		/* .pic1para,
 		.pic2para,
 		.pic3para {
 			width: 100%;
@@ -124,9 +124,9 @@
 		.pic1para,.pic3para {
 			text-align: left;
 			animation: left_to_right 3s ease;
-		}
+		} */
 
-		@keyframes right_to_left {
+		/* @keyframes right_to_left {
 			from {
 				margin-left: 100%;
 			}
@@ -141,6 +141,11 @@
 			}
 			to {
 				margin-left: 0;
+			}
+		} */
+		@media screen and (max-width: 860px) {			
+			.picoverflow{
+				overflow-x: scroll;
 			}
 		}
 		
@@ -160,27 +165,25 @@
 	</ul>
 	<div style="margin-left: 20px;margin-right:20px;margin-top: 30px;">
 		<h2 style="margin-bottom: 15px;">What is Sorting?</h2>
-		<p style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sorting Algorithms are methods of reorganizing a large number of items into some specific order such as highest to lowest, or vice-versa, or even in some alphabetical order. These algorithms take an input list, processes it (i.e, performs some operations on it) and produce the sorted list. The most common example we experience every day is sorting clothes or other items on an e-commerce website either by lowest-price to highest, or list by popularity, or some other order.</p>
+		<p style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sorting analysis compares many sorting algorithm accross different data types with Random array, Reverse array, nearly sorted array and duplicate arrays as input. Input can be chosen through input form ( picture attached below).</p>
+		<p style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There is an option to visualize the input / output by clicking visualize button next to them (picture attached below)</p>
 		<p style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following are the sorting methods we have learnt and analyzed in this project, <a target="_blank" href="Bubble.html">Bubble Sort</a>, <a target="_blank" href="Insertion.html">Insertion Sort</a>, <a target="_blank" href="Selection.html">Selection Sort</a>, <a target="_blank" href="Merge.html">Merge Sort</a>, <a target="_blank" href="Quick.html">Quick Sort</a>, <a target="_blank" href="Quick3.html">Quick3 Sort</a>, <a target="_blank" href="Heap.html">Heap Sort</a>, <a target="_blank" href="Shell.html">Shell Sort</a>, <a target="_blank" href="Count.html">Count Sort</a> and <a target="_blank" href="Radix.html">Radix Sort</a>.</p>
 		<hr>
 		<div class="row" style="align-items: center;margin:40px 0px;">
-			<div class="col-12 col-md-6">
+			<div class="col-12">
 				<p class="pic1para" style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Input form (Pic 1) will enable you to try the sorting methods for 5 different data types, Integer, Float, Character, String and DateTime. You will be able to give a desired number of elements, minimum and maximum ranges. We have an option to add duplicate elements by giving duplicate percent.Nearly Sorted Percent will be a data set for which the input data will be sorted to percentage that you give.
 					On submitting the form, a random array will be generated, with the data provided in the form. A pictorial representation of the input data, that is unsorted and output data which sorted is as shown in Pic 2.
 					</p>
 			</div>
-			<div class="col-12 col-md-6" style="text-align: center;min-width: 500px important; overflow-x: scroll;">
-				<img style="text-align: center;" src="./images/picture1.png">
+			<div class="col-12 picoverflow" style="text-align: center;min-width: 500px important;">
+				<img style="text-align: center;" src="./images/inputform.png">
 				<p style="font-weight: bold;">Pic 1</p>
 			</div>
 		</div>
 		<hr>
 		<div class="row" style="align-items: center;">
-			<div class="col-12 col-md-6" style="text-align: center;min-width: 500px important; overflow-x: scroll;">
-				<img style="text-align: center;" src="./images/picture1.png">
-				<p style="font-weight: bold;">Pic 2</p>
-			</div>
-			<div class="col-12 col-md-6">
+			<div class="col-12">
+				<!-- <h3 style="text-align: center;">Input Form</h3> -->
 				<ul>
 					<li class="pic2para" style="font-size: 18px;vertical-align: center;justify-content: center;align-items: center;">The input data is created randomly , hence the first tab shows the number of swaps , number of comparisions and the time taken for a  random input to be sorted using different sorting methods.</li>
 					<li class="pic2para" style="font-size: 18px;vertical-align: center;justify-content: center;align-items: center;">Similarly, the second tab is for reverse array. The random array is reversed and then sorted. We have captured the number of swaps , number of comparisions and the time taken for a reverse array to be sorted.</li> 						
@@ -188,16 +191,24 @@
 					<li class="pic2para" style="font-size: 18px;vertical-align: center;justify-content: center;align-items: center;">The last tab has duplicate array which will have duplicate elements as per the duplicate input percentage provided. If the duplicate percentage provided in the input form is 20% for an array size of 10 elements, 2 elements will be same, and rest 8 elements will be unique.</li>
 				</ul>
 			</div>
+			<div class="col-12 picoverflow" style="text-align: center;min-width: 500px important;">
+				<img style="text-align: center;" src="./images/picture3graphanalysis.png">
+				<p style="font-weight: bold;">Pic 2</p>
+			</div>
+			<div class="col-12 picoverflow" style="text-align: center;min-width: 500px important;">
+				<img style="text-align: center;" src="./images/picture3graphanalysisbig.png">
+				<p style="font-weight: bold;">Pic 2</p>
+			</div>
 		</div>
 		<hr>
 		<div class="row" style="align-items: center;margin:40px 0px;">
-			<div class="col-12 col-md-6">
-				<p class="pic3para" style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The graphical representation for the number of swaps, number of comparisions and the time taken for different sorting methods, with different set of arrays is given in Pic 3. </p> 
-				<p class="pic3para" style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> The time taken to sort is calculated in milliseconds and converted to microseconds.</p>
-				<p class="pic3para" style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> The random array is  a set of elements which are unique.</p>
+			<div class="col-12" style="margin-bottom: 20px;">
+				<p class="pic3para" style="font-size: 18px;">The graphical representation for the number of swaps, number of comparisions and the time taken for different sorting methods, with different set of arrays is given in Pic 3. </p> 
+				<li class="pic3para" style="font-size: 18px;">The time taken to sort is calculated in milliseconds and converted to microseconds.</li>
+				<li class="pic3para" style="font-size: 18px;">The random array is  a set of elements which are unique.</li>
 			</div>
-			<div class="col-12 col-md-6" style="text-align: center;min-width: 500px important; overflow-x: scroll;">
-				<img style="text-align: center;" src="./images/picture1.png">
+			<div class="col-12 picoverflow" style="text-align: center;min-width: 500px important;">
+				<img style="text-align: center;" src="./images/pic4table.png">
 				<p style="font-weight: bold;">Pic 3</p>
 			</div>
 		</div>
