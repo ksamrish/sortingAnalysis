@@ -28,10 +28,16 @@
 		#home1{
 			display: none;
 		}
+		#analysis1{
+			display: none;
+		}
 		#sortinganalysis{
 			display: block;
 		}
 		#contact{
+			display: block;
+		}
+		#analysis{
 			display: block;
 		}
 		#home{
@@ -54,7 +60,9 @@
 			#contact{
 				display: none;
 			}
-			
+			#analysis {
+         		display: none;
+        	}
 			.menu{
 				display: block;
 			}
@@ -66,6 +74,7 @@
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
+			padding-right: 20px;
 			overflow: hidden;
 			background-color: #1F95EE;
 		}
@@ -133,32 +142,75 @@
 		<li class="navli" style="float:left"><img src="./images/Sorting Logo Navbar.png" width="40" height="40" style="margin-top: 7px;margin-left: 15px;"></li>
 		<li class="menu" id="menu" style="float:right"><a><i class="fa fa-bars" style="font-size: 25px;"></i></a></li>
 		<li class="navli" id="contact" style="float:right;margin-right: 0;"><a href="#">About Us</a></li>
-		<li class="navli" id="sortinganalysis" style="float:right;margin-right: 0;"><a href="sortinganalysis.html">Sorting Analysis</a></li>
+		<li class="navli" id="analysis" style="float:right;margin-right: 0;"><a href="analysis.html">Analysis</a></li>
+		<li class="navli" id="sortinganalysis" style="float:right;margin-right: 0;"><a href="sorting.html">Sorting</a></li>
 		<li class="navli" id="home" style="float:right;margin-right: 0;"><a href="index.html">Home</a></li>
 		<li class="navli1" id="home1" style="float:right;margin-right: 0;"><a href="index.html">Home</a></li>
-		<li class="navli1" id="sortinganalysis1" style="float:right;margin-right: 0;"><a href="sortinganalysis.html">Sorting Analysis</a></li>
+		<li class="navli1" id="sortinganalysis1" style="float:right;margin-right: 0;"><a href="sorting.html">Sorting</a></li>
+		<li class="navli" id="analysis1" style="float:right;margin-right: 0;"><a href="analysis.html">Analysis</a></li>
 		<li class="navli1" id="contact1" style="float:right;margin-right: 0;"><a href="#">About Us</a></li>
 	</ul>
-	<div style="margin-left: 20px;margin-right:20px;margin-top: 30px;">
-		<h2 style="margin-bottom: 20px;">About us :</h2>
-		<p style="font-size: 18px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Hope3 Varsity believes in education that is immersive, self-driven, translates to real world applications and can generate our next-gen thinkers & leaders. We work & learn with students who carry enthusiasm to learn. </p>
-		<p style="font-size: 18px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Sorting Analysis project is developed by students of Algorithm class in Hope3 Varsity.</p> 
-		<hr>
-		<h5>Tech Stacks :</h3>
-		<li style="font-size: 18px;margin-left: 20px;">HTML</li>
-		<li style="font-size: 18px;margin-left: 20px;">CSS</li>
-		<li style="font-size: 18px;margin-left: 20px;">Bootstrap</li>
-		<li style="font-size: 18px;margin-left: 20px;">JavaScript</li>
-		<li style="font-size: 18px;margin-left: 20px;">JQuery</li>
-		<li style="font-size: 18px;margin-left: 20px;">Chart.js (library for Graph Chart)</li>
-		<hr>
-		<h5 style="margin-top: 10px;">Developers :</h3>
-		<li style="font-size: 18px;margin-left: 20px;">Amrish K S ( Final Year, B.E Computer Science Student from Thiagarajar College of Engineering, Madurai, India)</li>
-		<li style="font-size: 18px;margin-left: 20px;">Ramu Palaniappan (Ramu Akka Avargal) (Software Engineer in Avanade, Seattle,US)</li>
-		<h5 style="margin-top: 10px;">Mentor :</h5>
-		<li style="font-size: 18px;margin-left: 20px;">Palaniappan Vairavan ( Senior Software Engineer, Microsoft, Seattle,US)</li>
-		<h5 style="margin-top: 10px;">Designer :</h5>
-		<li style="font-size: 18px;margin-left: 20px;">RaviShankar Nallapan(Software Engineer, Cognizant Technology Solutions, Chennai, India)</li>
+	<div class="container" style="width:100%;margin:0 auto;margin-top: 30px;">
+		<div >
+			<div class="col-12 contentcenter" >
+				<h1 style="text-align: center;">Sorting Analysis</h1>
+			</div>
+		</div>
+
+		<div class="row" id="container" style="border:2px solid #1F95EE;padding:5px;margin:30px 10px 20px 10px;border-radius: 8px;">
+		<div style="margin-left: 20px;margin-right:20px;margin-top: 30px;">
+			<h5 style="margin-bottom: 20px;"><span style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              " >About us </span></h5>
+			<p style="font-size: 18px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Hope3 Varsity believes in education that is immersive, self-driven, translates to real world applications and can generate our next-gen thinkers & leaders. We work & learn with students who carry enthusiasm to learn. </p>
+			<p style="font-size: 18px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Sorting Analysis project is developed by students of Algorithm class in Hope3 Varsity.</p> 
+			<hr>
+			<h5><span style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              ">Tech Stacks </span></h3>
+			<li style="font-size: 18px;margin-left: 20px;">HTML</li>
+			<li style="font-size: 18px;margin-left: 20px;">CSS</li>
+			<li style="font-size: 18px;margin-left: 20px;">Bootstrap</li>
+			<li style="font-size: 18px;margin-left: 20px;">JavaScript</li>
+			<li style="font-size: 18px;margin-left: 20px;">JQuery</li>
+			<li style="font-size: 18px;margin-left: 20px;">Chart.js (library for Graph Chart)</li>
+			<hr>
+			<h5 style="margin-top: 20px;margin-bottom: 20px;"><span style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              ">Developers </span></h3>
+			<li style="font-size: 18px;margin-left: 20px;"><a target="_blank" href="https://www.linkedin.com/in/amrish-k-s-1562b5190" style="font-weight: bold;">Amrish K S</a> - Final Year, B.E Computer Science Student from Thiagarajar College of Engineering, Madurai, India</li>
+			<li style="font-size: 18px;margin-left: 20px;"><a target="_blank" href="https://www.linkedin.com/in/ramu-palaniappan-520237167" style="font-weight: bold;">Ramu Palaniappan</a> - Software Engineer in Avanade, Seattle,US</li>
+			<h5 style="margin-top: 20px;margin-bottom: 20px;"><span style="margin-top: 10px;"><span style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              ">Designer </span></h5>
+			<li style="font-size: 18px;margin-left: 20px;"><a target="_blank" href="https://www.linkedin.com/in/ravishankar-n-2b100212b" style="font-weight: bold;">RaviShankar Nallapan</a> -Software Engineer, Cognizant Technology Solutions, Chennai, India</li>
+			<h5 style="margin-top: 20px;margin-bottom: 20px;"><span style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              ">Mentors </span></h5>
+			<li style="font-size: 18px;margin-left: 20px;"><a target="_blank" href="https://www.linkedin.com/in/palaniappan-vairavan-84b3921" style="font-weight: bold;">Palaniappan Vairavan</a> - Senior Software Engineer, Microsoft, Seattle,US</li>
+			<li style="font-size: 18px;margin-left: 20px;"><a target="_blank" href="https://www.linkedin.com/in/meenakshi-sundaram" style="font-weight: bold;">Meenakshi Sundaram Mannivannan</a> - Process Engineer,Intel Corporation, Portland, US</li>
+
+		</div>
 	</div>
     <script>
         $(document).ready(function() {
@@ -172,7 +224,8 @@
                     document.getElementById('home1').style.display = 'none';
                     document.getElementById('contact1').style.display = 'none';
                     document.getElementById('sortinganalysis1').style.display = 'none';
-                }
+					document.getElementById("analysis1").style.display = "none";
+				}
             }
             // Execute on load
             checkWidth();
@@ -184,12 +237,14 @@
             if(document.getElementById('home1').style.display=='none'){
                 document.getElementById('home1').style.display = 'block';
                 document.getElementById('contact1').style.display = 'block';
-                document.getElementById('sortinganalysis1').style.display = 'block';
+				document.getElementById('sortinganalysis1').style.display = 'block';
+				document.getElementById('analysis1').style.display = 'block';
             }
             else{
                 document.getElementById('home1').style.display = 'none';
                 document.getElementById('contact1').style.display = 'none';
-                document.getElementById('sortinganalysis1').style.display = 'none';
+				document.getElementById('sortinganalysis1').style.display = 'none';
+				document.getElementById('analysis1').style.display = 'none';
             }
         }
     </script>

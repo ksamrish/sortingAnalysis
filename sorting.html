@@ -30,6 +30,9 @@
 		#contact1{
 			display: none;
 		}
+		#analysis1{
+			display: none;
+		}
 		#home1{
 			display: none;
 		}
@@ -37,6 +40,9 @@
 			display: block;
 		}
 		#contact{
+			display: block;
+		}
+		#analysis{
 			display: block;
 		}
 		#home{
@@ -59,7 +65,9 @@
 			#contact{
 				display: none;
 			}
-			
+			#analysis{
+			display: none;
+			}
 			.menu{
 				display: block;
 			}
@@ -71,6 +79,7 @@
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
+			padding-right: 20px;
 			overflow: hidden;
 			background-color: #1F95EE;
 		}
@@ -160,22 +169,22 @@
 		}
 		
 
-/* Safari 6.1-10.0 (but not 10.1) */
-@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0){ 
-@media screen {
-.inputselect { 
-width:216px;
--webkit-appearance:none;
-}
-}}
-/* Safari 11+ */
-@media not all and (min-resolution:.001dpcm)
-{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
-	.inputselect { 
-width:216px;
--webkit-appearance:none;
-}
-}}
+		/* Safari 6.1-10.0 (but not 10.1) */
+		@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0){ 
+		@media screen {
+		.inputselect { 
+		width:216px;
+		-webkit-appearance:none;
+		}
+		}}
+		/* Safari 11+ */
+		@media not all and (min-resolution:.001dpcm)
+		{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+			.inputselect { 
+		width:216px;
+		-webkit-appearance:none;
+		}
+		}}
 		/* @media screen and (min-width: 315px) {
 			.inputselect{
 				padding: 10px 0px 10px 10px;
@@ -357,10 +366,12 @@ width:216px;
 		<li class="navli" style="float:left"><img src="./images/Sorting Logo Navbar.png" width="40" height="40" style="margin-top: 7px;margin-left: 15px;"></li>
 		<li class="menu" id="menu" style="float:right"><a><i class="fa fa-bars" style="font-size: 25px;"></i></a></li>
 		<li class="navli" id="contact" style="float:right;margin-right: 0;"><a href="aboutus.html">About Us</a></li>
-		<li class="navli" id="sortinganalysis" style="float:right;margin-right: 0;"><a href="#">Sorting Analysis</a></li>
+		<li class="navli" id="analysis" style="float:right;margin-right: 0;"><a href="analysis.html">Analysis</a></li>
+		<li class="navli" id="sortinganalysis" style="float:right;margin-right: 0;"><a href="#">Sorting</a></li>
 		<li class="navli" id="home" style="float:right;margin-right: 0;"><a href="index.html">Home</a></li>
 		<li class="navli1" id="home1" style="float:right;margin-right: 0;"><a href="index.html">Home</a></li>
-		<li class="navli1" id="sortinganalysis1" style="float:right;margin-right: 0;"><a href="#">Sorting Analysis</a></li>
+		<li class="navli1" id="sortinganalysis1" style="float:right;margin-right: 0;"><a href="#">Sorting</a></li>
+		<li class="navli" id="analysis1" style="float:right;margin-right: 0;"><a href="analysis.html">Analysis</a></li>
 		<li class="navli1" id="contact1" style="float:right;margin-right: 0;"><a href="aboutus.html">About Us</a></li>
 	</ul>
 	<div class="container" style="width:100%;margin:0 auto;margin-top: 30px;">
@@ -649,11 +660,13 @@ width:216px;
 					document.getElementById('home1').style.display = 'block';
 					document.getElementById('contact1').style.display = 'block';
 					document.getElementById('sortinganalysis1').style.display = 'block';
+					document.getElementById('analysis1').style.display = 'block';
 				}
 				else{
 					document.getElementById('home1').style.display = 'none';
 					document.getElementById('contact1').style.display = 'none';
 					document.getElementById('sortinganalysis1').style.display = 'none';
+					document.getElementById('analysis1').style.display = 'none';
 				}
 			}
 			
