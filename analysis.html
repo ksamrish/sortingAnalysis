@@ -52,6 +52,9 @@
       #analysis1 {
         display: none;
       }
+      #algorithm1 {
+          display: none;
+        }
       #home1 {
         display: none;
       }
@@ -64,6 +67,9 @@
       #analysis {
         display: block;
       }
+      #algorithm {
+          display: block;
+        }
       #home {
         display: block;
       }
@@ -87,6 +93,9 @@
         #analysis {
           display: none;
         }
+        #algorithm {
+          display: none;
+        }
         .menu {
           display: block;
         }
@@ -98,7 +107,7 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        padding-right: 20px;
+        padding-right: 50px;
         overflow: hidden;
         background-color: #1f95ee;
       }
@@ -183,7 +192,21 @@
       <li class="navli" id="analysis" style="float: right; margin-right: 0">
         <a href="#">Analysis</a>
       </li>
-
+      <li class="navli" id="algorithm" style="float: right; margin-right: 0">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color: #1f95ee;">
+            <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+            <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+            <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+            <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+            <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+            <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+            <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+            <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+            <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+            <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+          </ul>
+        </li>
       <li
         class="navli"
         id="sortinganalysis"
@@ -204,7 +227,22 @@
       >
         <a href="sorting.html">Sorting</a>
       </li>
-      <li class="navli" id="analysis1" style="float: right; margin-right: 0">
+      <li class="navli1" id="algorithm1" style="float: right; margin-right: 0">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color: #1f95ee;">
+            <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+            <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+            <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+            <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+            <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+            <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+            <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+            <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+            <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+            <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+          </ul>
+        </li>
+      <li class="navli1" id="analysis1" style="float: right; margin-right: 0">
         <a href="#">Analysis</a>
       </li>
       <li class="navli1" id="contact1" style="float: right; margin-right: 0">
@@ -218,8 +256,9 @@
 			</div>
 		</div>
 
-	<div class="row" id="container" style="border:2px solid #1F95EE;padding:5px;margin:30px 10px 20px 10px;border-radius: 8px;">
-        <div style="margin-left: 20px; margin-right: 20px; margin-top: 30px">
+  <div class="row" id="container" style="border:2px solid #1F95EE;padding:5px;margin:30px 10px 20px 10px;border-radius: 8px;">
+    <div class="col-12">
+        <!-- <div style="margin-left: 20px; margin-right: 20px; margin-top: 30px"> -->
             <!-- <h3 style="margin-top: 20px;margin-bottom: 20px;"><span style="
                 background-color: #1f95ee;
                 color: white;
@@ -228,7 +267,7 @@
                 padding-right: 15px;
               ">Analysis</span></h3> -->
 
-        <div class="row" style="align-items: center; margin: 20px 0px">
+        <div class="row" style="align-items: center; margin-left: 20px; margin-right: 20px; margin-top: 30px">
             <div class="col-12">
                 
                 <h3><span style="
@@ -291,7 +330,8 @@
                      Recursive sorting algorithm is faster than regular sorting algorithm for larger numbers.
             </p>
             </div>
-        </div>
+    </div>
+  </div>
     <script>
       $(document).ready(function () {
         // Optimalisation: Store the references outside the event handler:
@@ -305,6 +345,7 @@
             document.getElementById("contact1").style.display = "none";
             document.getElementById("sortinganalysis1").style.display = "none";
             document.getElementById("analysis1").style.display = "none";
+            document.getElementById("algorithm1").style.display = "none"
           }
         }
         // Execute on load
@@ -319,11 +360,13 @@
           document.getElementById("contact1").style.display = "block";
           document.getElementById("sortinganalysis1").style.display = "block";
           document.getElementById("analysis1").style.display = "block";
+          document.getElementById("algorithm1").style.display = "block"
         } else {
           document.getElementById("home1").style.display = "none";
           document.getElementById("contact1").style.display = "none";
           document.getElementById("sortinganalysis1").style.display = "none";
           document.getElementById("analysis1").style.display = "none";
+          document.getElementById("algorithm1").style.display = "none"
         }
       };
     </script>

@@ -80,6 +80,9 @@
 	  #analysis1 {
         display: none;
       }
+      #algorithm1 {
+          display: none;
+        }
       #home1 {
         display: none;
       }
@@ -91,6 +94,9 @@
       }
 	  #analysis {
         display: block;
+      }
+      #algorithm {
+        display:block;
       }
       #home {
         display: block;
@@ -112,9 +118,12 @@
         #contact {
           display: none;
         }
-		#analysis {
+		    #analysis {
         display: none;
-      }
+        }
+        #algorithm {
+          display: none;
+        }
         .menu {
           display: block;
         }
@@ -126,7 +135,7 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-		padding-right: 20px;
+		    padding-right: 50px;
         overflow: hidden;
         background-color: #1f95ee;
       }
@@ -211,9 +220,24 @@
       </li>
       <li class="navli" id="contact" style="float: right; margin-right: 0">
         <a href="aboutus.html">About Us</a>
-	  </li>
-	  <li class="navli" id="analysis" style="float: right; margin-right: 0">
+	    </li>
+	    <li class="navli" id="analysis" style="float: right; margin-right: 0">
         <a href="analysis.html">Analysis</a>
+      </li>
+      <li class="navli" id="algorithm" style="float: right; margin-right: 0">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color: #1f95ee;">
+            <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+            <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+            <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+            <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+            <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+            <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+            <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+            <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+            <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+            <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+          </ul>
       </li>
       <li
         class="navli"
@@ -221,10 +245,12 @@
         style="float: right; margin-right: 0"
       >
         <a href="sorting.html">Sorting</a>
-	  </li>
-	 
+      </li>
       <li class="navli" id="home" style="float: right; margin-right: 0">
         <a href="#">Home</a>
+      </li>
+     
+      </div>
       </li>
       <li class="navli1" id="home1" style="float: right; margin-right: 0">
         <a href="#">Home</a>
@@ -235,8 +261,24 @@
         style="float: right; margin-right: 0"
       >
         <a href="sorting.html">Sorting</a>
-	  </li>
-	  <li class="navli" id="analysis1" style="float: right; margin-right: 0">
+    </li>
+    
+    <li class="navli1" id="algorithm1" style="float: right; margin-right: 0">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+        <ul class="dropdown-menu" style="background-color: #1f95ee;">
+          <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+          <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+          <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+          <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+          <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+          <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+          <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+          <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+          <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+          <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+        </ul>
+      </li>
+	  <li class="navli1" id="analysis1" style="float: right; margin-right: 0">
         <a href="analysis.html">Analysis</a>
       </li>
       <li class="navli1" id="contact1" style="float: right; margin-right: 0">
@@ -253,14 +295,14 @@
 
 		<div class="row" id="container" style="border:2px solid #1F95EE;padding:5px;margin:30px 10px 20px 10px;border-radius: 8px;">
 		
-			<div style="margin-left: 20px; margin-right: 20px; margin-top: 30px">
+			<div class="col-12" style="margin-left: 20px; margin-right: 20px; margin-top: 30px">
 			<h3 style="margin-top: 20px;margin-bottom: 20px;"><span style="
                 background-color: #1f95ee;
                 color: white;
                 border-radius: 10px;
                 padding: 5px;
                 padding-right: 15px;
-              ">What is Sorting Algorithm?</span></h3>
+              ">Sorting Algorithm</span></h3>
 			<p style="font-size: 18px">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				Sorting Algorithm is to sort/arrange a list of elements in an order(ascending/descending) using specific operations. 
@@ -361,9 +403,10 @@
           if (windowsize > 500) {
             console.log(windowsize);
             document.getElementById("home1").style.display = "none";
-			document.getElementById("contact1").style.display = "none";
-			document.getElementById("analysis1").style.display = "none";
+			      document.getElementById("contact1").style.display = "none";
+			      document.getElementById("analysis1").style.display = "none";
             document.getElementById("sortinganalysis1").style.display = "none";
+            document.getElementById("algorithm1").style.display = "none";
           }
         }
         // Execute on load
@@ -375,14 +418,16 @@
       document.getElementById("menu").onclick = () => {
         if (document.getElementById("home1").style.display == "none") {
           document.getElementById("home1").style.display = "block";
-		  document.getElementById("contact1").style.display = "block";
-		  document.getElementById("analysis1").style.display = "block";
+		      document.getElementById("contact1").style.display = "block";
+		      document.getElementById("analysis1").style.display = "block";
           document.getElementById("sortinganalysis1").style.display = "block";
+          document.getElementById("algorithm1").style.display = "block";
         } else {
           document.getElementById("home1").style.display = "none";
-		  document.getElementById("contact1").style.display = "none";
-		  document.getElementById("analysis1").style.display = "none";
+		      document.getElementById("contact1").style.display = "none";
+		      document.getElementById("analysis1").style.display = "none";
           document.getElementById("sortinganalysis1").style.display = "none";
+          document.getElementById("algorithm1").style.display = "none";
         }
       };
     </script>
