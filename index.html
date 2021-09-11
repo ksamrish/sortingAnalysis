@@ -1,552 +1,439 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	<script src="./node_modules/papaparse/papaparse.min.js"></script>
-	<script src="./node_modules/chart.js/dist/Chart.min.js"></script>
-	<script src="./node_modules/chart.js/dist/Chart.js"></script>
-	<script type="text/javascript" src="./SortingAlgo.js"></script>
-	<script type="text/javascript" src="./Table.js"></script>
-	<title>SortingAnalysis</title>
-	<style>
-		#graph{
-			display:none;
-		}
-		#random{
-			display:block;
-		}
-		#reverse{
-			display: none;
-		}
-		#nearlysorted{
-			display: none;
-		}
-		#unique{
-			display: none;
-		}
-		label {
-			text-align: right;
-			clear: both;
-			float:center;
-			margin-right:15px;
-			font-weight: bold;
-		}
-		body{
-			margin:0;
-			padding:0;
-		}
-		.contentcenter{
-			justify-content: center;
-			text-align:center;
-			background-color: #EBF6FF;
-			color:black;
-		}
-		.row-content{
-			margin-bottom: 50px;
-			border-bottom:2px solid #1F95EE;
-			border-radius: 10px;
-		}
-		.borderinput{
-			border: 2px solid #1F95EE;
-			padding:10px;
-			border-radius: 10px;
-			margin:2px;
-			margin-bottom:20px;
-		}
-		.inputbox{
-			outline:none;
-			border: 10px solid #1F95EE;
-			background-color: #1F95EE;
-			color:white;
-			border-radius: 10px;
-		}
-		.inputselect{
-			outline:none;
-			border:10px #1F95EE;
-			padding:10px 90px 10px 10px;
-			align-content: center;
-			border-radius: 10px ;
-			color:white;
-			background-color:#1F95EE ;
-			position: relative;
-		}
-		table {
-			overflow-x: auto;
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./images/Sorting Logo Title.png"
+      type="image/icon type"
+    />
+
+    <meta property="og:title" content="Sorting Analysis" />
+    <meta property="og:url" content="http://sortinganalysis.hope3.org" />
+    <meta
+      property="og:description"
+      content="Sorting Analysis compares many sorting algorithm accross different data types with Random array, Reverse array, nearly sorted array and duplicate arrays as input."
+    />
+    <meta property="og:image" content="./images/Sorting Logo Title.png" />
+    <meta property="og:type" content="application" />
+    <meta name="twitter:card" content="Sorting Analysis" />
+
+    <meta
+      name="keywords"
+      content="Lets join hands to support children of economically challenged families to continue their education by providing financial, educational and happy individuals along with their families."
+    />
+    <meta
+      name="author"
+      content="AMRISH K S (Student - Thiagarajar College of Engineering), Ramu Palaniappan, Palaniappan Vairavan"
+    />
+    <link rel="apple-touch-icon" href="./images/Sorting Logo Title.png" />
+
+    <meta
+      name="description"
+      content="Sorting Analysis compares many sorting algorithm accross different data types with Random array, Reverse array, nearly sorted array and duplicate arrays as input."
+    />
+    <meta property="”og:image”" content="./images/Sorting Logo Title.png" />
+    <link rel="apple-touch-icon" href="./images/Sorting Logo Title.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>SortingAnalysis</title>
+    <style>
+      .menu {
+        display: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      #sortinganalysis1 {
+        display: none;
+      }
+      #contact1 {
+        display: none;
+      }
+	  #analysis1 {
+        display: none;
+      }
+      #algorithm1 {
+          display: none;
+        }
+      #home1 {
+        display: none;
+      }
+      #sortinganalysis {
+        display: block;
+      }
+      #contact {
+        display: block;
+      }
+	  #analysis {
+        display: block;
+      }
+      #algorithm {
+        display:block;
+      }
+      #home {
+        display: block;
+      }
+      .navli1 {
+        width: 100%;
+      }
+      @media screen and (max-width: 500px) {
+        /* .navli{
+				display: none;
+				width:100%;
+			} */
+        #home {
+          display: none;
+        }
+        #sortinganalysis {
+          display: none;
+        }
+        #contact {
+          display: none;
+        }
+		    #analysis {
+        display: none;
+        }
+        #algorithm {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+      }
+      .menu:hover {
+        cursor: pointer;
+      }
+      .navul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+		    padding-right: 50px;
+        overflow: hidden;
+        background-color: #1f95ee;
+      }
+
+      .navli a,
+      .navli1 a {
+        font-size: 18px;
+        font-weight: 500;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .navli a:hover,
+      .navli1 a:hover {
+        background-color: #42a4ed;
+        color: white;
+        text-decoration: none;
+        list-style-type: none;
+        list-style: none;
+      }
+      .row-content {
+        margin-bottom: 50px;
+        border-bottom: 2px solid #1f95ee;
+        border-radius: 10px;
+      }
+
+      .images{
+				width:100%;
+			}
+
+      /* .pic1para,
+		.pic2para,
+		.pic3para {
 			width: 100%;
 		}
-		td {
-  			border: 1px solid #1F95EE;
-  			text-align: center;
-  			padding: 8px;
+
+		.pic2para {
+			animation: right_to_left 3s ease;
 		}
 
-		input[type="file"] {
-			display: none;
-		}
-		.custom-file-upload {
-			border: 1px solid #ccc;
-			display: inline-block;
-			padding: 6px 12px;
-			cursor: pointer;
-			border-radius: 10px;
-			background-color:#1F95EE; ;
-			color:white;
-			font-weight: normal;
-		}
-		th {
-			color: white;
-			background-color:#1F95EE ;
-  			border: 1px solid #1F95EE;
-  			text-align: center;
-  			padding: 8px;
-		}
-		#outputdata{
-			display: none;
-		}
-		#graph{
-			border:2px solid white;
-			padding:5px;
-			margin-bottom:20px;
-			background-color: rgb(255, 255, 255);
-		}
-		::placeholder {
-  			color: white;}
-		.option {
-			background-color: white;
-			color:black;
-		}
-		.option:hover{
-			background-color:#1F95EE;
-			color:white;
+		.pic1para,.pic3para {
+			text-align: left;
+			animation: left_to_right 3s ease;
+		} */
+
+      /* @keyframes right_to_left {
+			from {
+				margin-left: 100%;
+			}
+			to {
+				margin-left: 0;
+			}
 		}
 
-	</style>
-</head>
+		@keyframes left_to_right {
+			from {
+				margin-left: -100%;
+			}
+			to {
+				margin-left: 0;
+			}
+		} */
+      @media screen and (max-width: 860px) {
+        .picoverflow {
+          overflow-x: scroll;
+        }
+      }
+    </style>
+  </head>
+  <body style="background-color: #ebf6ff; color: black; min-width: 300px">
+  
+    <!-- hsl(207, 82%, 68%) -->
+    <ul class="navul">
+      <li class="navli" style="float: left">
+        <img
+          src="./images/Sorting Logo Navbar.png"
+          width="40"
+          height="40"
+          style="margin-top: 7px; margin-left: 15px"
+        />
+      </li>
+      <li class="menu" id="menu" style="float: right">
+        <a><i class="fa fa-bars" style="font-size: 25px"></i></a>
+      </li>
+      <li class="navli" id="contact" style="float: right; margin-right: 0">
+        <a href="aboutus.html">About Us</a>
+	    </li>
+	    <li class="navli" id="analysis" style="float: right; margin-right: 0">
+        <a href="analysis.html">Analysis</a>
+      </li>
+      <li class="navli" id="algorithm" style="float: right; margin-right: 0">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color: #1f95ee;">
+            <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+            <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+            <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+            <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+            <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+            <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+            <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+            <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+            <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+            <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+          </ul>
+      </li>
+      <li
+        class="navli"
+        id="sortinganalysis"
+        style="float: right; margin-right: 0"
+      >
+        <a href="sorting.html">Sorting</a>
+      </li>
+      <li class="navli" id="home" style="float: right; margin-right: 0">
+        <a href="#">Home</a>
+      </li>
+     
+      </div>
+      </li>
+      <li class="navli1" id="home1" style="float: right; margin-right: 0">
+        <a href="#">Home</a>
+      </li>
+      <li
+        class="navli1"
+        id="sortinganalysis1"
+        style="float: right; margin-right: 0"
+      >
+        <a href="sorting.html">Sorting</a>
+    </li>
+    
+    <li class="navli1" id="algorithm1" style="float: right; margin-right: 0">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+        <ul class="dropdown-menu" style="background-color: #1f95ee;">
+          <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+          <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+          <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+          <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+          <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+          <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+          <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+          <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+          <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+          <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+        </ul>
+      </li>
+	  <li class="navli1" id="analysis1" style="float: right; margin-right: 0">
+        <a href="analysis.html">Analysis</a>
+      </li>
+      <li class="navli1" id="contact1" style="float: right; margin-right: 0">
+        <a href="aboutus.html">About Us</a>
+      </li>
+	</ul>
 
-<body style="background-color: #EBF6FF;color:black">   <!-- hsl(207, 82%, 68%) -->
-	<div id="Algoresult" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg" role="content">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 style="color:black">Sorting input and output</h4>
-                    <button class="close" data-dismiss="modal">
-                        &times;
-                    </button>
-				</div>
-				<div class="modal-body">
-					<h4 style="color:black">
-						Input Data:
-					</h4>
-					<div id="resultarr" style="color: black;overflow-x: auto;word-break: break-word;"></div>
-					<h4 style="color:black">
-						Output Data:
-					</h4>
-					<div id="resultoutarr" style="color: black;overflow-x: auto;word-break: break-word;"></div>                
-                </div>
-            </div>
-        </div>
-    </div>
-	<div class="container" style="width:100%;margin:0 auto">
-		<div class="row row-content">
+	<div class="container" style="width:100%;margin:0 auto;margin-top: 30px;">
+		<div >
 			<div class="col-12 contentcenter" >
-				<h1>Sorting Analysis</h1>
-				<p>Here we have analysis of 10 types of sorting algorithm and the results will be analysed and get printed below!!</p>
+				<h1 style="text-align: center;">Sorting Analysis</h1>
 			</div>
 		</div>
-		<div class="panel-group" >
-			<div class="panel panel-default">
-			  <div class="panel-heading"style="background-color:#1F95EE;  border-radius: 10px;padding:8px;">
-				<h4 class="panel-title" style = "text-align: center;">
-				  <a data-toggle="collapse" href="#collapsibleForm" style = "color:white;font-weight: bold;font-size:16px;text-align: center;">Input Form(Click here to modify the input values) </a>
-				</h4>
-			  </div>
-		<div id= "collapsibleForm" class = "panel-collapse collapse">
-			<br/>
-			
-			<div  class="row-content" style="border:solid #1F95EE 2px; border-radius: 10px;">
-				<table >
-					<tr>
-						<th >Data Type</th>
-						<th>Min Value</th>
-						<th>Max Value</th>
-					</tr>
-					<tr>
-						<td>Integer</td>		
-						<td>Integer</td>			    
-						<td>Integer</td>
-					</tr>
-					<tr>
-						<td>Float</td>		
-						<td>Float or Integer</td>	
-						<td>Float or Integer</td>
-					</tr>
-					<tr>
-						<td>String</td>		
-						<td>length of String</td>	
-						<td>length of String</td>
-					</tr>
-					<tr>
-						<td >DateTime</td>	
-						<td>yyyy-mm-dd</td>			
-						<td>yyyy-mm-dd</td>
-					</tr>
-					</tr>
-				</table>
-			</div>
-			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center; border-radius: 10px;padding:8px;margin-top: 0px;">* while giving the input please specify minimum and maximum values as mentioned above for every category and check its in the correct format..<br></p>
-	
+
+		<div class="row" id="container" style="border:2px solid #1F95EE;padding:5px;margin:30px 10px 20px 10px;border-radius: 8px;">
 		
-			<div class="row borderinput row-content" style="margin:0px 0px 10px 0px;padding-left:30px;">
-				<div class="col-12" style="margin-top:10px;">
-					<h3 class="contentcenter" style="color:#1F95EE;">Input</h1><br>
+			<div class="col-12" style="margin-left: 20px; margin-right: 20px; margin-top: 30px">
+			<h3 style="margin-top: 20px;margin-bottom: 20px;"><span style="
+                background-color: #1f95ee;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                padding-right: 15px;
+              ">Sorting Algorithm</span></h3>
+			<p style="font-size: 18px">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				Sorting Algorithm is to sort/arrange a list of elements in an order(ascending/descending) using specific operations. 
+			</p>
+
+			<p style="font-size: 18px">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The
+				following are the sorting methods we have learnt and analyzed in this
+				project, <a target="_blank" href="Bubble.html">Bubble Sort</a>,
+				<a target="_blank" href="Insertion.html">Insertion Sort</a>,
+				<a target="_blank" href="Selection.html">Selection Sort</a>,
+				<a target="_blank" href="Merge.html">Merge Sort</a>,
+				<a target="_blank" href="Quick.html">Quick Sort</a>,
+				<a target="_blank" href="Quick3.html">Quick3 Sort</a>,
+				<a target="_blank" href="Heap.html">Heap Sort</a>,
+				<a target="_blank" href="Shell.html">Shell Sort</a>,
+				<a target="_blank" href="Count.html">Count Sort</a> and
+				<a target="_blank" href="Radix.html">Radix Sort</a>.
+			</p>
+			<hr />
+			<div class="row" style="align-items: center; margin: 40px 0px">
+				<div class="col-12">
+				<p  style="font-size: 18px">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sorting
+					analysis compares many sorting algorithm accross different data
+					types(Integer, Float, Character, String, DateTime) with Random array, Reverse array, nearly sorted array and
+					duplicate array as input. There is an option to visualize the input
+					/ output by clicking visualize button next to them (picture attached
+					below).
+				</p>
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
-						<select class="inputselect" id="datatype" onchange="labelchange()">
-							<!-- <option class="option" >Choose</option> -->
-							<option class="option" >Integer</option>
-							<option class="option" >Float</option>
-							<option class="option">Character</option>
-							<option class="option">String</option>
-							<option class="option">DateTime</option>
-						</select>
-						<div style="color:red" id="errorDatatype"></div><br>
+				<div
+				class="col-12 picoverflow"
+				style="text-align: center; min-width: 500px important"
+				>
+				<img style="text-align: center" class ="images" src="./images/inputOutput.png" />
+				<!-- <p style="font-weight: bold">Pic 1</p> -->
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
-					<input class="inputbox" id="noofelements" type="text" value = "100">
-					
-					<div style="color:red" id="errorNoofelements"></div><br>
+			</div>
+
+			<div class="row" style="align-items: center; margin: 40px 0px">
+				<div class="col-12">
+				<p  style="font-size: 18px">
+					Number of comparisons, number of swaps, and time taken to sort for 20 random numbers are represented graphically(as shown below).
+					The graph and tabular data gets updated upon switching to reverse array, nearly sorted array and duplicate array.
+				</p>
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label id = "inputMinValue" style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
-					<input class="inputbox" id="minrange" type="text" value = "10">
-					<!--removed placeholder placeholder="Enter the min range..."-->
-					<div id="errorMinval" style="color:red"></div><br>
+				<div
+				class="col-12 picoverflow"
+				style="text-align: center; min-width: 500px important"
+				>
+				<img style="text-align: center"  class ="images" src="./images/graph20ele.png" />
+				<!-- <p style="font-weight: bold">Pic 1</p> -->
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label id = "inputMaxValue" style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
-					<input class="inputbox" id="maxrange" type="text" value = "1000">
-					<!--removed placeholder placeholder="Enter the max range..."-->
-					<div id="errorMaxval" style="color:red"></div><br>
+			</div>
+			<div class="row" style="align-items: center; margin: 40px 0px">
+				<div class="col-12">
+				<p  style="font-size: 18px">
+					Below table shows the number of swaps , number of comparisons and the time
+					taken to sort a given array for different sorting methods.There is a link available to learn more about each
+					sorting algorithm(as shown in the picture)
+				</p>
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Nearly Sorted Percent: </label>
-					<input class="inputbox" id="nearlysortedpercent" type="text" value="10">
-					<!--removed placeholder placeholder="Enter the nearlysorted %..."-->
-					<div style="color:red" id="errorNearly"></div><br>
+				<div
+				class="col-12 picoverflow"
+				style="text-align: center; min-width: 500px important"
+				>
+				<img style="text-align: center" class ="images" src="./images/table20ele.png" />
+				<!-- <p style="font-weight: bold">Pic 1</p> -->
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Duplicate percent: </label>
-					<input class="inputbox" id="duplicatepercent" type="text" value="20">
-					<!--removed placeholder placeholder="Enter the duplicate %..."-->
-					<div id="errorDup" style="color:red"></div><br>
-				</div><br>
-				<div class="col-sm-12 contentcenter" style="color:black">
-					(OR)
-				</div><br><br>
-				<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
-					<!-- <input id="file" type="file" accept=".csv" style="color:black;"> -->
-					<label for="file-upload" class="custom-file-upload">
-						<i class="fa fa-cloud-upload"></i> Custom Upload
-					</label>
-					<div id = "file_name">
-					</div>
-					<input id="file-upload" type="file"/>
-					<div id="errorFile" style="color:red"></div><br>
+			</div>
+
+			<div class="row" style="align-items: center; margin: 40px 0px">
+				<div class="col-12">
+				<p  style="font-size: 18px">
+					The input data can be modified in the input form (picture attached)
+				</p>
 				</div>
-				<div class="col-12 contentcenter" style="margin-bottom:20px">
-					<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
+				<div
+				class="col-12 picoverflow"
+				style="text-align: center; min-width: 500px important"
+				>
+				<img style="text-align: center" class ="images" src="./images/inputform.png" />
+				<!-- <p style="font-weight: bold">Pic 1</p> -->
 				</div>
 			</div>
 		</div>
-		<br/>
-		<div class="row" id="outputdata" style="border:2px solid #1F95EE;padding:5px;margin:0px 10px 20px 10px;border-radius: 8px;">
-
-			<div class="col-12">
-				<ul class="nav nav-tabs" style="display:inline-flex;">
-					<li class="nav-item">
-						<a class="nav-link active" id="randomtab" onclick = "changeRandomTabColor()" style="border:5px solid white;border-radius: 10px; color:black;background-color: #d9e9f5;">Random Array</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="reversetab" onclick = "changeReverseTabColor()" style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Reverse Array</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="nearlysortedtab" onclick = "changeNearlySortedTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Nearly Sorted Array</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="uniquetab" onclick = "changUniqueTabColor()"style="border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Duplicate Array</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-12">
-				<div id="inputdata" style="display: none;margin-top:30px;padding-bottom: 20px;">
-					<h4>Input Data:</h4>
-					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="inputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
-					<br>
-					<h4>Output Data:</h4>
-					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;" id="outputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
-				</div>
-			</div>
-
-		
-		
-			<div id="graph" style="overflow-x:auto">
-				<h3 style="color: black;">Graph Representation</h3>
-				<div class="row">
-					<div class="col-lg-2">
-					</div>
-					<div class="col-md-12 col-lg-8" style="min-width:500px;width:500px !important;overflow-x: auto;">
-						<canvas id="myChart"></canvas>	
-					</div>
-					<div class="col-lg-2"></div>
-				</div>
-			</div>
-		
-			<div id="data" style="display: none;"></div>
-			<div id="timerandom" style="display: none;"></div>
-			<div id="timereverse" style="display: none;"></div>
-			<div id="timenearlysorted" style="display: none;"></div>
-			<div id="timeunique" style="display: none;"></div>
-			
-			<div id="comparisons" style="display: none;"></div>
-			<div id="comprandom" style="display: none;"></div>
-			<div id="compreverse" style="display: none;"></div>
-			<div id="compnearlysorted" style="display: none;"></div>
-			<div id="compunique" style="display: none;"></div>		
-			
-			<div id="swaps" style="display: none;"></div>
-			<div id="swapsrandom" style="display: none;"></div>
-			<div id="swapsreverse" style="display: none;"></div>
-			<div id="swapsnearlysorted" style="display: none;"></div>
-			<div id="swapsunique" style="display: none;"></div>
-
-			<div id="filearr" style="display: none;"></div>
-			<div id="bool" style="display:none;"></div>
-			<!-- <button id="getdata" onclick="getdata()">getdata</button> -->
-
-			<!-- <div  id="outputdata" class="row-content" style="overflow-x: auto;"> -->
-				
-			<div class="col-12">
-				<div class="tab-content" style="margin-top:16px">
-					<div class="tab-pane active" id="random">
-						<div class="panel panel-default border-body">
-							<!-- <div class="panel-heading"><b>Random Array</b></div> -->
-								<div class="panel-body">
-									<div id="table1" style="overflow-x: auto;">
-
-									</div>									
-								</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="reverse">
-						<div class="panel panel-default border-body">
-							<!-- <div class="panel-heading"><b>Reverse Array</b></div> -->
-								<div class="panel-body">
-									<div id="table2" style="overflow-x: auto;">
-									</div>	
-								</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="nearlysorted">
-						<div class="panel panel-default border-body">
-							<!-- <div class="panel-heading"><b>Nearly Sorted Array</b></div> -->
-								<div class="panel-body">
-									<div id="table3" style="overflow-x: auto;">
-									</div>
-								</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="unique">
-						<div class="panel panel-default border-body">
-							<!-- <div class="panel-heading"><b>Duplicate Array</b></div> -->
-								<div class="panel-body">
-									<div id="table4" style="overflow-x: auto;">
-
-									</div>
-								</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-		</div> <!--container end-->
-		<script>
-			//calling the onclick function for the submit button to have the ouptut for the default values 
-			document.getElementById('submit').onclick();
-
-			function labelchange(){
-				let datatype = document.getElementById("datatype").value;
-				if(datatype == "Integer"){
-					document.getElementById("inputMinValue").textContent = "Minimum Value:";
-					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
-				}else if(datatype == "Character"){
-					document.getElementById("inputMinValue").textContent = "Beginning Char:";
-					document.getElementById("inputMaxValue").textContent = "Ending Char:";
-				}else if(datatype == "String"){
-					document.getElementById("inputMinValue").textContent = "Min String Length:";
-					document.getElementById("inputMaxValue").textContent = "Max String Length:";
-				}else if(datatype == "DateTime"){
-					document.getElementById("inputMinValue").textContent = "Starting Date:";
-					document.getElementById("inputMaxValue").textContent = "Ending Date:";
-				}else if(datatype == "Float"){
-					document.getElementById("inputMinValue").textContent = "Minimum Value:";
-					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
-				}
-			}
-			var myChart;
-			var bool = false;
-			
-
-
-				document.getElementById('file-upload').onchange = function () {
-				document.getElementById('file_name').innerHTML = this.value;
-				};
-
-			function changeRandomTabColor(){
-				document.getElementById("randomtab").style.background="#d9e9f5";
-				document.getElementById("randomtab").style.color="black";
-				document.getElementById("reversetab").style.background="#1F95EE";
-				document.getElementById("reversetab").style.color="white";
-				document.getElementById("nearlysortedtab").style.background="#1F95EE";
-				document.getElementById("nearlysortedtab").style.color="white";
-				document.getElementById("uniquetab").style.background="#1F95EE";
-				document.getElementById("uniquetab").style.color="white";
-				inputarrContentChange("random")
-			}
-			function changeReverseTabColor(){
-				document.getElementById("reversetab").style.background="#d9e9f5";
-				document.getElementById("reversetab").style.color="black";
-				document.getElementById("randomtab").style.background="#1F95EE";
-				document.getElementById("randomtab").style.color="white";
-				document.getElementById("nearlysortedtab").style.background="#1F95EE";
-				document.getElementById("nearlysortedtab").style.color="white";
-				document.getElementById("uniquetab").style.background="#1F95EE";
-				document.getElementById("uniquetab").style.color="white";
-				inputarrContentChange("reverse");
-			}
-
-			function changeNearlySortedTabColor(){
-				document.getElementById("nearlysortedtab").style.background="#d9e9f5";
-				document.getElementById("nearlysortedtab").style.color="black";
-				document.getElementById("reversetab").style.background="#1F95EE";
-				document.getElementById("reversetab").style.color="white";
-				document.getElementById("randomtab").style.background="#1F95EE";
-				document.getElementById("randomtab").style.color="white";
-				document.getElementById("uniquetab").style.background="#1F95EE";
-				document.getElementById("uniquetab").style.color="white";
-				inputarrContentChange("nearlysorted");
-			}
-
-			
-			function changUniqueTabColor(){
-				document.getElementById("uniquetab").style.background="#d9e9f5";
-				document.getElementById("uniquetab").style.color="black";
-				document.getElementById("reversetab").style.background="#1F95EE";
-				document.getElementById("reversetab").style.color="white";
-				document.getElementById("randomtab").style.background="#1F95EE";
-				document.getElementById("randomtab").style.color="white";
-				document.getElementById("nearlysortedtab").style.background="#1F95EE";
-				document.getElementById("nearlysortedtab").style.color="white";
-				inputarrContentChange("duplicate");
-			}
-			function destroy(){
-				myChart.destroy();
-			}
-			function graph(){
-				if(bool==true){
-					destroy();
-				}
-				bool = true;
-				var	label = ['Bubble','Selection','Insertion','Merge','Quick','Quick3','Heap','Shell','Count','Radix'];
-				var ctx = document.getElementById('myChart');
-				var data = [];
-				var comparisons = [];
-				var swaps = [];
-				time = document.getElementById("data").innerHTML.toString().split(",");
-				comparisons = document.getElementById("comparisons").innerHTML.toString().split(",");
-				swaps = document.getElementById("swaps").innerHTML.toString().split(",");
-
-
-				var data = {
-					labels: label,
-					datasets: [
-					{
-						label: 'TimeTaken in (µs)',
-						data: time,
-						borderColor: 'blue',
-						borderWidth: 2,
-						yAxisID:'y',
-						
-					},
-					{
-						label: 'No of Comparisons',
-						data: comparisons,
-						borderColor: 'green',
-						borderWidth: 2,
-						yAxisID:'y1',
-					},
-					{
-						label: 'No of Swaps',
-						data: swaps,
-						borderColor: 'orange',
-						borderWidth: 2,
-						yAxisID:'y1',
-
-					}]
-				};
-				console.log("time is :"+time);
-				console.log("comparisons is :"+comparisons);
-				console.log("swaps is :"+swaps);
-				
-				// Chart.defaults.global.defaultFontColor = 'white';
-				myChart = new Chart(ctx, {
-					type: 'line',
-					data: data,
-					options: {
-						scales: {
-								yAxes: [{
-								type: 'linear',
-								display: true,
-								position: 'left',
-								id:'y1',
-								gridLines:false,
-								scaleLabel: {
-									display: true,
-									labelString: 'Comparision / Swap Counts'
-									}
-							},
-							{
-								type: 'linear',
-								display: true,
-								position: 'right',
-								id:'y',
-								scaleLabel: {
-									display: true,
-									labelString: 'Time in nanoseconds'
-									}
-							},],
-							xAxes: [{
-								display: true,
-								scaleLabel: {
-								display: true,
-								labelString: 'Sorting Type'
-								}
-							}]
-							},
-
-						}
-				
-				});
-			}
-		</script>
+	</div>
 </body>
+      
+    <script>
+      $(document).ready(function () {
+        // Optimalisation: Store the references outside the event handler:
+        var $window = $(window);
+
+        function checkWidth() {
+          var windowsize = $window.width() + 17;
+          if (windowsize > 500) {
+            console.log(windowsize);
+            document.getElementById("home1").style.display = "none";
+			      document.getElementById("contact1").style.display = "none";
+			      document.getElementById("analysis1").style.display = "none";
+            document.getElementById("sortinganalysis1").style.display = "none";
+            document.getElementById("algorithm1").style.display = "none";
+          }
+        }
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+      });
+
+      document.getElementById("menu").onclick = () => {
+        if (document.getElementById("home1").style.display == "none") {
+          document.getElementById("home1").style.display = "block";
+		      document.getElementById("contact1").style.display = "block";
+		      document.getElementById("analysis1").style.display = "block";
+          document.getElementById("sortinganalysis1").style.display = "block";
+          document.getElementById("algorithm1").style.display = "block";
+        } else {
+          document.getElementById("home1").style.display = "none";
+		      document.getElementById("contact1").style.display = "none";
+		      document.getElementById("analysis1").style.display = "none";
+          document.getElementById("sortinganalysis1").style.display = "none";
+          document.getElementById("algorithm1").style.display = "none";
+        }
+      };
+    </script>
+  </body>
 </html>

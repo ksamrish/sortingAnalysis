@@ -1,113 +1,395 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Bubble Sort</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./images/Sorting Logo Title.png"
+      type="image/icon type"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>SortingAnalysis</title>
     <style>
-        .container{
-            margin:20px auto;
+      .menu {
+        display: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      #sortinganalysis1 {
+        display: none;
+      }
+      #contact1 {
+        display: none;
+      }
+      #home1 {
+        display: none;
+      }
+      #analysis1 {
+        display: none;
+      }
+      #algorithm1 {
+          display:none;
         }
-        .row{
-            margin:0;
-            padding:0;
+      #sortinganalysis {
+        display: block;
+      }
+      #contact {
+        display: block;
+      }
+      #analysis {
+        display: block;
+      }
+      #algorithm {
+          display:block;
         }
-        .verticalline{
-            border:none;
+      #home {
+        display: block;
+      }
+      .navli1 {
+        width: 100%;
+      }
+      @media screen and (max-width: 500px) {
+        /* .navli{
+				display: none;
+				width:100%;
+			} */
+        #home {
+          display: none;
         }
-        @media screen and (min-width:768px){
-            .verticalline{
-                border-right: 0.1px solid gray;
-            }
+        #sortinganalysis {
+          display: none;
         }
-        a{
-            color:#1F95EE;
-            font-weight: normal;
+        #contact {
+          display: none;
         }
+        #analysis {
+          display: none;
+        }
+        #algorithm {
+          display:none;
+        }
+        .menu {
+          display: block;
+        }
+      }
+      .menu:hover {
+        cursor: pointer;
+      }
+      .navul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        padding-right: 50px;
+        overflow: hidden;
+        background-color: #1f95ee;
+      }
+
+      .navli a,
+      .navli1 a {
+        font-size: 18px;
+        font-weight: 500;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .navli a:hover,
+      .navli1 a:hover {
+        background-color: #42a4ed;
+        color: white;
+        text-decoration: none;
+        list-style-type: none;
+        list-style: none;
+      }
+      .row-content {
+        margin-bottom: 50px;
+        border-bottom: 2px solid #1f95ee;
+        border-radius: 10px;
+      }
+
+      .pic1para,
+      .pic2para,
+      .pic3para {
+        width: 100%;
+      }
+
+      .pic2para {
+        animation: right_to_left 3s ease;
+      }
+
+      .pic1para,
+      .pic3para {
+        text-align: left;
+        animation: left_to_right 3s ease;
+      }
+
+      @keyframes right_to_left {
+        from {
+          margin-left: 100%;
+        }
+        to {
+          margin-left: 0;
+        }
+      }
+
+      @keyframes left_to_right {
+        from {
+          margin-left: -100%;
+        }
+        to {
+          margin-left: 0;
+        }
+      }
+      
     </style>
-</head>
-<body>
-    <div style="padding:20px;border:2px solid black;border-radius: 4px;margin:20px;background-color: white;">
-        <div class="row">
-            <div class="col-12 col-md-8 ">
-                <h2><span style="background-color: #1F95EE;color:white;border-radius: 10px;padding:5px;padding-right: 15px;">Bubble Sort</span></h2>
-                <p style="margin-top:30px;margin-bottom:20px;font-size:17px; background-color: #EBF6FF;padding: 10px; border-radius: 10px;">&emsp;&emsp;&emsp;Bubble sort, sometimes referred to as sinking sort, is a simple sorting 
-                    algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they 
-                    are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, 
-                    which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of 
-                    the list.</p>
-            </div>
-            <div class="col-12 col-md-4" style="margin-top:20px;padding-left:20px;padding-top:20px;margin-top:70px; margin-bottom:30px;">
-                <h5>If you want to know more about bubble sort, please refer this page...</h5>
-                <a href="https://www.geeksforgeeks.org/bubble-sort/" target="_blank" style="font-size:20px;color:#1F95EE;">Bubble sort</a>
-            </div>
-        </div><hr>
-        <div class="row">
-            <div class="col-12 col-md-8">
-                <h3><span style="background-color: #1F95EE;color:white;border-radius: 10px;padding:5px;padding-right: 15px;">Bubble Sort Code</span></h3><br>
-                <pre style="background-color: #EBF6FF;color:black;padding:20px 0px 0px">
-    function bubble( arr,  n) {
-        for(let i = 0; i < n-1; i++) {
-            for(let j = 0; j < n-i-1; j++) {
-                if(arr[j] > arr[j+1]) {
-                    let temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                }
-            }
-        }
-    return arr;
-    }
-                </pre>
-                <p>The above function always runs O(n^2) time even if the array is sorted. 
-                    It can be optimized by stopping the algorithm if inner loop didn’t cause any swap.</p>
-                <pre style="background-color:#EBF6FF;color:black;padding:20px 0px 0px">
-    static void bubbleSort(int arr[], int n) 
-        { 
-            int i, j, temp; 
-            boolean swapped; 
-            for (i = 0; i < n - 1; i++)  
-            { 
-                swapped = false; 
-                for (j = 0; j < n - i - 1; j++)  
-                { 
-                    if (arr[j] > arr[j + 1])  
-                    { 
-                        // swap arr[j] and arr[j+1] 
-                        temp = arr[j]; 
-                        arr[j] = arr[j + 1]; 
-                        arr[j + 1] = temp; 
-                        swapped = true; 
-                    } 
-                } 
-    
-                // IF no two elements were  
-                // swapped by inner loop, then break 
-                if (swapped == false) 
-                    break; 
-            } 
-        } 
-                </pre>
-            </div>
-            <div class="col-12 col-md-4">
-                <h3 style="margin-top:30px"><span style="background-color: #1F95EE;color:white;border-radius: 10px;padding:5px;padding-right: 15px;">Other types of sorting :</span></h3><br>
-                <h5 style="margin-left:30px">
-                    <li><a href="./Insertion.html">Insertion Sort</a></li>
-                    <li><a href="./Selection.html">Selection Sort</a></li>
-                    <li><a href="./Merge.html">Merge Sort</a></li>
-                    <li><a href="./Quick.html">Quick Sort</a></li>
-                    <li><a href="./Quick3.html">Quick3 Sort</a></li>
-                    <li><a href="./Heap.html">Heap Sort</a></li>
-                    <li><a href="./Shell.html">Shell Sort</a></li>
-                    <li><a href="./Count.html">Count Sort</a></li>
-                    <li><a href="./Radix.html">Radix Sort</a></li>
-                </h5>
-            </div>
+  </head>
+
+  <body style="background-color: #ebf6ff; color: black; min-width: 300px">
+    <!-- hsl(207, 82%, 68%) -->
+    <ul class="navul">
+      <li class="navli" style="float: left">
+        <img
+          src="./images/Sorting Logo Navbar.png"
+          width="40"
+          height="40"
+          style="margin-top: 7px; margin-left: 15px"
+        />
+      </li>
+      <li class="menu" id="menu" style="float: right">
+        <a><i class="fa fa-bars" style="font-size: 25px"></i></a>
+      </li>
+      <li class="navli" id="contact" style="float: right; margin-right: 0">
+        <a href="aboutus.html">About Us</a>
+      </li>
+      <li class="navli" id="analysis" style="float: right; margin-right: 0">
+        <a href="analysis.html">Analysis</a>
+      </li>
+      <li class="navli" id="algorithm" style="float: right; margin-right: 0">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color: #1f95ee;">
+            <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+            <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+            <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+            <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+            <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+            <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+            <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+            <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+            <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+            <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+          </ul>
+        </li>
+      <li
+        class="navli"
+        id="sortinganalysis"
+        style="float: right; margin-right: 0"
+      >
+        <a href="sorting.html">Sorting</a>
+      </li>
+      <li class="navli" id="home" style="float: right; margin-right: 0">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="navli1" id="home1" style="float: right; margin-right: 0">
+        <a href="index.html">Home</a>
+      </li>
+      <li
+        class="navli1"
+        id="sortinganalysis1"
+        style="float: right; margin-right: 0"
+      >
+        <a href="sorting.html">Sorting</a>
+      </li>
+      <li class="navli1" id="algorithm1" style="float: right; margin-right: 0">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color: #1f95ee;">
+            <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+            <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+            <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+            <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+            <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+            <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+            <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+            <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+            <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+            <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+          </ul>
+        </li>
+      <li class="navli1" id="analysis1" style="float: right; margin-right: 0">
+        <a href="analysis.html">Analysis</a>
+      </li>
+      <li class="navli1" id="contact1" style="float: right; margin-right: 0">
+        <a href="aboutus.html">About Us</a>
+      </li>
+    </ul>
+    <div
+      class="container"
+      style="width: 100%; margin: 0 auto; margin-top: 30px"
+    >
+      <div>
+        <div class="col-12 contentcenter">
+            <h3 style="text-align: center">
+                <span
+                  style="
+                    background-color: #1f95ee;
+                    color: white;
+                    border-radius: 10px;
+                    padding: 5px;
+                    padding-right: 15px;                
+                  "
+                  >Bubble Sort </span
+                >
+              </h3>
+        </div>
+      </div>
+
+        <div
+            class="row"
+            id="container"
+            style="
+            border: 2px solid #1f95ee;
+            padding: 5px;
+            margin: 30px 10px 20px 10px;
+            border-radius: 8px;
+            "
+        >
+        <div class="col-12">
+            <h5 style="margin-bottom: 20px; margin-top: 20px;">
+                <span
+                style="
+                    background-color: #1f95ee;
+                    color: white;
+                    border-radius: 10px;
+                    padding: 5px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    margin-left: 15px;
+                "
+                >Description
+                </span>
+            </h5>
+                <p style="padding :20px">
+                 Bubble sort, sometimes referred to as sinking sort, is a simple
+                sorting algorithm that repeatedly steps through the list, compares
+                adjacent elements and swaps them if they are in the wrong order. The
+                pass through the list is repeated until the list is sorted. The
+                algorithm, which is a comparison sort, is named for the way smaller or
+                larger elements "bubble" to the top of the list.
+                </p>
+                <div>
+                    <h5 style="margin-bottom: 20px">
+                        <span
+                            style="
+                            background-color: #1f95ee;
+                            color: white;
+                            border-radius: 10px;
+                            padding: 5px;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            margin-left: 15px;
+                            "
+                            >Code
+                        </span>
+                    </h5>
+                    </br></br>
+                    <pre
+                    style="
+                        background-color: #ebf6ff;
+                        color: black;
+                        border-radius: 10px;
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    "
+                    >
+  function bubble( arr,  n) {
+  for(let i = 0; i < n-1; i++) {
+      for(let j = 0; j < n-i-1; j++) {
+          if(arr[j] > arr[j+1]) {
+              let temp = arr[j];
+              arr[j] = arr[j+1];
+              arr[j+1] = temp;
+          }
+      }
+  }
+  return arr;
+  }
+                    </pre>
+                </div>
+                <h5 style="margin-left: 15px;"> To Learn more about Bubble Sort, refer the link given below:  <a
+                    href="https://www.geeksforgeeks.org/bubble-sort/"
+                    target="_blank"
+                    style="font-size: 20px; color: #1f95ee"
+                    >Bubble sort</a
+                  >
+                </h5>           
         </div>
     </div>
-    
-</body>
+  </div>
+    <script>
+      $(document).ready(function () {
+        // Optimalisation: Store the references outside the event handler:
+        var $window = $(window);
+
+        function checkWidth() {
+          var windowsize = $window.width() + 17;
+          if (windowsize > 500) {
+            console.log(windowsize);
+            document.getElementById("home1").style.display = "none";
+            document.getElementById("contact1").style.display = "none";
+            document.getElementById("sortinganalysis1").style.display = "none";
+            document.getElementById("analysis1").style.display = "none";
+            document.getElementById("algorithm1").style.display = "none";
+          }
+        }
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+      });
+
+      document.getElementById("menu").onclick = () => {
+        if (document.getElementById("home1").style.display == "none") {
+          document.getElementById("home1").style.display = "block";
+          document.getElementById("contact1").style.display = "block";
+          document.getElementById("sortinganalysis1").style.display = "block";
+          document.getElementById("analysis1").style.display = "block";
+          document.getElementById("algorithm1").style.display = "block";
+        } else {
+          document.getElementById("home1").style.display = "none";
+          document.getElementById("contact1").style.display = "none";
+          document.getElementById("sortinganalysis1").style.display = "none";
+          document.getElementById("analysis1").style.display = "none";
+          document.getElementById("algorithm1").style.display = "none";
+        }
+      };
+    </script>
+  </body>
 </html>

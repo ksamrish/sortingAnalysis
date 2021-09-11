@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="./images/Sorting Logo Title.png" type="image/icon type">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="./node_modules/papaparse/papaparse.min.js"></script>
+	<script src="./node_modules/chart.js/dist/Chart.min.js"></script>
+	<script src="./node_modules/chart.js/dist/Chart.js"></script>
+	<script type="text/javascript" src="./SortingAlgo.js"></script>
+	<script type="text/javascript" src="./Table.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>SortingAnalysis</title>
+	<style>
+		.menu{
+			display: none;
+			font-size: 18px;
+			font-weight: 500;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		#sortinganalysis1{
+			display: none;
+		}
+		#contact1{
+			display: none;
+		}
+		#analysis1{
+			display: none;
+		}
+		#algorithm1 {
+          display: none;
+        }
+		#home1{
+			display: none;
+		}
+		#sortinganalysis{
+			display: block;
+		}
+		#contact{
+			display: block;
+		}
+		#analysis{
+			display: block;
+		}
+		#algorithm {
+			display:block;
+		}
+		#home{
+			display: block;
+		}
+		.navli1{
+			width:100%;
+		}
+		@media screen and (max-width: 500px) {
+			/* .navli{
+				display: none;
+				width:100%;
+			} */
+			#home{
+				display: none;
+			}
+			#sortinganalysis{
+				display: none;
+			}
+			#contact{
+				display: none;
+			}
+			#analysis{
+			display: none;
+			}
+			#algorithm {
+				display:none;
+			}
+			.menu{
+				display: block;
+			}
+		}
+		.menu:hover{
+			cursor: pointer;
+		}
+		.navul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			padding-right: 50px;
+			overflow: hidden;
+			background-color: #1F95EE;
+		}
+
+		.navli a,.navli1 a{
+			font-size: 18px;
+			font-weight: 500;
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		.navli a:hover,.navli1 a:hover{
+			background-color: #42a4ed;
+			color:white;
+			text-decoration: none;
+			list-style-type: none;
+			list-style: none;
+		}
+		.displayblock{
+			display: block;
+		}
+		.displaynone{
+			display: none;
+		}
+		#graph{
+			display:none;
+		}
+		#random{
+			display:block;
+		}
+		#reverse{
+			display: none;
+		}
+		#nearlysorted{
+			display: none;
+		}
+		#unique{
+			display: none;
+		}
+		label {
+			text-align: right;
+			clear: both;
+			float:center;
+			margin-right:15px;
+			font-weight: bold;
+		}
+		body{
+			margin:0;
+			padding:0;
+		}
+		.contentcenter{
+			justify-content: center;
+			text-align:center;
+			background-color: #EBF6FF;
+			color:black;
+		}
+		.row-content{
+			margin-bottom: 50px;
+			border-bottom:2px solid #1F95EE;
+			border-radius: 10px;
+		}
+		.borderinput{
+			border: 2px solid #1F95EE;
+			padding:10px;
+			border-radius: 10px;
+			margin:2px;
+			margin-bottom:20px;
+		}
+		.inputbox{
+			outline:none;
+			border: 10px solid #1F95EE;
+			background-color: #1F95EE;
+			color:white;
+			border-radius: 10px;
+		}
+		.inputselect{
+			outline:none;
+			border:10px #1F95EE;
+			padding:10px 90px 10px 10px;
+			align-content: center;
+			border-radius: 10px ;
+			color:white;
+			background-color:#1F95EE ;
+			position: relative;
+		}
+		
+
+		/* Safari 6.1-10.0 (but not 10.1) */
+		@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0){ 
+		@media screen {
+		.inputselect { 
+		width:216px;
+		-webkit-appearance:none;
+		}
+		}}
+		/* Safari 11+ */
+		@media not all and (min-resolution:.001dpcm)
+		{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+			.inputselect { 
+		width:216px;
+		-webkit-appearance:none;
+		}
+		}}
+		/* @media screen and (min-width: 315px) {
+			.inputselect{
+				padding: 10px 0px 10px 10px;
+			}
+		} */
+		table {
+			overflow-x: auto;
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td {
+  			border: 1px solid #1F95EE;
+  			text-align: center;
+  			padding: 8px;
+		}
+
+		input[type="file"] {
+			display: none;
+		}
+		.custom-file-upload {
+			border: 1px solid #ccc;
+			display: inline-block;
+			padding: 6px 12px;
+			cursor: pointer;
+			border-radius: 10px;
+			background-color:#1F95EE; ;
+			color:white;
+			font-weight: normal;
+		}
+		th {
+			color: white;
+			background-color:#1F95EE ;
+  			border: 1px solid #1F95EE;
+  			text-align: center;
+  			padding: 8px;
+		}
+		#outputdata{
+			display: none;
+		}
+		#graph{
+			border:2px solid white;
+			padding:5px;
+			margin-bottom:20px;
+			background-color: rgb(255, 255, 255);
+		}
+		::placeholder {
+  			color: white;}
+		.option {
+			background-color: white;
+			color:black;
+		}
+		.option:hover{
+			background-color:#1F95EE;
+			color:white;
+		}
+		#loading {
+			display : none;
+			/* display: block; */
+			position: fixed;
+			z-index: 1031; /*High z-index so it is on top of the page */
+			top: 50%;
+			left: 50%; /* or: left: 50%; */
+			/* margin-top: -..px; half of the elements height */
+			/* margin-right: -..px; half of the elements widht */
+		}
+		.floatright{
+			float: right;
+		}
+		.modal-header{
+			padding-left: 35%;
+		}
+		@media screen and (max-width: 991px) {
+			.floatright{
+				float: left;
+			}
+			.modal-header{
+				padding-left: 30%;
+			}
+		}
+		@media screen and (max-width: 767px) {
+			.floatright{
+				float: right;
+			}
+
+		}
+		@media screen and (max-width: 550px) {
+			.labelform{
+				width: 100%;
+				float: left;
+				text-align: left;
+			}
+			.floatright{
+				width: 100%;
+				float: left;
+			}
+			.modal-headerSpan{
+				font-size: medium;
+			}
+			.modal_bodyInput{
+				font-size: medium;
+			}
+			.modal-header{
+				padding-left: 30%;
+			}
+		}
+		@media screen and (max-width: 410px) {
+			.scrollbar{
+				overflow-x: scroll;
+			}
+		}
+		
+	</style>
+</head>
+
+<body style="background-color: #EBF6FF;color:black ;min-width: 300px;">   <!-- hsl(207, 82%, 68%) -->
+	<div id="Algoresult" class="modal fade" role="dialog" style="min-width: 301px;">
+        <div class="modal-dialog modal-lg" role="content"  >
+            <div class="modal-content" >
+                <div class="modal-header" style="background-color: #EBF6FF;">
+					<h4 style="align-content: center;justify-content: center;border-radius: 10px;">  <span
+						class="modal-headerSpan"
+						style="
+						  background-color: #1f95ee;
+						  color: white;
+						  border-radius: 10px;
+						  padding: 5px;
+						  
+						"
+						>Input and Output</span></h4>
+                    <button class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+				</div>
+				<div class="modal-body" style="background-color: #EBF6FF;border-radius: 10px;">
+					<!-- <div style="overflow-x: scroll;">
+						<canvas id="popUpChart"></canvas>
+					</div> -->
+					<div style="overflow-x:auto;margin-bottom: 30px;">
+						<div class="row">
+							<div class="col-12" style="min-width:500px">
+								<canvas id="popUpChart"></canvas>	
+							</div>
+						</div>
+					</div>
+					<h4 > <span
+						class="modal_bodyInput"
+						style="
+						  background-color: #1f95ee;
+						  color: white;
+						  border-radius: 10px;
+						  padding: 5px;
+						  padding-right: 15px;
+						  margin: 10px;
+						"
+						>
+						Input Data:
+					</span></h4>
+					<div id="resultarr" style="color: black;overflow-x: auto;word-break: break-word;padding: 10px;"></div>
+					<h4 ><span
+						class="modal_bodyInput"
+						style="
+						  background-color: #1f95ee;
+						  color: white;
+						  border-radius: 10px;
+						  padding: 5px;
+						  padding-right: 15px;
+						  margin: 10px;
+						"
+						>
+						Output Data:
+					</span></h4>
+					<div id="resultoutarr" style="color: black;overflow-x: auto;word-break: break-word;padding: 10px;"></div>                
+                </div>
+            </div>
+        </div>
+    </div>
+	<ul class="navul">
+		<li class="navli" style="float:left"><img src="./images/Sorting Logo Navbar.png" width="40" height="40" style="margin-top: 7px;margin-left: 15px;"></li>
+		<li class="menu" id="menu" style="float:right"><a><i class="fa fa-bars" style="font-size: 25px;"></i></a></li>
+		<li class="navli" id="contact" style="float:right;margin-right: 0;"><a href="aboutus.html">About Us</a></li>
+		<li class="navli" id="analysis" style="float:right;margin-right: 0;"><a href="analysis.html">Analysis</a></li>
+		<li class="navli" id="algorithm" style="float: right; margin-right: 0">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+			  <ul class="dropdown-menu" style="background-color: #1f95ee;">
+				<li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+				<li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+				<li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+				<li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+				<li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+				<li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+				<li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+				<li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+				<li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+				<li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+			  </ul>
+			</li>
+		<li class="navli" id="sortinganalysis" style="float:right;margin-right: 0;"><a href="#">Sorting</a></li>
+		<li class="navli" id="home" style="float:right;margin-right: 0;"><a href="index.html">Home</a></li>
+		<li class="navli1" id="home1" style="float:right;margin-right: 0;"><a href="index.html">Home</a></li>
+		<li class="navli1" id="sortinganalysis1" style="float:right;margin-right: 0;"><a href="#">Sorting</a></li>
+		<li class="navli1" id="algorithm1" style="float: right; margin-right: 0">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+			  <ul class="dropdown-menu" style="background-color: #1f95ee;">
+				<li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+				<li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+				<li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+				<li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+				<li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+				<li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+				<li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+				<li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+				<li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+				<li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+			  </ul>
+			</li>
+		<li class="navli1" id="analysis1" style="float:right;margin-right: 0;"><a href="analysis.html">Analysis</a></li>
+		<li class="navli1" id="contact1" style="float:right;margin-right: 0;"><a href="aboutus.html">About Us</a></li>
+	</ul>
+	<div class="container" style="width:100%;margin:0 auto;margin-top: 30px;">
+		<div class="row row-content">
+			<div class="col-12 contentcenter" >
+				<h1>Sorting Analysis</h1>
+				<!-- <p>Here we have analysis of 10 types of sorting algorithm and the results will be analysed and get printed below!!</p> -->
+			</div>
+		</div>
+		<div class="panel-group" >
+			<div class="panel panel-default">
+			  <div class="panel-heading"style="background-color:#1F95EE;  border-radius: 10px;padding:8px;">
+				<h4 class="panel-title" style = "text-align: center;color:white">Input Form
+				  <a data-toggle="collapse" href="#collapsibleForm" 
+				  style = "color:white;font-weight: bold;font-size:16px;text-align: center;"
+				  onclick="formcollapseLogoChange()"
+				  ><i id="inputformicon" class="fa fa-plus" style="font-size:22px;float:right;margin-top: 5px;margin-right:20px"></i></a>
+				</h4>
+			  </div>
+		<div id= "collapsibleForm" class = "panel-collapse collapse">
+			<br/>
+			
+			<div class="row-content scrollbar">
+				<table >
+					<tr>
+						<th >Data Type</th>
+						<th>Min Value</th>
+						<th>Max Value</th>
+					</tr>
+					<tr>
+						<td>Integer</td>		
+						<td>Integer</td>			    
+						<td>Integer</td>
+					</tr>
+					<tr>
+						<td>Float</td>		
+						<td>Float or Integer</td>	
+						<td>Float or Integer</td>
+					</tr>
+					<tr>
+						<td>String</td>		
+						<td>length of String</td>	
+						<td>length of String</td>
+					</tr>
+					<tr>
+						<td >DateTime</td>	
+						<td>yyyy-mm-dd:hh:mm:ss.msZ</td>			
+						<td>yyyy-mm-dd:hh:mm:ss.msZ</td>
+					</tr>
+					</tr>
+				</table>
+			</div>
+			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center; border-radius: 10px;padding:8px;margin-top: 0px;">* while giving the input please specify minimum and maximum values as mentioned above for every category and check its in the correct format..<br></p>
+	
+		
+			<div class="row borderinput row-content" style="margin:0px 0px 10px 0px;padding-left:30px;">
+				<div class="col-12" style="margin-top:10px;">
+					<h3 class="contentcenter" style="color:#1F95EE;">Input</h1><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
+					<label style="margin-right:0px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
+						<select class="inputselect floatright" id="datatype" onchange="labelchange()">
+							<!-- <option class="option" >Choose</option> -->
+							<option class="option" >Integer</option>
+							<option class="option" >Float</option>
+							<option class="option">Character</option>
+							<option class="option">String</option>
+							<option class="option">DateTime</option>
+						</select>
+						<div style="color:red" id="errorDatatype"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label class="labelform" style="margin-right:0px;font-size:20px">Size of the array: </label>&emsp;
+					
+					<input class="inputbox floatright" id="noofelements" type="text" value = "20">
+					
+					<div style="color:red" id="errorNoofelements"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label class="labelform" id = "inputMinValue" style="margin-right:0px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
+					<input class="inputbox floatright" id="minrange" type="text" value = "0">
+					<!--removed placeholder placeholder="Enter the min range..."-->
+					<div id="errorMinval" style="color:red"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label class="labelform" id = "inputMaxValue" style="margin-right:0px;font-size:20px">Maximum value: </label>&emsp;
+					<input class="inputbox floatright" id="maxrange" type="text" value = "10000">
+					<!--removed placeholder placeholder="Enter the max range..."-->
+					<div id="errorMaxval" style="color:red"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label class="labelform" style="margin-right:0px;font-size:20px">Nearly Sorted Percent: </label>
+					<input class="inputbox floatright" id="nearlysortedpercent" type="text" value="10">
+					<!--removed placeholder placeholder="Enter the nearlysorted %..."-->
+					<div style="color:red" id="errorNearly"></div><br>
+				</div>
+				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
+					<label class="labelform" style="margin-right:0px;font-size:20px">Duplicate percent: </label>
+					<input class="inputbox floatright" id="duplicatepercent" type="text" value="20">
+					<!--removed placeholder placeholder="Enter the duplicate %..."-->
+					<div id="errorDup" style="color:red"></div><br>
+				</div><br>
+				<!-- <div class="col-sm-12 contentcenter" style="color:black">
+					(OR)
+				</div><br><br>
+				<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
+					<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
+					<label for="file-upload" class="custom-file-upload">
+						<i class="fa fa-cloud-upload"></i> Custom Upload
+					</label>
+					<div id = "file_name">
+					</div>
+					<input id="file-upload" type="file"/>
+					<div id="errorFile" style="color:red"></div><br>
+				</div> -->
+				<div class="col-12 contentcenter" style="margin-bottom:20px">
+					<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;" onclick="callsorting()">Submit</button>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row" id="outputdata" style="border:2px solid #1F95EE;padding:5px;margin:0px 10px 20px 10px;border-radius: 8px;">
+
+			<div class="col-12">
+				<ul class="nav nav-tabs" style="display:inline-flex;">
+					<li class="nav-item">
+						<a class="nav-link active" id="randomtab" onclick = "changeRandomTabColor()" style="cursor:pointer;border:5px solid white;border-radius: 10px; color:black;background-color: #d9e9f5;">Random Array</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="reversetab" onclick = "changeReverseTabColor()" style="cursor:pointer;border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Reverse Array</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="nearlysortedtab" onclick = "changeNearlySortedTabColor()"style="cursor:pointer;border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Nearly Sorted Array</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="uniquetab" onclick = "changUniqueTabColor()"style="cursor:pointer;border:5px solid white; border-radius: 10px;color:white;background-color: #1F95EE;">Duplicate Array</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-12">
+				<div id="inputdata" style="display: none;margin-top:30px;padding-bottom: 20px;">
+					
+					<h4>Input Data: <a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;"data-toggle="modal" data-target="#Algoresult" >(<span style="text-decoration: underline;cursor: pointer;color: #1F95EE;">Visualize</span>)</a></h4>
+					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;" id="inputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
+					<br>
+					<h4>Output Data: <a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;"data-toggle="modal" data-target="#Algoresult" >(<span style="text-decoration: underline;cursor: pointer;color: #1F95EE;">Visualize</span>)</a></h4>
+					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;" id="outputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
+				</div>
+			</div>
+
+		
+		
+			<div id="graph" style="overflow-x:auto">
+				<h3 style="color: black;">Graph Representation</h3>
+				<div class="row">
+					<div class="col-lg-2">
+					</div>
+					<div class="col-md-12 col-lg-8" style="min-width:500px;width:500px !important;overflow-x: auto;">
+						<canvas id="myChart"></canvas>	
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+			</div>
+		
+			<div id="data" style="display: none;"></div>
+			<div id="timerandom" style="display: none;"></div>
+			<div id="timereverse" style="display: none;"></div>
+			<div id="timenearlysorted" style="display: none;"></div>
+			<div id="timeunique" style="display: none;"></div>
+			
+			<div id="comparisons" style="display: none;"></div>
+			<div id="comprandom" style="display: none;"></div>
+			<div id="compreverse" style="display: none;"></div>
+			<div id="compnearlysorted" style="display: none;"></div>
+			<div id="compunique" style="display: none;"></div>		
+			
+			<div id="swaps" style="display: none;"></div>
+			<div id="swapsrandom" style="display: none;"></div>
+			<div id="swapsreverse" style="display: none;"></div>
+			<div id="swapsnearlysorted" style="display: none;"></div>
+			<div id="swapsunique" style="display: none;"></div>
+
+			<div id="filearr" style="display: none;"></div>
+			<div id="bool" style="display:none;"></div>
+			<!-- <button id="getdata" onclick="getdata()">getdata</button> -->
+
+			<!-- <div  id="outputdata" class="row-content" style="overflow-x: auto;"> -->
+			<div class="spinner-border text-primary" id="loading">
+				<!-- <span class="sr-only">Loading...</span> -->
+			</div>
+			<p style="color: red; text-align: center;">* For smaller input size, timetaken may be 0.000 µs because the timetaken is calculated in milliseconds and converted to microseconds.</p>
+			<div class="col-12">
+				<div class="tab-content" style="margin-top:16px">
+					<div class="tab-pane active" id="random">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Random Array</b></div> -->
+								<div class="panel-body">
+									<div id="table1" style="overflow-x: auto;">
+
+									</div>									
+								</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="reverse">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Reverse Array</b></div> -->
+								<div class="panel-body">
+									<div id="table2" style="overflow-x: auto;">
+									</div>	
+								</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="nearlysorted">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Nearly Sorted Array</b></div> -->
+								<div class="panel-body">
+									<div id="table3" style="overflow-x: auto;">
+									</div>
+								</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="unique">
+						<div class="panel panel-default border-body">
+							<!-- <div class="panel-heading"><b>Duplicate Array</b></div> -->
+								<div class="panel-body">
+									<div id="table4" style="overflow-x: auto;">
+
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		</div> <!--container end-->
+		<script>
+			$(document).ready(function() {
+				// Optimalisation: Store the references outside the event handler:
+				var $window = $(window);
+
+				function checkWidth() {
+					var windowsize = $window.width()+17;
+					if (windowsize > 500) {
+						console.log(windowsize)
+						document.getElementById('home1').style.display = 'none';
+						document.getElementById('contact1').style.display = 'none';
+						document.getElementById('sortinganalysis1').style.display = 'none';
+						document.getElementById("algorithm1").style.display = "none";
+						document.getElementById("analysis1").style.display = "none";
+					}
+				}
+				// Execute on load
+				checkWidth();
+				// Bind event listener
+				$(window).resize(checkWidth);
+			});
+			
+			function detectBrowser() { 
+				if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+					return 'Opera';
+				} else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+					return 'Chrome';
+				} else if(navigator.userAgent.indexOf("Safari") != -1) {
+					return 'Safari';
+				} else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+					return 'Firefox';
+				} else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+					return 'IE';//crap
+				} else {
+					return 'Unknown';
+				}
+			} 
+
+			var browserName = detectBrowser();
+			console.log('browser', browserName)
+			if(browserName == "Safari"){
+				document.getElementById("noofelements").value= "5000";
+			}
+			var bool = 0;
+			var datatype = document.getElementById('datatype').value;
+			var inputformicon = "add";
+			//calling the onclick function for the submit button to have the ouptut for the default values 
+			document.getElementById('submit').click();
+
+			document.getElementById('menu').onclick = () => {
+				if(document.getElementById('home1').style.display=='none'){
+					document.getElementById('home1').style.display = 'block';
+					document.getElementById('contact1').style.display = 'block';
+					document.getElementById('sortinganalysis1').style.display = 'block';
+					document.getElementById('analysis1').style.display = 'block';
+					document.getElementById("algorithm1").style.display = "block";
+				}
+				else{
+					document.getElementById('home1').style.display = 'none';
+					document.getElementById('contact1').style.display = 'none';
+					document.getElementById('sortinganalysis1').style.display = 'none';
+					document.getElementById('analysis1').style.display = 'none';
+					document.getElementById("algorithm1").style.display = "none";
+				}
+			}
+			
+			function formcollapseLogoChange(){
+				if(inputformicon=="add"){
+					inputformicon = "minus";
+					document.getElementById("inputformicon").classList.remove("fa-plus");
+					document.getElementById("inputformicon").classList.add("fa-minus");
+				}
+				else{
+					inputformicon = "add";
+					document.getElementById("inputformicon").classList.remove("fa-minus");
+					document.getElementById("inputformicon").classList.add("fa-plus");		
+				}
+			}
+			function showModal(){
+				document.getElementById("Algoresult").style.display = "block"
+			}
+
+			function labelchange(){
+				datatype = document.getElementById("datatype").value;
+				if(datatype == "Integer"){
+					document.getElementById("inputMinValue").textContent = "Minimum Value:";
+					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
+					document.getElementById("minrange").value = "0";
+					document.getElementById("maxrange").value = "1000";
+				}else if(datatype == "Character"){
+					document.getElementById("inputMinValue").textContent = "Beginning Char:";
+					document.getElementById("inputMaxValue").textContent = "Ending Char:";
+					document.getElementById("minrange").value = "A";
+					document.getElementById("maxrange").value = "z";
+					// document.getElementById("noofelements").value = "20";
+					// document.getElementById("nearlysortedpercent").value = "10";
+					// document.getElementById("duplicatepercent").value = "20";
+				}else if(datatype == "String"){
+					document.getElementById("inputMinValue").textContent = "Min String Length:";
+					document.getElementById("inputMaxValue").textContent = "Max String Length:";
+					document.getElementById("minrange").value = "1";
+					document.getElementById("maxrange").value = "4";
+				}else if(datatype == "DateTime"){
+					document.getElementById("inputMinValue").textContent = "Starting Date:";
+					document.getElementById("inputMaxValue").textContent = "Ending Date:";
+					document.getElementById("minrange").value = "2020-03-20:10:30:30.123Z";
+					document.getElementById("maxrange").value = "2021-06-23:10:30:30.123Z";
+				}else if(datatype == "Float"){
+					document.getElementById("inputMinValue").textContent = "Minimum Value:";
+					document.getElementById("inputMaxValue").textContent = "Maximum Value:";
+					document.getElementById("minrange").value = "1.5";
+					document.getElementById("maxrange").value = "4.8";
+				}
+			}
+			var myChart;
+			var mypopUpChart;
+
+
+			// document.getElementById('file-upload').onchange = function () {
+			// 	document.getElementById('file_name').innerHTML = this.value;
+			// };
+
+			function changeRandomTabColor(){
+				document.getElementById("randomtab").style.background="#d9e9f5";
+				document.getElementById("randomtab").style.color="black";
+				document.getElementById("reversetab").style.background="#1F95EE";
+				document.getElementById("reversetab").style.color="white";
+				document.getElementById("nearlysortedtab").style.background="#1F95EE";
+				document.getElementById("nearlysortedtab").style.color="white";
+				document.getElementById("uniquetab").style.background="#1F95EE";
+				document.getElementById("uniquetab").style.color="white";
+				inputarrContentChange("random")
+			}
+			function changeReverseTabColor(){
+				document.getElementById("reversetab").style.background="#d9e9f5";
+				document.getElementById("reversetab").style.color="black";
+				document.getElementById("randomtab").style.background="#1F95EE";
+				document.getElementById("randomtab").style.color="white";
+				document.getElementById("nearlysortedtab").style.background="#1F95EE";
+				document.getElementById("nearlysortedtab").style.color="white";
+				document.getElementById("uniquetab").style.background="#1F95EE";
+				document.getElementById("uniquetab").style.color="white";
+				inputarrContentChange("reverse");
+			}
+
+			function changeNearlySortedTabColor(){
+				document.getElementById("nearlysortedtab").style.background="#d9e9f5";
+				document.getElementById("nearlysortedtab").style.color="black";
+				document.getElementById("reversetab").style.background="#1F95EE";
+				document.getElementById("reversetab").style.color="white";
+				document.getElementById("randomtab").style.background="#1F95EE";
+				document.getElementById("randomtab").style.color="white";
+				document.getElementById("uniquetab").style.background="#1F95EE";
+				document.getElementById("uniquetab").style.color="white";
+				inputarrContentChange("nearlysorted");
+			}
+
+			
+			function changUniqueTabColor(){
+				document.getElementById("uniquetab").style.background="#d9e9f5";
+				document.getElementById("uniquetab").style.color="black";
+				document.getElementById("reversetab").style.background="#1F95EE";
+				document.getElementById("reversetab").style.color="white";
+				document.getElementById("randomtab").style.background="#1F95EE";
+				document.getElementById("randomtab").style.color="white";
+				document.getElementById("nearlysortedtab").style.background="#1F95EE";
+				document.getElementById("nearlysortedtab").style.color="white";
+				inputarrContentChange("duplicate");
+			}
+			function destroy(){
+				myChart.destroy();
+				mypopUpChart.destroy();
+			}
+			function graph(){
+				if(datatype!='String'){
+					document.getElementById('popUpChart').style.display='block';
+				}
+				else{
+					document.getElementById('popUpChart').style.display='none';
+				}
+				if(bool>0){
+					destroy();
+				}
+				bool = 1;
+				var	label = ['Bubble','Selection','Insertion','Heap','Shell','Quick3','Quick','Merge','Count','Radix'];
+				var ctx = document.getElementById('myChart');
+				
+				var popupctx;
+				if(datatype!='String')
+					popupctx = document.getElementById('popUpChart');
+
+				var data = [];
+				var comparisons = [];
+				var swaps = [];
+				
+				time = document.getElementById("data").innerHTML.toString().split(",");
+				comparisons = document.getElementById("comparisons").innerHTML.toString().split(",");
+				swaps = document.getElementById("swaps").innerHTML.toString().split(",");
+
+				inputarr = document.getElementById("resultarr").innerHTML.toString().split(",");
+				outputarr = document.getElementById("resultoutarr").innerHTML.toString().split(",");
+
+				if(datatype=='Character'){
+					for(var index=0;index<inputarr.length;index++){
+						inputarr[index] = inputarr[index].charCodeAt(0);
+						outputarr[index] = outputarr[index].charCodeAt(0);
+					}
+					// console.log(inputarr,outputarr,'helo');
+				}
+				if(datatype=='DateTime'){
+					for(var index=0;index<inputarr.length;index++){
+						inputarr[index] = new Date(inputarr[index]).getTime()
+						outputarr[index] = new Date(outputarr[index]).getTime();
+					}
+				}
+				var popUpLabel = [];
+				var elementsSize = document.getElementById('noofelements').value;
+				// var maximumrange = document.getElementById('maxrange').value;
+				
+				for(var i=0;i<elementsSize;i++){
+					popUpLabel.push(i);
+				}
+
+				var popUpData = {
+					labels: popUpLabel,
+					datasets: [
+						{
+							label: 'Output data',
+							data: outputarr,
+							borderColor: 'green',
+							borderWidth: 2,
+							yAxisID: 'y1'
+						},
+						{
+							label: 'Input data',
+							data: inputarr,
+							borderColor: 'red',
+							borderWidth: 2,
+							yAxisID: 'y'
+						}
+					]
+				}
+				
+				var data = {
+					labels: label,
+					datasets: [
+					{
+						label: 'TimeTaken in (µs)',
+						data: time,
+						borderColor: 'blue',
+						borderWidth: 2,
+						yAxisID:'y',
+						
+					},
+					{
+						label: 'No of Comparisons',
+						data: comparisons,
+						borderColor: 'green',
+						borderWidth: 2,
+						yAxisID:'y1',
+					},
+					{
+						label: 'No of Swaps',
+						data: swaps,
+						borderColor: 'orange',
+						borderWidth: 2,
+						yAxisID:'y1',
+
+					}]
+				};
+
+				
+				// Chart.defaults.global.defaultFontColor = 'white';
+				myChart = new Chart(ctx, {
+					type: 'line',
+					data: data,
+					options: {
+						scales: {
+								yAxes: [{
+								type: 'linear',
+								display: true,
+								position: 'left',
+								id:'y1',
+								gridLines:false,
+								scaleLabel: {
+									display: true,
+									labelString: 'Comparision / Swap Counts'
+									}
+							},
+							{
+								type: 'linear',
+								display: true,
+								position: 'right',
+								id:'y',
+								scaleLabel: {
+									display: true,
+									labelString: 'Time in microseconds'
+									}
+							},],
+							xAxes: [{
+								display: true,
+								scaleLabel: {
+								display: true,
+								labelString: 'Sorting Type'
+								}
+							}]
+							},
+
+						}
+				});
+				if(datatype!='String'){
+					mypopUpChart = new Chart(popupctx, {
+						type: 'line',
+						data: popUpData,
+						options: {
+							scales: {
+								yAxes: [
+									{
+										type: 'linear',
+										display: true,
+										position: 'left',
+										id:'y',
+										scaleLabel: {
+											display: true,
+											labelString: datatype=='Character'?'Input Elements Range (in ascii)':datatype=='DateTime'?'Input Range (in ms since 1st jan 1970)':'Input Elements Range',
+											}
+									},
+									{
+										type: 'linear',
+										display: true,
+										position: 'right',
+										id:'y1',
+										scaleLabel: {
+											display: true,
+											labelString: datatype=='Character'?'Output Elements Range (in ascii)':datatype=='DateTime'?'Output Range (in ms since 1st jan 1970)':'Output Elements Range',
+											}
+									}
+								],
+								xAxes: [{
+									display: true,
+									scaleLabel: {
+									display: true,
+									labelString: 'ith element'
+									}
+								}]
+								},
+
+							}
+					
+					});
+				}		
+			}
+		</script>
+</body>
+</html>
