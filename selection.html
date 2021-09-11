@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -329,25 +330,25 @@
                         margin-left: 0px;
                     "
                     >
-                        function selection(arr,n) 
-                        {
-                            for(let i=0; i < n-1; i++) {
-                                let min = arr[i];
-                                let index = i;
-                                for(let j=i ;j < n;j++) {
-                                    comparisons++;
-                                    if(arr[j] < min) {
-                                        min = arr[j];
-                                        index = j;
-                                    }
-                                }
-                                swaps++;
-                                let temp = arr[i];
-                                arr[i] = arr[index];
-                                arr[index] = temp;
-                            }
-                            return arr;
-                        }
+  function selection(arr,n) 
+  {
+      for(let i=0; i < n-1; i++) {
+          let min = arr[i];
+          let index = i;
+          for(let j=i ;j < n;j++) {
+              comparisons++;
+              if(arr[j] < min) {
+                  min = arr[j];
+                  index = j;
+              }
+          }
+          swaps++;
+          let temp = arr[i];
+          arr[i] = arr[index];
+          arr[index] = temp;
+      }
+      return arr;
+  }
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Selection Sort, refer the link given below:  <a
@@ -358,6 +359,7 @@
                   >
                 </h5>           
         </div>
+    </div>
     </div>
     <script>
       $(document).ready(function () {

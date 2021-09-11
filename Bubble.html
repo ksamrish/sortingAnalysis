@@ -169,6 +169,7 @@
           margin-left: 0;
         }
       }
+      
     </style>
   </head>
 
@@ -280,6 +281,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -323,22 +325,22 @@
                         background-color: #ebf6ff;
                         color: black;
                         border-radius: 10px;
-                        margin-top: 10px;
                         margin-left: 0px;
+                        padding-left: 0px;
                     "
                     >
-                        function bubble( arr,  n) {
-                        for(let i = 0; i < n-1; i++) {
-                            for(let j = 0; j < n-i-1; j++) {
-                                if(arr[j] > arr[j+1]) {
-                                    let temp = arr[j];
-                                    arr[j] = arr[j+1];
-                                    arr[j+1] = temp;
-                                }
-                            }
-                        }
-                        return arr;
-                        }
+  function bubble( arr,  n) {
+  for(let i = 0; i < n-1; i++) {
+      for(let j = 0; j < n-i-1; j++) {
+          if(arr[j] > arr[j+1]) {
+              let temp = arr[j];
+              arr[j] = arr[j+1];
+              arr[j+1] = temp;
+          }
+      }
+  }
+  return arr;
+  }
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Bubble Sort, refer the link given below:  <a
@@ -350,6 +352,7 @@
                 </h5>           
         </div>
     </div>
+  </div>
     <script>
       $(document).ready(function () {
         // Optimalisation: Store the references outside the event handler:

@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -327,25 +328,25 @@
                         margin-left: 0px;
                     "
                     >
-                    function shell(arr,n) {
-                        for(let gap = Math.floor(n/2);gap >= 1;gap = Math.floor(gap/2)) {
-                            for(let fwd = gap; fwd < n; fwd++) {
-                                let toBeInserted = fwd;
-                                for(let rev = fwd - gap;rev >= 0;rev -= gap) {
-                                    if(arr[rev] > arr[toBeInserted]) {
-                                        let temp = arr[rev];
-                                        arr[rev] = arr[h];
-                                        arr[toBeInserted] = temp;
-                                        toBeInserted = rev;
-                                    }
-                                    else {
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        return arr;
-                    }
+  function shell(arr,n) {
+      for(let gap = Math.floor(n/2);gap >= 1;gap = Math.floor(gap/2)) {
+          for(let fwd = gap; fwd < n; fwd++) {
+              let toBeInserted = fwd;
+              for(let rev = fwd - gap;rev >= 0;rev -= gap) {
+                  if(arr[rev] > arr[toBeInserted]) {
+                      let temp = arr[rev];
+                      arr[rev] = arr[h];
+                      arr[toBeInserted] = temp;
+                      toBeInserted = rev;
+                  }
+                  else {
+                      break;
+                  }
+              }
+          }
+      }
+      return arr;
+  }
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Shell Sort, refer the link given below:  <a
@@ -357,6 +358,8 @@
                 </h5>           
         </div>
     </div>
+  </div>
+  
     <script>
       $(document).ready(function () {
         // Optimalisation: Store the references outside the event handler:

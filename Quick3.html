@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -328,39 +329,39 @@
                         margin-left: 0px;
                     "
                     >
-                    function quick3(arr,start,end) {
-                        let i = end, j = end, high = start;
-                        let pivot = arr[start];
-                        while(high <= i) {
-                            if(arr[i] == pivot) {
-                                i--;
-                            }
-                            else if(arr[i] < pivot) {
-                                let temp = arr[high];
-                                arr[high] = arr[i];
-                                arr[i] = temp;
-                                high++;
-                            }
-                            else {
-                                let temp = arr[i];
-                                arr[i] = arr[j];
-                                arr[j] = temp;
-                                i--;j--;
-                            }
-                        }
-                        if(start < high-1)
-                            quick3(arr,start,high-1);
-                        if(j+1 < end)
-                            quick3(arr,j+1,end);
-                        return;
-                    }
-                    
-                    function quick3Main(arr){
-                        start = 0;
-                        end = arr.length - 1; 
-                        quick3(arr,start,end);
-                        return arr;
-                    }
+    function quick3(arr,start,end) {
+        let i = end, j = end, high = start;
+        let pivot = arr[start];
+        while(high <= i) {
+            if(arr[i] == pivot) {
+                i--;
+            }
+            else if(arr[i] < pivot) {
+                let temp = arr[high];
+                arr[high] = arr[i];
+                arr[i] = temp;
+                high++;
+            }
+            else {
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i--;j--;
+            }
+        }
+        if(start < high-1)
+            quick3(arr,start,high-1);
+        if(j+1 < end)
+            quick3(arr,j+1,end);
+        return;
+    }
+    
+    function quick3Main(arr){
+        start = 0;
+        end = arr.length - 1; 
+        quick3(arr,start,end);
+        return arr;
+    }
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Quick3 Sort, refer the link given below:  <a
@@ -371,6 +372,7 @@
                   >
                 </h5>           
         </div>
+    </div>
     </div>
     <script>
       $(document).ready(function () {

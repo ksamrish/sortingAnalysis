@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -326,29 +327,29 @@
                         margin-left: 0px;
                     "
                     >
-                    function heap(arr) {
-                        start = 0;
-                        end = arr.length -1 ;
-                        for(let i=end;i>0;i--) {
-                            for(let j=Math.floor((i-1)/2);j>=0;j--) {
-                                let left = 2*j+1;
-                                let right = 2*j+2;
-                                let big = left;
-                                if(right <=i && arr[right]>arr[left]) {
-                                    big = right;
-                                }
-                                if(arr[j] < arr[big]) {
-                                    let temp = arr[big];
-                                    arr[big] = arr[j];
-                                    arr[j] = temp;
-                                }
-                            }
-                            let temp = arr[i];
-                            arr[i] = arr[0];
-                            arr[0] = temp;
-                        }
-                        return arr;
-                      }
+  function heap(arr) {
+      start = 0;
+      end = arr.length -1 ;
+      for(let i=end;i>0;i--) {
+          for(let j=Math.floor((i-1)/2);j>=0;j--) {
+              let left = 2*j+1;
+              let right = 2*j+2;
+              let big = left;
+              if(right <=i && arr[right]>arr[left]) {
+                  big = right;
+              }
+              if(arr[j] < arr[big]) {
+                  let temp = arr[big];
+                  arr[big] = arr[j];
+                  arr[j] = temp;
+              }
+          }
+          let temp = arr[i];
+          arr[i] = arr[0];
+          arr[0] = temp;
+      }
+      return arr;
+    }
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Heap Sort, refer the link given below:  <a
@@ -359,6 +360,7 @@
                   >
                 </h5>           
         </div>
+    </div>
     </div>
     <script>
       $(document).ready(function () {

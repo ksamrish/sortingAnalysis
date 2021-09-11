@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -330,38 +331,38 @@
                         margin-left: 0px;
                     "
                     >
-                    function quick(arr,start,end) {
-                        let i = start,j = end,mid = Math.floor((start+end)/2);
-                        let pivot = arr[mid];
-                        while(i <= j) {
-                            while(arr[i] < pivot) {
-                                i++;
-                            }
-                            while(arr[j] > pivot) {
-                                j--;
-                            }
-                            if(i <= j) {
-                                swaps++;
-                                let temp = arr[i];
-                                arr[i] = arr[j];
-                                arr[j] = temp;
-                                i++; j--;
-                            }
-                        }
-                        if(start < i - 1)
-                            quick(arr,start,i - 1);
-                        if(i < end)
-                            quick(arr,i,end);
-                        return;
-                    }
-                    
-                    
-                    function quickMain(arr){
-                        start = 0 ;
-                        end = arr.length - 1 ;
-                        quick(arr,start,end);
-                        return arr;
-                    }
+  function quick(arr,start,end) {
+      let i = start,j = end,mid = Math.floor((start+end)/2);
+      let pivot = arr[mid];
+      while(i <= j) {
+          while(arr[i] < pivot) {
+              i++;
+          }
+          while(arr[j] > pivot) {
+              j--;
+          }
+          if(i <= j) {
+              swaps++;
+              let temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+              i++; j--;
+          }
+      }
+      if(start < i - 1)
+          quick(arr,start,i - 1);
+      if(i < end)
+          quick(arr,i,end);
+      return;
+  }
+  
+  
+  function quickMain(arr){
+      start = 0 ;
+      end = arr.length - 1 ;
+      quick(arr,start,end);
+      return arr;
+  }
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Quick Sort, refer the link given below:  <a
@@ -372,6 +373,7 @@
                   >
                 </h5>           
         </div>
+    </div>
     </div>
     <script>
       $(document).ready(function () {

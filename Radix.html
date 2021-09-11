@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -331,54 +332,54 @@
                         margin-left: 0px;
                     "
                     >
-                    function radix(arr,div) {
-                        let temp = [];
-                        temp.length = 10;
-                        for(let i = 0; i < temp.length ;i++ ){
-                            temp[i] = 0;
-                        }
-                        let outputArray = new Array(arr.length);
-                        for(let i = 0; i < arr.length; i++) {
-                            temp[(Math.floor(arr[i] / div)) % 10]++;
-                        }
-                    
-                        temp[0] = temp[0]-1;
-                        for(let i = 1; i < 10; i++) {
-                            temp[i] += temp[i-1];
-                        }
-                        for(let i = arr.length-1; i >= 0; i--) {
-                            let tempo = arr[i];
-                            let index = temp[(Math.floor(arr[i]/div)) % 10]--;
-                            outputArray[index] = tempo;
-                        }
-                        for(let i = 0; i < arr.length; i++) {
-                            arr[i] = outputArray[i];
-                        }
-                    }
-                    
-                    function radixsort(arr) {
-                        let maximum = arr[0];
-                        let minimum = arr[0];
-                        for(let i = 0; i < arr.length; i++) {
-                            if(arr[i] < minimum) {
-                                minimum = arr[i];
-                            }
-                            if(arr[i] > maximum) {
-                                maximum = arr[i];
-                            }
-                        }
-                        for(let i=0;i < arr.length;i++) {
-                            arr[i] -= minimum;
-                        }
-                        let maxLength = (maximum - minimum).toString().length;
-                        for(let i = 0,div = 1; i < maxLength; i++,div *= 10) {
-                            radix(arr,div);
-                        }
-                        for(let i = 0; i < arr.length; i++){
-                            arr[i] += minimum;
-                        }
-                        return arr;
-                    }	
+  function radix(arr,div) {
+      let temp = [];
+      temp.length = 10;
+      for(let i = 0; i < temp.length ;i++ ){
+          temp[i] = 0;
+      }
+      let outputArray = new Array(arr.length);
+      for(let i = 0; i < arr.length; i++) {
+          temp[(Math.floor(arr[i] / div)) % 10]++;
+      }
+  
+      temp[0] = temp[0]-1;
+      for(let i = 1; i < 10; i++) {
+          temp[i] += temp[i-1];
+      }
+      for(let i = arr.length-1; i >= 0; i--) {
+          let tempo = arr[i];
+          let index = temp[(Math.floor(arr[i]/div)) % 10]--;
+          outputArray[index] = tempo;
+      }
+      for(let i = 0; i < arr.length; i++) {
+          arr[i] = outputArray[i];
+      }
+  }
+  
+  function radixsort(arr) {
+      let maximum = arr[0];
+      let minimum = arr[0];
+      for(let i = 0; i < arr.length; i++) {
+          if(arr[i] < minimum) {
+              minimum = arr[i];
+          }
+          if(arr[i] > maximum) {
+              maximum = arr[i];
+          }
+      }
+      for(let i=0;i < arr.length;i++) {
+          arr[i] -= minimum;
+      }
+      let maxLength = (maximum - minimum).toString().length;
+      for(let i = 0,div = 1; i < maxLength; i++,div *= 10) {
+          radix(arr,div);
+      }
+      for(let i = 0; i < arr.length; i++){
+          arr[i] += minimum;
+      }
+      return arr;
+  }	
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Radix Sort, refer the link given below:  <a
@@ -389,6 +390,7 @@
                   >
                 </h5>           
         </div>
+    </div>
     </div>
     <script>
       $(document).ready(function () {

@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -328,18 +329,18 @@
                         margin-left: 0px;
                     "
                     >
-                    function insertion(arr, n) {
-                        for(let i = 1; i < n; i++) {
-                            for(let j = i; j > 0; j--) {
-                                if(arr[j] < arr[j-1]) {
-                                    let temp = arr[j];
-                                    arr[j] = arr[j-1];
-                                    arr[j-1] = temp;
-                                }
-                            }
-                        }
-                        return arr;
-                      }
+  function insertion(arr, n) {
+      for(let i = 1; i < n; i++) {
+          for(let j = i; j > 0; j--) {
+              if(arr[j] < arr[j-1]) {
+                  let temp = arr[j];
+                  arr[j] = arr[j-1];
+                  arr[j-1] = temp;
+              }
+          }
+      }
+      return arr;
+    }
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Insertion Sort, refer the link given below:   <a
@@ -356,6 +357,7 @@
                   >
                 </h5>           
         </div>
+    </div>
     </div>
     <script>
       $(document).ready(function () {

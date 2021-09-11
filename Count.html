@@ -280,6 +280,7 @@
             border-radius: 8px;
             "
         >
+        <div class="col-12">
             <h5 style="margin-bottom: 20px; margin-top: 20px;">
                 <span
                 style="
@@ -329,37 +330,37 @@
                         margin-left: 0px;
                     "
                     >
-                    function countsort(a) {
-                        let minimum = a[0];
-                        let maximum = a[0];
-                        for(let i = 0; i < a.length; i++) {
-                            if(a[i] < minimum)
-                                minimum = a[i];
-                            if(a[i] > maximum)
-                                maximum = a[i];
-                        }
-                        for(let i=0;i < a.length;i++) {
-                            a[i] -= minimum;
-                        }
-                        let bucket = [];
-                        bucket.length = (maximum - minimum + 1);
-                        for(let i = 0; i < bucket.length; i++){
-                            bucket[i] = 0;
-                        }
-                        for(let i = 0; i < a.length; i++) {
-                            bucket[a[i]]++;
-                        }
-                        let index = 0;
-                        for(let i = 0; i < bucket.length; i++) {
-                            if(bucket[i]==0) {
-                                continue;
-                            }
-                            for(let j = 0; j < bucket[i]; j++) {
-                                a[index++] = i+minimum;
-                            }
-                        }
-                        return a; 
-                    } 
+  function countsort(a) {
+      let minimum = a[0];
+      let maximum = a[0];
+      for(let i = 0; i < a.length; i++) {
+          if(a[i] < minimum)
+              minimum = a[i];
+          if(a[i] > maximum)
+              maximum = a[i];
+      }
+      for(let i=0;i < a.length;i++) {
+          a[i] -= minimum;
+      }
+      let bucket = [];
+      bucket.length = (maximum - minimum + 1);
+      for(let i = 0; i < bucket.length; i++){
+          bucket[i] = 0;
+      }
+      for(let i = 0; i < a.length; i++) {
+          bucket[a[i]]++;
+      }
+      let index = 0;
+      for(let i = 0; i < bucket.length; i++) {
+          if(bucket[i]==0) {
+              continue;
+          }
+          for(let j = 0; j < bucket[i]; j++) {
+              a[index++] = i+minimum;
+          }
+      }
+      return a; 
+  } 
                     </pre>
                 </div>
                 <h5 style="margin-left: 15px;"> To Learn more about Count Sort, refer the link given below:  <a
@@ -369,8 +370,9 @@
                     >Count sort</a
                   >
                 </h5>           
-        </div>
+            </div>
     </div>
+  </div>
     <script>
       $(document).ready(function () {
         // Optimalisation: Store the references outside the event handler:
