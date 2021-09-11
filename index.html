@@ -35,116 +35,138 @@
     <meta property="”og:image”" content="./images/Sorting Logo Title.png" />
     <link rel="apple-touch-icon" href="./images/Sorting Logo Title.png" />
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>SortingAnalysis</title>
-	<style>
-		.menu{
-			display: none;
-			font-size: 18px;
-			font-weight: 500;
-			color: white;
-			text-align: center;
-			padding: 14px 16px;
-			text-decoration: none;
-		}
-		#sortinganalysis1{
-			display: none;
-		}
-		#contact1{
-			display: none;
-		}
-		#home1{
-			display: none;
-		}
-		#sortinganalysis{
-			display: block;
-		}
-		#contact{
-			display: block;
-		}
-		#home{
-			display: block;
-		}
-		.navli1{
-			width:100%;
-		}
-		.row-content{
-			margin-bottom: 50px;
-			border-bottom:2px solid #1F95EE;
-			border-radius: 10px;
-		}
-		.borderinput{
-			border: 2px solid #1F95EE;
-			padding:10px;
-			border-radius: 10px;
-			margin:2px;
-			margin-bottom:20px;
-		}
-		@media screen and (max-width: 500px) {
-			/* .navli{
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>SortingAnalysis</title>
+    <style>
+      .menu {
+        display: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      #sortinganalysis1 {
+        display: none;
+      }
+      #contact1 {
+        display: none;
+      }
+	  #analysis1 {
+        display: none;
+      }
+      #algorithm1 {
+          display: none;
+        }
+      #home1 {
+        display: none;
+      }
+      #sortinganalysis {
+        display: block;
+      }
+      #contact {
+        display: block;
+      }
+	  #analysis {
+        display: block;
+      }
+      #algorithm {
+        display:block;
+      }
+      #home {
+        display: block;
+      }
+      .navli1 {
+        width: 100%;
+      }
+      @media screen and (max-width: 500px) {
+        /* .navli{
 				display: none;
 				width:100%;
 			} */
-			#home{
-				display: none;
-			}
-			#sortinganalysis{
-				display: none;
-			}
-			#contact{
-				display: none;
-			}
-			
-			.menu{
-				display: block;
-			}
-		}
-		.menu:hover{
-			cursor: pointer;
-		}
-		.navul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-			background-color: #1F95EE;
-		}
-		td {
-  			border: 1px solid #1F95EE;
-  			text-align: center;
-  			padding: 8px;
-		}
+        #home {
+          display: none;
+        }
+        #sortinganalysis {
+          display: none;
+        }
+        #contact {
+          display: none;
+        }
+		    #analysis {
+        display: none;
+        }
+        #algorithm {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+      }
+      .menu:hover {
+        cursor: pointer;
+      }
+      .navul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+		    padding-right: 50px;
+        overflow: hidden;
+        background-color: #1f95ee;
+      }
 
-		.navli a,.navli1 a{
-			font-size: 18px;
-			font-weight: 500;
-			display: block;
-			color: white;
-			text-align: center;
-			padding: 14px 16px;
-			text-decoration: none;
-		}
-		.navli a:hover,.navli1 a:hover{
-			background-color: #42a4ed;
-			color:white;
-			text-decoration: none;
-			list-style-type: none;
-			list-style: none;
-		}
-		th {
-			color: white;
-			background-color:#1F95EE ;
-  			border: 1px solid #1F95EE;
-  			text-align: center;
-  			padding: 8px;
-		}
-		#outputdata{
-			display: none;
-		}
+      .navli a,
+      .navli1 a {
+        font-size: 18px;
+        font-weight: 500;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .navli a:hover,
+      .navli1 a:hover {
+        background-color: #42a4ed;
+        color: white;
+        text-decoration: none;
+        list-style-type: none;
+        list-style: none;
+      }
+      .row-content {
+        margin-bottom: 50px;
+        border-bottom: 2px solid #1f95ee;
+        border-radius: 10px;
+      }
+
+      .images{
+				width:100%;
+			}
 
       /* .pic1para,
 		.pic2para,
@@ -178,87 +200,104 @@
 				margin-left: 0;
 			}
 		} */
-		@media screen and (max-width: 860px) {			
-			.picoverflow{
-				overflow-x: scroll;
-			}
-		}
-		
-	</style>
-</head>
+      @media screen and (max-width: 860px) {
+        .picoverflow {
+          overflow-x: scroll;
+        }
+      }
+    </style>
+  </head>
+  <body style="background-color: #ebf6ff; color: black; min-width: 300px">
+  
+    <!-- hsl(207, 82%, 68%) -->
+    <ul class="navul">
+      <li class="navli" style="float: left">
+        <img
+          src="./images/Sorting Logo Navbar.png"
+          width="40"
+          height="40"
+          style="margin-top: 7px; margin-left: 15px"
+        />
+      </li>
+      <li class="menu" id="menu" style="float: right">
+        <a><i class="fa fa-bars" style="font-size: 25px"></i></a>
+      </li>
+      <li class="navli" id="contact" style="float: right; margin-right: 0">
+        <a href="aboutus.html">About Us</a>
+	    </li>
+	    <li class="navli" id="analysis" style="float: right; margin-right: 0">
+        <a href="analysis.html">Analysis</a>
+      </li>
+      <li class="navli" id="algorithm" style="float: right; margin-right: 0">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color: #1f95ee;">
+            <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+            <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+            <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+            <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+            <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+            <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+            <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+            <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+            <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+            <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+          </ul>
+      </li>
+      <li
+        class="navli"
+        id="sortinganalysis"
+        style="float: right; margin-right: 0"
+      >
+        <a href="sorting.html">Sorting</a>
+      </li>
+      <li class="navli" id="home" style="float: right; margin-right: 0">
+        <a href="#">Home</a>
+      </li>
+     
+      </div>
+      </li>
+      <li class="navli1" id="home1" style="float: right; margin-right: 0">
+        <a href="#">Home</a>
+      </li>
+      <li
+        class="navli1"
+        id="sortinganalysis1"
+        style="float: right; margin-right: 0"
+      >
+        <a href="sorting.html">Sorting</a>
+    </li>
+    
+    <li class="navli1" id="algorithm1" style="float: right; margin-right: 0">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="algorithms.html" >Algorithms <span class="caret"></span></a>
+        <ul class="dropdown-menu" style="background-color: #1f95ee;">
+          <li ><a style="padding:5px;" href="Bubble.html">Bubble Sort</a></li>
+          <li><a style="padding:5px;" href="selection.html">Selection Sort</a></li>
+          <li><a style="padding:5px;" href="Insertion.html">Insertion Sort</a></li>
+          <li><a style="padding:5px;" href="merge.html">Merge Sort</a></li>
+          <li><a style="padding:5px;" href="quick.html">Quick Sort</a></li>
+          <li><a style="padding:5px;" href="quick3.html">Quick3 Sort</a></li>
+          <li><a style="padding:5px;" href="heap.html">Heap Sort</a></li>
+          <li><a style="padding:5px;" href="shell.html">Shell Sort</a></li>
+          <li><a style="padding:5px;" href="count.html">Count Sort</a></li>
+          <li><a style="padding:5px;" href="radix.html">Radix Sort</a></li>
+        </ul>
+      </li>
+	  <li class="navli1" id="analysis1" style="float: right; margin-right: 0">
+        <a href="analysis.html">Analysis</a>
+      </li>
+      <li class="navli1" id="contact1" style="float: right; margin-right: 0">
+        <a href="aboutus.html">About Us</a>
+      </li>
+	</ul>
 
-<body style="background-color: #EBF6FF;color:black">   <!-- hsl(207, 82%, 68%) -->
-	<div id="Algoresult" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg" role="content">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 style="color:black">Sorting input and output</h4>
-                    <button class="close" data-dismiss="modal">
-                        &times;
-                    </button>
-				</div>
-				<div class="modal-body">
-					<h4 style="color:black">
-						Input Data:
-					</h4>
-					<div id="resultarr" style="color: black;overflow-x: auto;word-break: break-word;"></div>
-					<h4 style="color:black">
-						Output Data:
-					</h4>
-					<div id="resultoutarr" style="color: black;overflow-x: auto;word-break: break-word;"></div>                
-                </div>
-            </div>
-        </div>
-    </div>
-	<div class="container" style="width:100%;margin:0 auto">
-		<div class="row row-content">
+	<div class="container" style="width:100%;margin:0 auto;margin-top: 30px;">
+		<div >
 			<div class="col-12 contentcenter" >
-				<h1>Sorting Analysis</h1>
-				<p>Here we have analysis of 10 types of sorting algorithm and the results will be analysed and get printed below!!</p>
+				<h1 style="text-align: center;">Sorting Analysis</h1>
 			</div>
 		</div>
-		<div class="panel-group" >
-			<div class="panel panel-default">
-			  <div class="panel-heading"style="background-color:#1F95EE;  border-radius: 10px;padding:8px;">
-				<h4 class="panel-title" style = "text-align: center;">
-				  <a data-toggle="collapse" href="#collapsibleForm" style = "color:white;font-weight: bold;font-size:16px;text-align: center;">Input Form(Click here to modify the input values) </a>
-				</h4>
-			  </div>
-		<div id= "collapsibleForm" class = "panel-collapse collapse">
-			<br/>
-			
-			<div  class="row-content" style="border:solid #1F95EE 2px; border-radius: 10px;">
-				<table >
-					<tr>
-						<th >Data Type</th>
-						<th>Min Value</th>
-						<th>Max Value</th>
-					</tr>
-					<tr>
-						<td>Integer</td>		
-						<td>Integer</td>			    
-						<td>Integer</td>
-					</tr>
-					<tr>
-						<td>Float</td>		
-						<td>Float or Integer</td>	
-						<td>Float or Integer</td>
-					</tr>
-					<tr>
-						<td>String</td>		
-						<td>length of String</td>	
-						<td>length of String</td>
-					</tr>
-					<tr>
-						<td >DateTime</td>	
-						<td>yyyy-mm-dd</td>			
-						<td>yyyy-mm-dd</td>
-					</tr>
-					</tr>
-				</table>
-			</div>
-			<p style="color:white;background-color:#1F95EE; font-weight: bold;font-size:16px;text-align: center; border-radius: 10px;padding:8px;margin-top: 0px;">* while giving the input please specify minimum and maximum values as mentioned above for every category and check its in the correct format..<br></p>
-	
+
+		<div class="row" id="container" style="border:2px solid #1F95EE;padding:5px;margin:30px 10px 20px 10px;border-radius: 8px;">
 		
 			<div class="col-12" style="padding:30px">
 			<h3 style="margin-top: 20px;margin-bottom: 20px;"><span style="
@@ -300,82 +339,13 @@
 					below).
 				</p>
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin:none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Type of Data: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
-						<select class="inputselect" id="datatype" onchange="labelchange()">
-							<!-- <option class="option" >Choose</option> -->
-							<option class="option" >Integer</option>
-							<option class="option" >Float</option>
-							<option class="option">Character</option>
-							<option class="option">String</option>
-							<option class="option">DateTime</option>
-						</select>
-						<div style="color:red" id="errorDatatype"></div><br>
+				<div
+				class="col-12 picoverflow"
+				style="text-align: center; min-width: 500px important"
+				>
+				<img style="text-align: center" class ="images" src="./images/inputOutput.png" />
+				<!-- <p style="font-weight: bold">Pic 1</p> -->
 				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Size of the array: </label>&emsp;
-					<input class="inputbox" id="noofelements" type="text" value = "100">
-					
-					<div style="color:red" id="errorNoofelements"></div><br>
-				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label id = "inputMinValue" style="margin-right:10px;font-size:20px">Minimum value: </label>&emsp;&emsp;&emsp;
-					<input class="inputbox" id="minrange" type="text" value = "10">
-					<!--removed placeholder placeholder="Enter the min range..."-->
-					<div id="errorMinval" style="color:red"></div><br>
-				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label id = "inputMaxValue" style="margin-right:10px;font-size:20px">Maximum value: </label>&emsp;
-					<input class="inputbox" id="maxrange" type="text" value = "1000">
-					<!--removed placeholder placeholder="Enter the max range..."-->
-					<div id="errorMaxval" style="color:red"></div><br>
-				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Nearly Sorted Percent: </label>
-					<input class="inputbox" id="nearlysortedpercent" type="text" value="10">
-					<!--removed placeholder placeholder="Enter the nearlysorted %..."-->
-					<div style="color:red" id="errorNearly"></div><br>
-				</div>
-				<div class="col-sm-12 col-md-6 form-group" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px">Duplicate percent: </label>
-					<input class="inputbox" id="duplicatepercent" type="text" value="20">
-					<!--removed placeholder placeholder="Enter the duplicate %..."-->
-					<div id="errorDup" style="color:red"></div><br>
-				</div><br>
-				<div class="col-sm-12 contentcenter" style="color:black">
-					(OR)
-				</div><br><br>
-				<div class="col-sm-12 form-group contentcenter" style="margin: none;padding:none">
-					<label style="margin-right:10px;font-size:20px;color:black">Insert csv file: </label>
-					<!-- <input id="file" type="file" accept=".csv" style="color:black;"> -->
-					<label for="file-upload" class="custom-file-upload">
-						<i class="fa fa-cloud-upload"></i> Custom Upload
-					</label>
-					<div id = "file_name">
-					</div>
-					<input id="file-upload" type="file"/>
-					<div id="errorFile" style="color:red"></div><br>
-				</div>
-				<div class="col-12 contentcenter" style="margin-bottom:20px">
-					<button class="btn btn-warning btn-lg" id="submit" style ="color:white;background-color:#1F95EE;border-color: #1F95EE ;"onclick="sorting()">Submit</button>
-				</div>
-			</div>
-		</div>
-		<br/>
-		<div class="row" id="outputdata" style="border:2px solid #1F95EE;padding:5px;margin:0px 10px 20px 10px;border-radius: 8px;">
-
-			<div class="col-12">
-				<!-- <h3 style="text-align: center;">Input Form</h3> -->
-				<ul>
-					<li class="pic2para" style="font-size: 18px;vertical-align: center;justify-content: center;align-items: center;">The input data is created randomly , hence the first tab shows the number of swaps , number of comparisions and the time taken for a  random input to be sorted using different sorting methods.</li>
-					<li class="pic2para" style="font-size: 18px;vertical-align: center;justify-content: center;align-items: center;">Similarly, the second tab is for reverse array. The random array is reversed and then sorted. We have captured the number of swaps , number of comparisions and the time taken for a reverse array to be sorted.</li> 						
-					<li class="pic2para" style="font-size: 18px;vertical-align: center;justify-content: center;align-items: center;">The third tab is for Nearly sorted array, which means, the input array will be sorted initially with the given nearly sorted percentage. For instance, for an array size of 10, if the nearly sorted percentage is 50%, the input array will have 5 elements already in its right location. </li>
-					<li class="pic2para" style="font-size: 18px;vertical-align: center;justify-content: center;align-items: center;">The last tab has duplicate array which will have duplicate elements as per the duplicate input percentage provided. If the duplicate percentage provided in the input form is 20% for an array size of 10 elements, 2 elements will be same, and rest 8 elements will be unique.</li>
-				</ul>
-			</div>
-			<div class="col-12 picoverflow" style="text-align: center;min-width: 500px important;">
-				<img style="text-align: center;" src="./images/picture3graphanalysis.png">
-				<p style="font-weight: bold;">Pic 2</p>
 			</div>
 
 			<div class="row" style="align-items: center; margin: 40px 0px">
