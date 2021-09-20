@@ -556,8 +556,12 @@
 					<h4>Input Data: <a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;"data-toggle="modal" data-target="#Algoresult" >(<span style="text-decoration: underline;cursor: pointer;color: #1F95EE;">Visualize</span>)</a></h4>
 					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;" id="inputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
 					<br>
+					<input type="submit" onclick="downloadcsv()"/>
+					<br>
 					<h4>Output Data: <a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;"data-toggle="modal" data-target="#Algoresult" >(<span style="text-decoration: underline;cursor: pointer;color: #1F95EE;">Visualize</span>)</a></h4>
 					<div style="width:100%"><a style="word-wrap: break-word;overflow-x: auto;cursor: pointer;" id="outputarr" data-toggle="modal" data-target="#Algoresult"></a></div>
+					<br>
+					<input type="submit" onclick="downloadcsv()"/>
 				</div>
 			</div>
 
@@ -668,6 +672,29 @@
 				// Bind event listener
 				$(window).resize(checkWidth);
 			});
+
+			function downloadcsv(){
+				let csvContent = "data:text/csv;charset=utf-8,";
+
+				let inputarr = document.getElementById("resultarr").innerHTML.toString().split(",");
+				let outputarr = document.getElementById("resultoutarr").innerHTML.toString().split(",");
+				csvContent+="Input Data"+","+"Output Data"+"\r\n";
+				for(var i=0;i<inputarr.length;i++){
+					csvContent+=inputarr[i]+","+outputarr[i]+"\r\n";
+				}
+				/*data.forEach(function(rowArray) {
+					let row = rowArray.join(",");
+					csvContent += row + "\r\n";
+				});
+				var encodedUri = encodeURI(csvContent);
+				window.open(encodedUri);*/
+				var encodedUri = encodeURI(csvContent);
+				var link = document.createElement("a");
+				link.setAttribute("href", encodedUri);
+				link.setAttribute("download", "my_data.csv");
+				document.body.appendChild(link); 
+				link.click();
+			}
 			
 			function detectBrowser() { 
 				if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
